@@ -2,6 +2,8 @@
 
 **QuizA** is an interactive web app designed to help you test and expand your knowledge of Quality Assurance (QA) concepts. Whether you're a beginner getting started with software testing or a seasoned professional looking to refresh your skills, this app combines quizzes, calculators, and practical tools to offer a fun and engaging learning experience.
 
+**Live Website:** [QuizA](https://quiza-qa.netlify.app/)
+
 ### Features  
 
 - **Interactive Quizzes**  
@@ -26,4 +28,4 @@
 - **Frontend**: React, Vite, TailwindCSS  
 - **Email Integration**: [EmailJS](https://www.emailjs.com/)  
 - **Icons**: React-Icons  
-- **Hosting**: Deployed on [Vercel](https://vercel.com/)  
+- **Hosting**: Deployed on [Netlify](https://netlify.com/)  
