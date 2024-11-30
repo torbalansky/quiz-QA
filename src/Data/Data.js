@@ -2,7 +2,6 @@ import React from 'react';
 import { FiCode } from 'react-icons/fi';
 import { HiOutlineClipboardDocumentList } from 'react-icons/hi2';
 import { AiOutlineFileDone } from 'react-icons/ai';
-import { HiOutlineDocumentSearch } from 'react-icons/hi';
 import { LuFolderClosed } from 'react-icons/lu';
 import { FiList } from 'react-icons/fi';
 import { MdOutlinePhonelinkSetup } from "react-icons/md";
