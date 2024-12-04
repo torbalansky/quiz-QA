@@ -175,60 +175,49 @@ const Flow = () => {
           </div>
         </div>
       ) : (
-        <div className="p-2 text-center mt-8 relative flex flex-col items-center justify-center">
-          <h2 className="text-4xl font-bold">Great Job!</h2>
-          <p className="text-md text-left p-10 mt-2 w-full font-poppins mb-2">
-            You have successfully ordered the 6 phases of STLC! 🎉 Well done on correctly organizing the phases, which are crucial steps in ensuring the quality and reliability of any software product. 
-            The Software Testing Life Cycle (STLC) consists of key stages that guide the testing process, from the initial requirements gathering to the final test cycle closure. Each phase plays a vital role in identifying defects, improving quality, and ensuring that the software meets both user expectations and business requirements.
-            <br />    <br />
-            Here’s a quick overview of the phases you’ve successfully ordered:
-            <br />
-            1. <strong>Requirements Analysis</strong>: Understanding and documenting the testing requirements to ensure clear goals.
-            <br />
-            2. <strong>Test Planning</strong>: Planning the testing strategy, resources, and timeline to align with project goals.
-            <br />
-            3. <strong>Test Case Design</strong>: Creating detailed test cases that cover all possible scenarios, ensuring thorough test coverage.
-            <br />
-            4. <strong>Environment Setup</strong>: Setting up the testing environment and tools needed for executing tests.
-            <br />
-            5. <strong>Test Execution</strong>: Running the tests and recording the results, which will help assess the software’s behavior.
-            <br />
-            6. <strong>Test Cycle Closure</strong>: Closing the testing phase with reports and lessons learned to improve future testing efforts.
-          </p>
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-violet-50 py-12 px-4 font-poppins">
+          <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+            <div className="text-center mb-8">
+              <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+                Great Job!
+              </h2>
+            </div>
 
+            <div className="bg-violet-50 rounded-xl p-8 mb-8 border border-violet-100">
+              <p className="text-gray-700 leading-relaxed">
+                You have successfully ordered the 6 phases of STLC! Well done on correctly organizing the phases, which are crucial steps in ensuring the quality and reliability of any software product. 
+                The Software Testing Life Cycle (STLC) consists of key stages that guide the testing process, from the initial requirements gathering to the final test cycle closure. Each phase plays a vital role in identifying defects, improving quality, and ensuring that the software meets both user expectations and business requirements.
+                <br /><br />
+                Here's a quick overview of the phases you've successfully ordered:
+                <br />
+                1. <strong>Requirements Analysis</strong>: Understanding and documenting the testing requirements to ensure clear goals.
+                <br />
+                2. <strong>Test Planning</strong>: Planning the testing strategy, resources, and timeline to align with project goals.
+                <br />
+                3. <strong>Test Case Design</strong>: Creating detailed test cases that cover all possible scenarios, ensuring thorough test coverage.
+                <br />
+                4. <strong>Environment Setup</strong>: Setting up the testing environment and tools needed for executing tests.
+                <br />
+                5. <strong>Test Execution</strong>: Running the tests and recording the results, which will help assess the software's behavior.
+                <br />
+                6. <strong>Test Cycle Closure</strong>: Closing the testing phase with reports and lessons learned to improve future testing efforts.
+              </p>
+            </div>
 
-           {/*<p className="mb-8 text-xl">Chose app you would like to test and click to proceed.</p>*/}
-          <div className='flex lg:flex-row justify-center flex-col text-center gap-4 mt-2'>
-          <button
-              onClick={resetGame}
-              className="bg-violet-400 text-lime-200 p-2 rounded w-40  hover:bg-pink-400 transition-all duration-300"
-            >
-              Go Back
-            </button>
-          <button
-            onClick={() => navigate('/quizprinciples')}
-             className="bg-slate-600 text-lime-200 p-2 rounded w-40  hover:bg-lime-300 hover:text-slate-500 transition-all duration-300"
-          >
-             Next Task
-          </button>
-          {/* <button
-            onClick={() => navigate('/documentation')}
-             className="tool-field w-[280px]"
-          >
-            <PiPercentFill className='h-10 w-20'/> Credit Risk
-          </button>
-          <button
-            onClick={() => navigate('/documentationmood')}
-             className="tool-field w-[280px]"
-          >
-            <BsEmojiSunglasses className='h-10 w-20'/> Mood Tracker
-          </button>
-          <button
-            onClick={() => navigate('/documentationtodo')}
-            className="tool-field w-[280px]"
-          >
-            <SiGoogletasks className='h-10 w-20'/> Task Tracker
-          </button>*/}
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <button
+                onClick={resetGame}
+                className="px-6 py-3 text-lg font-medium rounded-lg bg-violet-500 text-white hover:bg-violet-600 transform hover:-translate-y-0.5 transition-all duration-300 shadow-md hover:shadow-lg"
+              >
+                Go Back
+              </button>
+              <button
+                onClick={() => navigate('/quizprinciples')}
+                className="px-6 py-3 text-lg font-medium rounded-lg bg-purple-500 text-white hover:bg-purple-600 transform hover:-translate-y-0.5 transition-all duration-300 shadow-md hover:shadow-lg"
+              >
+                Next Task
+              </button>
+            </div>
           </div>
         </div>
       )}

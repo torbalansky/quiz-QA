@@ -164,40 +164,49 @@ const TestingPrinciples = () => {
           </div>
         </div>
       ) : (
-        <div className="p-2 text-center mt-4 relative flex flex-col items-center justify-center">
-          <h2 className="text-4xl font-bold">Great Job!</h2>
-          <p className="text-md text-left p-10 mt-1 w-full font-poppins mb-1">
-            You have successfully identified the 7 principles of testing! 🎉 These principles are the foundation for effective software testing and quality assurance. Here's a quick review of each one:
-            <br />
-            1. <strong>Testing shows the presence of defects</strong>: Testing helps identify bugs, but it cannot guarantee a bug-free product. It's important to understand that testing only finds defects—it doesn't prove the absence of them.
-            <br />
-            2. <strong>Exhaustive testing is impossible</strong>: It's not feasible to test every single scenario in a complex system. Instead, focus on risk-based testing and prioritize critical areas to improve efficiency and effectiveness.
-            <br />
-            3. <strong>Early testing saves cost and time</strong>: The earlier you find defects in the development process, the cheaper and easier they are to fix. Early testing helps save both time and money in the long run.
-            <br />
-            4. <strong>Defect clustering</strong>: Most defects are found in a small number of modules. By focusing on these defect-prone areas, you can increase the effectiveness of your testing.
-            <br />
-            5. <strong>Pesticide paradox</strong>: Running the same tests repeatedly will eventually stop finding new bugs. You need to continually update your test cases to catch new defects and ensure better coverage.
-            <br />
-            6. <strong>Testing depends on the context</strong>: Different applications and systems require different testing approaches. For example, a web app's testing will differ from that of a mobile app or a highly secure financial application.
-            <br />
-            7. <strong>Absence-of-errors fallacy</strong>: A bug-free product doesn't guarantee user satisfaction. The product must also meet user needs and business requirements—otherwise, it could still fail despite being technically bug-free.
-          </p>
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-violet-50 py-12 px-4">
+          <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+            <div className="text-center mb-8">
+              <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
+                Great Job!
+              </h2>
+            </div>
 
-          <div className='flex lg:flex-row justify-center flex-col text-center gap-4 mb-2'>
-          <button
-              onClick={resetGame}
-              className="bg-violet-400 text-lime-200 p-2 rounded w-40  hover:bg-pink-400 transition-all duration-300"
-            >
-              Go Back
-            </button>
-          <button
-            onClick={() => navigate('/ageestimator')}
-             className="bg-slate-600 text-lime-200 p-2 rounded w-40  hover:bg-lime-300 hover:text-slate-500 transition-all duration-300"
-          >
-             Next Task
-          </button>
-        </div>
+            <div className="bg-violet-50 rounded-xl p-8 mb-8 border border-violet-100 font-poppins">
+              <p className="text-gray-700 leading-relaxed">
+                You have successfully identified the 7 principles of testing! These principles are the foundation for effective software testing and quality assurance. Here's a quick review of each one:
+                <br /><br />
+                1. <strong>Testing shows the presence of defects</strong>: Testing helps identify bugs, but it cannot guarantee a bug-free product. It's important to understand that testing only finds defects—it doesn't prove the absence of them.
+                <br /><br />
+                2. <strong>Exhaustive testing is impossible</strong>: It's not feasible to test every single scenario in a complex system. Instead, focus on risk-based testing and prioritize critical areas to improve efficiency and effectiveness.
+                <br /><br />
+                3. <strong>Early testing saves cost and time</strong>: The earlier you find defects in the development process, the cheaper and easier they are to fix. Early testing helps save both time and money in the long run.
+                <br /><br />
+                4. <strong>Defect clustering</strong>: Most defects are found in a small number of modules. By focusing on these defect-prone areas, you can increase the effectiveness of your testing.
+                <br /><br />
+                5. <strong>Pesticide paradox</strong>: Running the same tests repeatedly will eventually stop finding new bugs. You need to continually update your test cases to catch new defects and ensure better coverage.
+                <br /><br />
+                6. <strong>Testing depends on the context</strong>: Different applications and systems require different testing approaches. For example, a web app's testing will differ from that of a mobile app or a highly secure financial application.
+                <br /><br />
+                7. <strong>Absence-of-errors fallacy</strong>: A bug-free product doesn't guarantee user satisfaction. The product must also meet user needs and business requirements—otherwise, it could still fail despite being technically bug-free.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <button
+                onClick={resetGame}
+                className="px-6 py-3 text-lg font-medium rounded-lg bg-violet-500 text-white hover:bg-violet-600 transform hover:-translate-y-0.5 transition-all duration-300 shadow-md hover:shadow-lg"
+              >
+                Go Back
+              </button>
+              <button
+                onClick={() => navigate('/ageestimator')}
+                className="px-6 py-3 text-lg font-medium rounded-lg bg-purple-500 text-white hover:bg-purple-600 transform hover:-translate-y-0.5 transition-all duration-300 shadow-md hover:shadow-lg"
+              >
+                Next Task
+              </button>
+            </div>
+          </div>
         </div>
       )}
     </DndProvider>

@@ -20,8 +20,8 @@ export const NavbarData = [
   {
     id: 2,
     title: "Quiz",
-    link: "quizstlc",
-  },
+    link: "quiz",
+  }
 // {
 //    id: 3,
 //   title: "Contact",
