@@ -1314,3 +1314,275 @@ export const GeneralQ = [
     correctAnswer: "B. It promotes the creation of tests before the actual code is written",
   },
 ]
+
+export const moodTrackerTestPlan = {
+  introduction: {
+    purpose: "To verify the functionality and reliability of the Mood Tracker application's core features",
+    scope: "Testing covers mood logging, trend analysis, recommendations, and statistical features"
+  },
+  testItems: [
+    "Mood logging functionality with emoji selection",
+    "Calendar integration and date selection",
+    "Trend analysis chart visualization",
+    "Mood statistics calculation and display",
+    "Recommendation system based on mood patterns",
+    "Test scenario management",
+    "Test case tracking system"
+  ],
+  // New sections
+  approach: {
+    strategy: "Implement a combination of manual and automated testing focusing on user scenarios and edge cases. Include regression testing for each new feature.",
+    types: [
+      "Unit Testing",
+      "Integration Testing",
+      "User Interface Testing",
+      "Regression Testing"
+    ]
+  },
+  environment: {
+    hardware: "Desktop/laptop with minimum 8GB RAM, 1920x1080 display resolution",
+    software: "Latest Chrome/Firefox browsers, Node.js v16+, React v18+",
+    other: "Stable internet connection for chart updates"
+  },
+  schedule: {
+    startDate: "2025-03-15",
+    endDate: "2025-04-15",
+    milestones: [
+      "Initial Testing: March 15-20",
+      "Bug Fixes: March 21-30",
+      "Regression Testing: April 1-10",
+      "Final Report: April 15"
+    ]
+  },
+  risks: [
+    "Data loss during mood logging",
+    "Performance issues with large datasets",
+    "Browser compatibility issues",
+    "Incorrect statistical calculations"
+  ],
+  defectManagement: {
+    process: "Bugs are logged with severity and priority. High-severity issues block testing progress until resolved. Daily bug triage meetings to assess impact.",
+    severity: ["Critical", "High", "Medium", "Low"],
+    priority: ["High", "Medium", "Low"]
+  },
+
+  identifiedBugs: [
+    {
+      id: "BUG-001",
+      title: "Future Date Mood Entry Not Prevented",
+      status: "Open",
+      severity: "High",
+      priority: "High",
+      reporter: "Pepa Smith",
+      assignee: "Laila Developer",
+      dateReported: "2025-03-16",
+      dateUpdated: "2025-03-17",
+      product: "Mood Tracker",
+      version: "1.2.3",
+      component: "Calendar Validation",
+      description: "System allows users to log moods for future dates, which should not be possible as it violates business logic",
+      stepsToReproduce: [
+        "1. Navigate to Mood Tracker main page",
+        "2. Click on a future date in the calendar",
+        "3. Select any mood emoji",
+        "4. Observe that the mood is logged successfully"
+      ],
+      expectedResult: "System should display an error message and prevent mood logging for any future date",
+      actualResult: "System accepts the mood entry and displays it on the future date without any validation",
+      environment: {
+        browser: "Chrome 122.0.6261.112",
+        os: "Windows 11 Pro",
+        resolution: "1920x1080",
+        viewport: "1280x720",
+        deviceType: "Desktop"
+      },
+      screenshots: [
+        {
+          name: "future_date_selection.png",
+          description: "Calendar showing future date selected"
+        },
+        {
+          name: "mood_logged_future.png",
+          description: "Mood successfully logged on future date"
+        }
+      ],
+      attachments: [
+        {
+          name: "console_log.txt",
+          description: "Browser console log during reproduction"
+        }
+      ],
+      workaround: "Currently no workaround available - users must manually avoid selecting future dates",
+      impact: "High - Affects data integrity and reporting accuracy",
+      affectedUsers: "All users with calendar access",
+      relatedIssues: ["TC-002", "REQ-015"],
+      comments: [
+        {
+          author: "Kikimora Developer",
+          date: "2025-03-17",
+          text: "Initial investigation shows missing date validation in calendar component"
+        }
+      ]
+    },
+    {
+      id: "BUG-002",
+      title: "Mood Statistics Calculation Incorrect",
+      status: "In Progress",
+      severity: "High",
+      priority: "High",
+      reporter: "Pirin Tester",
+      assignee: "Rila Developer",
+      dateReported: "2025-03-18",
+      dateUpdated: "2025-03-19",
+      product: "Mood Tracker",
+      version: "1.2.3",
+      component: "Statistics Engine",
+      description: "Average mood calculations show incorrect values when there are days with no mood entries",
+      stepsToReproduce: [
+        "1. Clear all mood entries",
+        "2. Log moods for Monday (Happy) and Wednesday (Sad)",
+        "3. Leave Tuesday without any entry",
+        "4. Navigate to statistics panel",
+        "5. Check average mood calculation"
+      ],
+      expectedResult: "Average mood should only consider days with entries (Monday and Wednesday)",
+      actualResult: "System includes empty Tuesday in calculation, resulting in incorrect average",
+      environment: {
+        browser: "Firefox 123.0",
+        os: "macOS Sonoma 14.3.1",
+        resolution: "2560x1600",
+        viewport: "1440x900",
+        deviceType: "Desktop"
+      },
+      screenshots: [
+        {
+          name: "incorrect_stats.png",
+          description: "Statistics panel showing wrong calculations"
+        },
+        {
+          name: "mood_entries.png",
+          description: "Calendar view showing entered moods"
+        }
+      ],
+      attachments: [
+        {
+          name: "calculation_data.json",
+          description: "Raw data showing calculation issue"
+        }
+      ],
+      workaround: "Manually calculate averages excluding empty days",
+      impact: "High - Affects reporting accuracy and mood trend analysis",
+      affectedUsers: "All users viewing statistics",
+      relatedIssues: ["TC-003", "REQ-023"],
+      comments: [
+        {
+          author: "Torbalan Developer",
+          date: "2025-03-19",
+          text: "Found logic error in average calculation function"
+        }
+      ]
+    },
+    {
+      id: "BUG-003",
+      title: "Recommendations Not Persisting After Refresh",
+      status: "Open",
+      severity: "Medium",
+      priority: "Medium",
+      reporter: "Gloria QA",
+      assignee: "Lepa Brena Developer",
+      dateReported: "2025-03-20",
+      dateUpdated: "2025-03-20",
+      product: "Mood Tracker",
+      version: "1.2.3",
+      component: "Recommendation System",
+      description: "Mood recommendations disappear when the page is refreshed, requiring users to re-log their mood to see recommendations",
+      stepsToReproduce: [
+        "1. Navigate to Mood Tracker",
+        "2. Log any mood",
+        "3. Observe recommendation appears",
+        "4. Refresh the page",
+        "5. Observe recommendation disappears"
+      ],
+      expectedResult: "Recommendations should persist across page refreshes",
+      actualResult: "Recommendations are lost upon page refresh",
+      environment: {
+        browser: "Safari 17.3.1",
+        os: "iOS 17.3.1",
+        resolution: "1170x2532",
+        viewport: "390x844",
+        deviceType: "Mobile"
+      },
+      screenshots: [
+        {
+          name: "before_refresh.png",
+          description: "Recommendation shown before refresh"
+        },
+        {
+          name: "after_refresh.png",
+          description: "Missing recommendation after refresh"
+        }
+      ],
+      attachments: [
+        {
+          name: "localStorage_data.txt",
+          description: "Local storage state before and after refresh"
+        }
+      ],
+      workaround: "Re-log mood to see recommendation",
+      impact: "Medium - Affects user experience but doesn't prevent core functionality",
+      affectedUsers: "All users receiving recommendations",
+      relatedIssues: ["TC-004", "REQ-018"],
+      comments: [
+        {
+          author: "Baba Yaga Developer",
+          date: "2025-03-20",
+          text: "Need to implement local storage for recommendations"
+        }
+      ]
+    }
+  ],
+
+  sampleTestScenarios: [
+    {
+      title: "Basic Mood Logging Flow",
+      description: "Verify complete mood logging functionality",
+      preconditions: "User is on the main page",
+      steps: "1. Select today's date\n2. Click any mood emoji\n3. Verify calendar update\n4. Check recommendation\n5. Verify mood trends chart update",
+      expectedResult: "Mood is logged, calendar updated, recommendation shown, chart updated"
+    },
+    {
+      title: "Mood Statistics Calculation",
+      description: "Verify mood statistics calculation for different days",
+      preconditions: "Multiple mood entries exist",
+      steps: "1. Log moods for different days\n2. Check statistics panel\n3. Verify calculations\n4. Check day-wise breakdown",
+      expectedResult: "Accurate statistics shown for each day with proper calculations"
+    }
+  ],
+
+  sampleTestCases: [
+    {
+      id: "TC-001",
+      title: "Happy Mood Logging",
+      description: "Verify Happy mood emoji logging",
+      steps: "1. Select today\n2. Click Happy emoji\n3. Check calendar\n4. Verify recommendation\n5. Check trends",
+      expectedOutcome: "Happy emoji appears on calendar with appropriate recommendation",
+      passFail: "Not tested"
+    },
+    {
+      id: "TC-002",
+      title: "Future Date Validation",
+      description: "Verify future date restriction",
+      steps: "1. Select future date\n2. Attempt mood logging",
+      expectedOutcome: "Error message shown preventing future date entry",
+      passFail: "Failed - Bug reported"
+    },
+    {
+      id: "TC-003",
+      title: "Statistics Calculation",
+      description: "Verify mood statistics",
+      steps: "1. Log moods for each day\n2. Check statistics panel\n3. Verify calculations",
+      expectedOutcome: "Accurate statistics displayed for each day",
+      passFail: "Failed - Bug reported"
+    }
+  ]
+};

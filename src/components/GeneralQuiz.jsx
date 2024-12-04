@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { GeneralQ } from "../Data/Data";
+import { useNavigate } from "react-router-dom";
 
 const ISTQBQAQuiz = () => {
   const questions = GeneralQ;
@@ -36,6 +37,7 @@ const ISTQBQAQuiz = () => {
     setAnswerCorrect(false);
   };
 
+  const navigate = useNavigate();
   return (
     <div className="flex flex-row h-screen">
         <div className="w-1/4 bg-slate-800 p-4 overflow-y-auto">
@@ -102,6 +104,12 @@ const ISTQBQAQuiz = () => {
               </button>
             )}
           </div>
+          <button
+            className="mt-6 sm:absolute bottom-10 right-10 bg-purple-700 text-white py-2 px-4 rounded hover:bg-gray-600 transition-all"
+            onClick={() => navigate("/mood")}
+          >
+            Bored? Test my mood app, it's full of bugs!
+          </button>
         </div>
       </div>
     </div>

@@ -18,7 +18,7 @@ import Creditrisk from './components/Creditrisk';
 import SuccessCredit from './components/successcredit';
 import Metrics from './components/metrics';
 import GeneralQuiz from './components/GeneralQuiz';
-
+import MoodTrackerTestPlan from './components/MoodTrackerTestPlan';
 const App = () => {
   useEffect(() => {
     Aos.init({
@@ -62,7 +62,7 @@ const App = () => {
         <Route path="/creditrisk" element={<Creditrisk />} />
         <Route path="/metrics" element={<Metrics />} />
         <Route path="/morequiza" element={<GeneralQuiz />} />
-
+        <Route path="/testplan" element={<MoodTrackerTestPlan />} />
       </Routes>
     </Router>
   );

@@ -160,12 +160,12 @@ const Home = () => {
                   </a>
                 </div>
                 <p className="text-xs text-left mt-10 text-slate-600">
-              <strong>Disclaimer:</strong> I created this app as a personal project to practice React and QA concepts. I believe in learning by doing, rather than just reading. Many QA courses focus heavily on theory, which is valuable, but I find that combining theory with hands-on practice is key to truly understanding the material. If you encounter any bugs or issues, feel free to reach out via email, and I’ll work on fixing them. Suggestions are also welcome! 
-              <br />
-              You can drop me a message using the form on the right, and I’ll get back to you as soon as possible.
-              <br /><br />
-              N.B. For the best experience, it is recommended to use the app on a device with a larger screen, as it may not be fully optimized for mobile phones and tablets.
-            </p>
+                  <strong>Disclaimer:</strong> This is a training application designed to help practice both QA concepts and React development. While I strive for accuracy, the app itself might contain bugs or imperfections - which actually makes it a perfect real-world testing ground! I encourage you to approach everything with a critical eye, as that's what great QA is all about.
+                  <br /><br />
+                  The content is meant for educational purposes and should be used alongside other learning resources. If you spot any issues or have suggestions for improvement, please reach out via the contact form - finding and reporting bugs is excellent QA practice!
+                  <br /><br />
+                  N.B. For optimal experience, please use a desktop or laptop computer, as the application is not fully optimized for mobile devices.
+                </p>
               </div>
             </div>
             <form
