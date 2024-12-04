@@ -1382,10 +1382,10 @@ export const moodTrackerTestPlan = {
       component: "Calendar Validation",
       description: "System allows users to log moods for future dates, which should not be possible as it violates business logic",
       stepsToReproduce: [
-        "1. Navigate to Mood Tracker main page",
-        "2. Click on a future date in the calendar",
-        "3. Select any mood emoji",
-        "4. Observe that the mood is logged successfully"
+        "Navigate to Mood Tracker main page",
+        "Click on a future date in the calendar",
+        "Select any mood emoji",
+        "Observe that the mood is logged successfully"
       ],
       expectedResult: "System should display an error message and prevent mood logging for any future date",
       actualResult: "System accepts the mood entry and displays it on the future date without any validation",
@@ -1439,11 +1439,11 @@ export const moodTrackerTestPlan = {
       component: "Statistics Engine",
       description: "Average mood calculations show incorrect values when there are days with no mood entries",
       stepsToReproduce: [
-        "1. Clear all mood entries",
-        "2. Log moods for Monday (Happy) and Wednesday (Sad)",
-        "3. Leave Tuesday without any entry",
-        "4. Navigate to statistics panel",
-        "5. Check average mood calculation"
+        " Clear all mood entries",
+        " Log moods for Monday (Happy) and Wednesday (Sad)",
+        " Leave Tuesday without any entry",
+        " Navigate to statistics panel",
+        " Check average mood calculation"
       ],
       expectedResult: "Average mood should only consider days with entries (Monday and Wednesday)",
       actualResult: "System includes empty Tuesday in calculation, resulting in incorrect average",
@@ -1497,11 +1497,11 @@ export const moodTrackerTestPlan = {
       component: "Recommendation System",
       description: "Mood recommendations disappear when the page is refreshed, requiring users to re-log their mood to see recommendations",
       stepsToReproduce: [
-        "1. Navigate to Mood Tracker",
-        "2. Log any mood",
-        "3. Observe recommendation appears",
-        "4. Refresh the page",
-        "5. Observe recommendation disappears"
+        "Navigate to Mood Tracker",
+        "Log any mood",
+        "Observe recommendation appears",
+        "Refresh the page",
+        "Observe recommendation disappears"
       ],
       expectedResult: "Recommendations should persist across page refreshes",
       actualResult: "Recommendations are lost upon page refresh",

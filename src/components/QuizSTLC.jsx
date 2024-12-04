@@ -33,8 +33,8 @@ const DraggableCard = ({ card }) => {
         textAlign: 'center',
       }}
     >
-      <div className="flex justify-center mb-2 text-2xl text-purple-900">{card.data.icon}</div>
-      <h4 className="font-poppins text-md">{card.data.title}</h4>
+      <div  data-testid="card-icon" className="flex justify-center mb-2 text-2xl text-purple-900">{card.data.icon}</div>
+      <h4 data-testid="card-title" className="font-poppins text-md">{card.data.title}</h4>
     </div>
   );
 };
@@ -51,12 +51,14 @@ const DropZone = ({ index, onDrop, currentCard, onReturn }) => {
   return (
     <div
       ref={drop}
+      data-testid={`drop-zone-${index}`}
       className={`border-dashed border-2 p-4 m-2 rounded h-32 w-36 flex items-center justify-center ${
         isOver ? 'bg-lime-100' : 'bg-gray-100'
       }`}
     >
       {currentCard ? (
         <div
+          data-testid={`dropped-card-${currentCard.id}`}
           className="text-center cursor-pointer"
           onClick={() => onReturn(currentCard, index)}
         >
@@ -65,7 +67,7 @@ const DropZone = ({ index, onDrop, currentCard, onReturn }) => {
           <p className="text-xs text-purple-500">(Click to return)</p>
         </div>
       ) : (
-        <p className="text-gray-400">Drop Here</p>
+        <p data-testid="drop-zone-placeholder" className="text-gray-400">Drop Here</p>
       )}
     </div>
   );
@@ -135,6 +137,7 @@ const Flow = () => {
       <h2 className="font-poppins md:px-32 px-8 py-4">
         In this first task, you will need to put in the right order the stages of the STLC. Drag and drop the cards and place them in the fields below. Once you're ready, click the 'Submit Order' button.
         <button
+        data-testid="help-button"
         onClick={openModal}
         className="bg-blue-500 text-slate-100 py-1 px-2 m-2 rounded-md hover:bg-blue-700 transition-all duration-300"
       >
@@ -161,12 +164,14 @@ const Flow = () => {
 
           <div className="flex justify-center mb-6 mt-4 gap-4">
             <button
+              data-testid="submit-order-button"
               onClick={validateOrder}
               className="bg-slate-600 text-lime-200 p-2 rounded w-40  hover:bg-lime-300 hover:text-slate-500 transition-all duration-300"
             >
               Submit Order
             </button>
             <button
+              data-testid="reset-button"
               onClick={resetGame}
               className="bg-violet-400 text-lime-200 p-2 rounded w-40  hover:bg-pink-400 transition-all duration-300"
             >
@@ -206,12 +211,14 @@ const Flow = () => {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button
+                data-testid="go-back-button"
                 onClick={resetGame}
                 className="px-6 py-3 text-lg font-medium rounded-lg bg-violet-500 text-white hover:bg-violet-600 transform hover:-translate-y-0.5 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Go Back
               </button>
               <button
+                data-testid="next-task-button"
                 onClick={() => navigate('/quizprinciples')}
                 className="px-6 py-3 text-lg font-medium rounded-lg bg-purple-500 text-white hover:bg-purple-600 transform hover:-translate-y-0.5 transition-all duration-300 shadow-md hover:shadow-lg"
               >

@@ -21,6 +21,7 @@ const DraggableCard = ({ card }) => {
   return (
     <div
       ref={drag}
+      data-testid={`principles-card-${card.id}`}
       className="bg-white border flex justify-center flex-col border-gray-300 p-2 m-1 rounded cursor-pointer shadow"
       style={{
         opacity: isDragging ? 0.5 : 1,
@@ -47,17 +48,18 @@ const DropZone = ({ index, onDrop, currentCard, onReturn }) => {
   return (
     <div
       ref={drop}
+      data-testid={`principles-drop-zone-${index}`}
       className={`border-dashed border-2 p-4 m-1 rounded h-20 flex items-center justify-center ${
         isOver ? 'bg-lime-100' : 'bg-gray-100'
       }`}
     >
       {currentCard ? (
-        <div onClick={() => onReturn(currentCard, index)} className="cursor-pointer w-20 sm:w-40 flex flex-col justify-center">
-          <h4 className="text-[8px] sm:text-xs font-poppins font-semibold mb-2">{currentCard.title}</h4>
-          <p className="text-[8px] sm:text-xs text-purple-500">(Click to return)</p>
+        <div data-testid={`dropped-principle-${currentCard.id}`} onClick={() => onReturn(currentCard, index)} className="cursor-pointer w-20 sm:w-40 flex flex-col justify-center">
+          <h4 data-testid={`dropped-title-${currentCard.id}`} className="text-[8px] sm:text-xs font-poppins font-semibold mb-2">{currentCard.title}</h4>
+          <p data-testid="return-hint" className="text-[8px] sm:text-xs text-purple-500">(Click to return)</p>
         </div>
       ) : (
-        <p className="text-gray-400">Drop Here</p>
+        <p data-testid={`empty-drop-zone-${index}`} className="text-gray-400">Drop Here</p>
       )}
     </div>
   );
@@ -117,11 +119,12 @@ const TestingPrinciples = () => {
     <DndProvider backend={HTML5Backend}>
       <Modal isOpen={isModalOpen} onClose={closeModal} modalData={helpModalDataP} />
       {!isTaskCompleted ? (
-        <div className="p-6">
-          <h1 className="text-center text-xl md:text-3xl font-bold mb-4 mt-2">7 Principles of Testing</h1>
+        <div data-testid="principles-quiz-container" className="p-6">
+          <h1 data-testid="quiz-title" className="text-center text-xl md:text-3xl font-bold mb-4 mt-2">7 Principles of Testing</h1>
           <h2 className="text-center mb-2 font-poppins">
             Drag and drop the <strong>true</strong> principles of testing into the drop zones.
             <button
+              data-testid="help-button"
               onClick={openModal}
               className="bg-blue-500 text-slate-100 py-1 px-2 m-2 rounded-md hover:bg-blue-700 transition-all duration-300"
             >
@@ -130,13 +133,13 @@ const TestingPrinciples = () => {
           </h2>
 
           <div className="flex">
-            <div className="w-3/5 flex flex-wrap justify-center overflow-auto h-[60vh] p-1 border-r border-gray-300">
+            <div data-testid="draggable-cards-container" className="w-3/5 flex flex-wrap justify-center overflow-auto h-[60vh] p-1 border-r border-gray-300">
               {draggableCards.map((card) => (
                 <DraggableCard key={card.id} card={card} />
               ))}
             </div>
 
-            <div className="w-2/5 flex flex-wrap justify-center overflow-auto p-2 font-poppins">
+            <div data-testid="drop-zones-container" className="w-2/5 flex flex-wrap justify-center overflow-auto p-2 font-poppins">
               {dropZones.map((zone, index) => (
                 <DropZone
                   key={index}
@@ -150,23 +153,25 @@ const TestingPrinciples = () => {
           </div>
           <div className="flex justify-center mt-6 gap-4">
             <button
+              data-testid="submit-button"
               onClick={validateTask}
-               className="bg-slate-600 text-lime-200 p-2 rounded w-40  hover:bg-lime-300 hover:text-slate-500 transition-all duration-300"
+              className="bg-slate-600 text-lime-200 p-2 rounded w-40  hover:bg-lime-300 hover:text-slate-500 transition-all duration-300"
             >
               Submit
             </button>
             <button
+              data-testid="reset-button"
               onClick={resetGame}
-                className="bg-violet-400 text-lime-200 p-2 rounded w-40  hover:bg-pink-400 transition-all duration-300"
+              className="bg-violet-400 text-lime-200 p-2 rounded w-40  hover:bg-pink-400 transition-all duration-300"
             >
               Start Over
             </button>
           </div>
         </div>
       ) : (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-violet-50 py-12 px-4">
+        <div data-testid="success-view" className="min-h-screen bg-gradient-to-br from-slate-50 via-purple-50 to-violet-50 py-12 px-4">
           <div className="max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-            <div className="text-center mb-8">
+            <div data-testid="success-message" className="text-center mb-8">
               <h2 className="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-violet-600 to-purple-600">
                 Great Job!
               </h2>
@@ -194,12 +199,14 @@ const TestingPrinciples = () => {
 
             <div className="flex flex-col sm:flex-row justify-center gap-4">
               <button
+                data-testid="go-back-button"
                 onClick={resetGame}
                 className="px-6 py-3 text-lg font-medium rounded-lg bg-violet-500 text-white hover:bg-violet-600 transform hover:-translate-y-0.5 transition-all duration-300 shadow-md hover:shadow-lg"
               >
                 Go Back
               </button>
               <button
+                data-testid="next-task-button"
                 onClick={() => navigate('/ageestimator')}
                 className="px-6 py-3 text-lg font-medium rounded-lg bg-purple-500 text-white hover:bg-purple-600 transform hover:-translate-y-0.5 transition-all duration-300 shadow-md hover:shadow-lg"
               >
