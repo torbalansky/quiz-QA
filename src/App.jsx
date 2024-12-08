@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/navbar';
+import Navbar from './components/Navbar';
 import Contact from './components/Contact';
-import Home from './components/home';
+import Home from './components/Home';
 import Quiz from './components/QuizSTLC';
 import QuizP from './components/QuizPrinciples';
 import { Element } from 'react-scroll';
