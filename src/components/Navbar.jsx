@@ -12,7 +12,9 @@ const QuizLinks = ({ setMenuOpen }) => {
     { title: "ISTQB like Test", link: "morequiza" },
     { title: "Credit Risk Calculator", link: "creditrisk" },
     { title: "QA Bug Report", link: "bugreport" },
-    { title: "Test Mood tracker App", link: "mood" }
+    { title: "Test Mood tracker App", link: "mood" },
+    { title: "TDD Practice Arena", link: "jestintro" },
+    { title: "AI in QA", link: "ai-qa" }
   ];
 
   return (

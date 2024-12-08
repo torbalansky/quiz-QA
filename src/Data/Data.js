@@ -1586,3 +1586,1391 @@ export const moodTrackerTestPlan = {
     }
   ]
 };
+
+export const tddExercises = [
+  {
+    id: 1,
+    title: "String Calculator Kata",
+    description: "Create a calculator that handles string inputs. This exercise uses Jest testing syntax - Jest is a popular JavaScript testing framework that provides a simple, expressive API for writing tests. Notice how we use 'describe', 'test', and 'expect' functions, which are core Jest features.",
+    codeNote: "The test code follows Jest conventions. To make it more Jest-like:\n- Use 'describe' blocks to group related tests\n- Use 'beforeEach' for test setup\n- Use 'expect()' with Jest matchers like .toBe(), .toEqual()\n- Consider adding test lifecycle hooks",
+    requirements: [
+      "Method should return 0 for empty string",
+      "Method should return number for single number string",
+      "Method should return sum for two comma-separated numbers"
+    ],
+    testCases: [
+      { input: '""', expected: 0, description: "Empty string example" },
+      { input: '"1"', expected: 1, description: "Single number example" },
+      { input: '"1,2"', expected: 3, description: "Multiple numbers example" }
+    ],
+    steps: [
+      {
+        type: "test",
+        template: `
+describe('StringCalculator', () => {
+  test('empty string returns zero', () => {
+    [SELECT1]([SELECT2]("")).[SELECT3](0);
+  });
+});`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["expect", "test", "describe", "toBe"],
+            correct: "expect"
+          },
+          {
+            id: "SELECT2",
+            options: ["add", "sum", "calculate", "compute"],
+            correct: "add"
+          },
+          {
+            id: "SELECT3",
+            options: ["toBe", "toEqual", "toMatch", "toHave"],
+            correct: "toBe"
+          }
+        ]
+      },
+      {
+        type: "implementation",
+        template: `
+function add(numbers) {
+  [SELECT1] (numbers === "") [SELECT2] 0;
+  const nums = numbers.[SELECT3](",").[SELECT4](Number);
+  return nums.[SELECT5]((a, b) => a + b, 0);
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["if", "while", "for", "switch"],
+            correct: "if"
+          },
+          {
+            id: "SELECT2",
+            options: ["return", "break", "continue", "yield"],
+            correct: "return"
+          },
+          {
+            id: "SELECT3",
+            options: ["split", "slice", "substring", "concat"],
+            correct: "split"
+          },
+          {
+            id: "SELECT4",
+            options: ["map", "forEach", "filter", "find"],
+            correct: "map"
+          },
+          {
+            id: "SELECT5",
+            options: ["reduce", "map", "filter", "some"],
+            correct: "reduce"
+          }
+        ]
+      },
+      {
+        type: "refactor",
+        template: `
+// Optional: Improve the code while keeping tests green
+function add(numbers) {
+  [SELECT1] (numbers === "") [SELECT2] 0;
+  return numbers.[SELECT3](",")
+    .[SELECT4](Number)
+    .[SELECT5]((a, b) => a + b, 0);
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["if", "while", "for", "switch"],
+            correct: "if"
+          },
+          {
+            id: "SELECT2",
+            options: ["return", "break", "continue", "yield"],
+            correct: "return"
+          },
+          {
+            id: "SELECT3",
+            options: ["split", "slice", "substring", "concat"],
+            correct: "split"
+          },
+          {
+            id: "SELECT4",
+            options: ["map", "forEach", "filter", "find"],
+            correct: "map"
+          },
+          {
+            id: "SELECT5",
+            options: ["reduce", "map", "filter", "some"],
+            correct: "reduce"
+          }
+        ]
+      }
+    ],
+    hints: [
+      "Think about what should happen with an empty string first",
+      "Consider how to split the string into numbers",
+      "Remember to handle the sum of multiple numbers"
+    ]
+  },
+  {
+    id: 2,
+    title: "FizzBuzz Kata",
+    description: "Write a program that prints numbers with special rules. This kata uses Jest's testing patterns to validate the implementation. Jest provides built-in matchers and assertion functions that make test writing intuitive and readable.",
+    codeNote: "The test syntax mirrors Jest's API. To write more authentic Jest tests:\n- Group related tests in 'describe' blocks\n- Use specific matchers like .toBe() for exact equality\n- Consider adding error cases with .toThrow()",
+    requirements: [
+      "Numbers divisible by 3 return 'Fizz'",
+      "Numbers divisible by 5 return 'Buzz'",
+      "Numbers divisible by both 3 and 5 return 'FizzBuzz'",
+      "Other numbers return the number itself as a string"
+    ],
+    testCases: [
+      { input: "1", expected: "1", description: "Regular number returns string" },
+      { input: "3", expected: "Fizz", description: "Multiple of 3 returns Fizz" },
+      { input: "5", expected: "Buzz", description: "Multiple of 5 returns Buzz" },
+      { input: "15", expected: "FizzBuzz", description: "Multiple of both returns FizzBuzz" }
+    ],
+    steps: [
+      {
+        type: "test",
+        template: `
+describe('FizzBuzz', () => {
+  test('regular number returns string number', () => {
+    [SELECT1]([SELECT2](1)).[SELECT3]("1");
+  });
+});`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["expect", "test", "describe", "toBe"],
+            correct: "expect"
+          },
+          {
+            id: "SELECT2",
+            options: ["fizzBuzz", "fizz", "buzz", "convert"],
+            correct: "fizzBuzz"
+          },
+          {
+            id: "SELECT3",
+            options: ["toBe", "toEqual", "toMatch", "toHave"],
+            correct: "toBe"
+          }
+        ]
+      },
+      {
+        type: "implementation",
+        template: `
+function fizzBuzz(num) {
+  [SELECT1] (num % 3 === 0 && num % 5 === 0) [SELECT2] "FizzBuzz";
+  [SELECT1] (num % 3 === 0) [SELECT2] "Fizz";
+  [SELECT1] (num % 5 === 0) [SELECT2] "Buzz";
+  return [SELECT3](num);
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["if", "while", "for", "switch"],
+            correct: "if"
+          },
+          {
+            id: "SELECT2",
+            options: ["return", "break", "continue", "yield"],
+            correct: "return"
+          },
+          {
+            id: "SELECT3",
+            options: ["String", "Number", "Boolean", "Array"],
+            correct: "String"
+          }
+        ]
+      },
+      {
+        type: "refactor",
+        template: `
+function fizzBuzz(num) {
+  const divisibleBy = (n, divisor) => n % divisor === 0;
+  const is3 = [SELECT1](num, 3);
+  const is5 = [SELECT1](num, 5);
+  
+  [SELECT2] (is3 && is5) [SELECT3] "FizzBuzz";
+  [SELECT2] (is3) [SELECT3] "Fizz";
+  [SELECT2] (is5) [SELECT3] "Buzz";
+  return String(num);
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["divisibleBy", "isDivisible", "divide", "mod"],
+            correct: "divisibleBy"
+          },
+          {
+            id: "SELECT2",
+            options: ["if", "while", "for", "switch"],
+            correct: "if"
+          },
+          {
+            id: "SELECT3",
+            options: ["return", "break", "continue", "yield"],
+            correct: "return"
+          }
+        ]
+      }
+    ],
+    hints: [
+      "Start with the simplest case - returning a number as a string",
+      "Check divisibility by both 3 and 5 first",
+      "Consider extracting the divisibility check into a helper function"
+    ]
+  },
+  {
+    id: 3,
+    title: "Password Validator Kata",
+    description: "Create a password validation function using Test-Driven Development with Jest-style testing. Jest is the most popular testing framework in the React ecosystem, known for its snapshot testing and extensive matcher API.",
+    codeNote: "The test structure follows Jest patterns. For more Jest-like tests:\n- Use .toMatch() for regex patterns\n- Add .not modifiers for negative cases\n- Consider using test.each() for multiple test cases",
+    requirements: [
+      "Password must be at least 8 characters long",
+      "Password must contain at least one uppercase letter",
+      "Password must contain at least one number",
+      "Password must contain at least one special character (!@#$%^&*)"
+    ],
+    testCases: [
+      { 
+        input: '"password"', 
+        expected: false, 
+        description: "Missing uppercase, number, and special character" 
+      },
+      { 
+        input: '"Password1!"', 
+        expected: true, 
+        description: "Valid password with all requirements met" 
+      },
+      { 
+        input: '"Pass1"', 
+        expected: false, 
+        description: "Too short and missing special character" 
+      }
+    ],
+    steps: [
+      {
+        type: "test",
+        template: `
+describe('PasswordValidator', () => {
+  test('rejects too short password', () => {
+    [SELECT1]([SELECT2]("short")).[SELECT3](false);
+  });
+});`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["expect", "test", "describe", "toBe"],
+            correct: "expect"
+          },
+          {
+            id: "SELECT2",
+            options: ["validatePassword", "checkPassword", "isValidPassword", "validate"],
+            correct: "validatePassword"
+          },
+          {
+            id: "SELECT3",
+            options: ["toBe", "toEqual", "toMatch", "toHave"],
+            correct: "toBe"
+          }
+        ]
+      },
+      {
+        type: "implementation",
+        template: `
+function validatePassword(password) {
+  const hasLength = password.[SELECT1] >= 8;
+  const hasUpper = [SELECT2].[SELECT3](password);
+  const hasNumber = [SELECT4].[SELECT3](password);
+  const hasSpecial = [SELECT5].[SELECT3](password);
+  return hasLength && hasUpper && hasNumber && hasSpecial;
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["length", "size", "count", "chars"],
+            correct: "length"
+          },
+          {
+            id: "SELECT2",
+            options: ["/[A-Z]/", "/[a-z]/", "/[0-9]/", "/[!@#$%^&*]/"],
+            correct: "/[A-Z]/"
+          },
+          {
+            id: "SELECT3",
+            options: ["test", "match", "exec", "search"],
+            correct: "test"
+          },
+          {
+            id: "SELECT4",
+            options: ["/[0-9]/", "/[A-Z]/", "/[a-z]/", "/[!@#$%^&*]/"],
+            correct: "/[0-9]/"
+          },
+          {
+            id: "SELECT5",
+            options: ["/[!@#$%^&*]/", "/[0-9]/", "/[A-Z]/", "/[a-z]/"],
+            correct: "/[!@#$%^&*]/"
+          }
+        ]
+      },
+      {
+        type: "refactor",
+        template: `
+function validatePassword(password) {
+  const patterns = {
+    upper: [SELECT1],
+    number: [SELECT2],
+    special: [SELECT3]
+  };
+  
+  return password.[SELECT4] >= 8 &&
+    Object.[SELECT5](patterns).every(pattern => pattern.test(password));
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["/[A-Z]/", "/[a-z]/", "/[0-9]/", "/[!@#$%^&*]/"],
+            correct: "/[A-Z]/"
+          },
+          {
+            id: "SELECT2",
+            options: ["/[0-9]/", "/[A-Z]/", "/[a-z]/", "/[!@#$%^&*]/"],
+            correct: "/[0-9]/"
+          },
+          {
+            id: "SELECT3",
+            options: ["/[!@#$%^&*]/", "/[0-9]/", "/[A-Z]/", "/[a-z]/"],
+            correct: "/[!@#$%^&*]/"
+          },
+          {
+            id: "SELECT4",
+            options: ["length", "size", "count", "chars"],
+            correct: "length"
+          },
+          {
+            id: "SELECT5",
+            options: ["values", "keys", "entries", "properties"],
+            correct: "values"
+          }
+        ]
+      }
+    ],
+    hints: [
+      "Start with checking the password length",
+      "Use regular expressions for pattern matching",
+      "Consider using Object.values for cleaner code"
+    ]
+  },
+  {
+    id: 4,
+    title: "Roman Numeral Converter",
+    description: "Convert numbers to Roman numerals using Jest's testing framework. Jest's powerful assertion library helps verify complex string transformations and edge cases, making it ideal for testing conversion logic.",
+    codeNote: "To write more idiomatic Jest tests:\n- Use .toBe() for simple value comparisons\n- Consider test.each() for multiple conversion cases\n- Group related conversions in describe blocks",
+    requirements: [
+      "Convert numbers 1-10 to Roman numerals",
+      "Handle subtractive notation (IV for 4, IX for 9)",
+      "Support numbers up to 100"
+    ],
+    testCases: [
+      { 
+        input: "1", 
+        expected: "I", 
+        description: "Basic single numeral conversion" 
+      },
+      { 
+        input: "4", 
+        expected: "IV", 
+        description: "Subtractive notation for 4" 
+      },
+      { 
+        input: "9", 
+        expected: "IX", 
+        description: "Subtractive notation for 9" 
+      },
+      { 
+        input: "50", 
+        expected: "L", 
+        description: "Large single numeral conversion" 
+      }
+    ],
+    steps: [
+      {
+        type: "test",
+        template: `
+describe('RomanNumerals', () => {
+  test('converts 1 to I', () => {
+    [SELECT1]([SELECT2](1)).[SELECT3]("I");
+  });
+});`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["expect", "test", "describe", "toBe"],
+            correct: "expect"
+          },
+          {
+            id: "SELECT2",
+            options: ["toRoman", "convertToRoman", "romanize", "toRomanNumeral"],
+            correct: "toRoman"
+          },
+          {
+            id: "SELECT3",
+            options: ["toBe", "toEqual", "toMatch", "toHave"],
+            correct: "toBe"
+          }
+        ]
+      },
+      {
+        type: "implementation",
+        template: `
+function toRoman(num) {
+  const romanNums = {
+    [SELECT1]: "C", [SELECT2]: "XC", 50: "L", 40: "XL",
+    10: "X", 9: "IX", 5: "V", 4: "IV", 1: "I"
+  };
+  let result = "";
+  for (let value of Object.[SELECT3](romanNums).[SELECT4]((a,b) => b-a)) {
+    [SELECT5] (num >= value) {
+      result += romanNums[value];
+      num -= value;
+    }
+  }
+  return result;
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["100", "90", "50", "40"],
+            correct: "100"
+          },
+          {
+            id: "SELECT2",
+            options: ["90", "100", "50", "40"],
+            correct: "90"
+          },
+          {
+            id: "SELECT3",
+            options: ["keys", "values", "entries", "properties"],
+            correct: "keys"
+          },
+          {
+            id: "SELECT4",
+            options: ["sort", "map", "filter", "reduce"],
+            correct: "sort"
+          },
+          {
+            id: "SELECT5",
+            options: ["while", "if", "for", "do"],
+            correct: "while"
+          }
+        ]
+      },
+      {
+        type: "refactor",
+        template: `
+function toRoman(num) {
+  const romanNums = new Map([
+    [[SELECT1], "C"], [90, "XC"], [50, "L"],
+    [40, "XL"], [10, "X"], [9, "IX"],
+    [5, "V"], [4, "IV"], [1, "I"]
+  ]);
+  let result = "";
+  for (const [value, numeral] of [SELECT2](romanNums)) {
+    [SELECT3] (num >= value) {
+      result += numeral;
+      num [SELECT4]= value;
+    }
+  }
+  return result;
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["100", "90", "50", "40"],
+            correct: "100"
+          },
+          {
+            id: "SELECT2",
+            options: ["Array.from", "Object.entries", "Object.keys", "Object.values"],
+            correct: "Array.from"
+          },
+          {
+            id: "SELECT3",
+            options: ["while", "if", "for", "do"],
+            correct: "while"
+          },
+          {
+            id: "SELECT4",
+            options: ["-", "+", "*", "/"],
+            correct: "-"
+          }
+        ]
+      }
+    ],
+    hints: [
+      "Start with the largest Roman numeral values",
+      "Remember to handle subtractive notation (IV, IX, etc.)",
+      "Consider using Map for cleaner key-value handling"
+    ]
+  },
+  {
+    id: 5,
+    title: "Palindrome Checker",
+    description: "Create a function that checks if a string is a palindrome. This kata demonstrates Jest's string manipulation testing capabilities and its clean syntax for boolean assertions.",
+    codeNote: "For more Jest-like testing:\n- Use .toBeTruthy() and .toBeFalsy() for boolean checks\n- Consider .toMatch() for regex pattern matching\n- Use beforeEach() to reset test state",
+      requirements: [
+      "Function should return true for palindromes",
+      "Function should ignore case sensitivity",
+      "Function should ignore spaces and punctuation",
+      "Empty string should return true"
+    ],
+    testCases: [
+      { 
+        input: '"A man a plan a canal Panama"', 
+        expected: true, 
+        description: "Complex palindrome with spaces and mixed case" 
+      },
+      { 
+        input: '"race a car"', 
+        expected: false, 
+        description: "Non-palindrome example" 
+      },
+      { 
+        input: '""', 
+        expected: true, 
+        description: "Empty string is considered palindrome" 
+      }
+    ],
+    steps: [
+      {
+        type: "test",
+        template: `
+describe('PalindromeChecker', () => {
+  test('empty string returns true', () => {
+    [SELECT1]([SELECT2]("")).[SELECT3](true);
+  });
+});`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["expect", "test", "describe", "toBe"],
+            correct: "expect"
+          },
+          {
+            id: "SELECT2",
+            options: ["isPalindrome", "checkPalindrome", "validatePalindrome", "testPalindrome"],
+            correct: "isPalindrome"
+          },
+          {
+            id: "SELECT3",
+            options: ["toBe", "toEqual", "toMatch", "toHave"],
+            correct: "toBe"
+          }
+        ]
+      },
+      {
+        type: "implementation",
+        template: `
+function isPalindrome(str) {
+  const cleaned = str.[SELECT1]().[SELECT2](/[^a-z0-9]/g, '');
+  return cleaned [SELECT3] cleaned.[SELECT4]('').[SELECT5]().join('');
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["toLowerCase", "toUpperCase", "trim", "normalize"],
+            correct: "toLowerCase"
+          },
+          {
+            id: "SELECT2",
+            options: ["replace", "replaceAll", "match", "search"],
+            correct: "replace"
+          },
+          {
+            id: "SELECT3",
+            options: ["===", "!==", ">=", "<="],
+            correct: "==="
+          },
+          {
+            id: "SELECT4",
+            options: ["split", "slice", "substring", "substr"],
+            correct: "split"
+          },
+          {
+            id: "SELECT5",
+            options: ["reverse", "sort", "filter", "map"],
+            correct: "reverse"
+          }
+        ]
+      },
+      {
+        type: "refactor",
+        template: `
+function isPalindrome(str) {
+  const cleanString = str => str.[SELECT1]().[SELECT2](/[^a-z0-9]/g, '');
+  const reverseString = str => str.[SELECT3]('').[SELECT4]().join('');
+  
+  const cleaned = [SELECT5](str);
+  return cleaned === reverseString(cleaned);
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["toLowerCase", "toUpperCase", "trim", "normalize"],
+            correct: "toLowerCase"
+          },
+          {
+            id: "SELECT2",
+            options: ["replace", "replaceAll", "match", "search"],
+            correct: "replace"
+          },
+          {
+            id: "SELECT3",
+            options: ["split", "slice", "substring", "substr"],
+            correct: "split"
+          },
+          {
+            id: "SELECT4",
+            options: ["reverse", "sort", "filter", "map"],
+            correct: "reverse"
+          },
+          {
+            id: "SELECT5",
+            options: ["cleanString", "reverseString", "toString", "valueOf"],
+            correct: "cleanString"
+          }
+        ]
+      }
+    ],
+    hints: [
+      "Start by handling the empty string case",
+      "Remember to clean the input by removing non-alphanumeric characters",
+      "Consider extracting string manipulation into helper functions"
+    ]
+  },
+  {
+    id: 6,
+    title: "Stack Implementation",
+    description: "Implement a stack data structure with basic operations. Jest's testing framework excels at testing data structures through its rich set of matchers and error assertions.",
+    codeNote: "To enhance Jest testing:\n- Use .toThrow() for error cases\n- Test edge cases with .toBeUndefined()\n- Group lifecycle methods with describe blocks",
+    requirements: [
+      "push() adds element to top of stack",
+      "pop() removes and returns top element",
+      "peek() returns top element without removing it",
+      "isEmpty() returns true if stack is empty"
+    ],
+    testCases: [
+      { 
+        input: "push(5), peek()", 
+        expected: 5, 
+        description: "peek() shows last element without removing it" 
+      },
+      { 
+        input: "push(5), pop()", 
+        expected: 5, 
+        description: "pop() removes and returns last element" 
+      },
+      { 
+        input: "isEmpty()", 
+        expected: true, 
+        description: "New stack starts empty" 
+      }
+    ],
+    steps: [
+      {
+        type: "test",
+        template: `
+describe('Stack', () => {
+  test('new stack is empty', () => {
+    const stack = new [SELECT1]();
+    [SELECT2](stack.[SELECT3]()).[SELECT4](true);
+  });
+});`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["Stack", "Queue", "List", "Array"],
+            correct: "Stack"
+          },
+          {
+            id: "SELECT2",
+            options: ["expect", "test", "describe", "toBe"],
+            correct: "expect"
+          },
+          {
+            id: "SELECT3",
+            options: ["isEmpty", "empty", "hasItems", "size"],
+            correct: "isEmpty"
+          },
+          {
+            id: "SELECT4",
+            options: ["toBe", "toEqual", "toMatch", "toHave"],
+            correct: "toBe"
+          }
+        ]
+      },
+      {
+        type: "implementation",
+        template: `
+class Stack {
+  [SELECT1]() {
+    this.[SELECT2] = [];
+  }
+  
+  push(element) {
+    this.items.[SELECT3](element);
+  }
+  
+  pop() {
+    return this.items.[SELECT4]();
+  }
+  
+  peek() {
+    return this.items[this.items.[SELECT5] - 1];
+  }
+  
+  isEmpty() {
+    return this.items.length === 0;
+  }
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["constructor", "init", "initialize", "create"],
+            correct: "constructor"
+          },
+          {
+            id: "SELECT2",
+            options: ["items", "elements", "data", "array"],
+            correct: "items"
+          },
+          {
+            id: "SELECT3",
+            options: ["push", "add", "append", "insert"],
+            correct: "push"
+          },
+          {
+            id: "SELECT4",
+            options: ["pop", "remove", "delete", "shift"],
+            correct: "pop"
+          },
+          {
+            id: "SELECT5",
+            options: ["length", "size", "count", "capacity"],
+            correct: "length"
+          }
+        ]
+      },
+      {
+        type: "refactor",
+        template: `
+class Stack {
+  #[SELECT1] = [];
+  
+  push(element) {
+    this.#items.[SELECT2](element);
+  }
+  
+  pop() {
+    if (this.[SELECT3]()) throw new Error('Stack is empty');
+    return this.#items.[SELECT4]();
+  }
+  
+  peek() {
+    if (this.[SELECT3]()) throw new Error('Stack is empty');
+    return this.#items.at([SELECT5]);
+  }
+  
+  isEmpty() {
+    return this.#items.length === 0;
+  }
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["items", "elements", "data", "array"],
+            correct: "items"
+          },
+          {
+            id: "SELECT2",
+            options: ["push", "add", "append", "insert"],
+            correct: "push"
+          },
+          {
+            id: "SELECT3",
+            options: ["isEmpty", "empty", "hasItems", "size"],
+            correct: "isEmpty"
+          },
+          {
+            id: "SELECT4",
+            options: ["pop", "remove", "delete", "shift"],
+            correct: "pop"
+          },
+          {
+            id: "SELECT5",
+            options: ["-1", "0", "1", "length"],
+            correct: "-1"
+          }
+        ]
+      }
+    ],
+    hints: [
+      "Start with the isEmpty method as it's used by other methods",
+      "Remember to handle edge cases like empty stack",
+      "Consider using private fields (#) for better encapsulation"
+    ]
+  },
+  {
+    id: 7,
+    title: "Email Validator",
+    description: "Create an email validation function using Jest's testing patterns. Jest provides excellent support for testing regular expressions and string validation through its matcher API.",
+    codeNote: "For better Jest tests:\n- Use .toMatch() for regex validation\n- Consider test.each() for multiple email formats\n- Use expect().not for negative test cases",
+    requirements: [
+      "Must contain a single @ symbol",
+      "Must have valid characters before @",
+      "Must have valid domain after @",
+      "Must have valid top-level domain"
+    ],
+    testCases: [
+      { 
+        input: '"test@example.com"', 
+        expected: true, 
+        description: "Valid email with all required parts" 
+      },
+      { 
+        input: '"invalid.email@"', 
+        expected: false, 
+        description: "Invalid: missing domain part after @" 
+      },
+      { 
+        input: '"@nodomain.com"', 
+        expected: false, 
+        description: "Invalid: missing local part before @" 
+      }
+    ],
+    steps: [
+      {
+        type: "test",
+        template: `
+describe('EmailValidator', () => {
+  test('valid email returns true', () => {
+    [SELECT1]([SELECT2]("test@example.com")).[SELECT3](true);
+  });
+});`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["expect", "test", "describe", "toBe"],
+            correct: "expect"
+          },
+          {
+            id: "SELECT2",
+            options: ["isValidEmail", "validateEmail", "checkEmail", "testEmail"],
+            correct: "isValidEmail"
+          },
+          {
+            id: "SELECT3",
+            options: ["toBe", "toEqual", "toMatch", "toHave"],
+            correct: "toBe"
+          }
+        ]
+      },
+      {
+        type: "implementation",
+        template: `
+function isValidEmail(email) {
+  const pattern = [SELECT1][SELECT2][SELECT3][SELECT4][SELECT5];
+  return pattern.test(email);
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["/^", "/$", "/", "|"],
+            correct: "/^"
+          },
+          {
+            id: "SELECT2",
+            options: ["[a-zA-Z0-9._%+-]+", "[\\w]+", "[a-z]+", "[0-9]+"],
+            correct: "[a-zA-Z0-9._%+-]+"
+          },
+          {
+            id: "SELECT3",
+            options: ["@", "\\@", "#", "\\#"],
+            correct: "@"
+          },
+          {
+            id: "SELECT4",
+            options: ["[a-zA-Z0-9.-]+\\.", "[\\w]+\\.", "[a-z]+\\.", "[0-9]+\\."],
+            correct: "[a-zA-Z0-9.-]+\\."
+          },
+          {
+            id: "SELECT5",
+            options: ["[a-zA-Z]{2,}$/", "[\\w]{2,}$/", "[a-z]+$/", "[0-9]+$/"],
+            correct: "[a-zA-Z]{2,}$/"
+          }
+        ]
+      },
+      {
+        type: "refactor",
+        template: `
+function isValidEmail(email) {
+  const patterns = {
+    local: [SELECT1],
+    domain: [SELECT2],
+    tld: [SELECT3]
+  };
+  
+  const parts = email.[SELECT4]('@');
+  if (parts.length !== 2) return false;
+  
+  const [local, domain] = parts;
+  return patterns.local.[SELECT5](local) && 
+         patterns.domain.test(domain);
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["/^[a-zA-Z0-9._%+-]+$/", "/^\\w+$/", "/^[a-z]+$/", "/^[0-9]+$/"],
+            correct: "/^[a-zA-Z0-9._%+-]+$/"
+          },
+          {
+            id: "SELECT2",
+            options: ["/^[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/", "/^\\w+$/", "/^[a-z]+$/", "/^[0-9]+$/"],
+            correct: "/^[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/"
+          },
+          {
+            id: "SELECT3",
+            options: ["/\\.[a-zA-Z]{2,}$/", "/\\w+$/", "/[a-z]+$/", "/[0-9]+$/"],
+            correct: "/\\.[a-zA-Z]{2,}$/"
+          },
+          {
+            id: "SELECT4",
+            options: ["split", "slice", "substring", "substr"],
+            correct: "split"
+          },
+          {
+            id: "SELECT5",
+            options: ["test", "match", "exec", "search"],
+            correct: "test"
+          }
+        ]
+      }
+    ],
+    hints: [
+      "Start with basic email pattern validation",
+      "Break down the pattern into smaller parts",
+      "Consider using multiple regex patterns for better readability"
+    ]
+  },
+  {
+    id: 8,
+    title: "Temperature Converter",
+    description: "Create functions to convert between Celsius and Fahrenheit. Jest's precise numeric comparison features make it perfect for testing mathematical conversions and floating-point calculations.",
+    codeNote: "To write better Jest tests:\n- Use .toBeCloseTo() for floating point comparisons\n- Group related temperature tests in describe blocks\n- Consider test.each() for conversion tables",
+    requirements: [
+      "Convert Celsius to Fahrenheit",
+      "Convert Fahrenheit to Celsius",
+      "Round results to 2 decimal places",
+      "Handle negative temperatures"
+    ],
+    testCases: [
+      { 
+        input: "toFahrenheit(0)", 
+        expected: 32, 
+        description: "Water freezing point: 0°C = 32°F" 
+      },
+      { 
+        input: "toCelsius(32)", 
+        expected: 0, 
+        description: "Reverse conversion: 32°F = 0°C" 
+      },
+      { 
+        input: "toFahrenheit(-40)", 
+        expected: -40, 
+        description: "Point where scales meet: -40°C = -40°F" 
+      }
+    ],
+    steps: [
+      {
+        type: "test",
+        template: `
+describe('TemperatureConverter', () => {
+  test('0°C equals 32°F', () => {
+    [SELECT1]([SELECT2](0)).[SELECT3](32);
+  });
+});`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["expect", "test", "describe", "toBe"],
+            correct: "expect"
+          },
+          {
+            id: "SELECT2",
+            options: ["toFahrenheit", "convertToF", "celsiusToF", "getFahrenheit"],
+            correct: "toFahrenheit"
+          },
+          {
+            id: "SELECT3",
+            options: ["toBe", "toEqual", "toMatch", "toHave"],
+            correct: "toBe"
+          }
+        ]
+      },
+      {
+        type: "implementation",
+        template: `
+function toFahrenheit(celsius) {
+  return [SELECT1](((celsius * [SELECT2]) + [SELECT3]).[SELECT4]([SELECT5]));
+}
+
+function toCelsius(fahrenheit) {
+  return Number(((fahrenheit - 32) * 5/9).toFixed(2));
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["Number", "parseInt", "parseFloat", "String"],
+            correct: "Number"
+          },
+          {
+            id: "SELECT2",
+            options: ["9/5", "5/9", "1.8", "32"],
+            correct: "9/5"
+          },
+          {
+            id: "SELECT3",
+            options: ["32", "0", "273", "100"],
+            correct: "32"
+          },
+          {
+            id: "SELECT4",
+            options: ["toFixed", "toPrecision", "toString", "valueOf"],
+            correct: "toFixed"
+          },
+          {
+            id: "SELECT5",
+            options: ["2", "1", "0", "3"],
+            correct: "2"
+          }
+        ]
+      },
+      {
+        type: "refactor",
+        template: `
+const round = num => [SELECT1](num.[SELECT2](2));
+
+function toFahrenheit(celsius) {
+  return round(celsius * [SELECT3] + 32);
+}
+
+function toCelsius(fahrenheit) {
+  return [SELECT4]((fahrenheit - [SELECT5]) * 5/9);
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["Number", "parseInt", "parseFloat", "String"],
+            correct: "Number"
+          },
+          {
+            id: "SELECT2",
+            options: ["toFixed", "toPrecision", "toString", "valueOf"],
+            correct: "toFixed"
+          },
+          {
+            id: "SELECT3",
+            options: ["9/5", "5/9", "1.8", "32"],
+            correct: "9/5"
+          },
+          {
+            id: "SELECT4",
+            options: ["round", "Number", "parseInt", "parseFloat"],
+            correct: "round"
+          },
+          {
+            id: "SELECT5",
+            options: ["32", "0", "273", "100"],
+            correct: "32"
+          }
+        ]
+      }
+    ],
+    hints: [
+      "Remember the formula: °F = °C × 9/5 + 32",
+      "Use toFixed(2) for rounding to 2 decimal places",
+      "Consider extracting the rounding logic into a helper function"
+    ]
+  },
+  {
+    id: 9,
+    title: "Array Deduplicator",
+    description: "Create a function that removes duplicates from an array. Jest's array comparison capabilities and deep equality checks make it ideal for testing array transformations.",
+    codeNote: "For Jest-style array testing:\n- Use .toEqual() for array comparisons\n- Consider .toHaveLength() for array size checks\n- Use expect().toContain() for element presence",
+    requirements: [
+      "Remove duplicate elements from array",
+      "Preserve original order of elements",
+      "Handle arrays of different types",
+      "Return new array without modifying original"
+    ],
+    testCases: [
+      { 
+        input: "[1, 2, 2, 3, 3, 4]", 
+        expected: "[1, 2, 3, 4]", 
+        description: "Removes duplicate numbers while preserving order" 
+      },
+      { 
+        input: '["a", "b", "a", "c"]', 
+        expected: '["a", "b", "c"]', 
+        description: "Works with strings and maintains original order" 
+      },
+      { 
+        input: "[]", 
+        expected: "[]", 
+        description: "Handles empty array edge case" 
+      }
+    ],
+    steps: [
+      {
+        type: "test",
+        template: `
+describe('ArrayDeduplicator', () => {
+  test('empty array returns empty array', () => {
+    [SELECT1]([SELECT2]([])).[SELECT3]([]);
+  });
+});`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["expect", "test", "describe", "toBe"],
+            correct: "expect"
+          },
+          {
+            id: "SELECT2",
+            options: ["deduplicate", "removeDuplicates", "unique", "distinct"],
+            correct: "deduplicate"
+          },
+          {
+            id: "SELECT3",
+            options: ["toEqual", "toBe", "toMatch", "toHave"],
+            correct: "toEqual"
+          }
+        ]
+      },
+      {
+        type: "implementation",
+        template: `
+function deduplicate(arr) {
+  return [SELECT1]new [SELECT2]([SELECT3]);
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["[...", "Array.from(", "Array(", "Object("],
+            correct: "[..."
+          },
+          {
+            id: "SELECT2",
+            options: ["Set", "Array", "Map", "Object"],
+            correct: "Set"
+          },
+          {
+            id: "SELECT3",
+            options: ["arr", "arguments", "this", "[]"],
+            correct: "arr"
+          }
+        ]
+      },
+      {
+        type: "refactor",
+        template: `
+function deduplicate(arr) {
+  return Array.[SELECT1]([SELECT2](arr), 
+    item => [SELECT3].[SELECT4](item) === [SELECT5]);
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["from", "of", "prototype", "create"],
+            correct: "from"
+          },
+          {
+            id: "SELECT2",
+            options: ["new Set", "Array.from", "Object.keys", "Object.values"],
+            correct: "new Set"
+          },
+          {
+            id: "SELECT3",
+            options: ["arr", "Array", "Set", "Object"],
+            correct: "arr"
+          },
+          {
+            id: "SELECT4",
+            options: ["indexOf", "includes", "find", "findIndex"],
+            correct: "indexOf"
+          },
+          {
+            id: "SELECT5",
+            options: ["arr.lastIndexOf(item)", "0", "1", "-1"],
+            correct: "arr.lastIndexOf(item)"
+          }
+        ]
+      }
+    ],
+    hints: [
+      "Consider using Set for automatic deduplication",
+      "Remember to preserve the original array order",
+      "Think about how to convert Set back to Array"
+    ]
+  },
+  {
+    id: 10,
+    title: "URL Parser",
+    description: "Create a function that parses URL components using Jest's testing framework. Jest's object comparison features are perfect for testing complex URL parsing and query parameter extraction.",
+    codeNote: "To write idiomatic Jest tests:\n- Use .toMatchObject() for partial object matching\n- Consider .toHaveProperty() for nested checks\n- Group URL component tests logically",
+    requirements: [
+      "Extract protocol (http, https)",
+      "Extract domain name",
+      "Extract path",
+      "Extract query parameters"
+    ],
+    testCases: [
+      { 
+        input: '"https://example.com/path?name=test"', 
+        expected: '{ protocol: "https", domain: "example.com", path: "/path", query: { name: "test" } }',
+        description: "Complex URL with all components" 
+      },
+      { 
+        input: '"http://test.com"', 
+        expected: '{ protocol: "http", domain: "test.com", path: "", query: {} }',
+        description: "Simple URL with minimal components" 
+      }
+    ],
+    steps: [
+      {
+        type: "test",
+        template: `
+describe('URLParser', () => {
+  test('parses simple URL correctly', () => {
+    [SELECT1]([SELECT2]("http://example.com")).[SELECT3]({
+      protocol: "http",
+      domain: "example.com",
+      path: "",
+      query: {}
+    });
+  });
+});`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["expect", "test", "describe", "toBe"],
+            correct: "expect"
+          },
+          {
+            id: "SELECT2",
+            options: ["parseURL", "parseUri", "urlParser", "getUrlParts"],
+            correct: "parseURL"
+          },
+          {
+            id: "SELECT3",
+            options: ["toEqual", "toBe", "toMatch", "toHave"],
+            correct: "toEqual"
+          }
+        ]
+      },
+      {
+        type: "implementation",
+        template: `
+function parseURL(url) {
+  const urlObj = new [SELECT1](url);
+  const query = Object.[SELECT2](urlObj.[SELECT3]);
+  return {
+    protocol: urlObj.protocol.[SELECT4](':', ''),
+    domain: urlObj.[SELECT5],
+    path: urlObj.pathname,
+    query
+  };
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["URL", "URLSearchParams", "RegExp", "String"],
+            correct: "URL"
+          },
+          {
+            id: "SELECT2",
+            options: ["fromEntries", "entries", "keys", "values"],
+            correct: "fromEntries"
+          },
+          {
+            id: "SELECT3",
+            options: ["searchParams", "search", "query", "params"],
+            correct: "searchParams"
+          },
+          {
+            id: "SELECT4",
+            options: ["replace", "replaceAll", "slice", "substring"],
+            correct: "replace"
+          },
+          {
+            id: "SELECT5",
+            options: ["hostname", "host", "domain", "origin"],
+            correct: "hostname"
+          }
+        ]
+      },
+      {
+        type: "refactor",
+        template: `
+function parseURL(url) {
+  const [SELECT1] = {
+    getProtocol: url => url.protocol.replace(':', ''),
+    getDomain: url => url.[SELECT2],
+    getPath: url => url.[SELECT3],
+    getQuery: url => Object.[SELECT4](url.[SELECT5])
+  };
+
+  const urlObj = new URL(url);
+  return {
+    protocol: methods.getProtocol(urlObj),
+    domain: methods.getDomain(urlObj),
+    path: methods.getPath(urlObj),
+    query: methods.getQuery(urlObj)
+  };
+}`,
+        blanks: [
+          {
+            id: "SELECT1",
+            options: ["methods", "helpers", "utils", "parsers"],
+            correct: "methods"
+          },
+          {
+            id: "SELECT2",
+            options: ["hostname", "host", "domain", "origin"],
+            correct: "hostname"
+          },
+          {
+            id: "SELECT3",
+            options: ["pathname", "path", "href", "search"],
+            correct: "pathname"
+          },
+          {
+            id: "SELECT4",
+            options: ["fromEntries", "entries", "keys", "values"],
+            correct: "fromEntries"
+          },
+          {
+            id: "SELECT5",
+            options: ["searchParams", "search", "query", "params"],
+            correct: "searchParams"
+          }
+        ]
+      }
+    ],
+    hints: [
+      "Use the URL API instead of manual parsing",
+      "Remember to handle query parameters with URLSearchParams",
+      "Consider extracting parsing logic into separate methods"
+    ]
+  }
+];

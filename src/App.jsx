@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
+import Navbar from './components/navbar';
 import Contact from './components/Contact';
-import Home from './components/Home';
+import Home from './components/home';
 import Quiz from './components/QuizSTLC';
 import QuizP from './components/QuizPrinciples';
 import { Element } from 'react-scroll';
@@ -19,6 +19,9 @@ import SuccessCredit from './components/successcredit';
 import Metrics from './components/metrics';
 import GeneralQuiz from './components/GeneralQuiz';
 import MoodTrackerTestPlan from './components/MoodTrackerTestPlan';
+import TDDQuizGame from './components/TDDQuizGame';
+import JestIntro from './components/JestIntro';
+import AIinQA from './components/AIinQA';
 const App = () => {
   useEffect(() => {
     Aos.init({
@@ -63,6 +66,9 @@ const App = () => {
         <Route path="/metrics" element={<Metrics />} />
         <Route path="/morequiza" element={<GeneralQuiz />} />
         <Route path="/testplan" element={<MoodTrackerTestPlan />} />
+        <Route path="/tdd" element={<TDDQuizGame />} />
+        <Route path="/jestintro" element={<JestIntro />} />
+        <Route path="/ai-qa" element={<AIinQA />} />
       </Routes>
     </Router>
   );

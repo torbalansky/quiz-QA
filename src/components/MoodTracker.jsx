@@ -367,10 +367,10 @@ const MoodTracker = () => {
   };
 
   return (
-    <div className="p-6">
-      <h1 className="text-3xl font-bold text-center mb-4">Mood Tracker</h1>
+    <div className="p-2 sm:p-6">
+      <h1 className="text-2xl sm:text-3xl font-bold text-center mb-4">Mood Tracker</h1>
 
-      <div className="grid grid-cols-4 gap-2 mb-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
         {moodOptions.map((mood) => (
           <button
             key={mood.label}
@@ -385,12 +385,12 @@ const MoodTracker = () => {
 
       {recommendation && (
         <div className="bg-green-100 p-4 rounded mb-4 text-center">
-          <h2 className="text-xl font-bold">Recommendation:</h2>
+          <h2 className="text-lg sm:text-xl font-bold">Recommendation:</h2>
           <p>{recommendation}</p>
         </div>
       )}
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div className="bg-white p-4 rounded shadow">
           <h2 className="text-lg font-bold mb-2">Mood Calendar</h2>
           <Calendar onChange={setSelectedDate} value={selectedDate} tileContent={tileContent} />
@@ -424,97 +424,96 @@ const MoodTracker = () => {
         </div>
       </div>
 
-      <div className="bg-white p-4 rounded shadow mt-4 font-poppins">
-        <h2 className="text-lg font-bold mb-2">Documentation</h2>
-        <p>{documentationMoodTracker.overview}</p>
-        <h3 className="text-md font-bold mt-4">Functional Requirements:</h3>
-        <ul className="list-disc ml-6">
-          {documentationMoodTracker.functionalRequirements.map((req, idx) => (
-            <li key={idx}>
-              <strong>{req.title}:</strong> {req.details.join(" ")}
-            </li>
-          ))}
-        </ul>
-        <h3 className="text-md font-bold mt-4">User Flow:</h3>
-        <p>{documentationMoodTracker.userFlow}</p>
-        <h3 className="text-md font-bold mt-4">Validation Rules:</h3>
-        <ul className="list-disc ml-6">
-          {documentationMoodTracker.validationRules.map((rule, idx) => (
-            <li key={idx}>
-              <strong>{rule.title}:</strong> {rule.details.join(" ")}
-            </li>
-          ))}
-        </ul>
-        <h3 className="text-md font-bold mt-4">Expected Behavior:</h3>
-        <ul className="list-disc ml-6">
-          {documentationMoodTracker.expectedBehavior.map((behavior, idx) => (
-            <li key={idx}>
-              <strong>{behavior.condition}:</strong> {behavior.behavior}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div className="bg-white p-4 rounded shadow mt-4 font-poppins">
-        <h2 className="text-2xl font-bold mb-4">Test Plan</h2>
-
-        <div className="mb-6">
-          <h3 className="text-lg font-bold mb-2">1. Introduction</h3>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block mb-1">Purpose:</label>
-              <textarea
-                value={testPlan.introduction.purpose}
-                onChange={(e) => setTestPlan({
-                  ...testPlan,
-                  introduction: { ...testPlan.introduction, purpose: e.target.value }
-                })}
-                className="w-full p-2 border rounded"
-                rows="3"
-              />
-            </div>
-            <div>
-              <label className="block mb-1">Scope:</label>
-              <textarea
-                value={testPlan.introduction.scope}
-                onChange={(e) => setTestPlan({
-                  ...testPlan,
-                  introduction: { ...testPlan.introduction, scope: e.target.value }
-                })}
-                className="w-full p-2 border rounded"
-                rows="3"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="mb-6">
-          <h3 className="text-lg font-bold mb-2">2. Test Items</h3>
-          <div className="flex gap-2 mb-2">
-            <input
-              type="text"
-              placeholder="Add new test item"
-              className="p-2 border rounded w-64"
-              onKeyPress={(e) => {
-                if (e.key === 'Enter') {
-                  setTestPlan({
-                    ...testPlan,
-                    testItems: [...testPlan.testItems, e.target.value]
-                  });
-                  e.target.value = '';
-                }
-              }}
+      <div className="bg-white p-4 rounded shadow mt-4">
+      <p className="text-lg font-semibold text-gray-700 mb-4 text-center">Test Plan</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="block mb-1">Purpose:</label>
+            <textarea
+              value={testPlan.introduction.purpose}
+              onChange={(e) => setTestPlan({
+                ...testPlan,
+                introduction: { ...testPlan.introduction, purpose: e.target.value }
+              })}
+              className="w-full p-2 border rounded"
+              rows="3"
             />
           </div>
-          <ul className="list-disc ml-6">
-            {testPlan.testItems.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
+          <div>
+            <label className="block mb-1">Scope:</label>
+            <textarea
+              value={testPlan.introduction.scope}
+              onChange={(e) => setTestPlan({
+                ...testPlan,
+                introduction: { ...testPlan.introduction, scope: e.target.value }
+              })}
+              className="w-full p-2 border rounded"
+              rows="3"
+            />
+          </div>
         </div>
+      </div>
 
-        <div className="mb-6">
-          <h3 className="text-lg font-bold mb-2">3. Testing Approach</h3>
+      <div className="bg-white p-4 rounded shadow mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="block mb-1">Hardware Requirements:</label>
+            <input
+              type="text"
+              value={testPlan.environment.hardware}
+              onChange={(e) => setTestPlan({
+                ...testPlan,
+                environment: { ...testPlan.environment, hardware: e.target.value }
+              })}
+              className="w-full p-2 border rounded"
+            />
+          </div>
+          <div>
+            <label className="block mb-1">Software Requirements:</label>
+            <input
+              type="text"
+              value={testPlan.environment.software}
+              onChange={(e) => setTestPlan({
+                ...testPlan,
+                environment: { ...testPlan.environment, software: e.target.value }
+              })}
+              className="w-full p-2 border rounded"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white p-4 rounded shadow mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="block mb-1">Start Date:</label>
+            <input
+              type="date"
+              value={testPlan.schedule.startDate}
+              onChange={(e) => setTestPlan({
+                ...testPlan,
+                schedule: { ...testPlan.schedule, startDate: e.target.value }
+              })}
+              className="w-full p-2 border rounded"
+            />
+          </div>
+          <div>
+            <label className="block mb-1">End Date:</label>
+            <input
+              type="date"
+              value={testPlan.schedule.endDate}
+              onChange={(e) => setTestPlan({
+                ...testPlan,
+                schedule: { ...testPlan.schedule, endDate: e.target.value }
+              })}
+              className="w-full p-2 border rounded"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-white p-4 rounded shadow mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block mb-1">Strategy:</label>
             <textarea
@@ -528,97 +527,10 @@ const MoodTracker = () => {
             />
           </div>
         </div>
+      </div>
 
-        <div className="mb-6">
-          <h3 className="text-lg font-bold mb-2">4. Environment Setup</h3>
-          <div className="grid grid-cols-3 gap-4">
-            <div>
-              <label className="block mb-1">Hardware Requirements:</label>
-              <input
-                type="text"
-                value={testPlan.environment.hardware}
-                onChange={(e) => setTestPlan({
-                  ...testPlan,
-                  environment: { ...testPlan.environment, hardware: e.target.value }
-                })}
-                className="w-full p-2 border rounded"
-              />
-            </div>
-            <div>
-              <label className="block mb-1">Software Requirements:</label>
-              <input
-                type="text"
-                value={testPlan.environment.software}
-                onChange={(e) => setTestPlan({
-                  ...testPlan,
-                  environment: { ...testPlan.environment, software: e.target.value }
-                })}
-                className="w-full p-2 border rounded"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Schedule */}
-        <div className="mb-6">
-          <h3 className="text-lg font-bold mb-2">5. Schedule</h3>
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block mb-1">Start Date:</label>
-              <input
-                type="date"
-                value={testPlan.schedule.startDate}
-                onChange={(e) => setTestPlan({
-                  ...testPlan,
-                  schedule: { ...testPlan.schedule, startDate: e.target.value }
-                })}
-                className="w-full p-2 border rounded"
-              />
-            </div>
-            <div>
-              <label className="block mb-1">End Date:</label>
-              <input
-                type="date"
-                value={testPlan.schedule.endDate}
-                onChange={(e) => setTestPlan({
-                  ...testPlan,
-                  schedule: { ...testPlan.schedule, endDate: e.target.value }
-                })}
-                className="w-full p-2 border rounded"
-              />
-            </div>
-          </div>
-        </div>
-
-        {/* Risks and Mitigation */}
-        <div className="mb-6">
-          <h3 className="text-lg font-bold mb-2">6. Risks and Mitigation</h3>
-          <div className="flex gap-2 mb-2">
-            <input
-              type="text"
-              placeholder="Add new risk"
-              className="p-2 border rounded w-64"
-              onKeyPress={(e) => {
-                if (e.key === 'Enter') {
-                  setTestPlan({
-                    ...testPlan,
-                    risks: [...testPlan.risks, e.target.value]
-                  });
-                  e.target.value = '';
-                }
-              }}
-            />
-          </div>
-          <ul className="list-disc ml-6">
-            {testPlan.risks.map((risk, index) => (
-              <li key={index}>{risk}</li>
-            ))}
-          </ul>
-        </div>
-
-        {/* Defect Management */}
-        <div className="mb-6">
-          <h3 className="text-lg font-bold mb-2">7. Defect Management</h3>
+      <div className="bg-white p-4 rounded shadow mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block mb-1">Process:</label>
             <textarea
@@ -631,7 +543,8 @@ const MoodTracker = () => {
               rows="3"
             />
           </div>
-          <div className="mt-4">
+        </div>
+        <div className="mt-4">
             <button 
               onClick={handleResetTestPlan} 
               className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
@@ -639,184 +552,187 @@ const MoodTracker = () => {
               Reset Test Plan
             </button>
           </div>
-        </div>
       </div>
 
-      <div className="bg-white p-4 rounded shadow mt-4 font-poppins">
-        <h2 className="text-lg font-bold mb-2">Test Scenarios</h2>
-        <ul className="list-disc ml-6">
-          {testScenarios.map((scenario, idx) => (
-            <li key={idx} className="flex flex-col mb-4">
-              {Object.keys(scenario).map((key) => (
-                <div key={key} className="flex items-center mb-2">
-                  <strong className="mr-2">{key}:</strong>
+      <div className="overflow-x-auto">
+        <div className="bg-white p-4 rounded shadow mt-4">
+          <h2 className="text-lg font-bold mb-2">Test Scenarios</h2>
+          <ul className="list-disc ml-6">
+            {testScenarios.map((scenario, idx) => (
+              <li key={idx} className="flex flex-col mb-4">
+                {Object.keys(scenario).map((key) => (
+                  <div key={key} className="flex items-center mb-2">
+                    <strong className="mr-2">{key}:</strong>
+                    {editingScenarioIndex === idx ? (
+                      <input
+                        type="text"
+                        value={scenario[key]}
+                        onChange={(e) => handleEditScenario(idx, key, e.target.value)}
+                        className="border p-1 flex-grow"
+                      />
+                    ) : (
+                      <span>{scenario[key]}</span>
+                    )}
+                  </div>
+                ))}
+                <div className="flex">
+                  <button onClick={() => handleDeleteScenario(idx)} className="bg-red-500 rounded-md text-white p-1 ml-2">
+                    Delete
+                  </button>
                   {editingScenarioIndex === idx ? (
-                    <input
-                      type="text"
-                      value={scenario[key]}
-                      onChange={(e) => handleEditScenario(idx, key, e.target.value)}
-                      className="border p-1 flex-grow"
-                    />
+                    <button onClick={() => setEditingScenarioIndex(null)} className="bg-green-500 rounded-md text-white p-1 ml-2">
+                      Save
+                    </button>
                   ) : (
-                    <span>{scenario[key]}</span>
+                    <button onClick={() => setEditingScenarioIndex(idx)} className="bg-yellow-500 rounded-md text-white p-1 ml-2">
+                      Edit
+                    </button>
                   )}
                 </div>
-              ))}
-              <div className="flex">
-                <button onClick={() => handleDeleteScenario(idx)} className="bg-red-500 rounded-md text-white p-1 ml-2">
-                  Delete
-                </button>
-                {editingScenarioIndex === idx ? (
-                  <button onClick={() => setEditingScenarioIndex(null)} className="bg-green-500 rounded-md text-white p-1 ml-2">
-                    Save
-                  </button>
-                ) : (
-                  <button onClick={() => setEditingScenarioIndex(idx)} className="bg-yellow-500 rounded-md text-white p-1 ml-2">
-                    Edit
-                  </button>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-2">
-          <input
-            type="text"
-            value={newScenario.title}
-            onChange={(e) => setNewScenario({ ...newScenario, title: e.target.value })}
-            placeholder="Title"
-            className="border p-1 mr-2"
-          />
-          <input
-            type="text"
-            value={newScenario.description}
-            onChange={(e) => setNewScenario({ ...newScenario, description: e.target.value })}
-            placeholder="Description"
-            className="border p-1 mr-2"
-          />
-          <input
-            type="text"
-            value={newScenario.preconditions}
-            onChange={(e) => setNewScenario({ ...newScenario, preconditions: e.target.value })}
-            placeholder="Preconditions"
-            className="border p-1 mr-2"
-          />
-          <input
-            type="text"
-            value={newScenario.steps}
-            onChange={(e) => setNewScenario({ ...newScenario, steps: e.target.value })}
-            placeholder="Steps"
-            className="border p-1 mr-2"
-          />
-          <input
-            type="text"
-            value={newScenario.expectedResult}
-            onChange={(e) => setNewScenario({ ...newScenario, expectedResult: e.target.value })}
-            placeholder="Expected Result"
-            className="border p-1 mr-2"
-          />
+              </li>
+            ))}
+          </ul>
+          <div className="mt-2 flex flex-col">
+            <input
+              type="text"
+              value={newScenario.title}
+              onChange={(e) => setNewScenario({ ...newScenario, title: e.target.value })}
+              placeholder="Title"
+              className="border p-1 w-full sm:w-auto"
+            />
+            <input
+              type="text"
+              value={newScenario.description}
+              onChange={(e) => setNewScenario({ ...newScenario, description: e.target.value })}
+              placeholder="Description"
+              className="border p-1 w-full sm:w-auto"
+            />
+            <input
+              type="text"
+              value={newScenario.preconditions}
+              onChange={(e) => setNewScenario({ ...newScenario, preconditions: e.target.value })}
+              placeholder="Preconditions"
+              className="border p-1 w-full sm:w-auto"
+            />
+            <input
+              type="text"
+              value={newScenario.steps}
+              onChange={(e) => setNewScenario({ ...newScenario, steps: e.target.value })}
+              placeholder="Steps"
+              className="border p-1 w-full sm:w-auto"
+            />
+            <input
+              type="text"
+              value={newScenario.expectedResult}
+              onChange={(e) => setNewScenario({ ...newScenario, expectedResult: e.target.value })}
+              placeholder="Expected Result"
+              className="border p-1 w-full sm:w-auto"
+            />
+          </div>
           <button onClick={handleAddScenario} className="bg-blue-500 text-white p-2 ml-4 rounded mt-4">
-            Add Scenario
-          </button>
+              Add Scenario
+            </button>
         </div>
       </div>
 
-      <div className="bg-white p-4 rounded shadow mt-4 font-poppins">
-        <h2 className="text-lg font-bold mb-2">Test Cases</h2>
-        <ul className="list-disc ml-6">
-          {testCases.map((testCase, idx) => (
-            <li key={idx} className="flex flex-col mb-4">
-              {Object.keys(testCase).map((key) => (
-                <div key={key} className="flex items-center mb-2">
-                  <strong className="mr-2">{key}:</strong>
+      <div className="overflow-x-auto">
+        <div className="bg-white p-4 rounded shadow mt-4">
+          <h2 className="text-lg font-bold mb-2">Test Cases</h2>
+          <ul className="list-disc ml-6">
+            {testCases.map((testCase, idx) => (
+              <li key={idx} className="flex flex-col mb-4">
+                {Object.keys(testCase).map((key) => (
+                  <div key={key} className="flex items-center mb-2">
+                    <strong className="mr-2">{key}:</strong>
+                    {editingCaseIndex === idx ? (
+                      <input
+                        type="text"
+                        value={testCase[key]}
+                        onChange={(e) => handleEditCase(idx, key, e.target.value)}
+                        className="border p-1 flex-grow"
+                      />
+                    ) : (
+                      <span>{testCase[key]}</span>
+                    )}
+                  </div>
+                ))}
+                <div className="flex">
+                  <button onClick={() => handleDeleteCase(idx)} className="bg-red-500 rounded-md text-white p-1 ml-2">
+                    Delete
+                  </button>
                   {editingCaseIndex === idx ? (
-                    <input
-                      type="text"
-                      value={testCase[key]}
-                      onChange={(e) => handleEditCase(idx, key, e.target.value)}
-                      className="border p-1 flex-grow"
-                    />
+                    <button onClick={() => setEditingCaseIndex(null)} className="bg-green-500 rounded-md text-white p-1 ml-2">
+                      Save
+                    </button>
                   ) : (
-                    <span>{testCase[key]}</span>
+                    <button onClick={() => setEditingCaseIndex(idx)} className="bg-yellow-500 rounded-md text-white p-1 ml-2">
+                      Edit
+                    </button>
                   )}
                 </div>
-              ))}
-              <div className="flex">
-                <button onClick={() => handleDeleteCase(idx)} className="bg-red-500 rounded-md text-white p-1 ml-2">
-                  Delete
-                </button>
-                {editingCaseIndex === idx ? (
-                  <button onClick={() => setEditingCaseIndex(null)} className="bg-green-500 rounded-md text-white p-1 ml-2">
-                    Save
-                  </button>
-                ) : (
-                  <button onClick={() => setEditingCaseIndex(idx)} className="bg-yellow-500 rounded-md text-white p-1 ml-2">
-                    Edit
-                  </button>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
-        <div className="mt-2">
-          <input
-            type="text"
-            value={newCase.id}
-            onChange={(e) => setNewCase({ ...newCase, id: e.target.value })}
-            placeholder="ID"
-            className="border p-1 mr-2 w-24"
-          />
-          <input
-            type="text"
-            value={newCase.title}
-            onChange={(e) => setNewCase({ ...newCase, title: e.target.value })}
-            placeholder="Title"
-            className="border p-1 mr-2 w-32"
-          />
-          <input
-            type="text"
-            value={newCase.description}
-            onChange={(e) => setNewCase({ ...newCase, description: e.target.value })}
-            placeholder="Description"
-            className="border p-1 mr-2"
-          />
-          <input
-            type="text"
-            value={newCase.steps}
-            onChange={(e) => setNewCase({ ...newCase, steps: e.target.value })}
-            placeholder="Steps"
-            className="border p-1 mr-2"
-          />
-          <input
-            type="text"
-            value={newCase.expectedOutcome}
-            onChange={(e) => setNewCase({ ...newCase, expectedOutcome: e.target.value })}
-            placeholder="Expected Outcome"
-            className="border p-1 mr-2"
-          />
-          <input
-            type="text"
-            value={newCase.passFail}
-            onChange={(e) => setNewCase({ ...newCase, passFail: e.target.value })}
-            placeholder="Pass/Fail"
-            className="border p-1 mr-2"
-          />
+              </li>
+            ))}
+          </ul>
+          <div className="mt-2 flex flex-col">
+            <input
+              type="text"
+              value={newCase.id}
+              onChange={(e) => setNewCase({ ...newCase, id: e.target.value })}
+              placeholder="ID"
+              className="border p-1 mr-2"
+            />
+            <input
+              type="text"
+              value={newCase.title}
+              onChange={(e) => setNewCase({ ...newCase, title: e.target.value })}
+              placeholder="Title"
+              className="border p-1 mr-2"
+            />
+            <input
+              type="text"
+              value={newCase.description}
+              onChange={(e) => setNewCase({ ...newCase, description: e.target.value })}
+              placeholder="Description"
+              className="border p-1 mr-2"
+            />
+            <input
+              type="text"
+              value={newCase.steps}
+              onChange={(e) => setNewCase({ ...newCase, steps: e.target.value })}
+              placeholder="Steps"
+              className="border p-1 mr-2"
+            />
+            <input
+              type="text"
+              value={newCase.expectedOutcome}
+              onChange={(e) => setNewCase({ ...newCase, expectedOutcome: e.target.value })}
+              placeholder="Expected Outcome"
+              className="border p-1 mr-2"
+            />
+            <input
+              type="text"
+              value={newCase.passFail}
+              onChange={(e) => setNewCase({ ...newCase, passFail: e.target.value })}
+              placeholder="Pass/Fail"
+              className="border p-1 mr-2"
+            />
+          </div>
           <button onClick={handleAddCase} className="bg-blue-500 text-white p-2 ml-4 mt-4 rounded">
             Add Test Case
           </button>
         </div>
       </div>
 
-      <div className="text-center mt-4 flex justify-center gap-4">
+      <div className="text-center mt-4 flex flex-col sm:flex-row justify-center gap-4">
         <button 
           onClick={handlePrint} 
-          className="bg-green-500 text-white p-2 rounded hover:bg-green-600"
+          className="w-full sm:w-auto bg-green-500 text-white p-2 rounded hover:bg-green-600"
         >
           Print Test Plan
         </button>
         <button 
           onClick={() => navigate('/testplan')} 
-          className="bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors duration-200 flex items-center gap-2 shadow-md"
+          className="w-full sm:w-auto bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors duration-200 flex items-center justify-center gap-2 shadow-md"
         >
           <svg 
             xmlns="http://www.w3.org/2000/svg" 

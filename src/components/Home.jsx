@@ -6,6 +6,12 @@ import emailjs from '@emailjs/browser';
 import { GiCycle } from "react-icons/gi";
 import { BsFillEmojiSunglassesFill } from "react-icons/bs";
 import { IoConstructSharp } from "react-icons/io5";
+import { SiSelenium } from "react-icons/si";
+import { SiPostman } from "react-icons/si";
+import { TbBrowserCheck } from "react-icons/tb";
+import { SiCucumber } from "react-icons/si";
+import { SiCypress } from "react-icons/si";
+import { SiJest } from "react-icons/si";
 
 const Home = () => {
   const formRef = useRef();
@@ -76,69 +82,156 @@ const Home = () => {
   };
 
   return (
-    <section className="flex flex-col h-min-screen">
-      <div className="relative flex h-screen">
+    <section className="flex flex-col min-h-screen bg-gradient-to-b from-blue-50 via-white to-gray-100">
+      <div className="flex flex-col lg:flex-row">
+        <div className="w-full lg:w-1/2 p-4 sm:p-8">
+          <div className="bg-white p-8 rounded-xl shadow-2xl text-center max-w-3xl mx-auto">
+            <div className="relative mb-8">
+              <img 
+                src={logo} 
+                alt="QuizA Logo" 
+                className='w-32 sm:w-40 mx-auto transform hover:scale-105 transition-transform duration-300' 
+              />
+              <div className="absolute inset-0 bg-blue-500 filter blur-3xl opacity-5 -z-10"></div>
+            </div>
 
-      <div className="sm:w-1/3 w-full bg-gradient-to-b from-blue-50 via-white to-gray-100 p-8 grid grid-cols-3 sm:grid-cols-1 lg:grid-cols-3 gap-4 hd-sm">
-      <Link to="/quizstlc" className="bg-white p-6 rounded-lg shadow-lg h-40 hover:bg-lime-200 text-center flex flex-col items-center">
-          <GiCycle className="text-2xl text-blue-600 mb-4" />
-          <h3 className="text-xs font-semibold text-gray-800">Software Test Life Cycle</h3>
-        </Link>
-        
-        <Link to="/quizprinciples" className="bg-white p-6 rounded-lg shadow-lg h-40 hover:bg-lime-200 text-center flex flex-col items-center">
-          <FaBullseye className="text-2xl text-blue-600 mb-4" />
-          <h3 className="text-xs font-semibold text-gray-800 mb-4">Principles of Testing</h3>
-        </Link>
+            <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
+              Welcome to <span className="text-blue-600">QuizA</span>
+            </h1>
 
-        <Link to="/ageestimator" className="bg-white p-6 rounded-lg shadow-lg h-40 hover:bg-lime-200 text-center flex flex-col items-center">
-          <FaCalculator className="text-2xl text-blue-600 mb-4" />
-          <h3 className="text-xs font-semibold text-gray-800">Test Age Estimator</h3>
-        </Link>
+            <div className="space-y-6 mb-8">
+              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
+                Embark on a comprehensive QA learning journey! QuizA offers:
+              </p>
+              
+              <ul className="text-gray-600 space-y-3 text-left max-w-xl mx-auto">
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">•</span>
+                  Interactive quizzes covering ISTQB fundamentals
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">•</span>
+                  Practical tools for real-world testing scenarios
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">•</span>
+                  Modern testing approaches including AI and TDD
+                </li>
+                <li className="flex items-start">
+                  <span className="text-blue-500 mr-2">•</span>
+                  Progress tracking and performance metrics
+                </li>
+              </ul>
+            </div>
 
-        <Link to="/metrics" className="bg-white p-6 rounded-lg shadow-lg h-40 hover:bg-lime-200 text-center flex flex-col items-center">
-          <FaClipboardList className="text-2xl text-blue-600 mb-4" />
-          <h3 className="text-xs font-semibold text-gray-800">Practice QA Metrics</h3>
-        </Link>
-
-        <Link to="/morequiza" className="bg-white p-6 rounded-lg shadow-lg h-40 hover:bg-lime-200 text-center flex flex-col items-center">
-          <FaQuestionCircle className="text-2xl text-blue-600 mb-4" />
-          <h3 className="text-xs font-semibold text-gray-800">ISTQB like Test</h3>
-        </Link>
-
-        <Link to="/creditrisk" className="bg-white p-6 rounded-lg shadow-lg h-40 hover:bg-lime-200 text-center flex flex-col items-center">
-          <FaCreditCard className="text-2xl text-blue-600 mb-4" />
-          <h3 className="text-xs font-semibold text-gray-800">Credit Risk Calculator</h3>
-        </Link>
-
-        <Link to="/bugreport" className="bg-white p-6 rounded-lg shadow-lg h-40 hover:bg-lime-200 text-center flex flex-col items-center">
-          <FaBug className="text-2xl text-blue-600 mb-4" />
-          <h3 className="text-xs font-semibold text-gray-800">QA Bug Report</h3>
-        </Link>
-        <Link to="/mood" className="bg-white p-6 rounded-lg shadow-lg h-40 hover:bg-lime-200 text-center flex flex-col items-center">
-          <BsFillEmojiSunglassesFill className="text-2xl text-blue-600 mb-4" />
-          <h3 className="text-xs font-semibold text-gray-800">Test Mood tracker App</h3>
-        </Link>
-        <Link to="/" className="bg-white p-6 rounded-lg shadow-lg h-40 hover:bg-lime-200 text-center flex flex-col items-center">
-          <IoConstructSharp className="text-2xl text-blue-600 mb-4" />
-          <h3 className="text-xs font-semibold text-gray-800">TTD App (Coming soon)</h3>
-        </Link>
-      </div>
-
-      <div className="sm:w-2/3 w-full bg-gradient-to-b from-blue-50 via-white to-gray-100  p-4 flex flex-col justify-center items-center">
-        <div className="bg-white p-6 rounded-lg shadow-lg w-full text-center">
-          <img src={logo} alt="QuizA Logo" className='w-32 mx-auto mb-6' />
-          <h1 className="text-2xl font-bold text-gray-800 mb-4">Welcome to QuizA</h1>
-          <p className="text-lg text-gray-600 mb-6">
-            Welcome to the QA Basics Quiz! Whether you're starting your journey in Quality Assurance or refreshing your knowledge, this quiz offers fun and engaging challenges to test your understanding of core QA concepts. Ready to dive in and sharpen your skills? Let's see how well you know the fundamentals of software quality assurance!
-          </p>
-          <Link
-            to="/quizstlc"
-            className="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-500 transition-all"
-          >
-            Start the Quiz
-          </Link>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <Link
+                to="/quizstlc"
+                className="inline-block bg-gradient-to-r from-blue-600 to-blue-700 text-white px-8 py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transform hover:-translate-y-0.5 transition-all duration-300 shadow-md hover:shadow-lg"
+              >
+                Start Learning
+              </Link>
+              <Link
+                to="/ai-qa"
+                className="inline-block bg-white text-blue-600 px-8 py-3 rounded-lg font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-all duration-300"
+              >
+                Explore AI in QA
+              </Link>
+            </div>
+          </div>
         </div>
-      </div>
+
+        <div className="w-full lg:w-1/2 p-4 sm:p-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            <Link to="/quizstlc" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
+              <GiCycle className="text-2xl text-blue-600 mb-4" />
+              <h3 className="text-xs font-semibold text-gray-800">Software Test Life Cycle</h3>
+            </Link>
+            
+            <Link to="/quizprinciples" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
+              <FaBullseye className="text-2xl text-blue-600 mb-4" />
+              <h3 className="text-xs font-semibold text-gray-800">Principles of Testing</h3>
+            </Link>
+
+            <Link to="/metrics" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
+              <FaClipboardList className="text-2xl text-blue-600 mb-4" />
+              <h3 className="text-xs font-semibold text-gray-800">Practice QA Metrics</h3>
+            </Link>
+
+            <Link to="/morequiza" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
+              <FaQuestionCircle className="text-2xl text-blue-600 mb-4" />
+              <h3 className="text-xs font-semibold text-gray-800">ISTQB like Test</h3>
+            </Link>
+
+            <Link to="/bugreport" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
+              <FaBug className="text-2xl text-blue-600 mb-4" />
+              <h3 className="text-xs font-semibold text-gray-800">QA Bug Report</h3>
+            </Link>
+
+            <Link to="/mood" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
+              <BsFillEmojiSunglassesFill className="text-2xl text-blue-600 mb-4" />
+              <h3 className="text-xs font-semibold text-gray-800">Mood tracker App</h3>
+            </Link>
+
+            <Link to="/creditrisk" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
+              <FaCalculator className="text-2xl text-blue-600 mb-4" />
+              <h3 className="text-xs font-semibold text-gray-800">Credit Risk Calculator</h3>
+            </Link>
+
+            <Link to="/jestintro" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
+              <IoConstructSharp className="text-2xl text-blue-600 mb-4" />
+              <h3 className="text-xs font-semibold text-gray-800">TDD with Jest</h3>
+            </Link>
+
+            <Link to="/ai-qa" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
+              <svg className="text-2xl text-blue-600 mb-4 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              <h3 className="text-xs font-semibold text-gray-800">AI in Quality Assurance</h3>
+            </Link>
+
+            <div className="bg-white p-6 rounded-lg shadow-lg cursor-not-allowed opacity-75 text-center flex flex-col items-center hd-sm group relative">
+              <SiSelenium className="text-blue-600 mb-4 text-2xl" />
+              <h3 className="text-xs font-semibold text-gray-800">Selenium Testing</h3>
+              <span className="absolute inset-0 flex items-center justify-center bg-black/75 text-white font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Coming Soon
+              </span>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-lg cursor-not-allowed opacity-75 text-center flex flex-col items-center hd-sm group relative">
+              <SiPostman className="text-blue-600 mb-4 text-2xl" />
+              <h3 className="text-xs font-semibold text-gray-800">API Testing</h3>
+              <span className="absolute inset-0 flex items-center justify-center bg-black/75 text-white font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Coming Soon
+              </span>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-lg cursor-not-allowed opacity-75 text-center flex flex-col items-center hd-sm group relative">
+              <TbBrowserCheck className="text-blue-600 mb-4 text-2xl" />
+              <h3 className="text-xs font-semibold text-gray-800">Cross Browser Testing</h3>
+              <span className="absolute inset-0 flex items-center justify-center bg-black/75 text-white font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Coming Soon
+              </span>
+            </div>
+
+            <div className="bg-white p-6 rounded-lg shadow-lg cursor-not-allowed opacity-75 text-center flex flex-col items-center hd-sm group relative">
+              <SiCucumber className="text-blue-600 mb-4 text-2xl" />
+              <h3 className="text-xs font-semibold text-gray-800">BDD with Cucumber</h3>
+              <span className="absolute inset-0 flex items-center justify-center bg-black/75 text-white font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                Coming Soon
+              </span>
+            </div>
+
+
+            <div className="bg-white p-6 rounded-lg shadow-lg cursor-not-allowed opacity-75 text-center flex flex-col items-center hd-sm group relative">
+              <SiCypress className="text-blue-600 mb-4 text-2xl" />
+              <h3 className="text-xs font-semibold text-gray-800">E2E with Cypress</h3>
+              <span className="absolute inset-0 flex items-center justify-center bg-black/75 text-white font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              Coming Soon
+            </span>
+          </div>
+          </div>
+        </div>
       </div>
 
       <div className="mt-8 border p-4 text-center font-poppins bg-gradient-to-b from-slate-50 via-white to-blue-100 shadow-md">

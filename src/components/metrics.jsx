@@ -182,7 +182,7 @@ const MetricsQuizGame = () => {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row h-max">
+    <div className="flex flex-col sm:flex-row h-max font-poppins">
       <div className="w-full sm:w-1/3 h-full bg-slate-800 p-4 text-white overflow-y-auto">
         <h2 className="text-xl font-bold text-center mb-4 text-lime-50">Metrics</h2>
         <ul className="space-y-3 font-poppins">

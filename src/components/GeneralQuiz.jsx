@@ -39,7 +39,7 @@ const ISTQBQAQuiz = () => {
 
   const navigate = useNavigate();
   return (
-    <div className="flex flex-row h-screen">
+    <div className="flex flex-row h-screen font-poppins">
         <div className="w-1/4 bg-slate-800 p-4 overflow-y-auto">
         <h2 className="text-xl font-bold text-lime-50 mb-4 text-center">Questions</h2>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">

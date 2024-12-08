@@ -13,7 +13,16 @@ const ItemType = {
 const DraggableCard = ({ card, onDrag }) => {
   const [{ isDragging }, drag] = useDrag(() => ({
     type: ItemType.CARD,
-    item: { id: card.id },
+    item: () => {
+      const dropZoneContainer = document.querySelector('.dropzone-container');
+      if (dropZoneContainer) {
+        dropZoneContainer.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+      return { id: card.id };
+    },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
@@ -22,19 +31,20 @@ const DraggableCard = ({ card, onDrag }) => {
   return (
     <div
       ref={drag}
-      className="bg-white border flex justify-center gap-0 flex-row text-center items-center border-gray-300 p-1 m-1 rounded cursor-pointer shadow"
+      className={`
+        bg-white border flex items-center gap-3 p-4 m-2 rounded-lg
+        cursor-pointer shadow-md transition-all duration-300
+        hover:shadow-lg hover:border-blue-400
+        ${isDragging ? 'opacity-50' : 'opacity-100'}
+      `}
       style={{
-        opacity: isDragging ? 0.5 : 1,
-        width: '350px',
-        height: '120px',
-        textAlign: 'center',
-        fontSize: '14px',
-        fontFamily: 'Poppins',
+        width: '480px',
+        minHeight: '80px',
       }}
       onDrag={onDrag}
     >
-      <div className="text-xl text-purple-900 mr-1">{card.icon}</div>
-      <h4 className="font-bold text-md">{card.title}</h4>
+      <div className="text-2xl text-blue-600">{card.icon}</div>
+      <h4 className="font-medium text-gray-700 text-sm leading-tight">{card.title}</h4>
     </div>
   );
 };
@@ -51,16 +61,30 @@ const DropZone = ({ index, onDrop, currentCard, onReturn }) => {
   return (
     <div
       ref={drop}
-      className={`border-dashed border-2 p-4 m-1 rounded h-20 w-[400px] flex items-center justify-center ${isOver ? 'bg-lime-100' : 'bg-gray-100'}`}
+      className={`
+        border-2 rounded-lg p-4 m-2 transition-all duration-300
+        flex items-center justify-center min-h-[80px] w-[420px]
+        ${isOver 
+          ? 'border-blue-400 bg-blue-50' 
+          : 'border-dashed border-gray-300 bg-gray-50'}
+        ${currentCard ? 'border-solid' : 'border-dashed'}
+      `}
     >
       {currentCard ? (
-        <div onClick={() => onReturn(currentCard, index)} className="cursor-pointer flex flex-row justify-center text-center">
-          <div className="text-md text-purple-900 mr-2">{currentCard.icon}</div>
-          <h4 className="text-[10px] mb-2">{currentCard.title}</h4>
-          <p className="text-xs text-purple-500 ml-2">(Click to return)</p>
+        <div 
+          onClick={() => onReturn(currentCard, index)} 
+          className="flex items-center gap-3 cursor-pointer group w-full"
+        >
+          <div className="text-xl text-blue-600">{currentCard.icon}</div>
+          <div className="flex-1">
+            <h4 className="text-sm text-gray-700">{currentCard.title}</h4>
+            <p className="text-xs text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity">
+              Click to remove
+            </p>
+          </div>
         </div>
       ) : (
-        <p className="text-gray-400">Drop Here</p>
+        <p className="text-gray-400 text-sm">Drop card here</p>
       )}
     </div>
   );
@@ -176,7 +200,7 @@ const BugReport = () => {
       { id: 'screenshots', title: 'Screenshots/Attachments:', icon: <VscDebugAltSmall /> },
       { id: 'Notes', title: 'Additional Notes: notes', icon: <VscDebugAltSmall /> },
     ]);
-    setDropZones(Array(10).fill(null));
+    setDropZones(Array(15).fill(null));
     setIsTaskCompleted(false);
   };
 
@@ -185,50 +209,67 @@ const BugReport = () => {
       <Modal isOpen={isModalOpen} onClose={closeModal} modalData={bugReportModalDataR} />
       {!isTaskCompleted ? (
         <div className="p-6">
-            <h1 className="text-center text-xl md:text-3xl font-bold mb-6 mt-4">Bug Report</h1>
-
-            <h2 className="font-poppins p-4">
-            Drag and drop the sections of the bug report into the correct order below. This task requires your attention to detail, so please take your time and ensure everything is placed in the right sequence. 
-            If you're unsure about the correct order, don't worry! You can always refer to the modal for assistance by clicking the 'Need Help?' button. 
-            Remember, accuracy is important, so be patient with yourself as you complete the task. Once you're confident with the arrangement, click the 'Submit Order' button to proceed.
-            <button
+          <div className="text-center mb-8">
+            <h1 className="text-3xl font-bold text-gray-800 mb-4">Bug Report Exercise</h1>
+            <div className="max-w-3xl mx-auto">
+              <p className="text-gray-600 mb-4">
+                Arrange the bug report sections in the correct order by dragging and dropping them.
+              </p>
+              <button
                 onClick={openModal}
-                className="bg-blue-500 text-slate-100 py-1 px-2 m-2 rounded-md hover:bg-blue-700 transition-all duration-300"
-            >
-                Need Help?
-            </button>
-            </h2>
-
-          <div className="flex">
-            <div className="w-3/5 flex flex-wrap justify-start p-1 h-min">
-              {draggableCards.map((card) => (
-                <DraggableCard key={card.id} card={card} onDrag={handleDrag} />
-              ))}
-            </div>
-
-            <div ref={dropZoneContainerRef} className="w-2/5 flex flex-wrap justify-start p-2 overflow-y-auto" style={{ maxHeight: '600px' }}>
-              {dropZones.map((zone, index) => (
-                <DropZone
-                  key={index}
-                  index={index}
-                  onDrop={handleDrop}
-                  currentCard={zone}
-                  onReturn={handleReturn}
-                />
-              ))}
+                className="inline-flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg
+                          hover:bg-blue-600 transition-colors"
+              >
+                <span>Need Help?</span>
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} 
+                        d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </button>
             </div>
           </div>
 
-          <div className="flex justify-center mt-6 gap-4">
+          <div className="flex gap-8">
+            <div className="flex-1 bg-gray-50 p-4 rounded-xl">
+              <h2 className="text-lg font-semibold text-gray-700 mb-4 text-center">Available Sections</h2>
+              <div className="flex flex-wrap justify-center">
+                {draggableCards.map((card) => (
+                  <DraggableCard key={card.id} card={card} onDrag={handleDrag} />
+                ))}
+              </div>
+            </div>
+
+            <div className="w-[460px] bg-white p-4 rounded-xl shadow-sm">
+              <h2 className="text-lg font-semibold text-gray-700 mb-4 text-center">Arrange Here</h2>
+              <div 
+                ref={dropZoneContainerRef} 
+                className="dropzone-container overflow-y-auto max-h-[600px] pr-2 space-y-2"
+              >
+                {dropZones.map((zone, index) => (
+                  <DropZone
+                    key={index}
+                    index={index}
+                    onDrop={handleDrop}
+                    currentCard={zone}
+                    onReturn={handleReturn}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-center gap-4 mt-8">
             <button
               onClick={validateOrder}
-              className="bg-slate-600 text-lime-200 p-2 rounded w-40 hover:bg-lime-300 hover:text-slate-500 transition-all duration-300"
+              className="px-6 py-3 bg-green-500 text-white rounded-lg font-medium
+                        hover:bg-green-600 transition-colors"
             >
               Submit Order
             </button>
             <button
               onClick={resetGame}
-              className="bg-violet-400 text-lime-200 p-2 rounded w-40 hover:bg-pink-400 transition-all duration-300"
+              className="px-6 py-3 bg-gray-500 text-white rounded-lg font-medium
+                        hover:bg-gray-600 transition-colors"
             >
               Start Over
             </button>
