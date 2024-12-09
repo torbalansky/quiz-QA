@@ -2974,3 +2974,837 @@ function parseURL(url) {
     ]
   }
 ];
+
+export const WBtheory = {
+  introduction: {
+    title: "White Box Testing",
+    description: `White box testing, also known as clear box testing, glass box testing, or structural testing, 
+    is a methodology where the internal logic of the software system is tested. Unlike black box testing, 
+    testers have complete access to the source code and internal structure of the application.`,
+    keyPoints: [
+      "Internal logic examination",
+      "Code structure analysis",
+      "Path coverage verification",
+      "Branch and condition testing",
+      "Statement coverage assessment"
+    ]
+  },
+
+  mainConcepts: [
+    {
+      title: "Core Components",
+      points: [
+        "Internal security vulnerabilities",
+        "Code structure and organization",
+        "Data flow analysis",
+        "Control flow examination",
+        "Input-output pathways",
+        "Loop handling mechanisms"
+      ]
+    },
+    {
+      title: "Testing Techniques",
+      points: [
+        "Statement Coverage - executing each line of code at least once",
+        "Decision Coverage - testing each decision branch",
+        "Condition Coverage - evaluating each boolean condition",
+        "Path Coverage - testing all possible paths through the code",
+        "Loop Coverage - testing loop boundaries and iterations",
+        "Function Coverage - ensuring each function is called"
+      ]
+    }
+  ],
+
+  advantages: [
+    "Early detection of code issues",
+    "Optimization of code efficiency",
+    "Thorough testing of critical paths",
+    "Identification of hidden errors",
+    "Better code understanding for testers",
+    "Improved test coverage metrics"
+  ],
+
+  challenges: [
+    "Requires programming knowledge",
+    "Time-consuming process",
+    "Complex for large systems",
+    "Needs access to source code",
+    "Requires detailed documentation"
+  ],
+
+  bestPractices: [
+    {
+      title: "Code Review Integration",
+      description: "Combine white box testing with regular code reviews for better coverage"
+    },
+    {
+      title: "Test Case Design",
+      description: "Create test cases based on code structure and logic flows"
+    },
+    {
+      title: "Coverage Analysis",
+      description: "Use tools to measure and improve test coverage"
+    },
+    {
+      title: "Documentation",
+      description: "Maintain detailed documentation of test cases and coverage"
+    }
+  ],
+
+  coverageMetrics: [
+    {
+      name: "Statement Coverage",
+      description: "Percentage of code statements executed during testing",
+      formula: "Executed Statements / Total Statements × 100"
+    },
+    {
+      name: "Branch Coverage",
+      description: "Percentage of decision branches executed",
+      formula: "Executed Branches / Total Branches × 100"
+    },
+    {
+      name: "Path Coverage",
+      description: "Percentage of possible paths executed",
+      formula: "Executed Paths / Total Possible Paths × 100"
+    }
+  ],
+
+  tools: [
+    {
+      name: "JaCoCo",
+      description: "Java Code Coverage Library"
+    },
+    {
+      name: "Istanbul",
+      description: "JavaScript Code Coverage Tool"
+    },
+    {
+      name: "Coverage.py",
+      description: "Python Code Coverage Tool"
+    },
+    {
+      name: "gcov",
+      description: "GNU Code Coverage Tool"
+    }
+  ],
+
+  realWorldApplications: [
+    {
+      scenario: "Unit Testing",
+      description: "Testing individual components and functions"
+    },
+    {
+      scenario: "Integration Testing",
+      description: "Testing component interactions and data flow"
+    },
+    {
+      scenario: "Security Testing",
+      description: "Identifying security vulnerabilities in code"
+    },
+    {
+      scenario: "Performance Optimization",
+      description: "Identifying and improving performance bottlenecks"
+    }
+  ],
+
+  commonErrors: [
+    {
+      type: "Logic Errors",
+      description: "Incorrect implementation of business logic"
+    },
+    {
+      type: "Loop Errors",
+      description: "Infinite loops or incorrect iteration"
+    },
+    {
+      type: "Memory Leaks",
+      description: "Improper memory management"
+    },
+    {
+      type: "Exception Handling",
+      description: "Missing or improper error handling"
+    }
+  ]
+};
+
+export const chatbotRules = [
+  {
+    trigger: 'hello',
+    response: 'Hi! How can I help you today?'
+  },
+  {
+    trigger: 'test',
+    response: 'I can help you understand testing concepts. What would you like to know?'
+  },
+  {
+    trigger: 'white box',
+    response: 'White box testing involves examining the internal logic of the software system.'
+  },
+  // Add more rules
+];
+
+export const WBtestCases = [
+  {
+    name: "Basic Greeting Flow",
+    description: "Test the basic greeting functionality",
+    testInputs: [
+      { input: "hi", expectedOutput: "Hi! How can I help you today?" },
+      { input: "hello", expectedOutput: "Hi! How can I help you today?" },
+      { input: "hey", expectedOutput: "Hi! How can I help you today?" }
+    ]
+  },
+  {
+    name: "White Box Concepts",
+    description: "Test understanding of core white box testing concepts",
+    testInputs: [
+      { input: "what is white box testing", expectedOutput: "White box testing, also known as clear box testing..." },
+      { input: "explain statement coverage", expectedOutput: "Statement coverage measures..." },
+      { input: "branch coverage", expectedOutput: "Branch coverage ensures all decision points..." }
+    ]
+  },
+  {
+    name: "Code Coverage Queries",
+    description: "Test responses about different types of coverage",
+    testInputs: [
+      { input: "what is path coverage", expectedOutput: "Path coverage tests all possible paths..." },
+      { input: "explain condition coverage", expectedOutput: "Condition coverage focuses on..." },
+      { input: "loop coverage", expectedOutput: "Loop coverage ensures testing of..." }
+    ]
+  },
+  {
+    name: "Testing Tools",
+    description: "Test knowledge about testing tools and frameworks",
+    testInputs: [
+      { input: "what tools can I use", expectedOutput: "Popular white box testing tools include..." },
+      { input: "coverage tools", expectedOutput: "For measuring code coverage, you can use..." },
+      { input: "testing frameworks", expectedOutput: "Common testing frameworks include..." }
+    ]
+  },
+  {
+    name: "Best Practices",
+    description: "Test recommendations for white box testing",
+    testInputs: [
+      { input: "best practices", expectedOutput: "Here are key best practices..." },
+      { input: "testing tips", expectedOutput: "When performing white box testing..." },
+      { input: "common mistakes", expectedOutput: "Common mistakes to avoid include..." }
+    ]
+  },
+  {
+    name: "Example Requests",
+    description: "Test provision of examples and scenarios",
+    testInputs: [
+      { input: "give me an example", expectedOutput: "Here's a simple example..." },
+      { input: "show test cases", expectedOutput: "Here are some test cases..." },
+      { input: "code example", expectedOutput: "Here's a code example..." }
+    ]
+  },
+  {
+    name: "Unknown Input Handling",
+    description: "Test how the chatbot handles unknown inputs",
+    testInputs: [
+      { input: "xyz", expectedOutput: "I'm not sure about that specific query..." },
+      { input: "random text", expectedOutput: "I'm not sure about that specific query..." },
+      { input: "123", expectedOutput: "I'm not sure about that specific query..." }
+    ]
+  },
+  {
+    name: "Complex Queries",
+    description: "Test handling of multi-part questions",
+    testInputs: [
+      { input: "how do I test loops and conditions", expectedOutput: "For testing loops and conditions..." },
+      { input: "explain path and branch coverage", expectedOutput: "Let me explain both concepts..." },
+      { input: "tools for coverage testing", expectedOutput: "For coverage testing, you can use..." }
+    ]
+  },
+  {
+    name: "Follow-up Questions",
+    description: "Test contextual responses to follow-up questions",
+    testInputs: [
+      { input: "can you explain more", expectedOutput: "What specific aspect would you like..." },
+      { input: "show me how", expectedOutput: "I can show you examples of..." },
+      { input: "why is this important", expectedOutput: "This is important because..." }
+    ]
+  },
+  {
+    name: "Error Conditions",
+    description: "Test handling of edge cases and errors",
+    testInputs: [
+      { input: "", expectedOutput: "Please ask a question..." },
+      { input: "   ", expectedOutput: "Please ask a question..." },
+      { input: "?", expectedOutput: "I'm not sure about that specific query..." }
+    ]
+  }
+];
+
+export const WBcodeExamples = [
+  {
+    title: "Testing Chatbot Input Processing",
+    code: `// Test cases for processUserInput function
+test('Empty input handling', () => {
+  expect(processUserInput('')).toBe('Please ask a question...');
+  expect(processUserInput('   ')).toBe('Please ask a question...');
+});
+
+test('Greeting patterns', () => {
+  expect(processUserInput('hi')).toBe('Hi! How can I help you today?');
+  expect(processUserInput('hello')).toBe('Hi! How can I help you today?');
+  expect(processUserInput('hey')).toBe('Hi! How can I help you today?');
+});
+
+test('White box testing queries', () => {
+  expect(processUserInput('what is white box')).toContain('White box testing');
+  expect(processUserInput('explain white box')).toContain('White box testing');
+});`,
+    explanation: "These test cases verify the chatbot's input processing and pattern matching functionality."
+  },
+  {
+    title: "Testing Response Generation",
+    code: `// Test different paths through the response logic
+test('Rule matching paths', () => {
+  // Test exact greeting match
+  const greetingInput = 'hi';
+  expect(processUserInput(greetingInput)).toBe('Hi! How can I help you today?');
+
+  // Test partial match for topics
+  const topicInput = 'statement coverage';
+  expect(processUserInput(topicInput)).toContain('Statement Coverage');
+
+  // Test unknown input handling
+  const unknownInput = 'xyz123';
+  expect(processUserInput(unknownInput)).toContain('I\'m not sure about');
+});`,
+    explanation: "These tests ensure different execution paths through the chatbot's response logic are working correctly."
+  },
+  {
+    title: "Coverage Testing the Chatbot",
+    code: `// Statement coverage for chatbot rules
+test('Coverage of all response types', () => {
+  // Test function-based response
+  expect(processUserInput('')).toBe('Please ask a question...');
+  
+  // Test string-based response
+  expect(processUserInput('white box')).toContain('White box testing');
+  
+  // Test regex pattern matching
+  expect(processUserInput('HELLO')).toBe('Hi! How can I help you today?');
+  expect(processUserInput('hello there')).not.toBe('Hi! How can I help you today?');
+});`,
+    explanation: "This demonstrates how to achieve good code coverage when testing the chatbot's functionality."
+  }
+];
+
+export const WBchatbotDoc = {
+  title: "White Box Testing Chatbot",
+  description: "An interactive chatbot designed to help users understand white box testing concepts through pattern-based responses.",
+  
+  capabilities: [
+    {
+      title: "Basic White Box Testing Concepts",
+      description: "Explains fundamental white box testing concepts and methodologies",
+      examples: [
+        { 
+          input: "what is white box", 
+          output: "White box testing, also known as clear box testing, examines the internal logic of software systems..." 
+        },
+        { 
+          input: "code coverage", 
+          output: "Here are the main code coverage techniques:\n1. Statement Coverage\n2. Branch Coverage\n3. Path Coverage\n4. Condition Coverage" 
+        }
+      ]
+    },
+    {
+      title: "Coverage Types Explanation",
+      description: "Detailed explanations of different coverage types with examples",
+      examples: [
+        { 
+          input: "statement coverage", 
+          output: "Statement Coverage ensures each line of code is executed at least once..." 
+        },
+        { 
+          input: "branch coverage", 
+          output: "Branch Coverage tests all possible decision outcomes..." 
+        },
+        { 
+          input: "path coverage", 
+          output: "Path Coverage tests all possible execution paths through the code..." 
+        }
+      ]
+    },
+    {
+      title: "Testing Tools Information",
+      description: "Information about popular white box testing tools",
+      examples: [
+        { 
+          input: "testing tools", 
+          output: "Popular white box testing tools include:\n1. JaCoCo (Java)\n2. Istanbul (JavaScript)\n3. Coverage.py (Python)" 
+        }
+      ]
+    }
+  ],
+
+  usage: {
+    basicCommands: [
+      {
+        command: "hi/hello/hey",
+        description: "Start a conversation with the chatbot",
+        example: "hi"
+      },
+      {
+        command: "white box",
+        description: "Get basic information about white box testing",
+        example: "what is white box"
+      },
+      {
+        command: "coverage",
+        description: "Learn about code coverage techniques",
+        example: "code coverage"
+      },
+      {
+        command: "[coverage type]",
+        description: "Get specific information about a coverage type",
+        example: "statement coverage"
+      }
+    ],
+    bestPractices: [
+      "Use simple, clear keywords from the available patterns",
+      "Ask about specific coverage types directly",
+      "Use 'example' to see practical implementations",
+      "Start with basic concepts before advanced topics"
+    ]
+  },
+
+  features: [
+    {
+      name: "Concept Explanations",
+      description: "Basic white box testing concept explanations",
+      trigger: "white box",
+      example: "what is white box"
+    },
+    {
+      name: "Coverage Types",
+      description: "Detailed coverage type explanations",
+      trigger: "statement/branch/path coverage",
+      example: "statement coverage"
+    },
+    {
+      name: "Testing Tools",
+      description: "Information about testing tools",
+      trigger: "testing tools",
+      example: "testing tools"
+    },
+    {
+      name: "Best Practices",
+      description: "White box testing best practices",
+      trigger: "best practices",
+      example: "best practices"
+    }
+  ],
+
+  limitations: [
+    "Responds only to predefined patterns",
+    "Cannot engage in free-form conversation",
+    "Limited to specific white box testing topics",
+    "Cannot provide project-specific advice",
+    "No dynamic code analysis capabilities"
+  ],
+
+  examples: [
+    {
+      scenario: "Learning About White Box Testing",
+      conversation: [
+        { role: "user", content: "hi" },
+        { role: "assistant", content: "Hi! How can I help you today?" },
+        { role: "user", content: "what is white box" },
+        { role: "assistant", content: "White box testing, also known as clear box testing, examines the internal logic of software systems..." }
+      ]
+    },
+    {
+      scenario: "Understanding Coverage Types",
+      conversation: [
+        { role: "user", content: "code coverage" },
+        { role: "assistant", content: "Here are the main code coverage techniques:\n1. Statement Coverage\n2. Branch Coverage..." },
+        { role: "user", content: "statement coverage" },
+        { role: "assistant", content: "Statement Coverage ensures each line of code is executed at least once..." }
+      ]
+    }
+  ],
+
+  tips: [
+    {
+      title: "Getting Started",
+      points: [
+        "Begin with 'hi' to start the conversation",
+        "Use exact keywords for better responses",
+        "Ask about specific coverage types directly",
+        "Request examples using the 'example' keyword"
+      ]
+    },
+    {
+      title: "Available Topics",
+      points: [
+        "White box testing basics",
+        "Code coverage techniques",
+        "Statement, branch, and path coverage",
+        "Testing tools and best practices"
+      ]
+    }
+  ]
+};
+
+export const WBchatbotRules = [
+  {
+    trigger: 'hi|hello|hey|^$|^\\s+$',
+    response: (input) => {
+      if (!input || input.trim() === '') {
+        return 'Please ask a question...';
+      }
+      return 'Hi! How can I help you today?';
+    }
+  },
+  {
+    trigger: 'white box|whitebox|what is white box|what\'s white box|explain white box|white box testing',
+    response: `White box testing, also known as clear box testing, examines the internal logic of software systems. Key concepts include:
+• Statement Coverage
+• Branch Coverage
+• Path Coverage
+• Control Flow Testing
+• Data Flow Testing
+
+Which concept would you like to learn more about?`
+  },
+  {
+    trigger: '^code coverage$|^Code Coverage$|coverage techniques|code coverage techniques|^coverage$',
+    response: `Here are the main code coverage techniques:
+
+1. Statement Coverage
+   - Measures which lines of code are executed
+   - Basic level of coverage testing
+
+2. Branch Coverage
+   - Tests all decision outcomes
+   - More thorough than statement coverage
+
+3. Path Coverage
+   - Tests all possible execution paths
+   - Most comprehensive coverage
+
+4. Condition Coverage
+   - Tests boolean expressions
+   - Focuses on complex conditions
+
+Would you like to learn more about any specific type?`
+  },
+  {
+    trigger: 'statement|statement coverage|explain statement|what is statement coverage',
+    response: `Statement Coverage ensures each line of code is executed at least once.
+
+Example:
+function gradeScore(score) {
+  let grade;                  // Statement 1
+  if (score >= 90) {         // Statement 2
+    grade = 'A';             // Statement 3
+  } else {
+    grade = 'B';             // Statement 4
+  }
+  return grade;              // Statement 5
+}
+
+Would you like to:
+1. See test cases for this example
+2. Learn about measuring statement coverage
+3. See more examples`
+  },
+  {
+    trigger: 'branch|branch coverage|explain branch|what is branch coverage',
+    response: `Branch Coverage tests all possible decision outcomes.
+
+Example:
+function validateInput(value) {
+  if (value < 0) {           // Branch 1: true/false
+    return 'Invalid';
+  } else if (value > 100) {  // Branch 2: true/false
+    return 'Too high';
+  }
+  return 'Valid';
+}
+
+Would you like to:
+1. See test cases for branches
+2. Learn about decision points
+3. See more examples`
+  },
+  {
+    trigger: 'path|path coverage|test path|paths|what is path|explain path',
+    response: `Path Coverage tests all possible execution paths through the code.
+
+Example:
+function processOrder(isVIP, hasDiscount) {
+  // Possible paths:
+  // 1. VIP + Discount
+  // 2. VIP + No Discount
+  // 3. Not VIP + Discount
+  // 4. Not VIP + No Discount
+
+  let price = 100;
+  if (isVIP) price *= 0.9;
+  if (hasDiscount) price *= 0.95;
+  return price;
+}
+
+Would you like to:
+1. See test cases for each path
+2. Learn about path identification
+3. See more examples`
+  },
+  {
+    trigger: '^testing tools$|^Testing Tools$|^tools$|^tool$|coverage tools?|testing frameworks?',
+    response: `Popular white box testing tools include:
+
+1. JaCoCo (Java)
+   - Statement and branch coverage
+   - Integration with Maven/Gradle
+   - HTML reports generation
+
+2. Istanbul (JavaScript)
+   - Line and function coverage
+   - Integration with Jest/Mocha
+   - Coverage reporting
+
+3. Coverage.py (Python)
+   - Line and branch coverage
+   - HTML/XML reports
+   - Integration with pytest
+
+Would you like to:
+1. Learn how to use a specific tool
+2. See example reports
+3. Understand tool configuration`
+  },
+  {
+    trigger: '^test case creation$|^Test Case Creation$|create test cases?|test cases?',
+    response: `For creating effective test cases, follow these steps:
+
+1. Analyze the Code Structure
+   - Identify all statements
+   - Map decision points
+   - List possible paths
+
+2. Design Test Cases
+   - Cover all statements
+   - Test all branches
+   - Include boundary conditions
+
+3. Example Structure:
+   test('description', () => {
+     // Arrange
+     const input = value;
+     // Act
+     const result = functionUnderTest(input);
+     // Assert
+     expect(result).toBe(expectedOutput);
+   });
+
+Would you like to:
+1. See more examples
+2. Learn about test case design patterns
+3. Practice creating test cases`
+  },
+  {
+    trigger: '^best practices$|^Best Practices$|^practices$|testing tips|common mistakes',
+    response: `Here are key best practices for white box testing:
+
+1. Test Coverage
+   - Start with statement coverage
+   - Progress to branch coverage
+   - Aim for path coverage where critical
+
+2. Test Design
+   - Write tests before fixing bugs
+   - Include boundary conditions
+   - Test negative scenarios
+
+3. Documentation
+   - Document test cases clearly
+   - Maintain test coverage reports
+   - Track uncovered code
+
+Would you like to:
+1. See examples of each practice
+2. Learn implementation details
+3. Understand common pitfalls`
+  },
+  {
+    trigger: 'example|show me|can you show|give me an example|show test cases|code example',
+    response: `Here's a simple example of white box testing:
+
+1. Statement Coverage Example:
+function calculateTotal(price) {
+    let total = price;        // Statement 1
+    if (price > 100) {       // Statement 2
+        total *= 0.9;        // Statement 3
+    }
+    return total;            // Statement 4
+}
+
+Test Cases:
+1. price = 50  (covers statements 1, 2, 4)
+2. price = 150 (covers statements 1, 2, 3, 4)
+
+Would you like to:
+1. See more examples
+2. Try different test cases
+3. See examples for other coverage types`
+  },
+  {
+    trigger: 'test loops and conditions|path and branch|coverage testing|explain both|multiple|combined',
+    response: `Let me explain both concepts:
+
+1. Loop Testing:
+   - Test 0 iterations
+   - Test 1 iteration
+   - Test multiple iterations
+   - Test maximum iterations
+
+2. Branch Coverage:
+   - Test all decision points
+   - Cover true/false conditions
+   - Test boundary values
+
+Would you like to:
+1. See examples of either concept
+2. Learn about testing strategies
+3. See combined examples`
+  },
+  {
+    trigger: 'explain more|tell me more|show how|why|what about|how do I|can you explain',
+    response: `What specific aspect would you like to learn more about?
+
+1. Code examples
+2. Test cases
+3. Best practices
+4. Common pitfalls
+5. Implementation details
+
+Please specify your area of interest.`
+  },
+  {
+    trigger: 'control flow|control testing|flow testing',
+    response: `Control Flow Testing examines the sequence of operations in your code.
+
+Key aspects include:
+1. Sequential flow
+2. Conditional branches
+3. Loops and iterations
+4. Function calls
+
+Would you like to:
+1. See control flow examples
+2. Learn about flow graphs
+3. Understand testing strategies`
+  },
+  {
+    trigger: 'data flow|data testing|flow analysis',
+    response: `Data Flow Testing focuses on tracking variables and their values.
+
+Key concepts:
+1. Variable definitions
+2. Variable usage
+3. Definition-use pairs
+4. Data dependencies
+
+Would you like to:
+1. See data flow examples
+2. Learn about analysis techniques
+3. Understand testing patterns`
+  },
+  {
+    trigger: '.*',
+    response: `I'm not sure about that specific query. Here are some topics I can help with:
+• White box testing concepts
+• Code coverage techniques
+• Test case creation
+• Testing tools
+• Best practices
+
+What would you like to learn about?`
+  }
+];
+
+export const BBtheory = {
+  introduction: {
+    title: "Black Box Testing",
+    description: "Black Box Testing is a method of software testing that examines the functionality of an application without peering into its internal structures or workings.",
+    keyPoints: [
+      "Focuses on input and output of software systems.",
+      "Testers are unaware of the internal code structure.",
+      "Tests are based on requirements and functionality."
+    ]
+  },
+  mainConcepts: [
+    {
+      title: "Key Concepts",
+      points: [
+        "Equivalence Partitioning: Divides input data into valid and invalid partitions.",
+        "Boundary Value Analysis: Tests the boundaries between partitions.",
+        "Decision Table Testing: Uses tables to represent combinations of inputs.",
+        "State Transition Testing: Tests state changes in the application.",
+        "Use Case Testing: Validates user scenarios and interactions."
+      ]
+    },
+    {
+      title: "Test Plan Design",
+      points: [
+        "Identify the scope and objectives of testing.",
+        "Define the testing strategy and approach.",
+        "Determine the resources and timeline required.",
+        "Outline the deliverables and reporting structure."
+      ]
+    },
+    {
+      title: "Test Scenarios",
+      points: [
+        "Identify high-level scenarios that cover major functionalities.",
+        "Ensure scenarios are aligned with business requirements.",
+        "Prioritize scenarios based on risk and impact.",
+        "Use scenarios to guide detailed test case creation."
+      ]
+    },
+    {
+      title: "Test Environment",
+      points: [
+        "Set up a test environment that mimics production.",
+        "Ensure all necessary hardware and software are available.",
+        "Configure data and user accounts for testing.",
+        "Document the environment setup for reproducibility."
+      ]
+    },
+    {
+      title: "Test Cases",
+      points: [
+        "Derive test cases from test scenarios.",
+        "Ensure test cases are clear, concise, and comprehensive.",
+        "Include both positive and negative test cases.",
+        "Review and update test cases regularly."
+      ]
+    },
+    {
+      title: "Estimation",
+      points: [
+        "Estimate effort based on complexity and scope.",
+        "Use historical data and expert judgment for estimation.",
+        "Consider factors like resource availability and skill level.",
+        "Regularly review and adjust estimates as needed."
+      ]
+    }
+  ],
+  advantages: [
+    "Unbiased testing as the tester is independent of the development team.",
+    "Helps identify discrepancies between the specification and the actual system.",
+    "Effective for large code segments."
+  ],
+  challenges: [
+    "Limited coverage as it does not test the internal paths.",
+    "Test cases can be difficult to design without clear specifications.",
+    "May miss logical errors in the code."
+  ]
+};

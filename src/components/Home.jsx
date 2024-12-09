@@ -11,7 +11,7 @@ import { SiPostman } from "react-icons/si";
 import { TbBrowserCheck } from "react-icons/tb";
 import { SiCucumber } from "react-icons/si";
 import { SiCypress } from "react-icons/si";
-import { SiJest } from "react-icons/si";
+import { AiOutlineCodeSandbox } from "react-icons/ai";
 
 const Home = () => {
   const formRef = useRef();
@@ -188,6 +188,11 @@ const Home = () => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
               <h3 className="text-xs font-semibold text-gray-800">AI in Quality Assurance</h3>
+            </Link>
+
+            <Link to="/box-testing" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
+            <AiOutlineCodeSandbox className="text-2xl text-blue-600 mb-4" />
+              <h3 className="text-xs font-semibold text-gray-800">B/W box testing</h3>
             </Link>
 
             <div className="bg-white p-6 rounded-lg shadow-lg cursor-not-allowed opacity-75 text-center flex flex-col items-center hd-sm group relative">

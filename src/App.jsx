@@ -22,6 +22,11 @@ import MoodTrackerTestPlan from './components/MoodTrackerTestPlan';
 import TDDQuizGame from './components/TDDQuizGame';
 import JestIntro from './components/JestIntro';
 import AIinQA from './components/AIinQA';
+import BoxTesting from './components/BoxTesting';
+import BlackBoxTesting from './components/BlackBoxTesting';
+import WhiteBoxTesting from './components/WhiteBoxTesting';
+import WBChatbotDocs from './components/WBChatbotDocs';
+
 const App = () => {
   useEffect(() => {
     Aos.init({
@@ -69,6 +74,10 @@ const App = () => {
         <Route path="/tdd" element={<TDDQuizGame />} />
         <Route path="/jestintro" element={<JestIntro />} />
         <Route path="/ai-qa" element={<AIinQA />} />
+        <Route path="/box-testing" element={<BoxTesting />} />
+        <Route path="/black-box-testing" element={<BlackBoxTesting />} />
+        <Route path="/white-box-testing" element={<WhiteBoxTesting />} />
+        <Route path="/wb-chatbot-docs" element={<WBChatbotDocs />} />
       </Routes>
     </Router>
   );
