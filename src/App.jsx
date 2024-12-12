@@ -26,7 +26,7 @@ import BoxTesting from './components/BoxTesting';
 import BlackBoxTesting from './components/BlackBoxTesting';
 import WhiteBoxTesting from './components/WhiteBoxTesting';
 import WBChatbotDocs from './components/WBChatbotDocs';
-import APITesting from './components/APITesting';
+import APITesting from './components/ApiTesting';
 import PostmanTesting from './components/PostmanTesting';
 
 const App = () => {
