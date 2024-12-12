@@ -26,6 +26,8 @@ import BoxTesting from './components/BoxTesting';
 import BlackBoxTesting from './components/BlackBoxTesting';
 import WhiteBoxTesting from './components/WhiteBoxTesting';
 import WBChatbotDocs from './components/WBChatbotDocs';
+import APITesting from './components/APITesting';
+import PostmanTesting from './components/PostmanTesting';
 
 const App = () => {
   useEffect(() => {
@@ -78,6 +80,8 @@ const App = () => {
         <Route path="/black-box-testing" element={<BlackBoxTesting />} />
         <Route path="/white-box-testing" element={<WhiteBoxTesting />} />
         <Route path="/wb-chatbot-docs" element={<WBChatbotDocs />} />
+        <Route path="/api-testing" element={<APITesting />} />
+        <Route path="/postman-testing" element={<PostmanTesting />} />
       </Routes>
     </Router>
   );

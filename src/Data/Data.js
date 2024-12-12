@@ -3808,3 +3808,316 @@ export const BBtheory = {
     "May miss logical errors in the code."
   ]
 };
+
+export const apiQuestions = [
+  {
+    id: 1,
+    question: "Which HTTP method should be used to retrieve data from an API?",
+    options: ["GET", "POST", "PUT", "DELETE"],
+    correctAnswer: "GET",
+    explanation: "GET is used to request data from a specified resource without modifying it."
+  },
+  {
+    id: 2,
+    question: "What does a 404 status code indicate?",
+    options: [
+      "Server error",
+      "Resource not found",
+      "Unauthorized access",
+      "Success"
+    ],
+    correctAnswer: "Resource not found",
+    explanation: "404 is returned when the requested resource cannot be found on the server."
+  },
+  {
+    id: 3,
+    question: "Which header is commonly used for JWT authentication?",
+    options: ["Basic", "Bearer", "OAuth", "API-Key"],
+    correctAnswer: "Bearer",
+    explanation: "Bearer tokens are typically used in JWT authentication, included in the Authorization header."
+  },
+  {
+    id: 4,
+    question: "What's the primary purpose of API testing?",
+    options: [
+      "To test the user interface",
+      "To verify the functionality, reliability, and security of APIs",
+      "To design the database schema",
+      "To write documentation"
+    ],
+    correctAnswer: "To verify the functionality, reliability, and security of APIs",
+    explanation: "API testing ensures that APIs work as expected in terms of functionality, reliability, performance, and security."
+  },
+  {
+    id: 5,
+    question: "Which HTTP method is used for a partial update of a resource?",
+    options: ["GET", "POST", "PUT", "PATCH"],
+    correctAnswer: "PATCH",
+    explanation: "PATCH is used for partial updates to a resource."
+  },
+  {
+    id: 6,
+    question: "What does a 201 status code signify?",
+    options: [
+      "Request successful",
+      "Resource created",
+      "No content",
+      "Bad request"
+    ],
+    correctAnswer: "Resource created",
+    explanation: "201 Created indicates that a request has been fulfilled and resulted in a new resource being created."
+  },
+  {
+    id: 7,
+    question: "Which authentication method uses a simple token included in the request header?",
+    options: ["API Keys", "Basic Auth", "Bearer Tokens", "OAuth"],
+    correctAnswer: "API Keys",
+    explanation: "API Keys are simple tokens included in the request header or query string for authentication."
+  },
+  {
+    id: 8,
+    question: "Which HTTP status code indicates 'Too Many Requests'?",
+    options: ["400", "401", "429", "500"],
+    correctAnswer: "429",
+    explanation: "429 Too Many Requests indicates that the user has sent too many requests in a given amount of time."
+  },
+  {
+    id: 9,
+    question: "What is a common use case for OAuth 2.0?",
+    options: [
+      "Simple token-based authentication",
+      "Complex applications with different permission levels",
+      "Stateless authentication",
+      "Basic username and password authentication"
+    ],
+    correctAnswer: "Complex applications with different permission levels",
+    explanation: "OAuth 2.0 is used for complex applications that require different permission levels and secure access."
+  },
+  {
+    id: 10,
+    question: "Which practice is essential for API security testing?",
+    options: [
+      "Testing with different input combinations",
+      "Validating response structure",
+      "Checking for common vulnerabilities",
+      "Verifying API performance under load"
+    ],
+    correctAnswer: "Checking for common vulnerabilities",
+    explanation: "Checking for common vulnerabilities is crucial in API security testing to ensure the API is secure against attacks."
+  },
+    {
+      id: 11,
+      question: "Which HTTP method is idempotent and used to update a resource?",
+      options: ["GET", "POST", "PUT", "DELETE"],
+      correctAnswer: "PUT",
+      explanation: "PUT is idempotent and used to update a resource completely."
+    },
+    {
+      id: 12,
+      question: "What does a 500 status code indicate?",
+      options: [
+        "Client error",
+        "Server error",
+        "Resource not found",
+        "Unauthorized access"
+      ],
+      correctAnswer: "Server error",
+      explanation: "500 Internal Server Error indicates a problem on the server side."
+    },
+    {
+      id: 13,
+      question: "Which HTTP method should be used to delete a resource?",
+      options: ["GET", "POST", "PUT", "DELETE"],
+      correctAnswer: "DELETE",
+      explanation: "DELETE is used to remove a specified resource."
+    },
+    {
+      id: 14,
+      question: "What is the main advantage of using JWT for authentication?",
+      options: [
+        "Simplicity",
+        "Statelessness",
+        "Complexity",
+        "Requires server storage"
+      ],
+      correctAnswer: "Statelessness",
+      explanation: "JWTs are stateless, meaning they do not require server storage."
+    },
+    {
+      id: 15,
+      question: "Which status code indicates a successful request with no content to return?",
+      options: ["200", "201", "204", "404"],
+      correctAnswer: "204",
+      explanation: "204 No Content indicates a successful request with no content to return."
+    },
+    {
+      id: 16,
+      question: "What is the purpose of the OPTIONS HTTP method?",
+      options: [
+        "Retrieve data",
+        "Update data",
+        "Describe communication options",
+        "Delete data"
+      ],
+      correctAnswer: "Describe communication options",
+      explanation: "OPTIONS is used to describe the communication options for the target resource."
+    },
+    {
+      id: 17,
+      question: "Which HTTP method is typically used for submitting form data?",
+      options: ["GET", "POST", "PUT", "DELETE"],
+      correctAnswer: "POST",
+      explanation: "POST is used to submit data to be processed to a specified resource."
+    },
+    {
+      id: 18,
+      question: "What does a 401 status code indicate?",
+      options: [
+        "Unauthorized access",
+        "Resource not found",
+        "Server error",
+        "Request successful"
+      ],
+      correctAnswer: "Unauthorized access",
+      explanation: "401 Unauthorized indicates that authentication is required and has failed or has not yet been provided."
+    },
+    {
+      id: 19,
+      question: "Which HTTP method is used to retrieve only the headers of a resource?",
+      options: ["GET", "HEAD", "POST", "OPTIONS"],
+      correctAnswer: "HEAD",
+      explanation: "HEAD is used to retrieve the headers of a resource, similar to GET but without the response body."
+    },
+    {
+      id: 20,
+      question: "What is a common use case for the PATCH HTTP method?",
+      options: [
+        "Retrieve data",
+        "Create a new resource",
+        "Partial update of a resource",
+        "Delete a resource"
+      ],
+      correctAnswer: "Partial update of a resource",
+      explanation: "PATCH is used for making partial updates to a resource."
+    },
+    {
+      id: 21,
+    question: "Which of these is NOT a common API testing type?",
+      options: [
+      "Performance testing",
+      "Security testing",
+      "UI testing",
+      "Integration testing"
+        ],
+        correctAnswer: "UI testing",
+        explanation: "UI testing is not a type of API testing. API testing focuses on the business logic layer without involving the UI."
+    },
+    {
+      id: 22,
+      question: "What is the purpose of API rate limiting?",
+      options: [
+        "To increase API speed",
+        "To prevent abuse and ensure fair usage",
+        "To reduce server costs",
+        "To improve data accuracy"
+        ],
+        correctAnswer: "To prevent abuse and ensure fair usage",
+        explanation: "Rate limiting prevents API abuse by limiting the number of requests a client can make within a specific time period."
+      },
+      {
+        id: 23,
+        question: "In REST API testing, what does HATEOAS stand for?",
+        options: [
+          "High Availability Testing Environment Over Application Server",
+          "Hypertext As The Engine Of Application State",
+          "Handling Automated Testing Environment Of API Services",
+          "High Availability Testing Of API Systems"
+        ],
+        correctAnswer: "Hypertext As The Engine Of Application State",
+        explanation: "HATEOAS is a constraint of REST application architecture that keeps the RESTful style architecture unique from other network application architectures."
+      },
+      {
+        id: 24,
+        question: "Which header is used to specify the format of the request body?",
+        options: [
+          "Accept",
+          "Content-Type",
+          "Authorization",
+          "Cache-Control"
+        ],
+        correctAnswer: "Content-Type",
+        explanation: "Content-Type header specifies the media type of the request body being sent to the server."
+      },
+      {
+        id: 25,
+        question: "What is the main difference between PUT and PATCH methods?",
+        options: [
+          "PUT is faster than PATCH",
+          "PATCH is more secure than PUT",
+          "PUT updates the entire resource while PATCH updates partially",
+          "There is no difference"
+        ],
+        correctAnswer: "PUT updates the entire resource while PATCH updates partially",
+        explanation: "PUT is used for complete resource updates, while PATCH is used for partial modifications to a resource."
+      },
+      {
+        id: 26,
+        question: "Which tool is commonly used for API documentation?",
+        options: [
+          "Jenkins",
+          "Swagger/OpenAPI",
+          "JMeter",
+          "Maven"
+        ],
+        correctAnswer: "Swagger/OpenAPI",
+        explanation: "Swagger/OpenAPI is widely used for API documentation as it provides a standardized way to describe RESTful APIs."
+      },
+      {
+        id: 27,
+        question: "What is the purpose of the Accept header in an API request?",
+        options: [
+          "To specify the authentication method",
+          "To indicate the expected response format",
+          "To define the request body format",
+          "To set the request timeout"
+        ],
+        correctAnswer: "To indicate the expected response format",
+        explanation: "The Accept header tells the server what type of media type(s) the client can process in the response."
+      },
+      {
+        id: 28,
+        question: "Which status code range indicates a redirect?",
+        options: [
+          "200-299",
+          "300-399",
+          "400-499",
+          "500-599"
+        ],
+        correctAnswer: "300-399",
+        explanation: "3xx status codes indicate that further action needs to be taken by the client to complete the request."
+      },
+      {
+        id: 29,
+        question: "What is the purpose of API versioning?",
+        options: [
+          "To make APIs faster",
+          "To reduce server load",
+          "To maintain backward compatibility",
+          "To improve security"
+        ],
+        correctAnswer: "To maintain backward compatibility",
+        explanation: "API versioning allows changes to be made to APIs without breaking existing client integrations."
+      },
+      {
+        id: 30,
+        question: "Which of these is a best practice for API security?",
+        options: [
+          "Using plain text passwords",
+          "Implementing rate limiting",
+          "Storing sensitive data in URLs",
+          "Disabling HTTPS"
+        ],
+        correctAnswer: "Implementing rate limiting",
+        explanation: "Rate limiting is a security best practice that helps prevent DoS attacks and API abuse."
+      }
+];

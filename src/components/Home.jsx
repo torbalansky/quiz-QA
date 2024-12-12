@@ -178,6 +178,11 @@ const Home = () => {
               <h3 className="text-xs font-semibold text-gray-800">Credit Risk Calculator</h3>
             </Link>
 
+            <Link to="/api-testing" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
+              <SiPostman className="text-blue-600 mb-4 text-2xl" />
+              <h3 className="text-xs font-semibold text-gray-800">API Testing Quiz</h3>
+            </Link>
+
             <Link to="/jestintro" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
               <IoConstructSharp className="text-2xl text-blue-600 mb-4" />
               <h3 className="text-xs font-semibold text-gray-800">TDD with Jest</h3>
@@ -198,14 +203,6 @@ const Home = () => {
             <div className="bg-white p-6 rounded-lg shadow-lg cursor-not-allowed opacity-75 text-center flex flex-col items-center hd-sm group relative">
               <SiSelenium className="text-blue-600 mb-4 text-2xl" />
               <h3 className="text-xs font-semibold text-gray-800">Selenium Testing</h3>
-              <span className="absolute inset-0 flex items-center justify-center bg-black/75 text-white font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Coming Soon
-              </span>
-            </div>
-
-            <div className="bg-white p-6 rounded-lg shadow-lg cursor-not-allowed opacity-75 text-center flex flex-col items-center hd-sm group relative">
-              <SiPostman className="text-blue-600 mb-4 text-2xl" />
-              <h3 className="text-xs font-semibold text-gray-800">API Testing</h3>
               <span className="absolute inset-0 flex items-center justify-center bg-black/75 text-white font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 Coming Soon
               </span>

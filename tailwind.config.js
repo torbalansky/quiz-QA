@@ -16,6 +16,9 @@ export default {
       fontFamily: {
         bruno: ["Bruno Ace", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
+      },
+      animation: {
+        'spin-slow': 'spin 3s linear infinite',
       }
     },
   },
