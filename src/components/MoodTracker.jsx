@@ -366,391 +366,480 @@ const MoodTracker = () => {
     if (risksInput) risksInput.value = '';
   };
 
+  const [activeView, setActiveView] = useState('app');
+
+  const renderDocumentation = () => {
+    return (
+      <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-md">
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Overview</h2>
+          <p className="text-gray-600 leading-relaxed">{documentationMoodTracker.overview}</p>
+        </div>
+
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Functional Requirements</h2>
+          {documentationMoodTracker.functionalRequirements.map((req, index) => (
+            <div key={index} className="mb-4">
+              <h3 className="text-lg font-semibold text-gray-700 mb-2">{req.title}</h3>
+              <ul className="list-disc pl-5 space-y-2">
+                {req.details.map((detail, idx) => (
+                  <li key={idx} className="text-gray-600">{detail}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">User Flow</h2>
+          <div className="bg-gray-50 p-4 rounded-lg">
+            {documentationMoodTracker.userFlow.split('\n').map((step, index) => (
+              <p key={index} className="text-gray-600 mb-2">{step}</p>
+            ))}
+          </div>
+        </div>
+
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Validation Rules</h2>
+          {documentationMoodTracker.validationRules.map((rule, index) => (
+            <div key={index} className="mb-4">
+              <h3 className="text-lg font-semibold text-gray-700 mb-2">{rule.title}</h3>
+              <ul className="list-disc pl-5 space-y-2">
+                {rule.details.map((detail, idx) => (
+                  <li key={idx} className="text-gray-600">{detail}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        <div className="mb-8">
+          <h2 className="text-2xl font-bold text-gray-800 mb-4">Expected Behavior</h2>
+          {documentationMoodTracker.expectedBehavior.map((behavior, index) => (
+            <div key={index} className="mb-4 bg-gray-50 p-4 rounded-lg">
+              <h3 className="text-lg font-semibold text-gray-700 mb-2">When: {behavior.condition}</h3>
+              <div className="text-gray-600 whitespace-pre-line">{behavior.behavior}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div className="p-2 sm:p-6">
-      <h1 className="text-2xl sm:text-3xl font-bold text-center mb-4">Mood Tracker</h1>
-
-      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
-        {moodOptions.map((mood) => (
-          <button
-            key={mood.label}
-            onClick={() => logMood(mood)}
-            className="text-2xl bg-gray-100 p-4 rounded hover:bg-lime-200"
-          >
-            {mood.emoji}
-            <p className="text-sm mt-2">{mood.label}</p>
-          </button>
-        ))}
+      <div className="mb-6 text-xs sm:text-xl flex justify-center gap-4">
+        <button
+          onClick={() => setActiveView('app')}
+          className={`px-6 py-2 rounded-lg font-semibold transition-all duration-300 ${
+            activeView === 'app'
+              ? 'bg-blue-600 text-white'
+              : 'bg-white text-blue-600 hover:bg-blue-50'
+          }`}
+        >
+          Mood Tracker App
+        </button>
+        <button
+          onClick={() => setActiveView('documentation')}
+          className={`px-6 py-2 rounded-lg font-semibold transition-all duration-300 ${
+            activeView === 'documentation'
+              ? 'bg-blue-600 text-white'
+              : 'bg-white text-blue-600 hover:bg-blue-50'
+          }`}
+        >
+          Documentation
+        </button>
       </div>
 
-      {recommendation && (
-        <div className="bg-green-100 p-4 rounded mb-4 text-center">
-          <h2 className="text-lg sm:text-xl font-bold">Recommendation:</h2>
-          <p>{recommendation}</p>
-        </div>
-      )}
+      {activeView === 'documentation' ? (
+        renderDocumentation()
+      ) : (
+        <>
+          <h1 className="text-2xl sm:text-3xl font-bold text-center mb-4">Mood Tracker</h1>
 
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-white p-4 rounded shadow">
-          <h2 className="text-lg font-bold mb-2">Mood Calendar</h2>
-          <Calendar onChange={setSelectedDate} value={selectedDate} tileContent={tileContent} />
-        </div>
-
-        <div className="bg-blue-100 p-4 rounded shadow">
-          <h2 className="text-lg font-bold mb-2">Mood Trends</h2>
-          <Chart
-            chartType="LineChart"
-            data={moodData}
-            width="100%"
-            height="300px"
-            options={{
-              title: "Mood Trends",
-              legend: { position: "none" },
-              hAxis: { title: "Date" },
-              vAxis: { title: "Mood Level", minValue: 0, maxValue: 5 },
-            }}
-          />
-        </div>
-
-        <div className="bg-pink-100 p-4 rounded shadow">
-          <h2 className="text-lg font-bold mb-2">Mood Stats</h2>
-          <ul className="list-disc ml-6">
-            {Object.keys(moodStats).map((day) => (
-              <li key={day}>
-                <strong>{day}:</strong> {moodStats[day]}
-              </li>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4">
+            {moodOptions.map((mood) => (
+              <button
+                key={mood.label}
+                onClick={() => logMood(mood)}
+                className="text-2xl bg-gray-100 p-4 rounded hover:bg-lime-200"
+              >
+                {mood.emoji}
+                <p className="text-sm mt-2">{mood.label}</p>
+              </button>
             ))}
-          </ul>
-        </div>
-      </div>
+          </div>
 
-      <div className="bg-white p-4 rounded shadow mt-4">
-      <p className="text-lg font-semibold text-gray-700 mb-4 text-center">Test Plan</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label className="block mb-1">Purpose:</label>
-            <textarea
-              value={testPlan.introduction.purpose}
-              onChange={(e) => setTestPlan({
-                ...testPlan,
-                introduction: { ...testPlan.introduction, purpose: e.target.value }
-              })}
-              className="w-full p-2 border rounded"
-              rows="3"
-            />
-          </div>
-          <div>
-            <label className="block mb-1">Scope:</label>
-            <textarea
-              value={testPlan.introduction.scope}
-              onChange={(e) => setTestPlan({
-                ...testPlan,
-                introduction: { ...testPlan.introduction, scope: e.target.value }
-              })}
-              className="w-full p-2 border rounded"
-              rows="3"
-            />
-          </div>
-        </div>
-      </div>
+          {recommendation && (
+            <div className="bg-green-100 p-4 rounded mb-4 text-center">
+              <h2 className="text-lg sm:text-xl font-bold">Recommendation:</h2>
+              <p>{recommendation}</p>
+            </div>
+          )}
 
-      <div className="bg-white p-4 rounded shadow mt-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label className="block mb-1">Hardware Requirements:</label>
-            <input
-              type="text"
-              value={testPlan.environment.hardware}
-              onChange={(e) => setTestPlan({
-                ...testPlan,
-                environment: { ...testPlan.environment, hardware: e.target.value }
-              })}
-              className="w-full p-2 border rounded"
-            />
-          </div>
-          <div>
-            <label className="block mb-1">Software Requirements:</label>
-            <input
-              type="text"
-              value={testPlan.environment.software}
-              onChange={(e) => setTestPlan({
-                ...testPlan,
-                environment: { ...testPlan.environment, software: e.target.value }
-              })}
-              className="w-full p-2 border rounded"
-            />
-          </div>
-        </div>
-      </div>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-white p-4 rounded shadow">
+              <h2 className="text-lg font-bold mb-2">Mood Calendar</h2>
+              <Calendar onChange={setSelectedDate} value={selectedDate} tileContent={tileContent} />
+            </div>
 
-      <div className="bg-white p-4 rounded shadow mt-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label className="block mb-1">Start Date:</label>
-            <input
-              type="date"
-              value={testPlan.schedule.startDate}
-              onChange={(e) => setTestPlan({
-                ...testPlan,
-                schedule: { ...testPlan.schedule, startDate: e.target.value }
-              })}
-              className="w-full p-2 border rounded"
-            />
-          </div>
-          <div>
-            <label className="block mb-1">End Date:</label>
-            <input
-              type="date"
-              value={testPlan.schedule.endDate}
-              onChange={(e) => setTestPlan({
-                ...testPlan,
-                schedule: { ...testPlan.schedule, endDate: e.target.value }
-              })}
-              className="w-full p-2 border rounded"
-            />
-          </div>
-        </div>
-      </div>
+            <div className="bg-blue-100 p-4 rounded shadow">
+              <h2 className="text-lg font-bold mb-2">Mood Trends</h2>
+              <Chart
+                chartType="LineChart"
+                data={moodData}
+                width="100%"
+                height="300px"
+                options={{
+                  title: "Mood Trends",
+                  legend: { position: "none" },
+                  hAxis: { title: "Date" },
+                  vAxis: { title: "Mood Level", minValue: 0, maxValue: 5 },
+                }}
+              />
+            </div>
 
-      <div className="bg-white p-4 rounded shadow mt-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label className="block mb-1">Strategy:</label>
-            <textarea
-              value={testPlan.approach.strategy}
-              onChange={(e) => setTestPlan({
-                ...testPlan,
-                approach: { ...testPlan.approach, strategy: e.target.value }
-              })}
-              className="w-full p-2 border rounded"
-              rows="3"
-            />
+            <div className="bg-pink-100 p-4 rounded shadow">
+              <h2 className="text-lg font-bold mb-2">Mood Stats</h2>
+              <ul className="list-disc ml-6">
+                {Object.keys(moodStats).map((day) => (
+                  <li key={day}>
+                    <strong>{day}:</strong> {moodStats[day]}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      </div>
 
-      <div className="bg-white p-4 rounded shadow mt-4">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <div>
-            <label className="block mb-1">Process:</label>
-            <textarea
-              value={testPlan.defectManagement.process}
-              onChange={(e) => setTestPlan({
-                ...testPlan,
-                defectManagement: { ...testPlan.defectManagement, process: e.target.value }
-              })}
-              className="w-full p-2 border rounded"
-              rows="3"
-            />
+          <div className="bg-white p-4 rounded shadow mt-4">
+          <p className="text-lg font-semibold text-gray-700 mb-4 text-center">Test Plan</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block mb-1">Purpose:</label>
+                <textarea
+                  value={testPlan.introduction.purpose}
+                  onChange={(e) => setTestPlan({
+                    ...testPlan,
+                    introduction: { ...testPlan.introduction, purpose: e.target.value }
+                  })}
+                  className="w-full p-2 border rounded"
+                  rows="3"
+                />
+              </div>
+              <div>
+                <label className="block mb-1">Scope:</label>
+                <textarea
+                  value={testPlan.introduction.scope}
+                  onChange={(e) => setTestPlan({
+                    ...testPlan,
+                    introduction: { ...testPlan.introduction, scope: e.target.value }
+                  })}
+                  className="w-full p-2 border rounded"
+                  rows="3"
+                />
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="mt-4">
+
+          <div className="bg-white p-4 rounded shadow mt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block mb-1">Hardware Requirements:</label>
+                <input
+                  type="text"
+                  value={testPlan.environment.hardware}
+                  onChange={(e) => setTestPlan({
+                    ...testPlan,
+                    environment: { ...testPlan.environment, hardware: e.target.value }
+                  })}
+                  className="w-full p-2 border rounded"
+                />
+              </div>
+              <div>
+                <label className="block mb-1">Software Requirements:</label>
+                <input
+                  type="text"
+                  value={testPlan.environment.software}
+                  onChange={(e) => setTestPlan({
+                    ...testPlan,
+                    environment: { ...testPlan.environment, software: e.target.value }
+                  })}
+                  className="w-full p-2 border rounded"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white p-4 rounded shadow mt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block mb-1">Start Date:</label>
+                <input
+                  type="date"
+                  value={testPlan.schedule.startDate}
+                  onChange={(e) => setTestPlan({
+                    ...testPlan,
+                    schedule: { ...testPlan.schedule, startDate: e.target.value }
+                  })}
+                  className="w-full p-2 border rounded"
+                />
+              </div>
+              <div>
+                <label className="block mb-1">End Date:</label>
+                <input
+                  type="date"
+                  value={testPlan.schedule.endDate}
+                  onChange={(e) => setTestPlan({
+                    ...testPlan,
+                    schedule: { ...testPlan.schedule, endDate: e.target.value }
+                  })}
+                  className="w-full p-2 border rounded"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white p-4 rounded shadow mt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block mb-1">Strategy:</label>
+                <textarea
+                  value={testPlan.approach.strategy}
+                  onChange={(e) => setTestPlan({
+                    ...testPlan,
+                    approach: { ...testPlan.approach, strategy: e.target.value }
+                  })}
+                  className="w-full p-2 border rounded"
+                  rows="3"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white p-4 rounded shadow mt-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block mb-1">Process:</label>
+                <textarea
+                  value={testPlan.defectManagement.process}
+                  onChange={(e) => setTestPlan({
+                    ...testPlan,
+                    defectManagement: { ...testPlan.defectManagement, process: e.target.value }
+                  })}
+                  className="w-full p-2 border rounded"
+                  rows="3"
+                />
+              </div>
+            </div>
+            <div className="mt-4">
+                <button 
+                  onClick={handleResetTestPlan} 
+                  className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                >
+                  Reset Test Plan
+                </button>
+              </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <div className="bg-white p-4 rounded shadow mt-4">
+              <h2 className="text-lg font-bold mb-2">Test Scenarios</h2>
+              <ul className="list-disc ml-6">
+                {testScenarios.map((scenario, idx) => (
+                  <li key={idx} className="flex flex-col mb-4">
+                    {Object.keys(scenario).map((key) => (
+                      <div key={key} className="flex items-center mb-2">
+                        <strong className="mr-2">{key}:</strong>
+                        {editingScenarioIndex === idx ? (
+                          <input
+                            type="text"
+                            value={scenario[key]}
+                            onChange={(e) => handleEditScenario(idx, key, e.target.value)}
+                            className="border p-1 flex-grow"
+                          />
+                        ) : (
+                          <span>{scenario[key]}</span>
+                        )}
+                      </div>
+                    ))}
+                    <div className="flex">
+                      <button onClick={() => handleDeleteScenario(idx)} className="bg-red-500 rounded-md text-white p-1 ml-2">
+                        Delete
+                      </button>
+                      {editingScenarioIndex === idx ? (
+                        <button onClick={() => setEditingScenarioIndex(null)} className="bg-green-500 rounded-md text-white p-1 ml-2">
+                          Save
+                        </button>
+                      ) : (
+                        <button onClick={() => setEditingScenarioIndex(idx)} className="bg-yellow-500 rounded-md text-white p-1 ml-2">
+                          Edit
+                        </button>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-2 flex flex-col">
+                <input
+                  type="text"
+                  value={newScenario.title}
+                  onChange={(e) => setNewScenario({ ...newScenario, title: e.target.value })}
+                  placeholder="Title"
+                  className="border p-1 w-full sm:w-auto"
+                />
+                <input
+                  type="text"
+                  value={newScenario.description}
+                  onChange={(e) => setNewScenario({ ...newScenario, description: e.target.value })}
+                  placeholder="Description"
+                  className="border p-1 w-full sm:w-auto"
+                />
+                <input
+                  type="text"
+                  value={newScenario.preconditions}
+                  onChange={(e) => setNewScenario({ ...newScenario, preconditions: e.target.value })}
+                  placeholder="Preconditions"
+                  className="border p-1 w-full sm:w-auto"
+                />
+                <input
+                  type="text"
+                  value={newScenario.steps}
+                  onChange={(e) => setNewScenario({ ...newScenario, steps: e.target.value })}
+                  placeholder="Steps"
+                  className="border p-1 w-full sm:w-auto"
+                />
+                <input
+                  type="text"
+                  value={newScenario.expectedResult}
+                  onChange={(e) => setNewScenario({ ...newScenario, expectedResult: e.target.value })}
+                  placeholder="Expected Result"
+                  className="border p-1 w-full sm:w-auto"
+                />
+              </div>
+              <button onClick={handleAddScenario} className="bg-blue-500 text-white p-2 ml-4 rounded mt-4">
+                  Add Scenario
+                </button>
+            </div>
+          </div>
+
+          <div className="overflow-x-auto">
+            <div className="bg-white p-4 rounded shadow mt-4">
+              <h2 className="text-lg font-bold mb-2">Test Cases</h2>
+              <ul className="list-disc ml-6">
+                {testCases.map((testCase, idx) => (
+                  <li key={idx} className="flex flex-col mb-4">
+                    {Object.keys(testCase).map((key) => (
+                      <div key={key} className="flex items-center mb-2">
+                        <strong className="mr-2">{key}:</strong>
+                        {editingCaseIndex === idx ? (
+                          <input
+                            type="text"
+                            value={testCase[key]}
+                            onChange={(e) => handleEditCase(idx, key, e.target.value)}
+                            className="border p-1 flex-grow"
+                          />
+                        ) : (
+                          <span>{testCase[key]}</span>
+                        )}
+                      </div>
+                    ))}
+                    <div className="flex">
+                      <button onClick={() => handleDeleteCase(idx)} className="bg-red-500 rounded-md text-white p-1 ml-2">
+                        Delete
+                      </button>
+                      {editingCaseIndex === idx ? (
+                        <button onClick={() => setEditingCaseIndex(null)} className="bg-green-500 rounded-md text-white p-1 ml-2">
+                          Save
+                        </button>
+                      ) : (
+                        <button onClick={() => setEditingCaseIndex(idx)} className="bg-yellow-500 rounded-md text-white p-1 ml-2">
+                          Edit
+                        </button>
+                      )}
+                    </div>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-2 flex flex-col">
+                <input
+                  type="text"
+                  value={newCase.id}
+                  onChange={(e) => setNewCase({ ...newCase, id: e.target.value })}
+                  placeholder="ID"
+                  className="border p-1 mr-2"
+                />
+                <input
+                  type="text"
+                  value={newCase.title}
+                  onChange={(e) => setNewCase({ ...newCase, title: e.target.value })}
+                  placeholder="Title"
+                  className="border p-1 mr-2"
+                />
+                <input
+                  type="text"
+                  value={newCase.description}
+                  onChange={(e) => setNewCase({ ...newCase, description: e.target.value })}
+                  placeholder="Description"
+                  className="border p-1 mr-2"
+                />
+                <input
+                  type="text"
+                  value={newCase.steps}
+                  onChange={(e) => setNewCase({ ...newCase, steps: e.target.value })}
+                  placeholder="Steps"
+                  className="border p-1 mr-2"
+                />
+                <input
+                  type="text"
+                  value={newCase.expectedOutcome}
+                  onChange={(e) => setNewCase({ ...newCase, expectedOutcome: e.target.value })}
+                  placeholder="Expected Outcome"
+                  className="border p-1 mr-2"
+                />
+                <input
+                  type="text"
+                  value={newCase.passFail}
+                  onChange={(e) => setNewCase({ ...newCase, passFail: e.target.value })}
+                  placeholder="Pass/Fail"
+                  className="border p-1 mr-2"
+                />
+              </div>
+              <button onClick={handleAddCase} className="bg-blue-500 text-white p-2 ml-4 mt-4 rounded">
+                Add Test Case
+              </button>
+            </div>
+          </div>
+
+          <div className="text-center mt-4 flex flex-col sm:flex-row justify-center gap-4">
             <button 
-              onClick={handleResetTestPlan} 
-              className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+              onClick={handlePrint} 
+              className="w-full sm:w-auto bg-green-500 text-white p-2 rounded hover:bg-green-600"
             >
-              Reset Test Plan
+              Print Test Plan
+            </button>
+            <button 
+              onClick={() => navigate('/testplan')} 
+              className="w-full sm:w-auto bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors duration-200 flex items-center justify-center gap-2 shadow-md"
+            >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                className="h-5 w-5" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
+                />
+              </svg>
+              View Sample Test Plan
             </button>
           </div>
-      </div>
-
-      <div className="overflow-x-auto">
-        <div className="bg-white p-4 rounded shadow mt-4">
-          <h2 className="text-lg font-bold mb-2">Test Scenarios</h2>
-          <ul className="list-disc ml-6">
-            {testScenarios.map((scenario, idx) => (
-              <li key={idx} className="flex flex-col mb-4">
-                {Object.keys(scenario).map((key) => (
-                  <div key={key} className="flex items-center mb-2">
-                    <strong className="mr-2">{key}:</strong>
-                    {editingScenarioIndex === idx ? (
-                      <input
-                        type="text"
-                        value={scenario[key]}
-                        onChange={(e) => handleEditScenario(idx, key, e.target.value)}
-                        className="border p-1 flex-grow"
-                      />
-                    ) : (
-                      <span>{scenario[key]}</span>
-                    )}
-                  </div>
-                ))}
-                <div className="flex">
-                  <button onClick={() => handleDeleteScenario(idx)} className="bg-red-500 rounded-md text-white p-1 ml-2">
-                    Delete
-                  </button>
-                  {editingScenarioIndex === idx ? (
-                    <button onClick={() => setEditingScenarioIndex(null)} className="bg-green-500 rounded-md text-white p-1 ml-2">
-                      Save
-                    </button>
-                  ) : (
-                    <button onClick={() => setEditingScenarioIndex(idx)} className="bg-yellow-500 rounded-md text-white p-1 ml-2">
-                      Edit
-                    </button>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-2 flex flex-col">
-            <input
-              type="text"
-              value={newScenario.title}
-              onChange={(e) => setNewScenario({ ...newScenario, title: e.target.value })}
-              placeholder="Title"
-              className="border p-1 w-full sm:w-auto"
-            />
-            <input
-              type="text"
-              value={newScenario.description}
-              onChange={(e) => setNewScenario({ ...newScenario, description: e.target.value })}
-              placeholder="Description"
-              className="border p-1 w-full sm:w-auto"
-            />
-            <input
-              type="text"
-              value={newScenario.preconditions}
-              onChange={(e) => setNewScenario({ ...newScenario, preconditions: e.target.value })}
-              placeholder="Preconditions"
-              className="border p-1 w-full sm:w-auto"
-            />
-            <input
-              type="text"
-              value={newScenario.steps}
-              onChange={(e) => setNewScenario({ ...newScenario, steps: e.target.value })}
-              placeholder="Steps"
-              className="border p-1 w-full sm:w-auto"
-            />
-            <input
-              type="text"
-              value={newScenario.expectedResult}
-              onChange={(e) => setNewScenario({ ...newScenario, expectedResult: e.target.value })}
-              placeholder="Expected Result"
-              className="border p-1 w-full sm:w-auto"
-            />
-          </div>
-          <button onClick={handleAddScenario} className="bg-blue-500 text-white p-2 ml-4 rounded mt-4">
-              Add Scenario
-            </button>
-        </div>
-      </div>
-
-      <div className="overflow-x-auto">
-        <div className="bg-white p-4 rounded shadow mt-4">
-          <h2 className="text-lg font-bold mb-2">Test Cases</h2>
-          <ul className="list-disc ml-6">
-            {testCases.map((testCase, idx) => (
-              <li key={idx} className="flex flex-col mb-4">
-                {Object.keys(testCase).map((key) => (
-                  <div key={key} className="flex items-center mb-2">
-                    <strong className="mr-2">{key}:</strong>
-                    {editingCaseIndex === idx ? (
-                      <input
-                        type="text"
-                        value={testCase[key]}
-                        onChange={(e) => handleEditCase(idx, key, e.target.value)}
-                        className="border p-1 flex-grow"
-                      />
-                    ) : (
-                      <span>{testCase[key]}</span>
-                    )}
-                  </div>
-                ))}
-                <div className="flex">
-                  <button onClick={() => handleDeleteCase(idx)} className="bg-red-500 rounded-md text-white p-1 ml-2">
-                    Delete
-                  </button>
-                  {editingCaseIndex === idx ? (
-                    <button onClick={() => setEditingCaseIndex(null)} className="bg-green-500 rounded-md text-white p-1 ml-2">
-                      Save
-                    </button>
-                  ) : (
-                    <button onClick={() => setEditingCaseIndex(idx)} className="bg-yellow-500 rounded-md text-white p-1 ml-2">
-                      Edit
-                    </button>
-                  )}
-                </div>
-              </li>
-            ))}
-          </ul>
-          <div className="mt-2 flex flex-col">
-            <input
-              type="text"
-              value={newCase.id}
-              onChange={(e) => setNewCase({ ...newCase, id: e.target.value })}
-              placeholder="ID"
-              className="border p-1 mr-2"
-            />
-            <input
-              type="text"
-              value={newCase.title}
-              onChange={(e) => setNewCase({ ...newCase, title: e.target.value })}
-              placeholder="Title"
-              className="border p-1 mr-2"
-            />
-            <input
-              type="text"
-              value={newCase.description}
-              onChange={(e) => setNewCase({ ...newCase, description: e.target.value })}
-              placeholder="Description"
-              className="border p-1 mr-2"
-            />
-            <input
-              type="text"
-              value={newCase.steps}
-              onChange={(e) => setNewCase({ ...newCase, steps: e.target.value })}
-              placeholder="Steps"
-              className="border p-1 mr-2"
-            />
-            <input
-              type="text"
-              value={newCase.expectedOutcome}
-              onChange={(e) => setNewCase({ ...newCase, expectedOutcome: e.target.value })}
-              placeholder="Expected Outcome"
-              className="border p-1 mr-2"
-            />
-            <input
-              type="text"
-              value={newCase.passFail}
-              onChange={(e) => setNewCase({ ...newCase, passFail: e.target.value })}
-              placeholder="Pass/Fail"
-              className="border p-1 mr-2"
-            />
-          </div>
-          <button onClick={handleAddCase} className="bg-blue-500 text-white p-2 ml-4 mt-4 rounded">
-            Add Test Case
-          </button>
-        </div>
-      </div>
-
-      <div className="text-center mt-4 flex flex-col sm:flex-row justify-center gap-4">
-        <button 
-          onClick={handlePrint} 
-          className="w-full sm:w-auto bg-green-500 text-white p-2 rounded hover:bg-green-600"
-        >
-          Print Test Plan
-        </button>
-        <button 
-          onClick={() => navigate('/testplan')} 
-          className="w-full sm:w-auto bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition-colors duration-200 flex items-center justify-center gap-2 shadow-md"
-        >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            className="h-5 w-5" 
-            fill="none" 
-            viewBox="0 0 24 24" 
-            stroke="currentColor"
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
-            />
-          </svg>
-          View Sample Test Plan
-        </button>
-      </div>
+        </>
+      )}
     </div>
   );
 };

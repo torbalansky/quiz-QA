@@ -5,16 +5,19 @@ import logo from '../assets/img/logo.png';
 
 const QuizLinks = ({ setMenuOpen }) => {
   const quizLinks = [
-    { title: "Software Test Life Cycle", link: "quizstlc" },
+    { title: "STLC", link: "quizstlc" },
     { title: "Principles of Testing", link: "quizprinciples" },
-    { title: "Test Age Estimator", link: "ageestimator" },
-    { title: "Practice QA Metrics", link: "metrics" },
     { title: "ISTQB like Test", link: "morequiza" },
-    { title: "Credit Risk Calculator", link: "creditrisk" },
     { title: "QA Bug Report", link: "bugreport" },
-    { title: "Test Mood tracker App", link: "mood" },
+    { title: "Practice QA Metrics", link: "metrics" },
+    { title: "API Testing Quiz", link: "api-testing" },
+    { title: "B/W Testing", link: "box-testing" },
     { title: "TDD Practice Arena", link: "jestintro" },
-    { title: "AI in QA", link: "ai-qa" }
+    { title: "Cross Browser Testing", link: "crossbrowser-testing" },
+    { title: "AI in QA", link: "ai-qa" },
+    { title: "Test Age Estimator", link: "ageestimator" },
+    { title: "Credit Risk Calculator", link: "creditrisk" },
+    { title: "Test Mood tracker App", link: "mood" },
   ];
 
   return (

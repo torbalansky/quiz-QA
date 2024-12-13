@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { aiTestingPlatforms } from '../Data/Data';
+import { FaSearch, FaFilter, FaTimes } from 'react-icons/fa';
 
 const AIinQA = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -15,6 +17,8 @@ const AIinQA = () => {
     'Future': 0
   });
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [pricingFilter, setPricingFilter] = useState('');
 
   const tabs = [
     { id: 'overview', label: 'Overview' },
@@ -480,35 +484,137 @@ Format: Prioritized list of possible causes and investigation steps`}
             )}
 
             {activeTab === 'tools' && (
-              <div className="space-y-6">
+              <div className="space-y-6 bg-gray-900 p-6 rounded-lg">
                 <section>
-                  <h2 className="text-2xl font-semibold text-gray-800 mb-3">Popular AI Testing Tools</h2>
-                  <div className="space-y-4">
-                    <div className="border rounded-lg p-4">
-                      <h3 className="font-semibold text-gray-800">Testim.io</h3>
-                      <p className="text-gray-600">AI-powered test automation tool that learns from your application</p>
-                      <div className="mt-2 space-x-2">
-                        <span className="inline-block px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded">Self-Healing</span>
-                        <span className="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded">ML-Based</span>
-                      </div>
+                  <h2 className="text-2xl font-semibold text-white mb-6">AI Testing Platforms</h2>
+                  
+                  <div className="mb-8 grid gap-4 md:flex md:items-center md:space-x-4">
+                    <div className="relative w-full md:w-64">
+                      <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <input
+                        type="text"
+                        placeholder="Search tools..."
+                        value={searchTerm}
+                        className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                      />
                     </div>
-                    <div className="border rounded-lg p-4">
-                      <h3 className="font-semibold text-gray-800">Applitools</h3>
-                      <p className="text-gray-600">Visual AI testing tool for automated visual testing</p>
-                      <div className="mt-2 space-x-2">
-                        <span className="inline-block px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded">Visual Testing</span>
-                        <span className="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded">Cross-Browser</span>
-                      </div>
+                    
+                    <div className="relative w-full md:w-60">
+                      <FaFilter className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                      <select 
+                        value={pricingFilter}
+                        className="w-full pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        onChange={(e) => setPricingFilter(e.target.value)}
+                      >
+                        <option value="">All Pricing Types</option>
+                        <option value="Freemium">Freemium</option>
+                        <option value="Paid">Paid (with trial)</option>
+                        <option value="Open-source">Open Source</option>
+                        <option value="Quote-Based">Quote Based</option>
+                      </select>
                     </div>
-                    <div className="border rounded-lg p-4">
-                      <h3 className="font-semibold text-gray-800">Mabl</h3>
-                      <p className="text-gray-600">Intelligent test automation with built-in healing capabilities</p>
-                      <div className="mt-2 space-x-2">
-                        <span className="inline-block px-2 py-1 text-xs bg-purple-100 text-purple-800 rounded">Auto-Healing</span>
-                        <span className="inline-block px-2 py-1 text-xs bg-blue-100 text-blue-800 rounded">Cloud-Based</span>
-                      </div>
-                    </div>
+
+                    {(searchTerm || pricingFilter) && (
+                      <button
+                        onClick={() => {
+                          setSearchTerm('');
+                          setPricingFilter('');
+                        }}
+                        className="w-full md:w-auto px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors flex items-center justify-center gap-2"
+                      >
+                        <FaTimes className="w-4 h-4" />
+                        <span>Reset Filters</span>
+                      </button>
+                    )}
                   </div>
+
+                  <div className="grid gap-6 grid-cols-1 md:grid-cols-2">
+                    {aiTestingPlatforms.tools
+                      .filter(tool => {
+                        const matchesSearch = tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                            tool.description.toLowerCase().includes(searchTerm.toLowerCase());
+                        const matchesPricing = pricingFilter ? tool.pricing.includes(pricingFilter) : true;
+                        return matchesSearch && matchesPricing;
+                      })
+                      .map((tool, index) => (
+                        <a
+                          key={index}
+                          href={tool.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group block bg-gray-800 rounded-lg border border-gray-700 hover:border-purple-500 transition-all duration-300 overflow-hidden h-full"
+                        >
+                          <div className="p-6 flex flex-col h-full">
+                            <div className="flex-1">
+                              <div className="space-y-3 mb-4">
+                                <h3 className="text-2xl font-semibold text-white group-hover:text-purple-400 transition-colors">
+                                  {tool.name}
+                                </h3>
+                                <div className="flex flex-col text-center gap-2">
+                                  <span className="inline-block px-3 py-1 text-sm rounded-full bg-purple-900 text-purple-200">
+                                    {tool.category}
+                                  </span>
+                                  <span className="inline-block px-3 py-1 text-sm rounded-full bg-blue-900 text-blue-200">
+                                    {tool.pricing}
+                                  </span>
+                                </div>
+                              </div>
+
+                              <div className="space-y-2 mb-4">
+                                <p className="text-gray-400">
+                                  {tool.description}
+                                </p>
+                              </div>
+
+                              <div className="space-y-3">
+                                <h4 className="font-medium text-gray-300">Key Features:</h4>
+                                <div className="flex flex-col text-center gap-2">
+                                  {tool.keyFeatures.map((feature, featureIndex) => (
+                                    <span
+                                      key={featureIndex}
+                                      className="px-3 py-1 text-sm rounded-lg bg-gray-700 text-gray-200"
+                                    >
+                                      {feature}
+                                    </span>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="mt-6">
+                              <button className="w-full px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition-colors flex items-center justify-center group">
+                                <span>Visit Platform</span>
+                                <svg
+                                  className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                                  />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                        </a>
+                      ))}
+                  </div>
+
+                  {aiTestingPlatforms.tools.filter(tool => {
+                    const matchesSearch = tool.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                        tool.description.toLowerCase().includes(searchTerm.toLowerCase());
+                    const matchesPricing = pricingFilter ? tool.pricing.includes(pricingFilter) : true;
+                    return matchesSearch && matchesPricing;
+                  }).length === 0 && (
+                    <div className="text-center py-8">
+                      <p className="text-gray-400">No tools found matching your criteria</p>
+                    </div>
+                  )}
                 </section>
               </div>
             )}

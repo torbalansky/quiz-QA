@@ -28,6 +28,7 @@ import WhiteBoxTesting from './components/WhiteBoxTesting';
 import WBChatbotDocs from './components/WBChatbotDocs';
 import APITesting from './components/ApiTesting';
 import PostmanTesting from './components/PostmanTesting';
+import CrossBrowserTesting from './components/CrossBrowserTesting';
 
 const App = () => {
   useEffect(() => {
@@ -82,6 +83,7 @@ const App = () => {
         <Route path="/wb-chatbot-docs" element={<WBChatbotDocs />} />
         <Route path="/api-testing" element={<APITesting />} />
         <Route path="/postman-testing" element={<PostmanTesting />} />
+        <Route path="/crossbrowser-testing" element={<CrossBrowserTesting />} />
       </Routes>
     </Router>
   );

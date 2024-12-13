@@ -401,8 +401,9 @@ const APITesting = () => {
         )}
 
       {activeTab === 'quiz' && (
-        <div className="flex gap-6">
-          <div className="w-1/3 bg-white p-4 rounded-lg shadow-md">
+
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="w-full md:w-1/3 bg-white p-4 rounded-lg shadow-md">
             <h3 className="text-lg font-bold mb-4">Questions Overview</h3>
             <div className="grid grid-cols-5 gap-2">
               {apiQuestions.map((q) => (
