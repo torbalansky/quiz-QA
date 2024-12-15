@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const JestIntro = () => {
   return (
-    <div className="min-h-screen bg-gray-100 py-8">
+    <div className="min-h-screen bg-gray-100 py-8 font-serif">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-lg">
           <div className="p-6 border-b border-gray-200">

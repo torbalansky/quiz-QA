@@ -100,11 +100,11 @@ const Home = () => {
             </h1>
 
             <div className="space-y-6 mb-8">
-              <p className="text-lg sm:text-xl text-gray-700 leading-relaxed">
+              <p className="text-md sm:text-lg text-gray-700 leading-relaxed">
                 Embark on a comprehensive QA learning journey! QuizA offers:
               </p>
               
-              <ul className="text-gray-600 space-y-3 text-left max-w-xl mx-auto">
+              <ul className="text-gray-600 space-y-2 text-left max-w-xl mx-auto">
                 <li className="flex items-start">
                   <span className="text-blue-500 mr-2">•</span>
                   Interactive quizzes covering ISTQB fundamentals
@@ -205,6 +205,11 @@ const Home = () => {
               <h3 className="text-xs font-semibold text-gray-800">Mood tracker App</h3>
             </Link>
 
+            <Link to="/cypress-quiz" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
+              <SiCypress className="text-2xl text-blue-600 mb-4" />
+              <h3 className="text-xs font-semibold text-gray-800">Mood tracker App</h3>
+            </Link>
+
             <div className="bg-white p-6 rounded-lg shadow-lg cursor-not-allowed opacity-75 text-center flex flex-col items-center hd-sm group relative">
               <SiSelenium className="text-blue-600 mb-4 text-2xl" />
               <h3 className="text-xs font-semibold text-gray-800">Selenium Testing</h3>
@@ -220,15 +225,6 @@ const Home = () => {
                 Coming Soon
               </span>
             </div>
-
-
-            <div className="bg-white p-6 rounded-lg shadow-lg cursor-not-allowed opacity-75 text-center flex flex-col items-center hd-sm group relative">
-              <SiCypress className="text-blue-600 mb-4 text-2xl" />
-              <h3 className="text-xs font-semibold text-gray-800">E2E with Cypress</h3>
-              <span className="absolute inset-0 flex items-center justify-center bg-black/75 text-white font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              Coming Soon
-            </span>
-          </div>
           </div>
         </div>
       </div>

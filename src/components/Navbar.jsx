@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { IoMenuSharp } from "react-icons/io5";
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import logo from '../assets/img/logo.png';
 
-const QuizLinks = ({ setMenuOpen }) => {
+const QuizLinks = ({ setMenuOpen, currentPath }) => {
   const quizLinks = [
     { title: "STLC", link: "quizstlc" },
     { title: "Principles of Testing", link: "quizprinciples" },
@@ -15,6 +15,7 @@ const QuizLinks = ({ setMenuOpen }) => {
     { title: "TDD Practice Arena", link: "jestintro" },
     { title: "Cross Browser Testing", link: "crossbrowser-testing" },
     { title: "AI in QA", link: "ai-qa" },
+    { title: "Cypress Quiz", link: "cypress-quiz" },
     { title: "Test Age Estimator", link: "ageestimator" },
     { title: "Credit Risk Calculator", link: "creditrisk" },
     { title: "Test Mood tracker App", link: "mood" },
@@ -27,7 +28,10 @@ const QuizLinks = ({ setMenuOpen }) => {
           key={index}
           to={`/${quiz.link}`}
           onClick={() => setMenuOpen(false)}
-          className="block p-2 text-gray-700 text-base hover:bg-violet-50 hover:text-violet-700 transition-colors duration-200"
+          className={`block p-2 text-base transition-colors duration-200 
+            ${currentPath === '/' + quiz.link 
+              ? 'bg-violet-100 text-violet-700 font-semibold' 
+              : 'text-gray-700 hover:bg-violet-50 hover:text-violet-700'}`}
         >
           {quiz.title}
         </RouterLink>
@@ -39,7 +43,8 @@ const QuizLinks = ({ setMenuOpen }) => {
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const navigate = useNavigate();
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
@@ -65,7 +70,10 @@ const Navbar = () => {
             <li>
               <RouterLink
                 to="/"
-                className="inline-block py-2 px-4 text-gray-700 lowercase text-[18px] hover:text-purple-800 cursor-pointer"
+                className={`inline-block py-2 px-4 lowercase text-[18px] transition-colors duration-200
+                  ${currentPath === '/' 
+                    ? 'text-purple-800 font-semibold' 
+                    : 'text-gray-700 hover:text-purple-800'}`}
               >
                 Home
               </RouterLink>
@@ -74,10 +82,15 @@ const Navbar = () => {
                 onMouseEnter={() => setDropdownOpen(true)} 
                 onMouseLeave={() => setDropdownOpen(false)}
             >
-              <button className="inline-block py-2 px-4 text-gray-700 lowercase text-[18px] hover:text-purple-800 cursor-pointer">
+              <button 
+                className={`inline-block py-2 px-4 lowercase text-[18px] transition-colors duration-200
+                  ${currentPath !== '/' && currentPath !== '/about' 
+                    ? 'text-purple-800 font-semibold' 
+                    : 'text-gray-700 hover:text-purple-800'}`}
+              >
                 Quiz
               </button>
-              {dropdownOpen && <QuizLinks setMenuOpen={setMenuOpen} />}
+              {dropdownOpen && <QuizLinks setMenuOpen={setMenuOpen} currentPath={currentPath} />}
             </li>
           </ul>
         </div>
@@ -90,7 +103,7 @@ const Navbar = () => {
       {menuOpen && (
         <div className="md:hidden bg-white shadow-lg absolute right-0 top-full w-full border-t border-gray-100">
           <div className="max-h-[80vh] overflow-y-auto">
-            <QuizLinks setMenuOpen={setMenuOpen} />
+            <QuizLinks setMenuOpen={setMenuOpen} currentPath={currentPath} />
           </div>
         </div>
       )}

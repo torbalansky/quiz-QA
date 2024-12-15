@@ -670,23 +670,23 @@ const CrossBrowserTesting = () => {
   return (
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="mb-6 flex justify-center gap-4">
+        <div className="flex mb-6 border-b text-center flex-row justify-center gap-4"> 
           <button
             onClick={() => setActiveView('theory')}
-            className={`px-6 py-2 rounded-lg font-semibold transition-all duration-300 ${
+            className={`px-6 py-2 font-semibold transition-all duration-300 ${
               activeView === 'theory'
-                ? 'bg-blue-600 text-white'
-                : 'bg-white text-blue-600 hover:bg-blue-50'
+              ? 'border-b-2 border-blue-500 text-blue-500'
+              : 'text-gray-500'
             }`}
           >
             Theory
           </button>
           <button
             onClick={() => setActiveView('quiz')}
-            className={`px-6 py-2 rounded-lg font-semibold transition-all duration-300 ${
+            className={`px-6 py-2 font-semibold transition-all duration-300 ${
               activeView === 'quiz'
-                ? 'bg-blue-600 text-white'
-                : 'bg-white text-blue-600 hover:bg-blue-50'
+              ? 'border-b-2 border-blue-500 text-blue-500'
+              : 'text-gray-500'
             }`}
           >
             Quiz

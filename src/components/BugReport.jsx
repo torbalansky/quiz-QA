@@ -239,7 +239,7 @@ const BugReport = () => {
               </div>
             </div>
 
-            <div className="w-[460px] bg-white p-4 rounded-xl shadow-sm">
+            <div className="w-1/2 text-center flex flex-col items-center overflow-auto bg-white p-4 rounded-xl shadow-sm">
               <h2 className="text-lg font-semibold text-gray-700 mb-4 text-center">Arrange Here</h2>
               <div 
                 ref={dropZoneContainerRef} 

@@ -1313,6 +1313,607 @@ export const GeneralQ = [
     ],
     correctAnswer: "B. It promotes the creation of tests before the actual code is written",
   },
+  {
+    question: "41. What is 'Mutation Testing'?",
+    options: [
+      "A. Testing different versions of the same software",
+      "B. A technique where code is deliberately changed to verify test effectiveness",
+      "C. Testing multiple features simultaneously",
+      "D. Testing software across different platforms"
+    ],
+    correctAnswer: "B. A technique where code is deliberately changed to verify test effectiveness",
+  },
+  {
+    question: "42. What is 'Pair Testing'?",
+    options: [
+      "A. Two testers working independently on the same feature",
+      "B. Testing software in pairs of test cases",
+      "C. Two people working together to test software, sharing ideas and findings",
+      "D. Running two different types of tests simultaneously"
+    ],
+    correctAnswer: "C. Two people working together to test software, sharing ideas and findings",
+},
+{
+    question: "43. What is a 'Test Oracle'?",
+    options: [
+      "A. A senior tester who reviews all test cases",
+      "B. A mechanism for determining whether a test has passed or failed",
+      "C. A database of test results",
+      "D. An automated testing tool"
+    ],
+    correctAnswer: "B. A mechanism for determining whether a test has passed or failed",
+  },
+  {
+    question: "44. What is 'Fuzz Testing'?",
+    options: [
+      "A. Testing with unclear requirements",
+      "B. Testing with random data inputs to find vulnerabilities",
+      "C. Testing without proper documentation",
+      "D. Testing under time pressure"
+    ],
+    correctAnswer: "B. Testing with random data inputs to find vulnerabilities",
+  },
+  {
+    question: "45. What is 'Monkey Testing'?",
+    options: [
+      "A. Testing without any specific pattern or sequence",
+      "B. Testing basic functionality only",
+      "C. Testing with predefined scenarios",
+      "D. Testing with automated tools only"
+    ],
+    correctAnswer: "A. Testing without any specific pattern or sequence",
+  },
+  {
+    question: "46. What is a 'Test Harness'?",
+    options: [
+      "A. A collection of test data",
+      "B. A test management tool",
+      "C. A testing environment including test data, test cases, and execution tools",
+      "D. A bug tracking system"
+    ],
+    correctAnswer: "C. A testing environment including test data, test cases, and execution tools",
+  },
+  {
+    question: "47. What is 'Pesticide Paradox' in software testing?",
+    options: [
+      "A. When bugs appear after fixing other bugs",
+      "B. When the same tests repeated over time become ineffective at finding new bugs",
+      "C. When testing becomes too expensive",
+      "D. When tests become obsolete"
+    ],
+    correctAnswer: "B. When the same tests repeated over time become ineffective at finding new bugs",
+  },
+  {
+    question: "48. What is 'Error Guessing'?",
+    options: [
+      "A. Random testing of the application",
+      "B. Testing based on test cases only",
+      "C. Testing based on experience to predict where errors might occur",
+      "D. Testing without proper planning"
+    ],
+    correctAnswer: "C. Testing based on experience to predict where errors might occur",
+  },
+  {
+    question: "49. What is 'Session-Based Testing'?",
+    options: [
+      "A. Testing done in time-boxed sessions with specific objectives",
+      "B. Testing during development sessions",
+      "C. Testing with multiple users simultaneously",
+      "D. Testing in different time zones"
+    ],
+    correctAnswer: "A. Testing done in time-boxed sessions with specific objectives",
+  },
+  {
+    question: "50. What is 'Dogfooding'?",
+    options: [
+      "A. Testing with real user data",
+      "B. When a company uses its own product internally before release",
+      "C. Testing without proper tools",
+      "D. Beta testing with selected users"
+    ],
+    correctAnswer: "B. When a company uses its own product internally before release",
+  },
+  {
+    question: "51. What is 'Shift-Left Testing'?",
+    options: [
+      "A. Moving testing activities earlier in the software development lifecycle",
+      "B. Testing only left-side components of the application",
+      "C. A type of performance testing",
+      "D. Testing after deployment"
+    ],
+    correctAnswer: "A. Moving testing activities earlier in the software development lifecycle",
+  },
+  {
+    question: "52. What is 'Chaos Testing'?",
+    options: [
+      "A. Testing without proper documentation",
+      "B. Deliberately introducing failures to test system resilience",
+      "C. Random testing of features",
+      "D. Testing under extreme stress conditions"
+    ],
+    correctAnswer: "B. Deliberately introducing failures to test system resilience",
+  },
+  {
+    question: "53. What is 'Synthetic Monitoring'?",
+    options: [
+      "A. Testing with artificial users and transactions",
+      "B. Monitoring system performance in production",
+      "C. Testing with synthetic data",
+      "D. Automated performance testing"
+    ],
+    correctAnswer: "A. Testing with artificial users and transactions",
+  },
+  {
+    question: "54. What is 'Canary Testing'?",
+    options: [
+      "A. Testing in isolated environments",
+      "B. Rolling out changes to a small subset of users before full deployment",
+      "C. Testing emergency scenarios",
+      "D. Testing with warning systems"
+    ],
+    correctAnswer: "B. Rolling out changes to a small subset of users before full deployment",
+  },
+  {
+    question: "55. What is 'A/B Testing'?",
+    options: [
+      "A. Testing two different versions of code",
+      "B. Comparing two different test approaches",
+      "C. Testing two different versions of a feature with real users",
+      "D. Testing in two different environments"
+    ],
+    correctAnswer: "C. Testing two different versions of a feature with real users",
+  },
+  {
+    question: "56. What is 'Contract Testing'?",
+    options: [
+      "A. Testing legal documents",
+      "B. Testing agreements between services or components",
+      "C. Testing service level agreements",
+      "D. Testing user contracts"
+    ],
+    correctAnswer: "B. Testing agreements between services or components",
+  },
+  {
+    question: "57. What is 'Immersion Testing'?",
+    options: [
+      "A. Testing in a production-like environment",
+      "B. Testing while fully engaged with the product for an extended period",
+      "C. Testing underwater devices",
+      "D. Testing in isolated conditions"
+    ],
+    correctAnswer: "B. Testing while fully engaged with the product for an extended period",
+  },
+  {
+    question: "58. What is 'Metamorphic Testing'?",
+    options: [
+      "A. Testing system transformations",
+      "B. Testing with changing requirements",
+      "C. Verifying relationships between multiple executions of a program",
+      "D. Testing system mutations"
+    ],
+    correctAnswer: "C. Verifying relationships between multiple executions of a program",
+  },
+  {
+    question: "59. What is 'Soak Testing'?",
+    options: [
+      "A. Testing system behavior under sustained load over an extended period",
+      "B. Testing system recovery from crashes",
+      "C. Testing system backup procedures",
+      "D. Testing system performance under peak loads"
+    ],
+    correctAnswer: "A. Testing system behavior under sustained load over an extended period",
+  },
+  {
+    question: "60. What is 'Crowd Testing'?",
+    options: [
+      "A. Testing with a large group of users",
+      "B. Testing in crowded environments",
+      "C. Testing with multiple testers simultaneously",
+      "D. Testing social features of an application"
+    ],
+    correctAnswer: "A. Testing with a large group of users",
+  },
+  {
+    question: "61. What is the main purpose of 'Sanity Testing'?",
+    options: [
+      "A. To test the entire application thoroughly",
+      "B. To quickly evaluate if a specific function or component is working at a basic level",
+      "C. To check system security",
+      "D. To verify system performance"
+    ],
+    correctAnswer: "B. To quickly evaluate if a specific function or component is working at a basic level",
+  },
+  {
+    question: "62. In Security Testing, what is 'Penetration Testing'?",
+    options: [
+      "A. Testing system performance under heavy load",
+      "B. Authorized simulated attacks to identify security vulnerabilities",
+      "C. Testing system backup procedures",
+      "D. Testing user authentication only"
+    ],
+    correctAnswer: "B. Authorized simulated attacks to identify security vulnerabilities",
+  },
+  {
+    question: "63. What distinguishes 'Smoke Testing' from 'Sanity Testing'?",
+    options: [
+      "A. Smoke testing is more comprehensive and tests critical functionalities, while sanity testing focuses on specific components",
+      "B. Smoke testing is performed only in production",
+      "C. Sanity testing is only done by developers",
+      "D. There is no difference between them"
+    ],
+    correctAnswer: "A. Smoke testing is more comprehensive and tests critical functionalities, while sanity testing focuses on specific components",
+  },
+  {
+    question: "64. What is 'SQL Injection Testing'?",
+    options: [
+      "A. Testing database performance",
+      "B. Testing database connections",
+      "C. Testing for vulnerabilities in database queries that could allow unauthorized access",
+      "D. Testing SQL query optimization"
+    ],
+    correctAnswer: "C. Testing for vulnerabilities in database queries that could allow unauthorized access",
+  },
+  {
+    question: "65. What is 'Cross-Site Scripting (XSS) Testing'?",
+    options: [
+      "A. Testing across different websites",
+      "B. Testing for vulnerabilities that allow injection of malicious scripts",
+      "C. Testing script performance",
+      "D. Testing browser compatibility"
+    ],
+    correctAnswer: "B. Testing for vulnerabilities that allow injection of malicious scripts",
+  },
+  {
+    question: "66. What is 'Recovery Testing'?",
+    options: [
+      "A. Testing how well the system recovers from crashes, hardware failures, or other catastrophic problems",
+      "B. Testing system backup procedures",
+      "C. Testing data recovery only",
+      "D. Testing system restore points"
+    ],
+    correctAnswer: "A. Testing how well the system recovers from crashes, hardware failures, or other catastrophic problems",
+  },
+  {
+    question: "67. What is 'Authentication Testing'?",
+    options: [
+      "A. Testing user interface",
+      "B. Verifying that only authorized users can access the system",
+      "C. Testing system performance",
+      "D. Testing data encryption"
+    ],
+    correctAnswer: "B. Verifying that only authorized users can access the system",
+  },
+  {
+    question: "68. What is 'Vulnerability Scanning'?",
+    options: [
+      "A. Manual testing for security issues",
+      "B. Automated testing of known security vulnerabilities",
+      "C. Testing system backups",
+      "D. Scanning system documentation"
+    ],
+    correctAnswer: "B. Automated testing of known security vulnerabilities",
+  },
+  {
+    question: "69. What is 'Failover Testing'?",
+    options: [
+      "A. Testing system failure scenarios",
+      "B. Testing backup systems when primary systems fail",
+      "C. Testing failed test cases",
+      "D. Testing system crashes"
+    ],
+    correctAnswer: "B. Testing backup systems when primary systems fail",
+  },
+  {
+    question: "70. What is 'Compliance Testing'?",
+    options: [
+      "A. Testing if the system meets industry standards and regulations",
+      "B. Testing system compatibility",
+      "C. Testing user compliance",
+      "D. Testing security compliance only"
+    ],
+    correctAnswer: "A. Testing if the system meets industry standards and regulations",
+  },
+  {
+    question: "71. What is the primary purpose of API Testing?",
+    options: [
+      "A. To test the user interface",
+      "B. To verify the functionality, reliability, and security of application programming interfaces",
+      "C. To test database connections only",
+      "D. To check system performance"
+    ],
+    correctAnswer: "B. To verify the functionality, reliability, and security of application programming interfaces",
+  },
+  {
+    question: "72. Which HTTP method is typically used to retrieve data from an API?",
+    options: [
+      "A. POST",
+      "B. PUT",
+      "C. GET",
+      "D. DELETE"
+    ],
+    correctAnswer: "C. GET",
+  },
+  {
+    question: "73. What is API Response Code 404 typically indicating?",
+    options: [
+      "A. Successful request",
+      "B. Server error",
+      "C. Resource not found",
+      "D. Unauthorized access"
+    ],
+    correctAnswer: "C. Resource not found",
+  },
+  {
+    question: "74. What is 'API Documentation Testing'?",
+    options: [
+      "A. Testing if the API documentation is well-written",
+      "B. Verifying that the API behaves as described in its documentation",
+      "C. Writing API documentation",
+      "D. Testing API performance"
+    ],
+    correctAnswer: "B. Verifying that the API behaves as described in its documentation",
+  },
+  {
+    question: "75. What is 'API Schema Validation'?",
+    options: [
+      "A. Validating API security",
+      "B. Checking if the API response matches the expected data structure",
+      "C. Testing API performance",
+      "D. Verifying API documentation"
+    ],
+    correctAnswer: "B. Checking if the API response matches the expected data structure",
+  },
+  {
+    question: "76. What is the purpose of API Load Testing?",
+    options: [
+      "A. To verify API functionality",
+      "B. To test how the API handles multiple simultaneous requests",
+      "C. To check API documentation",
+      "D. To validate API response formats"
+    ],
+    correctAnswer: "B. To test how the API handles multiple simultaneous requests",
+  },
+  {
+    question: "77. What is 'API Mocking'?",
+    options: [
+      "A. Making fun of APIs",
+      "B. Creating a simulated API environment for testing purposes",
+      "C. Testing API security",
+      "D. Writing API documentation"
+    ],
+    correctAnswer: "B. Creating a simulated API environment for testing purposes",
+  },
+  {
+    question: "78. What is the purpose of API Security Testing?",
+    options: [
+      "A. To test API performance",
+      "B. To verify API documentation",
+      "C. To identify vulnerabilities and ensure proper authentication and authorization",
+      "D. To check API response times"
+    ],
+    correctAnswer: "C. To identify vulnerabilities and ensure proper authentication and authorization",
+  },
+  {
+    question: "79. What is 'API Integration Testing'?",
+    options: [
+      "A. Testing individual API endpoints",
+      "B. Testing how multiple APIs work together",
+      "C. Testing API documentation",
+      "D. Testing API security"
+    ],
+    correctAnswer: "B. Testing how multiple APIs work together",
+  },
+  {
+    question: "80. What is 'API Contract Testing'?",
+    options: [
+      "A. Testing API legal agreements",
+      "B. Verifying that API consumers and providers adhere to agreed-upon interfaces",
+      "C. Testing API performance",
+      "D. Testing API documentation"
+    ],
+    correctAnswer: "B. Verifying that API consumers and providers adhere to agreed-upon interfaces",
+  },
+  {
+    question: "81. What does HTTP Status Code 200 indicate in API testing?",
+    options: [
+      "A. Server error",
+      "B. Successful request and response",
+      "C. Resource not found",
+      "D. Bad request"
+    ],
+    correctAnswer: "B. Successful request and response",
+  },
+  {
+    question: "82. What does HTTP Status Code 201 represent?",
+    options: [
+      "A. Resource successfully created",
+      "B. Resource updated",
+      "C. Resource deleted",
+      "D. Resource found"
+    ],
+    correctAnswer: "A. Resource successfully created",
+  },
+  {
+    question: "83. What is indicated by HTTP Status Code 400?",
+    options: [
+      "A. Server error",
+      "B. Successful request",
+      "C. Bad request from client",
+      "D. Unauthorized access"
+    ],
+    correctAnswer: "C. Bad request from client",
+  },
+  {
+    question: "84. What does HTTP Status Code 500 signify?",
+    options: [
+      "A. Client-side error",
+      "B. Internal server error",
+      "C. Successful request",
+      "D. Resource not found"
+    ],
+    correctAnswer: "B. Internal server error",
+  },
+  {
+    question: "85. What is the meaning of HTTP Status Code 401?",
+    options: [
+      "A. Server is busy",
+      "B. Bad request",
+      "C. Unauthorized access - authentication required",
+      "D. Resource not found"
+    ],
+    correctAnswer: "C. Unauthorized access - authentication required",
+  },
+  {
+    question: "86. What does HTTP Status Code 403 indicate?",
+    options: [
+      "A. Server is down",
+      "B. Forbidden - client lacks access rights",
+      "C. Resource not available",
+      "D. Bad request"
+    ],
+    correctAnswer: "B. Forbidden - client lacks access rights",
+  },
+  {
+    question: "87. In API testing, what is the difference between Status Code 401 and 403?",
+    options: [
+      "A. No difference, they are the same",
+      "B. 401 means authentication is needed, 403 means authenticated but not authorized",
+      "C. Both indicate server errors",
+      "D. Both indicate successful requests"
+    ],
+    correctAnswer: "B. 401 means authentication is needed, 403 means authenticated but not authorized",
+  },
+  {
+    question: "88. What does HTTP Status Code 503 represent?",
+    options: [
+      "A. Service unavailable - server temporarily overloaded or down",
+      "B. Bad gateway",
+      "C. Client error",
+      "D. Successful request"
+    ],
+    correctAnswer: "A. Service unavailable - server temporarily overloaded or down",
+  },
+  {
+    question: "89. What is HTTP Status Code 204 typically used for?",
+    options: [
+      "A. Error in request",
+      "B. Successful request but no content to return",
+      "C. Server error",
+      "D. Resource created"
+    ],
+    correctAnswer: "B. Successful request but no content to return",
+  },
+  {
+    question: "90. What does HTTP Status Code 502 indicate?",
+    options: [
+      "A. Successful request",
+      "B. Client error",
+      "C. Bad gateway - invalid response from upstream server",
+      "D. Resource not found"
+    ],
+    correctAnswer: "C. Bad gateway - invalid response from upstream server",
+  },
+  {
+    question: "91. What are the seven testing principles according to ISTQB?",
+    options: [
+      "A. Testing shows presence of defects; Early testing; Defect clustering; Pesticide paradox; Testing is context dependent; Absence of errors fallacy; Exhaustive testing is impossible",
+      "B. Testing shows absence of defects; Late testing; Error guessing; Defect prevention; Testing is independent; Error clustering; Complete testing is possible",
+      "C. Testing shows bugs; Continuous testing; Error prevention; Testing is automated; Defect reporting; Manual testing is obsolete; All testing is possible",
+      "D. Testing finds all bugs; Automated testing; Defect logging; Testing is expensive; Error clustering; Bug prevention; Complete testing"
+    ],
+    correctAnswer: "A. Testing shows presence of defects; Early testing; Defect clustering; Pesticide paradox; Testing is context dependent; Absence of errors fallacy; Exhaustive testing is impossible",
+  },
+  {
+    question: "92. What is the difference between Error, Defect, and Failure?",
+    options: [
+      "A. They are all the same thing",
+      "B. Error is a human mistake, Defect is a flaw in code, Failure is when the system doesn't perform required function",
+      "C. Error is in code, Defect is in requirements, Failure is in design",
+      "D. Error is in testing, Defect is in production, Failure is in deployment"
+    ],
+    correctAnswer: "B. Error is a human mistake, Defect is a flaw in code, Failure is when the system doesn't perform required function",
+  },
+  {
+    question: "93. What are the four levels of testing according to ISTQB?",
+    options: [
+      "A. Unit, Integration, System, Acceptance Testing",
+      "B. Component, Module, System, User Testing",
+      "C. Code, Function, Integration, Production Testing",
+      "D. Development, Testing, Staging, Production Testing"
+    ],
+    correctAnswer: "A. Unit, Integration, System, Acceptance Testing",
+  },
+  {
+    question: "94. What is the purpose of the V-Model in software testing?",
+    options: [
+      "A. To show the relationship between development and testing activities",
+      "B. To demonstrate how to write test cases",
+      "C. To explain bug reporting procedures",
+      "D. To show how to perform regression testing"
+    ],
+    correctAnswer: "A. To show the relationship between development and testing activities",
+  },
+  {
+    question: "95. What is the difference between Quality Assurance (QA) and Quality Control (QC)?",
+    options: [
+      "A. They are the same thing",
+      "B. QA is process-oriented and preventive, QC is product-oriented and detective",
+      "C. QA is about testing, QC is about development",
+      "D. QA is about fixing bugs, QC is about finding bugs"
+    ],
+    correctAnswer: "B. QA is process-oriented and preventive, QC is product-oriented and detective",
+  },
+  {
+    question: "96. What is the purpose of Entry and Exit Criteria in testing?",
+    options: [
+      "A. To determine when to start and stop testing",
+      "B. To decide who can enter or exit the testing team",
+      "C. To manage test environment access",
+      "D. To control test data creation"
+    ],
+    correctAnswer: "A. To determine when to start and stop testing",
+  },
+  {
+    question: "97. What is the difference between Black Box and White Box Testing?",
+    options: [
+      "A. Black box is manual testing, white box is automated testing",
+      "B. Black box testing is done without knowledge of internal code, white box testing requires knowledge of internal code",
+      "C. Black box is functional testing, white box is only performance testing",
+      "D. Black box is done by developers, white box is done by testers"
+    ],
+    correctAnswer: "B. Black box testing is done without knowledge of internal code, white box testing requires knowledge of internal code",
+  },
+  {
+    question: "98. What is a Test Design Technique?",
+    options: [
+      "A. A way to create user interfaces",
+      "B. A method used to derive and select test conditions, test cases, or test data",
+      "C. A tool for automated testing",
+      "D. A process for reporting bugs"
+    ],
+    correctAnswer: "B. A method used to derive and select test conditions, test cases, or test data",
+  },
+  {
+    question: "99. What is Configuration Management in testing?",
+    options: [
+      "A. Setting up test environments",
+      "B. A system of handling changes to deliverables and testing artifacts",
+      "C. Managing test cases",
+      "D. Configuring test tools"
+    ],
+    correctAnswer: "B. A system of handling changes to deliverables and testing artifacts",
+  },
+  {
+    question: "100. What is the purpose of a Test Strategy?",
+    options: [
+      "A. To list all test cases",
+      "B. To provide a high-level description of the test levels to be performed and the testing within those levels",
+      "C. To report test results",
+      "D. To track defects"
+    ],
+    correctAnswer: "B. To provide a high-level description of the test levels to be performed and the testing within those levels",
+  }
+
 ]
 
 export const moodTrackerTestPlan = {
@@ -1329,7 +1930,7 @@ export const moodTrackerTestPlan = {
     "Test scenario management",
     "Test case tracking system"
   ],
-  // New sections
+
   approach: {
     strategy: "Implement a combination of manual and automated testing focusing on user scenarios and edge cases. Include regression testing for each new feature.",
     types: [
@@ -5951,3 +6552,609 @@ export const aiTestingPlatforms = {
     }
   ]
 };
+
+export const CypressQ = [
+  {
+    question: "1. What is Cypress primarily used for?",
+    options: [
+      "A. Backend testing only",
+      "B. End-to-end testing of web applications",
+      "C. Mobile application testing",
+      "D. Database testing"
+    ],
+    correctAnswer: "B. End-to-end testing of web applications"
+  },
+  {
+    question: "2. Which command is used to visit a webpage in Cypress?",
+    options: [
+      "A. cy.goto('url')",
+      "B. cy.navigate('url')",
+      "C. cy.visit('url')",
+      "D. cy.open('url')"
+    ],
+    correctAnswer: "C. cy.visit('url')"
+  },
+  {
+    question: "3. What is the purpose of cy.get() in Cypress?",
+    options: [
+      "A. To get data from an API",
+      "B. To select DOM elements",
+      "C. To get browser cookies",
+      "D. To get test configuration"
+    ],
+    correctAnswer: "B. To select DOM elements"
+  },
+  {
+    question: "4. What is a key architectural advantage of Cypress compared to Selenium?",
+    options: [
+      "A. It runs slower but more reliably",
+      "B. It runs in the same run loop as the application",
+      "C. It requires WebDriver installation",
+      "D. It only works with Chrome browser"
+    ],
+    correctAnswer: "B. It runs in the same run loop as the application"
+  },
+  {
+    question: "5. Which folder in Cypress project structure stores test data files?",
+    options: [
+        "A. data/",
+        "B. tests/",
+        "C. fixtures/",
+        "D. resources/"
+      ],
+    correctAnswer: "C. fixtures/"
+  },
+  {
+    question: "6. What is the purpose of the 'beforeEach' hook in Cypress tests?",
+    options: [
+        "A. It runs after each test",
+        "B. It runs before all tests",
+        "C. It runs before each individual test",
+        "D. It runs only once per test suite"
+      ],
+    correctAnswer: "C. It runs before each individual test"
+  },
+  {
+    question: "7. What is the recommended way to select elements for testing in Cypress?",
+    options: [
+        "A. Using CSS classes",
+        "B. Using IDs",
+        "C. Using data-cy attributes",
+        "D. Using element tags"
+      ],
+    correctAnswer: "C. Using data-cy attributes"
+  },
+  {
+    question: "8. How does Cypress handle asynchronous operations?",
+    options: [
+        "A. Using async/await",
+        "B. Using Promise.then()",
+        "C. Using setTimeout",
+        "D. Automatically with built-in waiting"
+      ],
+    correctAnswer: "D. Automatically with built-in waiting"
+  },
+  {
+    question: "9. What is the purpose of cy.intercept() in Cypress?",
+    options: [
+        "A. To interrupt test execution",
+        "B. To intercept and stub network requests",
+        "C. To interact with iframes",
+        "D. To interpret test results"
+      ],
+    correctAnswer: "B. To intercept and stub network requests"
+  },
+  {
+    question: "10. How can you share custom commands across multiple tests in Cypress?",
+    options: [
+        "A. By copying and pasting the commands",
+        "B. By defining them in commands.js file",
+        "C. By using global variables",
+        "D. By importing from external libraries"
+      ],
+    correctAnswer: "B. By defining them in commands.js file"
+  },
+  {
+    question: "11. What is the purpose of cy.fixture() in Cypress?",
+    options: [
+        "A. To fix failed tests",
+        "B. To load test data from fixture files",
+        "C. To fix browser compatibility issues",
+        "D. To configure test settings"
+      ],
+    correctAnswer: "B. To load test data from fixture files"
+  },
+  {
+    question: "12. Which command is used to make assertions in Cypress?",
+    options: [
+        "A. cy.assert()",
+        "B. cy.expect()",
+        "C. cy.should()",
+        "D. cy.test()"
+      ],
+    correctAnswer: "C. cy.should()"
+  },
+  {
+    question: "13. What is the purpose of cypress.config.js file?",
+    options: [
+        "A. To store test data",
+        "B. To write test cases",
+        "C. To configure Cypress behavior and settings",
+        "D. To define custom commands"
+      ],
+    correctAnswer: "C. To configure Cypress behavior and settings"
+  },
+  {
+    question: "14. What is the purpose of cy.wait() in Cypress?",
+    options: [
+        "A. To pause test execution for a fixed time",
+        "B. To wait for a specific network request to complete",
+        "C. To wait for page load",
+        "D. To wait for browser initialization"
+      ],
+    correctAnswer: "B. To wait for a specific network request to complete"
+  },
+  {
+    question: "15. How can you handle environment variables in Cypress?",
+    options: [
+        "A. Using process.env",
+        "B. Using Cypress.env()",
+        "C. Using global variables",
+        "D. Using system environment"
+      ],
+    correctAnswer: "B. Using Cypress.env()"
+  },
+  {
+    question: "16. What is the purpose of cy.as() in Cypress?",
+    options: [
+        "A. To rename commands",
+        "B. To create aliases for future reference",
+        "C. To assert conditions",
+        "D. To assign variables"
+      ],
+    correctAnswer: "B. To create aliases for future reference"
+  },
+  {
+    question: "17. Where are Cypress test failure screenshots stored by default?",
+    options: [
+        "A. /tmp folder",
+        "B. /cypress/screenshots",
+        "C. /test/screenshots",
+        "D. /assets/screenshots"
+      ],
+    correctAnswer: "B. /cypress/screenshots"
+  },
+  {
+    question: "18. What is the difference between cy.get() and cy.find()?",
+    options: [
+        "A. There is no difference",
+        "B. cy.get() searches from root, cy.find() searches within a previous element",
+        "C. cy.get() is faster than cy.find()",
+        "D. cy.find() is more reliable than cy.get()"
+      ],
+    correctAnswer: "B. cy.get() searches from root, cy.find() searches within a previous element"
+  },
+  {
+    question: "19. How can you handle multiple tabs/windows in Cypress?",
+    options: [
+        "A. Using cy.window()",
+        "B. Cypress doesn't support multiple tabs directly",
+        "C. Using cy.tab()",
+        "D. Using cy.switchTo()"
+      ],
+    correctAnswer: "B. Cypress doesn't support multiple tabs directly"
+  },
+  {
+    question: "20. What is the purpose of cy.task() in Cypress?",
+    options: [
+        "A. To execute Node.js code from within Cypress tests",
+        "B. To create new test tasks",
+        "C. To manage test priorities",
+        "D. To schedule test execution"
+      ],
+    correctAnswer: "A. To execute Node.js code from within Cypress tests"
+  },
+  {
+    question: "21. How can you handle iframes in Cypress?",
+    options: [
+        "A. Using cy.iframe()",
+        "B. Using cy.get('iframe').then($iframe => {})",
+        "C. Cypress doesn't support iframes",
+        "D. Using cy.switchToFrame()"
+      ],
+    correctAnswer: "B. Using cy.get('iframe').then($iframe => {})"
+  },
+  {
+    question: "22. What is the purpose of cy.clock() in Cypress?",
+    options: [
+        "A. To measure test execution time",
+        "B. To control time-dependent functions like setTimeout",
+        "C. To set test timeouts",
+        "D. To schedule test execution"
+      ],
+    correctAnswer: "B. To control time-dependent functions like setTimeout"
+  },
+  {
+    question: "23. How can you debug Cypress tests?",
+    options: [
+        "A. Using console.log only",
+        "B. Using cy.debug() or .debug() command",
+        "C. Using browser's developer tools",
+        "D. All of the above"
+      ],
+    correctAnswer: "D. All of the above"
+  },
+  {
+    question: "24. What is the purpose of cy.viewport() in Cypress?",
+    options: [
+        "A. To take screenshots of specific viewports",
+        "B. To change the size of the browser window for responsive testing",
+        "C. To scroll to specific viewport areas",
+        "D. To validate viewport-specific content"
+      ],
+    correctAnswer: "B. To change the size of the browser window for responsive testing"
+  },
+  {
+    question: "25. How can you handle file uploads in Cypress?",
+    options: [
+      "A. Using cy.upload()",
+      "B. Using cy.attachFile() with cypress-file-upload plugin",
+      "C. File uploads are not supported in Cypress",
+      "D. Using native input file handling"
+      ],
+    correctAnswer: "B. Using cy.attachFile() with cypress-file-upload plugin"
+  },
+  {
+    question: "26. What is the difference between .then() and .should() in Cypress?",
+    options: [
+        "A. They are the same",
+        "B. .then() is for custom commands, .should() is for assertions",
+        "C. .then() allows direct access to the subject, .should() is for automatic retrying assertions",
+        "D. .should() is deprecated, .then() is recommended"
+      ],
+    correctAnswer: "C. .then() allows direct access to the subject, .should() is for automatic retrying assertions"
+  },
+  {
+    question: "27. How can you handle authentication in Cypress tests?",
+    options: [
+        "A. Only through UI login",
+        "B. Using cy.session() for session management",
+        "C. Authentication is not possible in Cypress",
+        "D. Only through environment variables"
+      ],
+    correctAnswer: "B. Using cy.session() for session management"
+  },
+  {
+    question: "28. What is the purpose of cy.stub() in Cypress?",
+    options: [
+        "A. To create test data",
+        "B. To replace a function with a stub version for testing",
+        "C. To stub network requests",
+        "D. To create test fixtures"
+      ],
+    correctAnswer: "B. To replace a function with a stub version for testing"
+  },
+  {
+    question: "29. How can you run specific test cases in Cypress?",
+    options: [
+        "A. Using .only() or it.only()",
+        "B. By commenting out other tests",
+        "C. By creating separate test files",
+        "D. Using test priorities"
+      ],
+    correctAnswer: "A. Using .only() or it.only()"
+  },
+  {
+    question: "30. What is the purpose of cy.within() in Cypress?",
+    options: [
+        "A. To test within a specific timeframe",
+        "B. To scope commands to within an element",
+        "C. To test within a specific browser",
+        "D. To test within an iframe"
+      ],
+    correctAnswer: "B. To scope commands to within an element"
+  }
+];
+
+export const STLCQuizData = [
+  {
+    question: "What is the first phase of the Software Testing Life Cycle (STLC)?",
+    options: [
+      "Test Execution",
+      "Test Planning",
+      "Requirement Analysis",
+      "Test Case Development"
+    ],
+    correctAnswer: "Requirement Analysis"
+  },
+  {
+    question: "Which document is typically created during the Requirement Analysis phase?",
+    options: [
+      "Test Cases",
+      "Bug Reports",
+      "Test Closure Report",
+      "Requirement Traceability Matrix (RTM)"
+    ],
+    correctAnswer: "Requirement Traceability Matrix (RTM)"
+  },
+  {
+    question: "What is the main purpose of the Test Planning phase?",
+    options: [
+      "Execute test cases",
+      "Define test strategy and create test plans",
+      "Develop test cases",
+      "Set up test environment"
+    ],
+    correctAnswer: "Define test strategy and create test plans"
+  },
+  {
+    question: "During which phase are test cases and test scripts created?",
+    options: [
+      "Test Planning",
+      "Test Case Development",
+      "Test Execution",
+      "Requirement Analysis"
+    ],
+    correctAnswer: "Test Case Development"
+  },
+  {
+    question: "What is typically performed during Test Environment Setup?",
+    options: [
+      "Writing test cases",
+      "Analyzing requirements",
+      "Performing smoke tests on the build",
+      "Creating test closure reports"
+    ],
+    correctAnswer: "Performing smoke tests on the build"
+  },
+  {
+    question: "Which activity is NOT part of the Test Execution phase?",
+    options: [
+      "Running test cases",
+      "Creating test strategy",
+      "Filing bug reports",
+      "Regression testing"
+    ],
+    correctAnswer: "Creating test strategy"
+  },
+  {
+    question: "What is the final phase of STLC?",
+    options: [
+      "Test Execution",
+      "Test Environment Setup",
+      "Test Cycle Closure",
+      "Test Case Development"
+    ],
+    correctAnswer: "Test Cycle Closure"
+  },
+  {
+    question: "Which document is produced during the Test Cycle Closure phase?",
+    options: [
+      "Test Plan",
+      "Test Cases",
+      "Test Metrics",
+      "Requirement Traceability Matrix"
+    ],
+    correctAnswer: "Test Metrics"
+  },
+  {
+    question: "What is a key best practice in STLC?",
+    options: [
+      "Skipping the planning phase to save time",
+      "Maintaining traceability throughout the cycle",
+      "Creating test cases without requirements",
+      "Executing tests without documentation"
+    ],
+    correctAnswer: "Maintaining traceability throughout the cycle"
+  },
+  {
+    question: "Which phase involves estimating the effort and cost of testing?",
+    options: [
+      "Requirement Analysis",
+      "Test Planning",
+      "Test Execution",
+      "Test Cycle Closure"
+    ],
+    correctAnswer: "Test Planning"
+  },
+  {
+      question: "What is the purpose of a Requirement Traceability Matrix (RTM)?",
+      options: [
+       "To track test execution progress",
+        "To map requirements to test cases",
+        "To document test results",
+        "To plan test environment setup"
+      ],
+      correctAnswer: "To map requirements to test cases"
+  },
+  {
+      question: "Which testing type is typically performed during Test Environment Setup?",
+      options: [
+        "Regression Testing",
+        "Integration Testing",
+        "Smoke Testing",
+        "Performance Testing"
+    ],
+    correctAnswer: "Smoke Testing"
+  },
+  {
+    question: "What is the primary output of the Test Case Development phase?",
+    options: [
+        "Test Strategy",
+        "Test Data",
+        "Test Cases and Scripts",
+        "Test Metrics"
+      ],
+      correctAnswer: "Test Cases and Scripts"
+  },
+  {
+      question: "When should test environment setup ideally begin?",
+      options: [
+        "After test execution",
+        "During requirement analysis",
+        "Parallel to test case development",
+        "After test case development"
+      ],
+      correctAnswer: "Parallel to test case development"
+  },
+  {
+    question: "What is the purpose of test closure activities?",
+    options: [
+      "To start new test cycle",
+      "To evaluate test completion criteria and document learnings",
+      "To fix remaining bugs",
+      "To create test cases"
+      ],
+      correctAnswer: "To evaluate test completion criteria and document learnings"
+  },
+  {
+      question: "Which phase involves analyzing the feasibility of automation?",
+      options: [
+        "Test Execution",
+        "Test Planning",
+        "Requirement Analysis",
+        "Test Environment Setup"
+      ],
+      correctAnswer: "Requirement Analysis"
+  },
+  {
+    question: "What should be done if requirements change during the STLC?",
+    options: [
+      "Ignore the changes and continue testing",
+      "Update test cases and RTM accordingly",
+      "Start the STLC from beginning",
+      "Skip test planning phase"
+      ],
+      correctAnswer: "Update test cases and RTM accordingly"
+  },
+  {
+      question: "Which document helps in tracking defects during test execution?",
+      options: [
+        "Test Strategy",
+        "Defect Report/Bug Report",
+        "Test Plan",
+        "Requirements Document"
+      ],
+      correctAnswer: "Defect Report/Bug Report"
+  },
+  {
+    question: "What is the main purpose of test metrics in STLC?",
+    options: [
+      "To create test cases",
+      "To measure and monitor test progress and quality",
+      "To setup test environment",
+      "To write code"
+      ],
+      correctAnswer: "To measure and monitor test progress and quality"
+  },
+  {
+      question: "Which activity marks the formal completion of the testing process?",
+      options: [
+        "Test execution completion",
+        "Bug fixing completion",
+        "Test closure report sign-off",
+        "Test case creation"
+      ],
+      correctAnswer: "Test closure report sign-off"
+  },
+  {
+      question: "What is the role of entry criteria in STLC?",
+      options: [
+        "To determine when to start coding",
+        "To define conditions that must be met before testing can begin",
+        "To set project deadlines",
+        "To evaluate test results"
+      ],
+      correctAnswer: "To define conditions that must be met before testing can begin"
+  },
+  {
+      question: "Which of the following is NOT a typical exit criteria for test closure?",
+      options: [
+        "All test cases executed",
+        "All high priority bugs fixed",
+        "Test environment setup complete",
+        "Test metrics documented"
+      ],
+      correctAnswer: "Test environment setup complete"
+  },
+  {
+      question: "What is the purpose of test case prioritization in STLC?",
+      options: [
+        "To execute all test cases faster",
+        "To identify which testers to assign",
+        "To ensure critical functionality is tested first",
+        "To reduce the number of test cases"
+      ],
+      correctAnswer: "To ensure critical functionality is tested first"
+  },
+  {
+    question: "When is regression testing typically performed in STLC?",
+    options: [
+      "Only at the start of testing",
+      "After every bug fix",
+      "Only during test planning",
+      "Only during requirement analysis"
+      ],
+      correctAnswer: "After every bug fix"
+  },
+  {
+      question: "What is the primary purpose of test data preparation in STLC?",
+      options: [
+        "To create user documentation",
+        "To provide realistic data for testing scenarios",
+        "To analyze requirements",
+        "To write test cases"
+      ],
+      correctAnswer: "To provide realistic data for testing scenarios"
+  },
+  {
+    question: "Which phase of STLC requires the most interaction with developers?",
+    options: [
+      "Test Planning",
+      "Requirement Analysis",
+      "Test Execution",
+      "Test Case Development"
+      ],
+      correctAnswer: "Test Execution"
+  },
+  {
+      question: "What is the purpose of test estimation in STLC?",
+      options: [
+        "To count the number of testers",
+        "To predict project completion date and required resources",
+        "To measure test coverage",
+        "To evaluate test cases"
+      ],
+      correctAnswer: "To predict project completion date and required resources"
+  },
+  {
+    question: "Which activity is most important during test environment setup?",
+    options: [
+      "Writing test cases",
+      "Verifying environment matches production",
+      "Creating test data",
+      "Running regression tests"
+      ],
+      correctAnswer: "Verifying environment matches production"
+  },
+  {
+      question: "What should be included in a test closure report?",
+      options: [
+        "Only failed test cases",
+        "Only passed test cases",
+        "Test summary, metrics, and lessons learned",
+        "Future project plans"
+      ],
+      correctAnswer: "Test summary, metrics, and lessons learned"
+  },
+  {
+      question: "What is the main difference between test strategy and test plan?",
+      options: [
+        "They are the same thing",
+        "Test strategy is high-level approach, test plan is detailed implementation",
+        "Test plan is created first",
+        "Test strategy is only for automation"
+      ],
+      correctAnswer: "Test strategy is high-level approach, test plan is detailed implementation"
+  }
+];

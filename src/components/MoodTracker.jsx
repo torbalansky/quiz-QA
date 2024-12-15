@@ -428,23 +428,23 @@ const MoodTracker = () => {
 
   return (
     <div className="p-2 sm:p-6">
-      <div className="mb-6 text-xs sm:text-xl flex justify-center gap-4">
+      <div className="flex mb-6 border-b text-center flex-row justify-center gap-4">
         <button
           onClick={() => setActiveView('app')}
-          className={`px-6 py-2 rounded-lg font-semibold transition-all duration-300 ${
+          className={`px-6 py-2 font-semibold transition-all duration-300 ${
             activeView === 'app'
-              ? 'bg-blue-600 text-white'
-              : 'bg-white text-blue-600 hover:bg-blue-50'
+              ? 'border-b-2 border-blue-500 text-blue-500'
+              : 'text-gray-500'
           }`}
         >
           Mood Tracker App
         </button>
         <button
           onClick={() => setActiveView('documentation')}
-          className={`px-6 py-2 rounded-lg font-semibold transition-all duration-300 ${
+          className={`px-6 py-2 font-semibold transition-all duration-300 ${
             activeView === 'documentation'
-              ? 'bg-blue-600 text-white'
-              : 'bg-white text-blue-600 hover:bg-blue-50'
+              ? 'border-b-2 border-blue-500 text-blue-500'
+              : 'text-gray-500'
           }`}
         >
           Documentation

@@ -29,6 +29,7 @@ import WBChatbotDocs from './components/WBChatbotDocs';
 import APITesting from './components/ApiTesting';
 import PostmanTesting from './components/PostmanTesting';
 import CrossBrowserTesting from './components/CrossBrowserTesting';
+import CypressQuiz from './components/CypressQuiz';
 
 const App = () => {
   useEffect(() => {
@@ -84,6 +85,7 @@ const App = () => {
         <Route path="/api-testing" element={<APITesting />} />
         <Route path="/postman-testing" element={<PostmanTesting />} />
         <Route path="/crossbrowser-testing" element={<CrossBrowserTesting />} />
+        <Route path="/cypress-quiz" element={<CypressQuiz />} />
       </Routes>
     </Router>
   );
