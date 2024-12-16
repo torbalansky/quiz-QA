@@ -468,6 +468,7 @@ export const testCasesV = [
     isTrue: true,  
   },
 ];
+
 export const testCasesC = [
   {
     id: "TC01",
@@ -7156,5 +7157,338 @@ export const STLCQuizData = [
         "Test strategy is only for automation"
       ],
       correctAnswer: "Test strategy is high-level approach, test plan is detailed implementation"
+  }
+];
+
+export const QADataPrinciplesQuiz = [
+  {
+    id: 1,
+    question: "Which testing principle states that testing can show the presence of defects but cannot prove their absence?",
+    options: [
+      "Exhaustive Testing is Impossible",
+      "Testing Shows Presence of Defects",
+      "Early Testing",
+      "Defect Clustering"
+    ],
+    correctAnswer: "Testing Shows Presence of Defects"
+  },
+  {
+    id: 2,
+    question: "According to the 'Early Testing' principle, when is the most cost-effective time to find and fix defects?",
+    options: [
+      "During production phase",
+      "During testing phase",
+      "As early as possible in the software development lifecycle",
+      "After user acceptance testing"
+    ],
+    correctAnswer: "As early as possible in the software development lifecycle"
+  },
+  {
+    id: 3,
+    question: "The Pareto principle in testing is most closely related to which testing principle?",
+    options: [
+      "Pesticide Paradox",
+      "Defect Clustering",
+      "Testing is Context Dependent",
+      "Absence-of-Errors Fallacy"
+    ],
+    correctAnswer: "Defect Clustering"
+  },
+  {
+    id: 4,
+    question: "What happens when the same test cases are repeated over and over again according to the Pesticide Paradox?",
+    options: [
+      "Tests become more effective",
+      "Tests stop finding new defects",
+      "Software quality improves",
+      "Testing costs decrease"
+    ],
+    correctAnswer: "Tests stop finding new defects"
+  },
+  {
+    id: 5,
+    question: "Why is exhaustive testing impossible except for trivial cases?",
+    options: [
+      "It's too expensive",
+      "There's not enough time",
+      "The number of possible input combinations is too large",
+      "Developers don't allow it"
+    ],
+    correctAnswer: "The number of possible input combinations is too large"
+  },
+  {
+    id: 6,
+    question: "What does the 'Absence-of-Errors Fallacy' principle teach us?",
+    options: [
+      "All software has errors",
+      "Testing can find all errors",
+      "A bug-free system might still be unusable if it doesn't meet user needs",
+      "Errors are impossible to find"
+    ],
+    correctAnswer: "A bug-free system might still be unusable if it doesn't meet user needs"
+  },
+  {
+    id: 7,
+    question: "According to the cost multiplication factor, how much more expensive is it to fix a defect in production compared to the requirements phase?",
+    options: [
+      "10 times more expensive",
+      "15-40 times more expensive",
+      "40-1000 times more expensive",
+      "5 times more expensive"
+    ],
+    correctAnswer: "40-1000 times more expensive"
+  },
+  {
+    id: 8,
+    question: "Which principle emphasizes that testing should be adapted based on the nature of the software being tested?",
+    options: [
+      "Testing Shows Presence of Defects",
+      "Testing is Context Dependent",
+      "Early Testing",
+      "Pesticide Paradox"
+    ],
+    correctAnswer: "Testing is Context Dependent"
+  },
+  {
+    id: 9,
+    question: "What is the recommended approach to overcome the Pesticide Paradox?",
+    options: [
+      "Use the same tests repeatedly",
+      "Stop testing altogether",
+      "Regularly review and update test cases",
+      "Focus only on automation"
+    ],
+    correctAnswer: "Regularly review and update test cases"
+  },
+  {
+    id: 10,
+    question: "Which of the following best describes the concept of Defect Clustering?",
+    options: [
+      "Defects are spread evenly throughout the system",
+      "A small number of modules contain most of the defects",
+      "Defects only occur in new code",
+      "Defects are impossible to predict"
+    ],
+    correctAnswer: "A small number of modules contain most of the defects"
+  },
+  {
+    id: 11,
+    question: "In the context of Early Testing, which phase has the lowest cost of defect fixing?",
+    options: [
+      "Testing phase",
+      "Requirements phase",
+      "Development phase",
+      "Deployment phase"
+    ],
+    correctAnswer: "Requirements phase"
+  },
+  {
+    id: 12,
+    question: "Which testing principle is violated when testers assume that finding no defects means the software is perfect?",
+    options: [
+      "Testing Shows Presence of Defects",
+      "Early Testing",
+      "Defect Clustering",
+      "Testing is Context Dependent"
+    ],
+    correctAnswer: "Testing Shows Presence of Defects"
+  },
+  {
+    id: 13,
+    question: "How does the Context-Dependent principle affect testing of a medical device versus a gaming application?",
+    options: [
+      "Both require the same level of testing",
+      "Medical device requires more rigorous security testing",
+      "Gaming application requires more testing",
+      "Medical device requires more rigorous testing due to safety criticality"
+    ],
+    correctAnswer: "Medical device requires more rigorous testing due to safety criticality"
+  },
+  {
+    id: 14,
+    question: "What is a key indicator that the Pesticide Paradox is affecting your testing?",
+    options: [
+      "Finding more defects than usual",
+      "Test execution taking longer",
+      "No new defects being found with existing test cases",
+      "Increased testing costs"
+    ],
+    correctAnswer: "No new defects being found with existing test cases"
+  },
+  {
+    id: 15,
+    question: "Which principle supports the practice of risk-based testing?",
+    options: [
+      "Testing Shows Presence of Defects",
+      "Exhaustive Testing is Impossible",
+      "Early Testing",
+      "Pesticide Paradox"
+    ],
+    correctAnswer: "Exhaustive Testing is Impossible"
+  },
+  {
+    id: 16,
+    question: "According to the Defect Clustering principle, what percentage of problems are typically found in a small number of modules?",
+    options: [
+      "20-30%",
+      "40-50%",
+      "60-70%",
+      "80-90%"
+    ],
+    correctAnswer: "80-90%"
+  },
+  {
+    id: 17,
+    question: "Which principle explains why having 100% test coverage doesn't guarantee a perfect system?",
+    options: [
+      "Testing Shows Presence of Defects",
+      "Exhaustive Testing is Impossible",
+      "Absence-of-Errors Fallacy",
+      "Defect Clustering"
+    ],
+    correctAnswer: "Testing Shows Presence of Defects"
+  },
+  {
+    id: 18,
+    question: "What is the best practice for applying the Context-Dependent principle in testing?",
+    options: [
+      "Use the same testing approach for all projects",
+      "Adapt testing strategy based on project characteristics",
+      "Always use automated testing",
+      "Focus only on functional testing"
+    ],
+    correctAnswer: "Adapt testing strategy based on project characteristics"
+  },
+  {
+    id: 19,
+    question: "Which testing principle supports the need for continuous test maintenance and updates?",
+    options: [
+      "Early Testing",
+      "Defect Clustering",
+      "Pesticide Paradox",
+      "Testing Shows Presence of Defects"
+    ],
+    correctAnswer: "Pesticide Paradox"
+  },
+  {
+    id: 20,
+    question: "What is the main reason for following the Early Testing principle?",
+    options: [
+      "To complete testing faster",
+      "To reduce the cost of fixing defects",
+      "To make developers happy",
+      "To use fewer resources"
+    ],
+    correctAnswer: "To reduce the cost of fixing defects"
+  },
+  {
+    id: 21,
+    question: "Which of the following scenarios best demonstrates the Context-Dependent principle?",
+    options: [
+      "Using the same test cases for all projects",
+      "Testing a banking app with more security tests than a weather app",
+      "Running all tests automatically",
+      "Using only manual testing"
+    ],
+    correctAnswer: "Testing a banking app with more security tests than a weather app"
+  },
+  {
+    id: 22,
+    question: "How does the Early Testing principle relate to shift-left testing?",
+    options: [
+      "They are opposing concepts",
+      "They are the same concept with different names",
+      "Early Testing is part of shift-left testing",
+      "They are unrelated testing approaches"
+    ],
+    correctAnswer: "They are the same concept with different names"
+  },
+  {
+    id: 23,
+    question: "What is the primary challenge that the Pesticide Paradox presents to automation testing?",
+    options: [
+      "Automated tests are too fast",
+      "Automated tests become predictable and may miss new defects",
+      "Automation is too expensive",
+      "Automation requires too much maintenance"
+    ],
+    correctAnswer: "Automated tests become predictable and may miss new defects"
+  },
+  {
+    id: 24,
+    question: "According to the Testing Shows Presence of Defects principle, what should testers communicate to stakeholders?",
+    options: [
+      "Testing can prove the software is bug-free",
+      "Testing reduces risks but cannot eliminate them completely",
+      "All defects will be found eventually",
+      "Testing is not necessary if developers are careful"
+    ],
+    correctAnswer: "Testing reduces risks but cannot eliminate them completely"
+  },
+  {
+    id: 25,
+    question: "How does the Defect Clustering principle help in test planning?",
+    options: [
+      "It suggests testing everything equally",
+      "It helps identify high-risk areas that need more testing",
+      "It proves testing is unnecessary",
+      "It shows that all modules are equally likely to have defects"
+    ],
+    correctAnswer: "It helps identify high-risk areas that need more testing"
+  },
+  {
+    id: 26,
+    question: "What is the relationship between the Absence-of-Errors Fallacy and user satisfaction?",
+    options: [
+      "They are directly proportional",
+      "They are inversely proportional",
+      "There is no direct relationship; bug-free doesn't guarantee user satisfaction",
+      "User satisfaction depends only on the number of bugs"
+    ],
+    correctAnswer: "There is no direct relationship; bug-free doesn't guarantee user satisfaction"
+  },
+  {
+    id: 27,
+    question: "Which testing principle most strongly supports the need for exploratory testing?",
+    options: [
+      "Early Testing",
+      "Pesticide Paradox",
+      "Testing Shows Presence of Defects",
+      "Defect Clustering"
+    ],
+    correctAnswer: "Pesticide Paradox"
+  },
+  {
+    id: 28,
+    question: "How does the Context-Dependent principle affect test documentation requirements?",
+    options: [
+      "All projects need the same level of documentation",
+      "Documentation is never needed",
+      "Documentation level varies based on project context and regulations",
+      "Only agile projects need documentation"
+    ],
+    correctAnswer: "Documentation level varies based on project context and regulations"
+  },
+  {
+    id: 29,
+    question: "What is the main implication of Exhaustive Testing being Impossible for test coverage goals?",
+    options: [
+      "100% coverage should always be the goal",
+      "Coverage goals should be risk-based and practical",
+      "Coverage doesn't matter",
+      "Only unit tests need coverage goals"
+    ],
+    correctAnswer: "Coverage goals should be risk-based and practical"
+  },
+  {
+    id: 30,
+    question: "Which combination of testing principles is most relevant when planning regression testing?",
+    options: [
+      "Early Testing and Defect Clustering",
+      "Pesticide Paradox and Testing Shows Presence of Defects",
+      "Context Dependent and Absence-of-Errors Fallacy",
+      "Exhaustive Testing and Early Testing"
+    ],
+    correctAnswer: "Pesticide Paradox and Testing Shows Presence of Defects"
   }
 ];
