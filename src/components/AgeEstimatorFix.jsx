@@ -86,39 +86,54 @@ const AgeCategoryEstimator = () => {
     );
   };
 
+  
+  const handleClearCalculator = () => {
+    setAge('');
+    setCategory(null);
+    setError('');
+  };
+
   return (
     <div className="grid md:grid-cols-5 h-max gap-1 bg-gray-100 font-poppins">
       <div className="col-span-2 flex flex-col h-max">
         <div className="flex-grow border h-1/2 border-gray-300 bg-slate-600 text-yellow-50 overflow-auto p-4 justify-center text-center items-center">
-          <h2 className="text-lg font-bold m-4 text-center">Age Category Estimator</h2>
-          <label htmlFor="age" className="text-lg font-semibold m-2">
+          <h2 className="text-lg font-bold m-4 text-center text-white">Age Category Estimator</h2>
+          <label htmlFor="age" className="text-lg font-semibold m-2 text-white">
             Age:
           </label>
           <input
-            id="age"
-            value={age}
-            onChange={(e) => setAge(e.target.value)}
-            placeholder="Enter age"
-            className="border border-gray-300 rounded p-2 mb-2 w-1/3 text-slate-900"
-          />
-          <button
-            onClick={determineCategory}
-            className="bg-blue-500 text-white p-3 rounded mt-2 mb-4 w-2/3  hover:bg-lime-300 hover:text-slate-500 transition-all duration-300"
-          >
-            Determine Category
-          </button>
-          {error && (
-            <p className="text-red-200 m-4 flex flex-row">
-              <MdErrorOutline className="w-10 h-10 mr-2 bg-red-600 rounded" />
-              <strong>Error:</strong> {error}
-            </p>
-          )}
-          {category && (
-            <p className="text-lime-200 bg-slate-950 p-2 mt-4 border-2">
-              Age Category:&nbsp; <strong>{category}</strong>
-            </p>
-          )}
-        </div>
+                id="age"
+                value={age}
+                onChange={(e) => setAge(e.target.value)}
+                placeholder="Enter age"
+                className="border border-gray-300 rounded p-2 mb-2 w-1/3 text-slate-900"
+              />
+              <div className="flex justify-center gap-2 mt-2">
+                <button
+                  onClick={determineCategory}
+                  className="bg-violet-900 font-bold text-white border-2 border-slate-300 p-3 rounded mb-4 w-1/3 hover:bg-lime-300 hover:text-black transition-all duration-300"
+                >
+                  Determine
+                </button>
+                <button
+                  onClick={handleClearCalculator}
+                  className="bg-red-600 font-bold text-white border-2 border-slate-300 p-3 rounded mb-4 w-1/3 hover:bg-red-300 hover:text-slate-500 transition-all duration-300"
+                >
+                  Clear
+                </button>
+              </div>
+              {error && (
+                <p className="text-red-200 m-4 flex flex-row">
+                  <MdErrorOutline className="w-10 h-10 mr-2 bg-red-600 rounded"/>
+                  <strong>Error:</strong> {error}
+                </p>
+              )}
+              {category && (
+                <p className="text-lime-200 bg-slate-950 p-2 mt-4 border-2">
+                  Age Category:&nbsp;  <strong>{category}</strong> 
+                </p>
+              )}
+            </div>
 
         <div className="flex-grow border border-gray-300 h-1/2 bg-white overflow-auto p-4">
           <h2 className="text-2xl font-bold mb-4">Age Category Estimator Documentation</h2>

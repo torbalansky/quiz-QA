@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { IoMenuSharp } from "react-icons/io5";
 import { Link as RouterLink, useLocation } from 'react-router-dom';
 import logo from '../assets/img/logo.png';
+import { useNavigate } from 'react-router-dom';
 
 const QuizLinks = ({ setMenuOpen, currentPath }) => {
   const quizLinks = [
     { title: "STLC", link: "quizstlc" },
     { title: "Principles of Testing", link: "quizprinciples" },
     { title: "ISTQB like Test", link: "morequiza" },
-    { title: "QA Bug Report", link: "bugreport" },
+    { title: "STLC in Practice", link: "ageestimator" },
     { title: "Practice QA Metrics", link: "metrics" },
     { title: "API Testing Quiz", link: "api-testing" },
     { title: "B/W Testing", link: "box-testing" },
@@ -16,7 +17,6 @@ const QuizLinks = ({ setMenuOpen, currentPath }) => {
     { title: "Cross Browser Testing", link: "crossbrowser-testing" },
     { title: "AI in QA", link: "ai-qa" },
     { title: "Cypress Quiz", link: "cypress-quiz" },
-    { title: "Test Age Estimator", link: "ageestimator" },
     { title: "Credit Risk Calculator", link: "creditrisk" },
     { title: "Test Mood tracker App", link: "mood" },
   ];
@@ -45,6 +45,7 @@ const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const location = useLocation();
   const currentPath = location.pathname;
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);

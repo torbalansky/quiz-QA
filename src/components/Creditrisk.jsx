@@ -140,20 +140,20 @@ const AgeCategoryEstimator = () => {
             placeholder="Enter income"
             className="border border-gray-300 rounded p-2 mb-2 w-1/3 text-slate-900"
           />
-          <div className="mt-4 flex justify-between">
-          <button
-            onClick={determineCategory}
-            className="bg-blue-500 text-white p-3 rounded mt-1 mb-2 w-2/3  hover:bg-lime-300 hover:text-slate-500 transition-all duration-300"
-          >
-            Calculate 
-          </button>
-          <button
-            onClick={handleResetC}
-            className="bg-red-500 text-white p-3 rounded mt-1 mb-2 w-1/3 ml-1  hover:bg-lime-300 hover:text-slate-500 transition-all duration-300"
-          >
-            Reset
-          </button>
-          </div>
+             <div className="flex justify-center gap-2 mt-2">
+                <button
+                  onClick={determineCategory}
+                  className="bg-violet-900 font-bold text-white border-2 border-slate-300 p-3 rounded mb-4 w-2/4 hover:bg-lime-300 hover:text-black transition-all duration-300"
+                >
+                  Determine
+                </button>
+                <button
+                  onClick={handleResetC}
+                  className="bg-red-600 font-bold text-white border-2 border-slate-300 p-3 rounded mb-4 w-2/4 hover:bg-red-300 hover:text-slate-500 transition-all duration-300"
+                >
+                  Clear
+                </button>
+              </div>
           {error && (
             <p className="text-red-200 m-4 flex flex-row">
               <MdErrorOutline className="w-10 h-10 mr-2 bg-red-600 rounded" />

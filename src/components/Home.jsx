@@ -6,7 +6,7 @@ import emailjs from '@emailjs/browser';
 import { GiCycle } from "react-icons/gi";
 import { BsFillEmojiSunglassesFill } from "react-icons/bs";
 import { IoConstructSharp } from "react-icons/io5";
-import { SiSelenium } from "react-icons/si";
+import { SiSelenium, SiKashflow  } from "react-icons/si";
 import { SiPostman } from "react-icons/si";
 import { TbBrowserCheck } from "react-icons/tb";
 import { SiCucumber } from "react-icons/si";
@@ -163,9 +163,9 @@ const Home = () => {
               <h3 className="text-xs font-semibold text-gray-800">ISTQB like Test</h3>
             </Link>
 
-            <Link to="/bugreport" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-              <FaBug className="text-2xl text-blue-600 mb-4" />
-              <h3 className="text-xs font-semibold text-gray-800">QA Bug Report</h3>
+            <Link to="/ageestimator" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
+              <SiKashflow className="text-2xl text-blue-600 mb-4" />
+              <h3 className="text-xs font-semibold text-gray-800">ST Life Cycle in Practice</h3>
             </Link>
 
             <Link to="/api-testing" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">

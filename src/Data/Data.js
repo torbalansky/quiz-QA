@@ -351,8 +351,140 @@ export const testCases = [
     actual: "Adult",
     isTrue: true,  
   },
-];
+  {
+    id: "TC15",
+    description: "Verify input field accepts numeric values",
+    steps: "Enter numeric values in the age field",
+    expected: "Input field should accept the values",
+    actual: "Input field accepts numeric values",
+    isTrue: true,
+  },
+  {
+    id: "TC16",
+    description: "Verify Determine button is clickable",
+    steps: "Check if the Determine button is clickable",
+    expected: "Button should be clickable and responsive",
+    actual: "Button is clickable and responsive",
+    isTrue: true,
+  },
+  {
+    id: "TC17",
+    description: "Verify error message styling",
+      steps: "Trigger an error message and check styling",
+      expected: "Error message should be clearly visible in red",
+      actual: "Error message appears in red with proper styling",
+    isTrue: true,
+  },
+  {
+    id: "TC18",
+    description: "Verify result display area visibility",
+    steps: "Submit a valid age and check result display",
+    expected: "Result should be displayed in designated area",
+    actual: "Result appears in designated area",
+    isTrue: true,
+  },
+  
+  {
+    id: "TC19",
+    description: "Verify input field placeholder text",
+    steps: "Check input field placeholder text",
+    expected: "Placeholder should read 'Enter age'",
+    actual: "Placeholder reads 'Enter age'",
+    isTrue: true,
+  },
+  {
+    id: "TC20",
+    description: "Verify error message clarity",
+    steps: "Trigger error messages and verify clarity",
+    expected: "Error messages should be clear and understandable",
+    actual: "Error messages are clear and user-friendly",
+    isTrue: true,
+  },
 
+  {
+    id: "TC21",
+    description: "Verify response time for age calculation",
+    steps: "Submit age and measure response time",
+    expected: "Response should be under 1 second",
+    actual: "Response time is under 1 second",
+    isTrue: true,
+  },
+  {
+    id: "TC22",
+    description: "Verify input field responsiveness",
+    steps: "Type rapidly in input field",
+    expected: "Input field should handle rapid input without lag",
+    actual: "Input field handles rapid input smoothly",
+    isTrue: true,
+  },
+  
+  {
+    id: "TC23",
+    description: "Verify functionality in Chrome",
+    steps: "Test application in Chrome browser",
+    expected: "Application should work as expected",
+    actual: "Application works correctly in Chrome",
+    isTrue: true,
+  },
+  {
+    id: "TC24",
+    description: "Verify functionality in Firefox",
+    steps: "Test application in Firefox browser",
+    expected: "Application should work as expected",
+    actual: "Application works correctly in Firefox",
+    isTrue: true,
+  },
+  {
+    id: "TC25",
+    description: "Verify functionality in Safari",
+    steps: "Test application in Safari browser",
+    expected: "Application should work as expected",
+    actual: "Application works correctly in Safari",
+    isTrue: true,
+  },
+  
+  {
+    id: "TC26",
+    description: "Verify keyboard navigation",
+    steps: "Navigate through application using keyboard",
+    expected: "All functions should be accessible via keyboard",
+    actual: "All functions are keyboard accessible",
+    isTrue: true,
+  },
+  {
+    id: "TC27",
+    description: "Verify screen reader compatibility",
+    steps: "Test application with screen reader",
+    expected: "Content should be readable by screen reader",
+    actual: "Content is screen reader compatible",
+    isTrue: true,
+  },
+  {
+    id: "TC28",
+    description: "Verify color contrast compliance",
+    steps: "Check color contrast ratios",
+    expected: "Color contrast should meet WCAG standards",
+    actual: "Color contrast meets accessibility standards",
+    isTrue: false,
+  },
+  
+  {
+    id: "TC29",
+    description: "Verify input field maximum length",
+    steps: "Enter very large number in input field",
+    expected: "Input field should handle long numbers appropriately",
+    actual: "Input field handles long numbers correctly",
+    isTrue: false,
+  },
+  {
+    id: "TC30",
+    description: "Verify empty input handling",
+    steps: "Click Determine without entering age",
+    expected: "Should show appropriate error message",
+    actual: "Shows error message for empty input",
+    isTrue: true,
+  }
+];
 
 export const testCasesV = [
   {
@@ -456,7 +588,7 @@ export const testCasesV = [
     description: "Classify 125 (out of typical range) as Elder",
     steps: "Enter age 125 and click Determine.",
     expected: "Out of typical range",
-    actual: "This is out of the realistic scope.",
+    actual: "Adult",
     isTrue: true,
   },
   {
@@ -467,6 +599,139 @@ export const testCasesV = [
     actual: "Adult",
     isTrue: true,  
   },
+  {
+    id: "TC15",
+    description: "Verify input field accepts numeric values",
+    steps: "Enter numeric values in the age field",
+    expected: "Input field should accept the values",
+    actual: "Input field accepts numeric values",
+    isTrue: true,
+  },
+  {
+    id: "TC16",
+    description: "Verify Determine button is clickable",
+    steps: "Check if the Determine button is clickable",
+    expected: "Button should be clickable and responsive",
+    actual: "Button is clickable and responsive",
+    isTrue: true,
+  },
+  {
+    id: "TC17",
+    description: "Verify error message styling",
+      steps: "Trigger an error message and check styling",
+      expected: "Error message should be clearly visible in red",
+      actual: "Error message appears in red with proper styling",
+    isTrue: true,
+  },
+  {
+    id: "TC18",
+    description: "Verify result display area visibility",
+    steps: "Submit a valid age and check result display",
+    expected: "Result should be displayed in designated area",
+    actual: "Result appears in designated area",
+    isTrue: true,
+  },
+  
+  {
+    id: "TC19",
+    description: "Verify input field placeholder text",
+    steps: "Check input field placeholder text",
+    expected: "Placeholder should read 'Enter age'",
+    actual: "Placeholder reads 'Enter age'",
+    isTrue: true,
+  },
+  {
+    id: "TC20",
+    description: "Verify error message clarity",
+    steps: "Trigger error messages and verify clarity",
+    expected: "Error messages should be clear and understandable",
+    actual: "Error messages are clear and user-friendly",
+    isTrue: true,
+  },
+
+  {
+    id: "TC21",
+    description: "Verify response time for age calculation",
+    steps: "Submit age and measure response time",
+    expected: "Response should be under 1 second",
+    actual: "Response time is under 1 second",
+    isTrue: true,
+  },
+  {
+    id: "TC22",
+    description: "Verify input field responsiveness",
+    steps: "Type rapidly in input field",
+    expected: "Input field should handle rapid input without lag",
+    actual: "Input field handles rapid input smoothly",
+    isTrue: true,
+  },
+  
+  {
+    id: "TC23",
+    description: "Verify functionality in Chrome",
+    steps: "Test application in Chrome browser",
+    expected: "Application should work as expected",
+    actual: "Application works correctly in Chrome",
+    isTrue: true,
+  },
+  {
+    id: "TC24",
+    description: "Verify functionality in Firefox",
+    steps: "Test application in Firefox browser",
+    expected: "Application should work as expected",
+    actual: "Application works correctly in Firefox",
+    isTrue: true,
+  },
+  {
+    id: "TC25",
+    description: "Verify functionality in Safari",
+    steps: "Test application in Safari browser",
+    expected: "Application should work as expected",
+    actual: "Application works correctly in Safari",
+    isTrue: true,
+  },
+  
+  {
+    id: "TC26",
+    description: "Verify keyboard navigation",
+    steps: "Navigate through application using keyboard",
+    expected: "All functions should be accessible via keyboard",
+    actual: "All functions are keyboard accessible",
+    isTrue: true,
+  },
+  {
+    id: "TC27",
+    description: "Verify screen reader compatibility",
+    steps: "Test application with screen reader",
+    expected: "Content should be readable by screen reader",
+    actual: "Content is screen reader compatible",
+    isTrue: true,
+  },
+  {
+    id: "TC28",
+    description: "Verify color contrast compliance",
+    steps: "Check color contrast ratios",
+    expected: "Color contrast should meet WCAG standards",
+    actual: "Color contrast meets accessibility standards",
+    isTrue: true,
+  },
+  
+  {
+    id: "TC29",
+    description: "Verify input field maximum length",
+    steps: "Enter very large number in input field",
+    expected: "Input field should handle long numbers appropriately",
+    actual: "Input field handles long numbers correctly",
+    isTrue: true,
+  },
+  {
+    id: "TC30",
+    description: "Verify empty input handling",
+    steps: "Click Determine without entering age",
+    expected: "Should show appropriate error message",
+    actual: "Shows error message for empty input",
+    isTrue: true,
+  }
 ];
 
 export const testCasesC = [
@@ -7492,3 +7757,154 @@ export const QADataPrinciplesQuiz = [
     correctAnswer: "Pesticide Paradox and Testing Shows Presence of Defects"
   }
 ];
+
+export const ageEstimatorRTM = {
+  header: {
+    title: "Requirements Traceability Matrix - Age Estimator Application",
+    project: "Age Category Estimator",
+    version: "1.0",
+    date: "2024",
+  },
+  matrix: [
+    {
+      reqID: "REQ-001",
+      requirement: "Age Input Validation",
+      description: "System must validate age as non-negative integer",
+      testCaseIDs: ["TC-001", "TC-002", "TC-003"],
+      priority: "High",
+      status: "Implemented",
+      automationStatus: "Automated",
+      category: "Validation Rules",
+      source: "Functional Requirements"
+    },
+    {
+      reqID: "REQ-002",
+      requirement: "Age Category Classification",
+      description: "System must correctly classify age into categories (Kid, Teenager, Adult, Elder)",
+      testCaseIDs: ["TC-004", "TC-005", "TC-006", "TC-007"],
+      priority: "High",
+      status: "Implemented",
+      automationStatus: "Automated",
+      category: "Core Functionality",
+      source: "Functional Requirements"
+    },
+    {
+      reqID: "REQ-003",
+      requirement: "Error Handling",
+      description: "System must display appropriate error messages for invalid inputs",
+      testCaseIDs: ["TC-008", "TC-009"],
+      priority: "Medium",
+      status: "Implemented",
+      automationStatus: "Automated",
+      category: "Error Handling",
+      source: "Validation Rules"
+    },
+    {
+      reqID: "REQ-004",
+      requirement: "UI Responsiveness",
+      description: "Interface must be responsive and provide immediate feedback",
+      testCaseIDs: ["TC-010", "TC-011"],
+      priority: "Medium",
+      status: "Implemented",
+      automationStatus: "Partially Automated",
+      category: "UI/UX",
+      source: "Expected Behavior"
+    },
+    {
+      reqID: "REQ-005",
+      requirement: "Category Display",
+      description: "Results must be clearly displayed with appropriate styling",
+      testCaseIDs: ["TC-012"],
+      priority: "Medium",
+      status: "Implemented",
+      automationStatus: "Manual",
+      category: "Performance",
+      source: "Expected Behavior"
+    }
+  ]
+};
+
+export const automationFeasibilityReport = {
+  header: {
+    title: "Automation Feasibility Report - Age Estimator Application",
+    project: "Age Category Estimator",
+    version: "1.0",
+    date: "2024",
+  },
+  summary: {
+    overallFeasibility: "High",
+    recommendedTools: ["Jest", "React Testing Library", "Cypress"],
+    estimatedCoverage: "85%"
+  },
+  analysis: [
+    {
+      component: "Age Input Validation",
+      feasibility: "High",
+      complexity: "Low",
+      priority: "High",
+      rationale: "Simple input validation can be easily automated with unit tests",
+      recommendedApproach: "Unit testing with Jest",
+      estimatedEffort: "2 days"
+    },
+    {
+      component: "Age Category Classification",
+      feasibility: "High",
+      complexity: "Low",
+      priority: "High",
+      rationale: "Business logic can be thoroughly tested with unit tests",
+      recommendedApproach: "Unit testing with Jest + Integration testing",
+      estimatedEffort: "3 days"
+    },
+    {
+      component: "Error Handling",
+      feasibility: "High",
+      complexity: "Medium",
+      priority: "Medium",
+      rationale: "Error scenarios can be systematically tested",
+      recommendedApproach: "Integration testing with React Testing Library",
+      estimatedEffort: "2 days"
+    },
+    {
+      component: "UI Responsiveness",
+      feasibility: "Medium",
+      complexity: "Medium",
+      priority: "Medium",
+      rationale: "Visual feedback requires some manual verification",
+      recommendedApproach: "E2E testing with Cypress + Manual validation",
+      estimatedEffort: "3 days"
+    },
+    {
+      component: "Result Display",
+      feasibility: "Medium",
+      complexity: "Low",
+      priority: "Medium",
+      rationale: "Visual elements need manual verification but basic functionality can be automated",
+      recommendedApproach: "Combination of automated and manual testing",
+      estimatedEffort: "2 days"
+    }
+  ],
+  risks: [
+    {
+      risk: "Browser Compatibility",
+      impact: "Medium",
+      mitigation: "Include cross-browser testing in automation suite"
+    },
+    {
+      risk: "Test Data Management",
+      impact: "Low",
+      mitigation: "Implement robust test data generation"
+    },
+    {
+      risk: "Maintenance Overhead",
+      impact: "Low",
+      mitigation: "Use page object model and maintain good test architecture"
+    }
+  ],
+  recommendations: [
+    "Implement automated unit tests for core business logic",
+    "Use integration tests for error handling scenarios",
+    "Combine automated and manual testing for UI components",
+    "Implement CI/CD pipeline for continuous testing",
+    "Regular maintenance and updates of test scripts"
+  ]
+};
