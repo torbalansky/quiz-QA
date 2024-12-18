@@ -672,7 +672,7 @@ const TestingPrinciples = () => {
               </p>
               <div className="flex gap-4">
                 <Link
-                  to="/bugreport"
+                  to="/ageestimator"
                   className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors"
                 >
                   Next Challenge

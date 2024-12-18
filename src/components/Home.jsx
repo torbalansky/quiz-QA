@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { FaCalculator, FaClipboardList, FaQuestionCircle, FaBullseye, FaBug, FaGithub, FaLinkedin, FaGlobe, FaCreditCard } from 'react-icons/fa';
 import logo from '../assets/img/logo.png';
 import emailjs from '@emailjs/browser';
-import { GiCycle } from "react-icons/gi";
+import { GiCycle, GiArtificialIntelligence } from "react-icons/gi";
 import { BsFillEmojiSunglassesFill } from "react-icons/bs";
 import { IoConstructSharp } from "react-icons/io5";
 import { SiSelenium, SiKashflow  } from "react-icons/si";
@@ -12,6 +12,7 @@ import { TbBrowserCheck } from "react-icons/tb";
 import { SiCucumber } from "react-icons/si";
 import { SiCypress } from "react-icons/si";
 import { AiOutlineCodeSandbox } from "react-icons/ai";
+import { BiSolidPyramid } from "react-icons/bi";
 
 const Home = () => {
   const formRef = useRef();
@@ -142,88 +143,107 @@ const Home = () => {
         </div>
 
         <div className="w-full lg:w-1/2 p-4 sm:p-8">
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            <Link to="/quizstlc" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-              <GiCycle className="text-2xl text-blue-600 mb-4" />
-              <h3 className="text-xs font-semibold text-gray-800">Software Test Life Cycle</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            <Link to="/quizstlc" className="group card-base">
+              <div className="card-gradient"/>
+              <GiCycle className="card-icon" />
+              <h3 className="card-title">Software Test Life Cycle</h3>
             </Link>
             
-            <Link to="/quizprinciples" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-              <FaBullseye className="text-2xl text-blue-600 mb-4" />
-              <h3 className="text-xs font-semibold text-gray-800">Principles of Testing</h3>
+            <Link to="/quizprinciples" className="group card-base">
+              <div className="card-gradient"/>
+              <FaBullseye className="card-icon" />
+              <h3 className="card-title">Principles of Testing</h3>
             </Link>
 
-            <Link to="/metrics" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-              <FaClipboardList className="text-2xl text-blue-600 mb-4" />
-              <h3 className="text-xs font-semibold text-gray-800">Practice QA Metrics</h3>
+            <Link to="/levels-testing" className="group card-base">
+              <div className="card-gradient"/>
+              <BiSolidPyramid className="card-icon" />
+              <h3 className="card-title">QA Testing Levels</h3>
             </Link>
 
-            <Link to="/morequiza" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-              <FaQuestionCircle className="text-2xl text-blue-600 mb-4" />
-              <h3 className="text-xs font-semibold text-gray-800">ISTQB like Test</h3>
+            <Link to="/ageestimator" className="group card-base">
+              <div className="card-gradient"/>
+              <SiKashflow className="card-icon" />
+              <h3 className="card-title">ST Life Cycle in Practice</h3>
             </Link>
 
-            <Link to="/ageestimator" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-              <SiKashflow className="text-2xl text-blue-600 mb-4" />
-              <h3 className="text-xs font-semibold text-gray-800">ST Life Cycle in Practice</h3>
+            <Link to="/metrics" className="group card-base">
+              <div className="card-gradient"/>
+              <FaClipboardList className="card-icon" />
+              <h3 className="card-title">Practice QA Metrics</h3>
             </Link>
 
-            <Link to="/api-testing" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-              <SiPostman className="text-blue-600 mb-4 text-2xl" />
-              <h3 className="text-xs font-semibold text-gray-800">API Testing Quiz</h3>
+            <Link to="/morequiza" className="group card-base">
+              <div className="card-gradient"/>
+              <FaQuestionCircle className="card-icon" />
+              <h3 className="card-title">ISTQB like Test</h3>
             </Link>
 
-            <Link to="/jestintro" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-              <IoConstructSharp className="text-2xl text-blue-600 mb-4" />
-              <h3 className="text-xs font-semibold text-gray-800">TDD with Jest</h3>
+            <Link to="/api-testing" className="group card-base">
+              <div className="card-gradient"/>
+              <SiPostman className="card-icon" />
+              <h3 className="card-title">API Testing Quiz</h3>
             </Link>
 
-            <Link to="/ai-qa" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-              <svg className="text-2xl text-blue-600 mb-4 w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              <h3 className="text-xs font-semibold text-gray-800">AI in Quality Assurance</h3>
+            <Link to="/jestintro" className="group card-base">
+              <div className="card-gradient"/>
+              <IoConstructSharp className="card-icon" />
+              <h3 className="card-title">TDD with Jest</h3>
             </Link>
 
-            <Link to="/box-testing" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-            <AiOutlineCodeSandbox className="text-2xl text-blue-600 mb-4" />
-              <h3 className="text-xs font-semibold text-gray-800">B/W box testing</h3>
+            <Link to="/ai-qa" className="group card-base">
+              <div className="card-gradient"/>
+              <GiArtificialIntelligence className="card-icon"/>
+              <h3 className="card-title">AI in Quality Assurance</h3>
+            </Link>
+
+            <Link to="/box-testing" className="group card-base">
+              <div className="card-gradient"/>
+              <AiOutlineCodeSandbox className="card-icon" />
+              <h3 className="card-title">B/W box testing</h3>
             </Link>
             
-            <Link to="/crossbrowser-testing" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-              <TbBrowserCheck className="text-blue-600 mb-4 text-2xl" />
-              <h3 className="text-xs font-semibold text-gray-800">Cross Browser Testing</h3>
+            <Link to="/crossbrowser-testing" className="group card-base">
+              <div className="card-gradient"/>
+              <TbBrowserCheck className="card-icon" />
+              <h3 className="card-title">Cross Browser Testing</h3>
             </Link>
             
-            <Link to="/creditrisk" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-              <FaCalculator className="text-2xl text-blue-600 mb-4" />
-              <h3 className="text-xs font-semibold text-gray-800">Credit Risk Calculator</h3>
+            <Link to="/creditrisk" className="group card-base">
+              <div className="card-gradient"/>
+              <FaCalculator className="card-icon" />
+              <h3 className="card-title">Credit Risk Calculator</h3>
             </Link>
 
-            <Link to="/mood" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-              <BsFillEmojiSunglassesFill className="text-2xl text-blue-600 mb-4" />
-              <h3 className="text-xs font-semibold text-gray-800">Mood tracker App</h3>
+            <Link to="/mood" className="group card-base">
+              <div className="card-gradient"/>
+              <BsFillEmojiSunglassesFill className="card-icon" />
+              <h3 className="card-title">Mood tracker App</h3>
             </Link>
 
-            <Link to="/cypress-quiz" className="bg-white p-6 rounded-lg shadow-lg hover:bg-lime-200 text-center flex flex-col items-center justify-center aspect-square">
-              <SiCypress className="text-2xl text-blue-600 mb-4" />
-              <h3 className="text-xs font-semibold text-gray-800">Mood tracker App</h3>
+            <Link to="/cypress-quiz" className="group card-base">
+              <div className="card-gradient"/>
+              <SiCypress className="card-icon" />
+              <h3 className="card-title">Cypress Testing</h3>
             </Link>
 
-            <div className="bg-white p-6 rounded-lg shadow-lg cursor-not-allowed opacity-75 text-center flex flex-col items-center hd-sm group relative">
-              <SiSelenium className="text-blue-600 mb-4 text-2xl" />
-              <h3 className="text-xs font-semibold text-gray-800">Selenium Testing</h3>
-              <span className="absolute inset-0 flex items-center justify-center bg-black/75 text-white font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Coming Soon
-              </span>
+            <div className="group card-disabled">
+              <div className="card-disabled-overlay"/>
+              <SiSelenium className="card-disabled-icon" />
+              <h3 className="card-disabled-title">Selenium Testing</h3>
+              <div className="card-coming-soon">
+                <span className="text-white font-semibold text-sm">Coming Soon</span>
+              </div>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-lg cursor-not-allowed opacity-75 text-center flex flex-col items-center hd-sm group relative">
-              <SiCucumber className="text-blue-600 mb-4 text-2xl" />
-              <h3 className="text-xs font-semibold text-gray-800">BDD with Cucumber</h3>
-              <span className="absolute inset-0 flex items-center justify-center bg-black/75 text-white font-semibold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                Coming Soon
-              </span>
+            <div className="group card-disabled">
+              <div className="card-disabled-overlay"/>
+              <SiCucumber className="card-disabled-icon" />
+              <h3 className="card-disabled-title">BDD with Cucumber</h3>
+              <div className="card-coming-soon">
+                <span className="text-white font-semibold text-sm">Coming Soon</span>
+              </div>
             </div>
           </div>
         </div>

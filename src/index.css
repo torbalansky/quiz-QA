@@ -22,6 +22,42 @@
   transform: translateY(-5px);
 }
 
+.card-base {
+  @apply relative bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 flex flex-col items-center justify-center aspect-square p-4 hover:scale-105;
+}
+
+.card-gradient {
+  @apply absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300;
+}
+
+.card-icon {
+  @apply text-3xl text-blue-600 mb-3 relative z-10 group-hover:text-blue-700 transform group-hover:scale-110 transition-all duration-300;
+}
+
+.card-title {
+  @apply text-sm font-semibold text-gray-800 text-center relative z-10 group-hover:text-blue-900;
+}
+
+.card-disabled {
+  @apply relative bg-white rounded-xl overflow-hidden shadow-md flex flex-col items-center justify-center aspect-square p-4 cursor-not-allowed;
+}
+
+.card-disabled-overlay {
+  @apply absolute inset-0 bg-gray-50;
+}
+
+.card-disabled-icon {
+  @apply text-3xl text-gray-400 mb-3 relative z-10;
+}
+
+.card-disabled-title {
+  @apply text-sm font-semibold text-gray-800 text-center relative z-10;
+}
+
+.card-coming-soon {
+  @apply absolute inset-0 bg-black flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300;
+}
+
 @layer base {
   html {
     @apply bg-slate-100;

@@ -7844,7 +7844,30 @@ export const automationFeasibilityReport = {
       priority: "High",
       rationale: "Simple input validation can be easily automated with unit tests",
       recommendedApproach: "Unit testing with Jest",
-      estimatedEffort: "2 days"
+      estimatedEffort: "2 days",
+      testScenarios: [
+        {
+          category: "Negative Numbers",
+          cases: [
+            { input: -1, expectedError: true },
+            { input: -100, expectedError: true }
+          ]
+        },
+        {
+          category: "Decimal Numbers",
+          cases: [
+            { input: 5.5, expectedError: true },
+            { input: 20.1, expectedError: true }
+          ]
+        },
+        {
+          category: "Invalid Input",
+          cases: [
+            { input: "", expectedError: true },
+            { input: null, expectedError: true }
+          ]
+        }
+      ]
     },
     {
       component: "Age Category Classification",
@@ -7853,7 +7876,37 @@ export const automationFeasibilityReport = {
       priority: "High",
       rationale: "Business logic can be thoroughly tested with unit tests",
       recommendedApproach: "Unit testing with Jest + Integration testing",
-      estimatedEffort: "3 days"
+      estimatedEffort: "3 days",
+      testScenarios: [
+        {
+          category: "Kid Classification",
+          cases: [
+            { input: 0, expectedCategory: "Kid" },
+            { input: 12, expectedCategory: "Kid" }
+          ]
+        },
+        {
+          category: "Teenager Classification",
+          cases: [
+            { input: 13, expectedCategory: "Teenager" },
+            { input: 19, expectedCategory: "Teenager" }
+          ]
+        },
+        {
+          category: "Adult Classification",
+          cases: [
+            { input: 20, expectedCategory: "Adult" },
+            { input: 64, expectedCategory: "Adult" }
+          ]
+        },
+        {
+          category: "Elder Classification",
+          cases: [
+            { input: 65, expectedCategory: "Elder" },
+            { input: 100, expectedCategory: "Elder" }
+          ]
+        }
+      ]
     },
     {
       component: "Error Handling",
@@ -7862,7 +7915,25 @@ export const automationFeasibilityReport = {
       priority: "Medium",
       rationale: "Error scenarios can be systematically tested",
       recommendedApproach: "Integration testing with React Testing Library",
-      estimatedEffort: "2 days"
+      estimatedEffort: "2 days",
+      testScenarios: [
+        {
+          category: "Error Display",
+          cases: [
+            "Verify error message appears for invalid input",
+            "Verify error message clears on valid input",
+            "Verify error styling and positioning"
+          ]
+        },
+        {
+          category: "State Management",
+          cases: [
+            "Verify form reset functionality",
+            "Verify input field state updates",
+            "Verify category display updates"
+          ]
+        }
+      ]
     },
     {
       component: "UI Responsiveness",
@@ -7871,7 +7942,34 @@ export const automationFeasibilityReport = {
       priority: "Medium",
       rationale: "Visual feedback requires some manual verification",
       recommendedApproach: "E2E testing with Cypress + Manual validation",
-      estimatedEffort: "3 days"
+      estimatedEffort: "3 days",
+      testScenarios: [
+        {
+          category: "Visual Feedback",
+          cases: [
+            "Verify loading states",
+            "Verify transition animations",
+            "Verify responsive layout on different screens"
+          ]
+        },
+        {
+          category: "Cross-browser",
+          cases: [
+            "Test on Chrome",
+            "Test on Firefox",
+            "Test on Safari",
+            "Test on Edge"
+          ]
+        },
+        {
+          category: "Performance Metrics",
+          cases: [
+            "Input response time < 100ms",
+            "Category calculation time < 200ms",
+            "Error display latency < 50ms"
+          ]
+        }
+      ]
     },
     {
       component: "Result Display",
@@ -7880,24 +7978,45 @@ export const automationFeasibilityReport = {
       priority: "Medium",
       rationale: "Visual elements need manual verification but basic functionality can be automated",
       recommendedApproach: "Combination of automated and manual testing",
-      estimatedEffort: "2 days"
+      estimatedEffort: "2 days",
+      testScenarios: [
+        {
+          category: "Display Accuracy",
+          cases: [
+            "Verify category text matches calculation",
+            "Verify styling changes based on category",
+            "Verify accessibility requirements"
+          ]
+        },
+        {
+          category: "User Interaction",
+          cases: [
+            "Verify keyboard navigation",
+            "Verify screen reader compatibility",
+            "Verify color contrast ratios"
+          ]
+        }
+      ]
     }
   ],
   risks: [
     {
       risk: "Browser Compatibility",
       impact: "Medium",
-      mitigation: "Include cross-browser testing in automation suite"
+      mitigation: "Include cross-browser testing in automation suite",
+      testStrategy: "Implement Cypress cross-browser testing suite"
     },
     {
       risk: "Test Data Management",
       impact: "Low",
-      mitigation: "Implement robust test data generation"
+      mitigation: "Implement robust test data generation",
+      testStrategy: "Create test data factory with boundary values"
     },
     {
       risk: "Maintenance Overhead",
       impact: "Low",
-      mitigation: "Use page object model and maintain good test architecture"
+      mitigation: "Use page object model and maintain good test architecture",
+      testStrategy: "Implement page object pattern in Cypress tests"
     }
   ],
   recommendations: [
@@ -7906,5 +8025,1952 @@ export const automationFeasibilityReport = {
     "Combine automated and manual testing for UI components",
     "Implement CI/CD pipeline for continuous testing",
     "Regular maintenance and updates of test scripts"
+  ],
+  metrics: {
+    targetCoverage: "85%",
+    criticalPathCoverage: "100%",
+    performanceThresholds: {
+      responseTime: "< 100ms",
+      renderTime: "< 200ms",
+      errorDisplayTime: "< 50ms"
+    },
+    accessibilityCriteria: [
+      "WCAG 2.1 compliance",
+      "Keyboard navigation",
+      "Screen reader compatibility",
+      "Color contrast ratios"
+    ]
+  }
+};
+
+export const theoryContent = {
+  sections: [
+    {
+      title: "Testing Levels",
+      introduction: "Testing Levels represent different stages where testing is performed throughout the software development lifecycle. Each level has specific objectives and focuses on different aspects of the system.",
+      subsections: [
+        {
+          "title": "Unit and Component Testing",
+          "description": "Testing individual units or components of software in isolation to ensure correctness before integration into the system.",
+          "keyPoints": [
+            "Focuses on isolated testing of the smallest testable parts (Unit Testing) or standalone modules (Component Testing).",
+            "Verifies the behavior of functions, classes, and components before integration.",
+            "Uses techniques like mocking and stubbing for controlled isolation.",
+            "Tests range from individual functions to larger modules or services.",
+            "Automated using frameworks like Jest, JUnit, NUnit, and other modern tools."
+          ],
+          "examples": [
+            "Unit Testing: Testing a function that calculates interest rates or validating input validation methods.",
+            "Component Testing: Testing a single microservice or backend service processing requests independently."
+          ],
+          "benefits": [
+            "Early bug detection and easier debugging.",
+            "Supports safe refactoring of code.",
+            "Provides confidence in isolated functionality.",
+            "Serves as documentation for the software's expected behavior."
+          ],
+          "theory": {
+            "scope": "Unit and Component Testing focus on verifying isolated parts of the software. Unit Testing targets the smallest units of code like functions or methods, while Component Testing targets larger units like modules or services.",
+            "purpose": "The goal is to ensure that individual functions, methods, or components perform correctly. Unit Testing ensures correctness at the function or method level, whereas Component Testing verifies that modules or closely related components work together as intended.",
+            "granularity": "Unit Testing is very granular, targeting individual methods or classes. Component Testing has a broader granularity, focusing on larger entities like modules or closely related components.",
+            "performedBy": "Both are usually performed by developers to ensure correctness during development. QA engineers may also conduct Component Testing for standalone modules before system-wide integration."
+          }
+        },        
+        {
+          title: "Integration Testing",
+          description: "Testing combinations of software units working together.",
+          keyPoints: [
+            "Verifies interfaces between components",
+            "Tests data flow between units",
+            "Identifies interface defects",
+            "Can be done incrementally or all at once",
+            "Tests external dependencies",
+            "Validates component communication"
+          ],
+          approaches: [
+            "Big Bang Integration",
+            "Top-Down Integration",
+            "Bottom-Up Integration",
+            "Sandwich/Hybrid Integration"
+          ],
+          examples: [
+            "Testing API endpoints with database",
+            "Testing communication between microservices",
+            "Validating component interactions",
+            "Testing third-party integrations"
+          ],
+          theory: {
+            scope: "Integration testing focuses on validating the interaction and communication between different software units or components. Unlike unit testing, which tests individual components in isolation, integration testing ensures that units work together as expected.",
+            purpose: "The primary goal of integration testing is to verify that combined components or systems interact correctly and communicate as intended. It is particularly concerned with the interfaces between components and how data flows between them.",
+            granularity: "The scope of integration testing is broader than unit testing but narrower than system testing. It involves testing the connections and interactions between different parts of the system, such as database connections, API endpoints, or communication between microservices.",
+            performedBy: "Integration testing is typically performed by developers or specialized QA testers. This testing occurs after unit testing to ensure that integrated components work well together."
+          }
+        },
+        {
+          title: "System Testing",
+          description: "Testing the complete integrated system end-to-end.",
+          keyPoints: [
+            "End-to-end testing of the entire system",
+            "Tests functional and non-functional requirements",
+            "Validates system meets specified requirements",
+            "Performed in an environment similar to production",
+            "Includes both positive and negative testing scenarios"
+          ],
+          types: [
+            "Functional System Testing",
+            "Performance Testing",
+            "Security Testing",
+            "Usability Testing",
+            "Recovery Testing",
+            "Migration Testing",
+            "Regression Testing"
+          ],
+          examples: [
+            "Complete workflow testing",
+            "Performance testing of entire system",
+            "Security testing of the application",
+            "Load and stress testing"
+          ],
+          theory: {
+            scope: "System testing tests the entire system as a whole to ensure it functions according to requirements and can handle real-world scenarios. This testing ensures that the integrated components work together seamlessly and meet both functional and non-functional requirements.",
+            purpose: "The goal of system testing is to validate the complete integrated system's behavior against the specified requirements. It covers both the functional aspects of the software (e.g., does the system perform its intended tasks?) and non-functional aspects (e.g., performance, security, usability).",
+            granularity: "System testing involves testing the entire application or system at a high level. Unlike integration testing, which focuses on specific interactions, system testing looks at the whole system's behavior across various domains.",
+            performedBy: "System testing is often performed by QA engineers and sometimes involves developers. It occurs in an environment that simulates production to ensure the system behaves as expected under real-world conditions."
+          }
+        },
+        {
+          title: "Acceptance Testing",
+          description: "Validating the system meets business requirements and user needs.",
+          keyPoints: [
+            "Usually performed by end users or clients",
+            "Validates business requirements",
+            "Ensures system is ready for deployment",
+            "Can include alpha and beta testing",
+            "Focus on business scenarios rather than technical aspects"
+          ],
+          types: [
+            "User Acceptance Testing (UAT)",
+            "Business Acceptance Testing (BAT)",
+            "Contract Acceptance Testing",
+            "Operational Acceptance Testing",
+            "Alpha Testing",
+            "Beta Testing"
+          ],
+          examples: [
+            "User acceptance testing (UAT)",
+            "Beta testing with selected users",
+            "Business scenario validation",
+            "Regulatory compliance verification"
+          ],
+          theory: {
+            scope: "Acceptance testing evaluates whether the software satisfies the business requirements and is ready for deployment. It bridges the gap between technical functionality and business needs, ensuring the software meets the user's expectations.",
+            purpose: "The primary purpose of acceptance testing is to confirm that the system aligns with the business goals and requirements. It ensures that the product is ready for delivery to end users or clients.",
+            granularity: "Acceptance testing typically operates at a higher level, focusing on real-world business scenarios and requirements rather than specific technical details.",
+            performedBy: "Acceptance testing is usually performed by end users or clients to ensure that the software meets their needs before deployment. In some cases, it might be handled by specialized QA testers under the guidance of the business stakeholders."
+          }
+        }
+      ]
+    }
   ]
 };
+
+export const testingTypesContent = {
+  title: "Testing Types",
+  introduction: "Testing types categorize testing activities based on their specific objectives and areas of focus.",
+  subsections: [
+    {
+      title: "Functional Testing",
+      description: "Validates that the system functions according to specified requirements.",
+      types: [
+        {
+          name: "Smoke Testing",
+          description: "Basic tests to verify that the build is stable enough for further testing.",
+          keyPoints: [
+            "Quick verification of critical functionalities",
+            "Performed after new build deployment",
+            "Go/No-Go decision point for further testing",
+            "Usually automated"
+          ],
+          theory: {
+            scope: "Smoke testing is a high-level, preliminary test conducted to ensure that the core functionalities of the system are working before more extensive testing is performed.",
+            purpose: "Its purpose is to confirm that the build or release is stable enough for further testing, serving as a gatekeeper to ensure basic stability.",
+            granularity: "This type of testing is generally focused on critical paths of the application rather than detailed features.",
+            performedBy: "Smoke testing is typically automated and performed by developers or QA engineers."
+          }
+        },
+        {
+          name: "Sanity Testing",
+          description: "Narrow and deep testing focusing on specific functionality.",
+          keyPoints: [
+            "Verifies bug fixes or new features",
+            "More detailed than smoke testing",
+            "Usually performed after receiving new build with bug fixes",
+            "Can be manual or automated"
+          ],
+          theory: {
+            scope: "Sanity testing goes deeper than smoke testing and verifies whether a particular functionality or bug fix is working as expected.",
+            purpose: "Its purpose is to validate specific parts of the system, ensuring that changes or fixes have not caused new issues.",
+            granularity: "Sanity testing typically targets specific functionalities or small sets of changes rather than the whole system.",
+            performedBy: "Sanity testing can be manual or automated and is generally performed by QA testers."
+          }
+        },
+        {
+          name: "Regression Testing",
+          description: "Ensures that existing functionality works after changes.",
+          keyPoints: [
+            "Verifies that new changes haven't broken existing features",
+            "Important for maintaining software quality",
+            "Usually automated",
+            "Can be full or partial regression"
+          ],
+          theory: {
+            scope: "Regression testing ensures that the new code changes do not negatively impact the existing functionality of the software.",
+            purpose: "Its primary goal is to maintain the stability of the software after modifications, preventing unintended side effects.",
+            granularity: "This testing covers both the newly implemented features and previously working parts of the system.",
+            performedBy: "Regression testing is often automated and performed by developers or QA engineers."
+          }
+        },
+        {
+          name: "Integration Testing",
+          description: "Verifies that different modules or services work together.",
+          keyPoints: [
+            "Tests component interactions",
+            "Validates data flow between modules",
+            "Checks external system integrations",
+            "Identifies interface issues"
+          ],
+          theory: {
+            scope: "Integration testing ensures that different software modules or services work together as expected, focusing on the interaction between them.",
+            purpose: "The goal is to identify issues in the interfaces between components and ensure proper communication across modules.",
+            granularity: "This testing typically focuses on modules or components and how they interact with each other, rather than testing individual units.",
+            performedBy: "Integration testing is typically performed by developers or specialized QA engineers."
+          }
+        },
+        {
+          name: "User Interface Testing",
+          description: "Validates the graphical interface and user interactions.",
+          keyPoints: [
+            "Tests UI elements and workflows",
+            "Validates layout and design",
+            "Checks responsive behavior",
+            "Ensures accessibility compliance"
+          ],
+          theory: {
+            scope: "UI testing focuses on ensuring that the graphical interface of the application is functional, intuitive, and user-friendly.",
+            purpose: "The main goal of UI testing is to ensure that users can interact with the system effectively and that the user experience aligns with the design specifications.",
+            granularity: "UI testing involves verifying layout, design elements, responsiveness, and user interaction patterns.",
+            performedBy: "UI testing is typically performed by QA engineers or specialized testers with a focus on user experience."
+          }
+        },
+        {
+          name: "API Testing",
+          description: "Tests application programming interfaces directly.",
+          keyPoints: [
+            "Validates request/response cycles",
+            "Tests API endpoints",
+            "Checks error handling",
+            "Verifies data integrity"
+          ],
+          theory: {
+            scope: "API testing focuses on the functionality, reliability, and performance of application programming interfaces (APIs), ensuring that they perform as expected.",
+            purpose: "Its purpose is to validate that API endpoints respond correctly to requests and return accurate data while handling errors appropriately.",
+            granularity: "API testing examines specific endpoints, data handling, and interactions with other systems.",
+            performedBy: "API testing is typically automated and performed by developers or QA engineers specializing in backend services."
+          }
+        },
+        {
+          name: "Database Testing",
+          description: "Validates database integrity and operations.",
+          keyPoints: [
+            "Tests CRUD operations",
+            "Validates data integrity",
+            "Checks database triggers and procedures",
+            "Tests data migrations"
+          ],
+          theory: {
+            scope: "Database testing ensures the integrity and performance of databases by validating operations like Create, Read, Update, and Delete (CRUD).",
+            purpose: "Its primary purpose is to verify that database operations are functioning as expected and that data is consistent and accurate.",
+            granularity: "Database testing includes verifying the database schema, data integrity, triggers, and procedures, and testing data migrations.",
+            performedBy: "Database testing is typically performed by specialized QA engineers with a focus on data validation and integrity."
+          }
+        },
+        {
+          name: "Exploratory Testing",
+          description: "Simultaneous learning, test design, and test execution.",
+          keyPoints: [
+            "Unscripted testing approach",
+            "Based on tester's experience",
+            "Discovers unexpected issues",
+            "Adapts to findings in real-time"
+          ],
+          theory: {
+            scope: "Exploratory testing is an approach where testers learn about the system while testing it. It is a creative and unscripted form of testing.",
+            purpose: "The goal is to uncover defects that may not be caught by predefined test cases, allowing testers to adapt to findings as they go.",
+            granularity: "This type of testing is often focused on finding edge cases and unexpected behavior in the system rather than following a structured test case.",
+            performedBy: "Exploratory testing is typically performed by experienced QA engineers or testers who can think creatively and adapt quickly."
+          }
+        }
+      ]
+    },
+    {
+      title: "Non-Functional Testing",
+      description: "Evaluates the non-functional aspects of the software.",
+      types: [
+        {
+          name: "Performance Testing",
+          description: "Evaluates system behavior under various conditions.",
+          subtypes: [
+            {
+              name: "Load Testing",
+              description: "Validates system behavior under expected load.",
+              metrics: [
+                "Response time",
+                "Throughput",
+                "Resource usage",
+                "User experience"
+              ],
+              keyPoints: [
+                "Ensures system performance under expected traffic",
+                "Tests scalability for projected growth",
+                "Analyzes resource consumption",
+                "Helps in capacity planning"
+              ],
+              theory: {
+                scope: "Load testing evaluates how well the system performs under normal or expected traffic conditions.",
+                purpose: "The goal is to ensure that the system can handle expected user activity without performance degradation.",
+                granularity: "Load testing measures key performance indicators such as response time, throughput, and resource consumption.",
+                performedBy: "Load testing is typically performed by QA engineers with performance testing tools and automated scripts."
+              }
+            },
+            {
+              name: "Stress Testing",
+              description: "Tests system behavior beyond normal operational capacity.",
+              focus: [
+                "Breaking point determination",
+                "Error handling under stress",
+                "Recovery capabilities",
+                "System stability"
+              ],
+              keyPoints: [
+                "Simulates extreme load conditions",
+                "Tests error handling mechanisms",
+                "Identifies breaking points",
+                "Assesses system recovery capabilities"
+              ],
+              theory: {
+                scope: "Stress testing aims to push the system beyond its normal operational capacity to identify breaking points and determine how the system handles extreme conditions.",
+                purpose: "Its purpose is to assess how the system behaves under extreme stress, such as high traffic, and how it recovers from failure.",
+                granularity: "Stress testing typically involves simulating high load or resource exhaustion to measure system limits and stability.",
+                performedBy: "Stress testing is typically performed by QA engineers specializing in performance and stability testing."
+              }
+            },
+            {
+              name: "Spike Testing",
+              description: "Tests the system's ability to handle sudden, extreme increases in load.",
+              focus: [
+                "Rapid load increase",
+                "System resilience",
+                "Error handling",
+                "Recovery speed"
+              ],
+              keyPoints: [
+                "Simulates traffic spikes",
+                "Assesses system responsiveness",
+                "Tests rapid load fluctuation handling",
+                "Evaluates recovery from load spikes"
+              ],
+              theory: {
+                scope: "Spike testing evaluates how the system reacts to sudden, unexpected spikes in load or traffic.",
+                purpose: "The goal is to determine how the system manages sudden bursts of traffic or users and whether it can handle rapid fluctuations in load.",
+                granularity: "Spike testing involves rapidly increasing load to extreme levels and observing system performance and recovery.",
+                performedBy: "Spike testing is usually performed by QA engineers using performance testing tools that simulate sudden load changes."
+              }
+            },
+            {
+              name: "Endurance Testing",
+              description: "Tests system performance over an extended period.",
+              focus: [
+                "Long-term stability",
+                "Memory leaks",
+                "Resource consumption",
+                "Sustained user load"
+              ],
+              keyPoints: [
+                "Detects performance degradation over time",
+                "Identifies memory leaks or resource exhaustion",
+                "Assesses stability under continuous load",
+                "Evaluates long-term resource utilization"
+              ],
+              theory: {
+                scope: "Endurance testing focuses on evaluating how the system performs over prolonged periods of operation, checking for issues like memory leaks and slowdowns.",
+                purpose: "Its goal is to assess system stability and resource management over time, ensuring that the system can run continuously without degradation.",
+                granularity: "Endurance testing involves monitoring system performance for hours, days, or longer to detect potential failures over time.",
+                performedBy: "Endurance testing is typically performed by performance engineers who can simulate long-duration loads."
+              }
+            }
+          ]
+        },
+        {
+          name: "Security Testing",
+          description: "Ensures the security of the software against potential vulnerabilities and threats.",
+          subtypes: [
+            {
+              name: "Penetration Testing",
+              description: "Simulates attacks to identify vulnerabilities.",
+              focus: [
+                "Security holes",
+                "Unauthorized access",
+                "Exploitation of weaknesses",
+                "Threat detection"
+              ],
+              keyPoints: [
+                "Simulates real-world attacks",
+                "Identifies weak points in security measures",
+                "Tests response to intrusion attempts",
+                "Validates security policy adherence"
+              ],
+              theory: {
+                scope: "Penetration testing involves simulating real-world attacks to identify and exploit system vulnerabilities.",
+                purpose: "The goal is to identify security weaknesses that could potentially be exploited by attackers.",
+                granularity: "Penetration testing focuses on identifying entry points, weak configurations, and other vulnerabilities in the system.",
+                performedBy: "Penetration testing is typically performed by security experts with specialized tools for simulating cyber-attacks."
+              }
+            },
+            {
+              name: "Vulnerability Scanning",
+              description: "Automated scanning of systems to identify security flaws.",
+              focus: [
+                "Automated vulnerability detection",
+                "Misconfigurations",
+                "Outdated software",
+                "Exposure to known threats"
+              ],
+              keyPoints: [
+                "Identifies known security vulnerabilities",
+                "Highlights misconfigurations and outdated components",
+                "Provides a comprehensive security overview",
+                "Enables proactive threat management"
+              ],
+              theory: {
+                scope: "Vulnerability scanning automates the process of detecting known security issues                 in the system, such as misconfigurations, outdated components, and known vulnerabilities.",
+                purpose: "The goal is to proactively identify and address potential security risks before they can be exploited.",
+                granularity: "Vulnerability scanning focuses on breadth over depth, providing a comprehensive overview of potential vulnerabilities.",
+                performedBy: "Typically performed by security engineers or automated tools integrated into the development lifecycle."
+              }
+            },
+            {
+              name: "Authentication Testing",
+              description: "Validates the authentication mechanisms in the system.",
+              focus: [
+                "User authentication",
+                "Password policies",
+                "Multi-factor authentication",
+                "Session management"
+              ],
+              keyPoints: [
+                "Ensures proper user authentication flows",
+                "Tests password complexity and security",
+                "Validates multi-factor authentication mechanisms",
+                "Checks session expiration and management"
+              ],
+              theory: {
+                scope: "Authentication testing evaluates the processes for verifying user identities and managing access credentials.",
+                purpose: "Its goal is to ensure secure, reliable authentication mechanisms that protect against unauthorized access.",
+                granularity: "This testing targets specific authentication workflows, policies, and configurations.",
+                performedBy: "Typically performed by security testers and QA engineers with expertise in secure authentication protocols."
+              }
+            },
+            {
+              name: "Authorization Testing",
+              description: "Validates access controls to ensure users only access allowed resources.",
+              focus: [
+                "Role-based access control",
+                "Permission validation",
+                "Access restrictions",
+                "Data exposure prevention"
+              ],
+              keyPoints: [
+                "Tests user roles and permissions",
+                "Validates restricted access to sensitive resources",
+                "Ensures proper enforcement of security policies",
+                "Prevents unauthorized data access"
+              ],
+              theory: {
+                scope: "Authorization testing ensures that only authorized users have access to certain system functionalities or data.",
+                purpose: "The goal is to prevent unauthorized access and enforce security policies effectively.",
+                granularity: "This testing involves checking role-based access controls and specific permission configurations.",
+                performedBy: "Performed by QA and security engineers using both manual and automated testing approaches."
+              }
+            }
+          ]
+        },
+        {
+          name: "Usability Testing",
+          description: "Evaluates how user-friendly and intuitive the software is.",
+          keyPoints: [
+            "Tests ease of use and user satisfaction",
+            "Identifies areas of improvement in UX",
+            "Validates design consistency",
+            "Checks accessibility standards compliance"
+          ],
+          theory: {
+            scope: "Usability testing focuses on the overall user experience, assessing how easily users can navigate and achieve their goals within the software.",
+            purpose: "The primary objective is to enhance user satisfaction and ensure the product is accessible to a wide range of users.",
+            granularity: "This testing includes evaluating design, workflows, responsiveness, and accessibility features.",
+            performedBy: "Typically performed by usability experts, QA testers, and end-users."
+          }
+        },
+        {
+          name: "Compatibility Testing",
+          description: "Ensures software performs consistently across different environments.",
+          keyPoints: [
+            "Tests across multiple browsers and devices",
+            "Validates compatibility with different OS versions",
+            "Ensures software functions on varying hardware configurations",
+            "Verifies third-party integrations"
+          ],
+          theory: {
+            scope: "Compatibility testing evaluates the software’s ability to run on different platforms, environments, and devices without issues.",
+            purpose: "The goal is to ensure a consistent user experience regardless of the environment or configuration.",
+            granularity: "This testing includes checking compatibility with operating systems, browsers, devices, and external systems.",
+            performedBy: "Typically performed by QA teams using environment simulation tools and real devices."
+          }
+        },
+        {
+          "name": "Scalability Testing",
+          "description": "Assesses the system's ability to scale up or down as needed.",
+          "subtypes": [
+            {
+              "name": "Vertical Scaling",
+              "description": "Tests the system's ability to scale by adding more resources to a single node",
+              "focus": [
+                "CPU usage",
+                "Memory usage",
+                "Response time",
+                "Throughput"
+              ],
+              "keyPoints": [
+                "Evaluates system performance when adding more resources to a single node",
+                "Tests resource utilization as the system scales vertically",
+                "Assesses the impact of vertical scaling on system stability"
+              ],
+              "theory": {
+                "scope": "Vertical scaling testing focuses on evaluating how the system behaves when additional resources (like CPU or memory) are added to a single server or node.",
+                "purpose": "The goal is to test if the system can handle increased resource usage effectively when scaling vertically.",
+                "granularity": "This type of testing focuses on monitoring system performance as resources are scaled up on an individual server or instance.",
+                "performedBy": "Vertical scaling testing is usually performed by performance engineers or system administrators."
+              }
+            },
+            {
+              "name": "Horizontal Scaling",
+              "description": "Tests the system's ability to handle additional nodes or servers",
+              "focus": [
+                "Load balancing",
+                "Cluster management",
+                "Database replication",
+                "Distributed processing"
+              ],
+              "keyPoints": [
+                "Assesses system ability to manage multiple nodes and servers",
+                "Tests resource distribution across multiple servers",
+                "Validates load balancing and replication mechanisms"
+              ],
+              "theory": {
+                "scope": "Horizontal scaling testing evaluates the ability of the system to handle additional servers or nodes, which can spread the load across multiple systems.",
+                "purpose": "The purpose is to ensure the system can distribute workloads efficiently across multiple servers or nodes, scaling out as needed.",
+                "granularity": "This testing involves examining how well the system manages resource distribution and load balancing as more servers are added.",
+                "performedBy": "Horizontal scaling testing is often performed by systems engineers, DevOps, or cloud infrastructure teams."
+              }
+            }
+          ]
+        },
+        {
+          "name": "Compliance Testing",
+          "description": "Ensures that the software meets regulatory and legal requirements.",
+          "subtypes": [
+            {
+              "name": "Regulatory Compliance Testing",
+              "description": "Ensures the software adheres to industry-specific regulations",
+              "focus": [
+                "Privacy laws",
+                "Security standards",
+                "Accessibility requirements"
+              ],
+              "keyPoints": [
+                "Ensures compliance with legal and regulatory frameworks",
+                "Checks adherence to industry-specific privacy and security regulations",
+                "Evaluates accessibility for different user groups"
+              ],
+              "theory": {
+                "scope": "Regulatory compliance testing ensures that the system meets necessary legal and industry regulations, such as GDPR, HIPAA, or PCI-DSS.",
+                "purpose": "The goal is to ensure the software meets all necessary legal and regulatory requirements, avoiding fines and legal consequences.",
+                "granularity": "Compliance testing checks that the system follows necessary regulations across different areas such as security, data privacy, and accessibility.",
+                "performedBy": "Compliance testing is often performed by QA teams working in collaboration with legal or compliance officers."
+              }
+            }
+          ]
+        },
+        {
+          "name": "Accessibility Testing",
+          "description": "Evaluates the software's compliance with accessibility standards for users with disabilities.",
+          "subtypes": [
+            {
+              "name": "WCAG Testing",
+              "description": "Assesses the application’s adherence to the Web Content Accessibility Guidelines.",
+              "focus": [
+                "Color contrast",
+                "Screen reader compatibility",
+                "Keyboard navigation",
+                "Text alternatives for non-text content"
+              ],
+              "keyPoints": [
+                "Ensures the application is usable by people with disabilities",
+                "Validates compliance with WCAG 2.1 standards",
+                "Tests for visual and auditory accessibility"
+              ],
+              "theory": {
+                "scope": "WCAG testing evaluates the accessibility of web content, ensuring it is usable by people with a range of disabilities.",
+                "purpose": "The goal is to ensure the software complies with established accessibility standards and provides an inclusive user experience.",
+                "granularity": "This type of testing checks for adherence to accessibility guidelines such as WCAG 2.1 and other relevant standards.",
+                "performedBy": "Accessibility testing is typically performed by QA engineers with expertise in accessibility standards and tools."
+              }
+            }
+          ]
+        },
+        {
+          "name": "Assistive Technology Testing",
+          "description": "Evaluates how well the system works with assistive technologies like screen readers and voice commands.",
+          "focus": [
+            "Screen reader compatibility",
+            "Voice command functionality",
+            "Alternative input methods",
+            "Focus order"
+          ],
+          "keyPoints": [
+            "Tests interaction with assistive technologies",
+            "Ensures users with disabilities can navigate effectively",
+            "Validates speech and voice-command functionality"
+          ],
+          "theory": {
+            "scope": "Assistive technology testing focuses on evaluating how effectively the system works with various assistive tools such as screen readers, voice commands, and other devices.",
+            "purpose": "The goal is to ensure that people with disabilities can fully interact with the software.",
+            "granularity": "This testing includes testing the interaction between the system and assistive devices to ensure accessibility features are fully functional.",
+            "performedBy": "Performed by accessibility testers and QA engineers using assistive technology tools."
+          }
+        }
+      ]
+    },
+    {
+      title: "Other important testing types",
+      description: "Functional, non-functional and mixed testing approaches in software development.",
+      types: [
+        {
+          title: "Testing Techniques",
+          description: "Common software testing techniques used across various methodologies.",
+          categories: [
+            {
+              category: "Functional Testing",
+              techniques: [
+                {
+                  name: "A/B Testing",
+                  description: "A method for comparing two versions of a product or feature to see which performs better.",
+                  purpose: "Used primarily to test different versions of a product or feature in real-time user conditions.",
+                  performedBy: "QA teams or product managers, often in collaboration with UX teams."
+                },
+                {
+                  name: "End-to-End Testing",
+                  description: "Testing the complete flow of an application from start to finish to verify that it works as expected.",
+                  purpose: "Used to test the integration of all system components and ensure that the entire application works as intended.",
+                  performedBy: "QA engineers or testers simulating real-world usage scenarios."
+                },
+                {
+                  name: "Black Box Testing",
+                  description: "Testing the functionality of an application without knowledge of its internal workings.",
+                  purpose: "Used to validate that the application behaves as expected, based solely on its inputs and outputs.",
+                  performedBy: "Testers or QA engineers focusing on system functionality."
+                }
+              ]
+            },
+            {
+              category: "Non-Functional Testing",
+              techniques: [
+                {
+                  name: "Recovery Testing",
+                  description: "Evaluates how well the system can recover from crashes, hardware failures, or other disruptions.",
+                  purpose: "Ensures that the system can recover and continue functioning after unexpected failures.",
+                  performedBy: "QA testers or systems administrators."
+                }
+              ]
+            },
+            {
+              category: "Mixed Testing",
+              techniques: [
+                {
+                  name: "Monkey Testing",
+                  description: "A testing technique where random inputs are provided to the system to see how it behaves.",
+                  purpose: "Used to test the stability of the system under random or unexpected conditions.",
+                  performedBy: "Testers or automated tools generating random inputs."
+                },
+                {
+                  name: "Mutation Testing",
+                  description: "Introduces small changes (mutations) to the code to check if the test suite can catch these changes.",
+                  purpose: "Evaluates the effectiveness of the existing test cases by checking if they detect changes or errors in the code.",
+                  performedBy: "Developers or testers with strong coding skills."
+                },
+                {
+                  name: "Ad-Hoc Testing",
+                  description: "Explores the application without predefined test cases to identify defects.",
+                  purpose: "Used to find defects not covered by scripted test cases, often relying on tester intuition.",
+                  performedBy: "Testers familiar with the application who explore freely."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+
+export const developmentMethodologiesContent = {
+  title: "Development Methodologies",
+  introduction: "Different approaches to software development and testing.",
+  subsections: [
+    {
+      title: "Agile Testing",
+      description: "Testing approach aligned with Agile principles.",
+      keyPrinciples: [
+        "Continuous Testing",
+        "Early Testing",
+        "Team Collaboration",
+        "Adaptive Planning",
+        "Rapid Feedback"
+      ],
+      theory: {
+        scope: "Agile testing emphasizes collaboration, flexibility, and quick adaptation to change. It integrates testing with iterative development, enabling faster delivery and higher-quality software.",
+        purpose: "The goal is to test continuously throughout the development process, identifying defects early and allowing for rapid feedback and improvements.",
+        granularity: "Testing in Agile focuses on small, incremental changes, with feedback integrated continuously rather than at the end of the process.",
+        performedBy: "Agile testing involves the entire team, including developers, testers, and business stakeholders, working together in short, focused iterations (sprints)."
+      },
+      frameworks: [
+        "Scrum",
+        "Kanban",
+        "XP",
+        "Crystal",
+      ],
+    },  
+    {
+      title: "Waterfall Testing",
+      description: "Sequential testing approach following a traditional development lifecycle.",
+      keyPrinciples: [
+        "Sequential Phases",
+        "Comprehensive Documentation",
+        "Formal Review Process"
+      ],
+      phases: [
+        "Requirements Testing",
+        "Design Testing",
+        "Implementation Testing",
+        "Verification Testing"
+      ],
+      theory: {
+        scope: "Waterfall testing follows a structured, linear process where each phase of development is completed before moving to the next. Testing occurs sequentially after development phases.",
+        purpose: "The primary goal is to ensure that each stage of the software development life cycle (SDLC) is thoroughly tested before proceeding to the next phase.",
+        granularity: "Waterfall testing typically involves large-scale, system-wide testing after the completion of development, with less frequent feedback than Agile.",
+        performedBy: "Waterfall testing is typically performed by dedicated testers who ensure that each phase's deliverables meet the required standards."
+      },
+      frameworks: [
+        "Classic Waterfall",
+        "V-Model"
+      ],
+      characteristics: [
+        "Sequential development",
+        "Formal reviews",
+        "Comprehensive documentation"
+      ]
+    },
+    {
+      title: "DevOps Testing",
+      description: "Continuous testing approach integrated into the development pipeline.",
+      keyPrinciples: [
+        "Continuous Integration",
+        "Continuous Delivery",
+        "Automated Testing",
+        "Rapid Feedback"
+      ],
+      theory: {
+        scope: "DevOps testing is embedded within the development pipeline to provide automated, fast feedback, ensuring continuous testing throughout the lifecycle of development and deployment.",
+        purpose: "The goal is to detect issues early by running automated tests as part of the continuous integration/continuous delivery (CI/CD) pipeline.",
+        granularity: "Testing in DevOps focuses on automating tests for every part of the development cycle, from unit tests to integration and performance tests.",
+        performedBy: "DevOps testing is typically automated and performed by developers or DevOps engineers, often using CI/CD tools."
+      },
+      frameworks: [
+        "Jenkins",
+        "Docker",
+        "Kubernetes",
+        "Puppet",
+        "Ansible"
+      ],
+      practices: [
+        {
+          name: "Continuous Testing",
+          description: "Automated testing throughout the development pipeline.",
+          elements: [
+            "Unit Tests",
+            "Integration Tests",
+            "Performance Tests"
+          ],
+          theory: {
+            scope: "Continuous testing involves running automated tests at every stage of the pipeline to catch issues early, enabling faster feedback.",
+            purpose: "The purpose is to ensure the system remains stable, and defects are caught early during development and deployment.",
+            granularity: "Continuous testing covers every level of the application, from individual unit tests to comprehensive performance testing.",
+            performedBy: "Continuous testing is automated and managed by DevOps teams, utilizing tools to integrate testing into the pipeline."
+          }
+        }
+      ]
+    },
+    {
+      title: "Behavior-Driven Development (BDD)",
+      description: "An approach that emphasizes collaboration between developers, testers, and business stakeholders to develop software through clear examples and behavior-driven tests.",
+      keyPrinciples: [
+        "Collaboration",
+        "Clear Acceptance Criteria",
+        "User Stories",
+        "Automated Scenarios"
+      ],
+      theory: {
+        scope: "BDD involves collaboration between developers, testers, and business stakeholders to ensure that software behaves as expected. It focuses on defining clear acceptance criteria and using examples to drive the development process.",
+        purpose: "The goal of BDD is to ensure that all stakeholders have a shared understanding of the software's behavior, reducing misunderstandings and improving software quality.",
+        granularity: "BDD focuses on feature-level testing and user stories, ensuring that software works according to the specified behavior.",
+        performedBy: "BDD is performed collaboratively by developers, testers, and business stakeholders, typically in the form of workshops or collaborative sessions."
+      },
+      frameworks: [
+        "Cucumber",
+        "SpecFlow",
+        "Behat",
+        "JBehave"
+      ],
+      practices: [
+        {
+          name: "Behavior-Driven Development (BDD) Process",
+          description: "Develop features through collaboration, defining acceptance criteria, and automating tests for behavior validation.",
+          steps: [
+            "Write acceptance criteria using natural language",
+            "Develop features based on examples",
+            "Automate scenarios and validate functionality"
+          ],
+          theory: {
+            scope: "BDD involves collaboration between developers, testers, and business stakeholders to ensure that software behaves as expected, with clear and agreed-upon examples.",
+            purpose: "The goal is to reduce misunderstandings and ensure that all stakeholders understand the behavior and functionality of the system.",
+            granularity: "BDD focuses on behavior-driven, high-level testing with scenarios and examples for features and user stories.",
+            performedBy: "Performed by developers, testers, and business stakeholders in close collaboration."
+          }
+        }
+      ]
+    },
+    {
+      title: "Test-Driven Development (TDD)",
+      description: "Test-driven approach to ensure that all code written is well-tested before implementation.",
+      keyPrinciples: [
+        "Red-Green-Refactor Cycle",
+        "Automated Testing",
+        "Early Testing"
+      ],
+      theory: {
+        scope: "TDD encourages writing tests before code, ensuring that code is always designed to be testable and that defects are caught early in the development cycle.",
+        purpose: "The purpose of TDD is to improve software quality by continuously validating the software against the tests and ensuring that new code does not break existing functionality.",
+        granularity: "TDD focuses on unit tests and high test coverage, ensuring code is developed incrementally with each step validated by tests.",
+        performedBy: "TDD is performed by developers who write tests before code and continuously refactor the code to ensure it passes tests."
+      },
+      frameworks: [
+        "JUnit",
+        "RSpec",
+        "Mocha",
+        "Jest"
+      ],
+      practices: [
+        {
+          name: "Red-Green-Refactor Cycle",
+          description: "The cycle of writing a failing test (Red), making it pass (Green), and refactoring the code to improve it.",
+          steps: [
+            "Write failing test",
+            "Write minimal code to pass test",
+            "Refactor code"
+          ],
+          theory: {
+            scope: "The Red-Green-Refactor cycle ensures that the code is always validated against tests and that the design evolves alongside development.",
+            purpose: "This cycle ensures quality code that meets requirements and passes tests at each stage.",
+            granularity: "Focuses on small, incremental changes validated against unit tests.",
+            performedBy: "Performed by developers in fast, short iterations."
+          }
+        }
+      ]
+    },
+    {
+      title: "V-Model",
+      description: "A structured approach where each development phase has a corresponding testing phase.",
+      keyPrinciples: [
+        "Parallel Development and Testing",
+        "Early Test Planning",
+        "Verification and Validation"
+      ],
+      phases: [
+        "Requirements - Acceptance Testing",
+        "System Design - System Testing",
+        "Architecture Design - Integration Testing",
+        "Module Design - Unit Testing"
+      ],
+      theory: {
+        scope: "The V-Model emphasizes early test planning and pairs each development phase with a corresponding testing phase to ensure continuous verification and validation.",
+        purpose: "The purpose of the V-Model is to verify and validate each phase early, reducing the risk of defects and improving software reliability.",
+        granularity: "Testing occurs alongside development, with each development phase being validated by its corresponding testing phase.",
+        performedBy: "Both developers and testers collaborate to ensure that each stage is thoroughly tested and validated before proceeding."
+      },
+      frameworks: [
+        "V-Model (Validation and Verification)"
+      ],
+      characteristics: [
+        "Parallel development and testing",
+        "Early planning of tests",
+        "Focus on verification and validation"
+      ],
+      benefits: [
+        "Early defect detection",
+        "Clear testing objectives",
+        "Higher success rate"
+      ]
+    },
+    {
+      title: "Spiral Model",
+      description: "Risk-driven approach combining elements of iterative development and prototyping.",
+      keyPrinciples: [
+        "Risk Management",
+        "Iterative Development",
+        "Frequent Stakeholder Feedback"
+      ],
+      phases: [
+        "Planning",
+        "Risk Analysis",
+        "Engineering",
+        "Evaluation"
+      ],
+      theory: {
+        scope: "The Spiral Model integrates risk management into iterative development, ensuring risks are evaluated and mitigated throughout the development lifecycle.",
+        purpose: "The purpose is to manage risks continuously and improve the product incrementally with regular stakeholder feedback.",
+        granularity: "Each iteration addresses specific risks and includes feedback loops, improving the product with each cycle.",
+        performedBy: "The Spiral Model involves collaboration between developers, project managers, and stakeholders, regularly reviewing and mitigating risks."
+      },
+      frameworks: [
+        "Spiral Risk Model",
+        "Prototyping"
+      ],
+      characteristics: [
+        "Risk management focus",
+        "Iterative development",
+        "Frequent stakeholder feedback"
+      ],
+      advantages: [
+        "Risk mitigation",
+        "Flexible and adaptive",
+        "Early customer feedback"
+      ]
+    },
+    {
+      title: "RAD (Rapid Application Development)",
+      description: "Focuses on fast development cycles and iterative prototyping.",
+      keyPrinciples: [
+        "Rapid Prototyping",
+        "Heavy User Involvement",
+        "Iterative Cycles"
+      ],
+      phases: [
+        "Requirements Planning",
+        "User Design",
+        "Construction",
+        "Cutover"
+      ],
+      theory: {
+        scope: "RAD emphasizes rapid prototyping and quick iteration, allowing for early user feedback and fast adjustment of the application.",
+        purpose: "The goal is to produce functional software rapidly by incorporating user feedback into the development process early.",
+        granularity: "Prototyping and iterative cycles are central to RAD, enabling quick adjustments and rapid development.",
+        performedBy: "RAD is carried out by cross-functional teams, including business analysts, developers, and end-users, to enable quick feedback and development."
+      },
+      frameworks: [
+        "Prototyping",
+        "Iterative Development",
+        "Time-Boxing"
+      ],
+      characteristics: [
+        "Quick development cycles",
+        "Heavy user involvement",
+        "Iterative prototyping"
+      ],
+      benefits: [
+        "Faster delivery",
+        "Improved user satisfaction",
+        "Flexible adaptation to changes"
+      ]
+    },
+    {
+      title: "Lean Development",
+      description: "Aims to eliminate waste and improve efficiency throughout the development process.",
+      keyPrinciples: [
+        "Eliminate Waste",
+        "Optimize Efficiency",
+        "Deliver Value Quickly"
+      ],
+      principles: [
+        "Eliminate Waste",
+        "Build Quality In",
+        "Create Knowledge",
+        "Defer Commitment",
+        "Deliver Fast",
+        "Respect People",
+        "Optimize the Whole"
+      ],
+      theory: {
+        scope: "Lean Development focuses on optimizing every aspect of the development process by eliminating waste, ensuring that effort is directed towards delivering maximum value.",
+        purpose: "The purpose is to deliver high-quality software while reducing waste in terms of time, effort, and resources.",
+        granularity: "Lean principles apply to every phase of development, focusing on continuous improvement and delivering value."
+      },
+      frameworks: [
+        "Kanban",
+        "Value Stream Mapping",
+        "Just-in-Time (JIT)"
+      ],
+      practices: [
+        {
+          name: "Value Stream Mapping",
+          description: "Identify and eliminate non-value-adding activities."
+        },
+        {
+          name: "Kanban",
+          description: "Visualize and manage workflow."
+        },
+        {
+          name: "Just-in-Time",
+          description: "Deliver features when they are needed."
+        }
+      ],
+      benefits: [
+        "Reduced waste",
+        "Improved efficiency",
+        "Better quality"
+      ]
+    },
+    {
+      title: "Exploratory Testing",
+      description: "A dynamic, experience-based testing approach focused on discovery and learning.",
+      keyPrinciples: [
+        "Simultaneous Test Design and Execution",
+        "Tester Creativity",
+        "Context Adaptation",
+        "Immediate Feedback Loop"
+      ],
+      theory: {
+        scope: "Exploratory testing allows testers to explore the system based on their intuition and experience, providing immediate feedback on potential defects that scripted tests may miss.",
+        purpose: "The goal is to uncover unexpected defects and gain a deeper understanding of the system while testing it, enabling rapid discovery.",
+        granularity: "Exploratory testing focuses on testing the unknown, areas that may not be covered by predefined test cases, or testing strategies that evolve during the process.",
+        performedBy: "Exploratory testing is typically performed by experienced testers who use their expertise to discover issues in real-time without scripted guidelines."
+      },
+      frameworks: [
+        "Session-Based Testing",
+        "Charter-Based Testing"
+      ],
+      characteristics: [
+        "Unscripted testing",
+        "Testers use creativity and experience",
+        "Dynamic and flexible process"
+      ],
+      benefits: [
+        "Uncovers edge cases",
+        "Highly adaptable",
+        "Promotes deep understanding of the system"
+      ]
+    }
+  ]
+};
+
+export const LevelsQAquiz = [
+  {
+    id: 1,
+    question: "What is the primary focus of unit testing?",
+    options: [
+      "Testing entire system end-to-end",
+      "Testing individual components in isolation",
+      "Testing user acceptance",
+      "Testing component integration"
+    ],
+    correctAnswer: "Testing individual components in isolation"
+  },
+  {
+    id: 2,
+    question: "Who typically performs unit testing?",
+    options: [
+      "End users",
+      "Business analysts",
+      "Developers",
+      "QA managers"
+    ],
+    correctAnswer: "Developers"
+  },
+  {
+    id: 3,
+    question: "Which testing framework is commonly used for unit testing?",
+    options: [
+      "Selenium",
+      "Jest",
+      "LoadRunner",
+      "Postman"
+    ],
+    correctAnswer: "Jest"
+  },
+  {
+    id: 4,
+    question: "What is the main difference between component testing and unit testing?",
+    options: [
+      "Component testing is performed by end users",
+      "Component testing focuses on larger pieces of functionality",
+      "Component testing is always automated",
+      "Component testing is only for UI elements"
+    ],
+    correctAnswer: "Component testing focuses on larger pieces of functionality"
+  },
+  {
+    id: 5,
+    question: "What is the primary purpose of integration testing?",
+    options: [
+      "Testing individual functions",
+      "Verifying interfaces between components",
+      "Checking user acceptance",
+      "Testing system performance"
+    ],
+    correctAnswer: "Verifying interfaces between components"
+  },
+  {
+    id: 6,
+    question: "Which of the following is an approach to integration testing?",
+    options: [
+      "Unit-based approach",
+      "Big Bang Integration",
+      "Single-component approach",
+      "Isolated testing"
+    ],
+    correctAnswer: "Big Bang Integration"
+  },
+  {
+    id: 7,
+    question: "What is a key characteristic of system testing?",
+    options: [
+      "Tests individual components only",
+      "Focuses on component interfaces",
+      "Tests the complete integrated system end-to-end",
+      "Only tests user interface"
+    ],
+    correctAnswer: "Tests the complete integrated system end-to-end"
+  },
+  {
+    id: 8,
+    question: "Which type of testing is included in system testing?",
+    options: [
+      "Unit testing",
+      "Performance testing",
+      "Component testing",
+      "Module testing"
+    ],
+    correctAnswer: "Performance testing"
+  },
+  {
+    id: 9,
+    question: "Who typically performs acceptance testing?",
+    options: [
+      "Developers",
+      "System architects",
+      "End users or clients",
+      "Database administrators"
+    ],
+    correctAnswer: "End users or clients"
+  },
+  {
+    id: 10,
+    question: "What is the main focus of acceptance testing?",
+    options: [
+      "Technical implementation",
+      "Code quality",
+      "Business requirements",
+      "System architecture"
+    ],
+    correctAnswer: "Business requirements"
+  },
+  {
+    id: 11,
+    question: "Which testing technique is commonly used in unit testing?",
+    options: [
+      "Load testing",
+      "Mocking and stubbing",
+      "Stress testing",
+      "User acceptance testing"
+    ],
+    correctAnswer: "Mocking and stubbing"
+  },
+  {
+    id: 12,
+    question: "What is a key benefit of unit testing?",
+    options: [
+      "System-wide performance analysis",
+      "Early bug detection",
+      "User satisfaction measurement",
+      "Integration verification"
+    ],
+    correctAnswer: "Early bug detection"
+  },
+  {
+    id: 13,
+    question: "Which testing level is most appropriate for validating API endpoints with a database?",
+    options: [
+      "Unit testing",
+      "Integration testing",
+      "Acceptance testing",
+      "Component testing"
+    ],
+    correctAnswer: "Integration testing"
+  },
+  {
+    id: 14,
+    question: "What type of testing is Beta testing classified as?",
+    options: [
+      "Unit testing",
+      "Integration testing",
+      "System testing",
+      "Acceptance testing"
+    ],
+    correctAnswer: "Acceptance testing"
+  },
+  {
+    id: 15,
+    question: "Which environment is system testing typically performed in?",
+    options: [
+      "Production environment",
+      "Development environment",
+      "Environment similar to production",
+      "Local environment"
+    ],
+    correctAnswer: "Environment similar to production"
+  },
+  {
+    id: 16,
+    question: "What is the granularity level of component testing compared to unit testing?",
+    options: [
+      "Same level",
+      "More granular",
+      "Less granular",
+      "Not comparable"
+    ],
+    correctAnswer: "Less granular"
+  },
+  {
+    id: 17,
+    question: "Which testing level is most concerned with interfaces between components?",
+    options: [
+      "Unit testing",
+      "Integration testing",
+      "Acceptance testing",
+      "System testing"
+    ],
+    correctAnswer: "Integration testing"
+  },
+  {
+    id: 18,
+    question: "What distinguishes acceptance testing from system testing?",
+    options: [
+      "Technical focus vs business focus",
+      "Automated vs manual testing",
+      "Early vs late testing",
+      "Internal vs external testing"
+    ],
+    correctAnswer: "Technical focus vs business focus"
+  },
+  {
+    id: 19,
+    question: "Which testing level would include testing a complete workflow from start to finish?",
+    options: [
+      "Unit testing",
+      "Component testing",
+      "Integration testing",
+      "System testing"
+    ],
+    correctAnswer: "System testing"
+  },
+  {
+    id: 20,
+    question: "What is a key characteristic of component testing?",
+    options: [
+      "Tests entire system",
+      "Tests individual functions",
+      "Tests standalone modules",
+      "Tests user acceptance"
+    ],
+    correctAnswer: "Tests standalone modules"
+  },
+
+    {
+      id: 21,
+      question: "What is the primary purpose of smoke testing?",
+      options: [
+        "Detailed feature testing",
+        "Verifying build stability for further testing",
+        "Performance analysis",
+        "Security validation"
+      ],
+      correctAnswer: "Verifying build stability for further testing"
+    },
+    {
+      id: 22,
+      question: "How does sanity testing differ from smoke testing?",
+      options: [
+        "It's less detailed",
+        "It's more focused on specific functionality",
+        "It's always automated",
+        "It's performed by end users"
+      ],
+      correctAnswer: "It's more focused on specific functionality"
+    },
+    {
+      id: 23,
+      question: "What is the main goal of regression testing?",
+      options: [
+        "Testing new features",
+        "Ensuring existing functionality works after changes",
+        "Performance optimization",
+        "User interface validation"
+      ],
+      correctAnswer: "Ensuring existing functionality works after changes"
+    },
+    {
+      id: 24,
+      question: "Which type of testing is most appropriate for evaluating memory leaks?",
+      options: [
+        "Smoke Testing",
+        "Sanity Testing",
+        "Endurance Testing",
+        "Spike Testing"
+      ],
+      correctAnswer: "Endurance Testing"
+    },
+    {
+      id: 25,
+      question: "What distinguishes spike testing from load testing?",
+      options: [
+        "Duration of tests",
+        "Number of users",
+        "Sudden increase in load",
+        "Type of resources tested"
+      ],
+      correctAnswer: "Sudden increase in load"
+    },
+    {
+      id: 26,
+      question: "Who typically performs penetration testing?",
+      options: [
+        "End users",
+        "Security experts",
+        "Database administrators",
+        "UI designers"
+      ],
+      correctAnswer: "Security experts"
+    },
+    {
+      id: 27,
+      question: "What is the main focus of heuristic evaluation in usability testing?",
+      options: [
+        "Performance metrics",
+        "Security vulnerabilities",
+        "User interface design principles",
+        "Database integrity"
+      ],
+      correctAnswer: "User interface design principles"
+    },
+    {
+      id: 28,
+      question: "Which scaling testing type focuses on adding resources to a single node?",
+      options: [
+        "Horizontal Scaling",
+        "Vertical Scaling",
+        "Diagonal Scaling",
+        "Linear Scaling"
+      ],
+      correctAnswer: "Vertical Scaling"
+    },
+    {
+      id: 29,
+      question: "What is a key characteristic of exploratory testing?",
+      options: [
+        "Strictly follows test cases",
+        "Unscripted approach",
+        "Always automated",
+        "Requires minimal experience"
+      ],
+      correctAnswer: "Unscripted approach"
+    },
+    {
+      id: 30,
+      question: "Which testing type is most concerned with CRUD operations?",
+      options: [
+        "UI Testing",
+        "Database Testing",
+        "API Testing",
+        "Security Testing"
+      ],
+      correctAnswer: "Database Testing"
+    },
+    {
+      id: 31,
+      question: "What is the primary focus of vulnerability scanning?",
+      options: [
+        "User experience",
+        "Performance metrics",
+        "Automated security flaw detection",
+        "Database optimization"
+      ],
+      correctAnswer: "Automated security flaw detection"
+    },
+    {
+      id: 32,
+      question: "Which testing type involves real users interacting with the system?",
+      options: [
+        "Heuristic Evaluation",
+        "User Testing",
+        "Automated Testing",
+        "Smoke Testing"
+      ],
+      correctAnswer: "User Testing"
+    },
+    {
+      id: 33,
+      question: "What is a key metric in load testing?",
+      options: [
+        "Code coverage",
+        "Response time",
+        "User satisfaction",
+        "Bug count"
+      ],
+      correctAnswer: "Response time"
+    },
+    {
+      id: 34,
+      question: "Which type of testing is most relevant for GDPR compliance?",
+      options: [
+        "Performance Testing",
+        "Regulatory Compliance Testing",
+        "Stress Testing",
+        "UI Testing"
+      ],
+      correctAnswer: "Regulatory Compliance Testing"
+    },
+    {
+      id: 35,
+      question: "What is the main focus of horizontal scaling testing?",
+      options: [
+        "Single server performance",
+        "Multiple node distribution",
+        "User interface",
+        "Database queries"
+      ],
+      correctAnswer: "Multiple node distribution"
+    },
+    {
+      id: 36,
+      question: "Which testing type is most appropriate for checking responsive design?",
+      options: [
+        "Database Testing",
+        "UI Testing",
+        "API Testing",
+        "Load Testing"
+      ],
+      correctAnswer: "UI Testing"
+    },
+    {
+      id: 37,
+      question: "What is the primary purpose of stress testing?",
+      options: [
+        "Finding breaking points",
+        "Checking normal operation",
+        "Validating user experience",
+        "Testing new features"
+      ],
+      correctAnswer: "Finding breaking points"
+    },
+    {
+      id: 38,
+      question: "Which testing type is most concerned with request/response cycles?",
+      options: [
+        "UI Testing",
+        "API Testing",
+        "Database Testing",
+        "Security Testing"
+      ],
+      correctAnswer: "API Testing"
+    },
+    {
+      id: 39,
+      question: "What distinguishes compliance testing from other types of testing?",
+      options: [
+        "Focus on legal requirements",
+        "Performance metrics",
+        "User interface design",
+        "Code quality"
+      ],
+      correctAnswer: "Focus on legal requirements"
+    },
+    {
+      id: 40,
+      question: "Which testing type is most appropriate for detecting long-term stability issues?",
+      options: [
+        "Smoke Testing",
+        "Sanity Testing",
+        "Endurance Testing",
+        "Spike Testing"
+      ],
+      correctAnswer: "Endurance Testing"
+    },
+      {
+        id: 41,
+        question: "What is a key principle of Agile Testing?",
+        options: [
+          "Comprehensive documentation",
+          "Sequential phases",
+          "Continuous Testing",
+          "One-time testing"
+        ],
+        correctAnswer: "Continuous Testing"
+      },
+      {
+        id: 42,
+        question: "In Test-Driven Development (TDD), what is the first step?",
+        options: [
+          "Write the code",
+          "Write failing test",
+          "Refactor code",
+          "Run existing tests"
+        ],
+        correctAnswer: "Write failing test"
+      },
+      {
+        id: 43,
+        question: "What distinguishes Waterfall Testing from Agile Testing?",
+        options: [
+          "Continuous feedback",
+          "Sequential phases",
+          "Team collaboration",
+          "Rapid adaptation"
+        ],
+        correctAnswer: "Sequential phases"
+      },
+      {
+        id: 44,
+        question: "Which is a key principle of DevOps Testing?",
+        options: [
+          "Manual testing only",
+          "Continuous Integration",
+          "Sequential testing",
+          "Limited automation"
+        ],
+        correctAnswer: "Continuous Integration"
+      },
+      {
+        id: 45,
+        question: "What is a characteristic of the V-Model?",
+        options: [
+          "No documentation required",
+          "Parallel testing activities",
+          "Random testing approach",
+          "Only end-phase testing"
+        ],
+        correctAnswer: "Parallel testing activities"
+      },
+      {
+        id: 46,
+        question: "What is the main focus of Lean Development?",
+        options: [
+          "Maximizing documentation",
+          "Eliminating waste",
+          "Increasing complexity",
+          "Extending timelines"
+        ],
+        correctAnswer: "Eliminating waste"
+      },
+      {
+        id: 47,
+        question: "Which model emphasizes risk analysis in each iteration?",
+        options: [
+          "Waterfall",
+          "Spiral",
+          "V-Model",
+          "RAD"
+        ],
+        correctAnswer: "Spiral"
+      },
+      {
+        id: 48,
+        question: "What is a key characteristic of RAD (Rapid Application Development)?",
+        options: [
+          "Minimal user involvement",
+          "Quick development cycles",
+          "Extensive documentation",
+          "Sequential phases"
+        ],
+        correctAnswer: "Quick development cycles"
+      },
+      {
+        id: 49,
+        question: "What is the primary purpose of exploratory testing?",
+        options: [
+          "Following strict test cases",
+          "Learning while testing",
+          "Automated testing",
+          "Documentation creation"
+        ],
+        correctAnswer: "Learning while testing"
+      },
+      {
+        id: 50,
+        question: "Which practice is associated with Lean Development?",
+        options: [
+          "Value Stream Mapping",
+          "Waterfall phases",
+          "Big bang testing",
+          "Complete documentation"
+        ],
+        correctAnswer: "Value Stream Mapping"
+      },
+      {
+        id: 51,
+        question: "What is a key benefit of the V-Model?",
+        options: [
+          "No planning required",
+          "Early defect detection",
+          "Minimal documentation",
+          "Unstructured approach"
+        ],
+        correctAnswer: "Early defect detection"
+      },
+      {
+        id: 52,
+        question: "Which methodology best supports continuous feedback?",
+        options: [
+          "Waterfall",
+          "Agile",
+          "V-Model",
+          "Big Bang"
+        ],
+        correctAnswer: "Agile"
+      },
+      {
+        id: 53,
+        question: "What is a key principle of DevOps testing?",
+        options: [
+          "Manual testing only",
+          "Automated Testing",
+          "Sequential testing",
+          "One-time testing"
+        ],
+        correctAnswer: "Automated Testing"
+      },
+      {
+        id: 54,
+        question: "Which model is best suited for projects with high-risk factors?",
+        options: [
+          "Waterfall",
+          "RAD",
+          "Spiral",
+          "V-Model"
+        ],
+        correctAnswer: "Spiral"
+      },
+      {
+        id: 55,
+        question: "What is a characteristic of Session-Based Test Management in exploratory testing?",
+        options: [
+          "Unstructured approach",
+          "Structured testing sessions",
+          "No time limits",
+          "Fixed test cases"
+        ],
+        correctAnswer: "Structured testing sessions"
+      },
+      {
+        id: 56,
+        question: "Which methodology emphasizes heavy user involvement?",
+        options: [
+          "Waterfall",
+          "RAD",
+          "V-Model",
+          "Big Bang"
+        ],
+        correctAnswer: "RAD"
+      },
+      {
+        id: 57,
+        question: "What is a key principle of Lean Development?",
+        options: [
+          "Maximize documentation",
+          "Build Quality In",
+          "Extend timelines",
+          "Increase complexity"
+        ],
+        correctAnswer: "Build Quality In"
+      },
+      {
+        id: 58,
+        question: "Which testing approach relies most on tester creativity?",
+        options: [
+          "Waterfall Testing",
+          "V-Model Testing",
+          "Exploratory Testing",
+          "Automated Testing"
+        ],
+        correctAnswer: "Exploratory Testing"
+      },
+      {
+        id: 59,
+        question: "What is a key characteristic of DevOps testing practices?",
+        options: [
+          "Manual deployment",
+          "Continuous Delivery",
+          "Limited automation",
+          "Sequential testing"
+        ],
+        correctAnswer: "Continuous Delivery"
+      },
+      {
+        id: 60,
+        question: "Which methodology best supports early test planning?",
+        options: [
+          "Waterfall",
+          "V-Model",
+          "RAD",
+          "Big Bang"
+        ],
+        correctAnswer: "V-Model"
+      },
+      {
+        id: 61,
+        question: "What is the main advantage of bottom-up integration testing?",
+        options: [
+          "Early testing of user interface",
+          "Easier fault localization",
+          "Better user acceptance",
+          "Faster system integration"
+        ],
+        correctAnswer: "Easier fault localization"
+      },
+      {
+        id: 62,
+        question: "In which testing level would you validate database schema changes?",
+        options: [
+          "Unit testing",
+          "Integration testing",
+          "System testing",
+          "Acceptance testing"
+        ],
+        correctAnswer: "Integration testing"
+      },
+      {
+        id: 63,
+        question: "What distinguishes alpha testing from beta testing?",
+        options: [
+          "Alpha is done by users, beta by developers",
+          "Alpha is done in-house, beta by external users",
+          "Alpha is automated, beta is manual",
+          "Alpha is functional, beta is performance"
+        ],
+        correctAnswer: "Alpha is done in-house, beta by external users"
+      },
+      {
+        id: 64,
+        question: "Which testing level is most appropriate for validating microservices communication?",
+        options: [
+          "Unit testing",
+          "Integration testing",
+          "Component testing",
+          "Acceptance testing"
+        ],
+        correctAnswer: "Integration testing"
+      },
+      {
+        id: 65,
+        question: "What is a key characteristic of system integration testing?",
+        options: [
+          "Testing individual functions",
+          "Testing user requirements",
+          "Testing subsystem interactions",
+          "Testing code coverage"
+        ],
+        correctAnswer: "Testing subsystem interactions"
+      },
+      {
+        id: 66,
+        question: "When is operational acceptance testing typically performed?",
+        options: [
+          "Before unit testing",
+          "After system testing",
+          "During development",
+          "Before integration"
+        ],
+        correctAnswer: "After system testing"
+      },
+      {
+        id: 67,
+        question: "What is the main focus of contract testing?",
+        options: [
+          "Legal documents",
+          "API interfaces",
+          "User interfaces",
+          "Database schemas"
+        ],
+        correctAnswer: "API interfaces"
+      },
+      {
+        id: 68,
+        question: "Which testing level best suits testing error handling between components?",
+        options: [
+          "Unit testing",
+          "Integration testing",
+          "System testing",
+          "Acceptance testing"
+        ],
+        correctAnswer: "Integration testing"
+      },
+      {
+        id: 69,
+        question: "What is a key aspect of technical acceptance testing?",
+        options: [
+          "User satisfaction",
+          "Business requirements",
+          "Non-functional requirements",
+          "Visual design"
+        ],
+        correctAnswer: "Non-functional requirements"
+      },
+      {
+        id: 70,
+        question: "Which testing level focuses on testing the complete business process?",
+        options: [
+          "Unit testing",
+          "Integration testing",
+          "System testing",
+          "Component testing"
+        ],
+        correctAnswer: "System testing"
+      },
+      {
+        id: 71,
+        question: "What is the primary goal of chaos testing?",
+        options: [
+          "Testing user interfaces",
+          "Testing system resilience",
+          "Testing data integrity",
+          "Testing code quality"
+        ],
+        correctAnswer: "Testing system resilience"
+      },
+      {
+        id: 72,
+        question: "Which testing type focuses on data integrity and constraints?",
+        options: [
+          "UI Testing",
+          "Database Testing",
+          "Load Testing",
+          "Security Testing"
+        ],
+        correctAnswer: "Database Testing"
+      },
+      {
+        id: 73,
+        question: "What distinguishes mutation testing from other testing types?",
+        options: [
+          "Tests user interface",
+          "Tests code changes",
+          "Tests test suite effectiveness",
+          "Tests performance"
+        ],
+        correctAnswer: "Tests test suite effectiveness"
+      },
+      {
+        id: 74,
+        question: "What is the main purpose of A/B testing?",
+        options: [
+          "Finding bugs",
+          "Comparing variants",
+          "Testing performance",
+          "Checking security"
+        ],
+        correctAnswer: "Comparing variants"
+      },
+      {
+        id: 75,
+        question: "Which testing type is most appropriate for checking browser compatibility?",
+        options: [
+          "Unit Testing",
+          "Cross-browser Testing",
+          "Load Testing",
+          "Security Testing"
+        ],
+        correctAnswer: "Cross-browser Testing"
+      },
+      {
+        id: 76,
+        question: "What is the focus of accessibility testing?",
+        options: [
+          "System performance",
+          "User interface design",
+          "Inclusive user access",
+          "Security vulnerabilities"
+        ],
+        correctAnswer: "Inclusive user access"
+      },
+      {
+        id: 77,
+        question: "Which testing type verifies third-party service integration?",
+        options: [
+          "Unit Testing",
+          "Integration Testing",
+          "Contract Testing",
+          "System Testing"
+        ],
+        correctAnswer: "Contract Testing"
+      },
+      {
+        id: 78,
+        question: "What is the main goal of failover testing?",
+        options: [
+          "Testing backup systems",
+          "Testing performance",
+          "Testing security",
+          "Testing user interface"
+        ],
+        correctAnswer: "Testing backup systems"
+      },
+      {
+        id: 79,
+        question: "Which testing type focuses on data transformation and flow?",
+        options: [
+          "ETL Testing",
+          "UI Testing",
+          "Load Testing",
+          "Security Testing"
+        ],
+        correctAnswer: "ETL Testing"
+      },
+      {
+        id: 80,
+        question: "What is the primary purpose of configuration testing?",
+        options: [
+          "Testing code quality",
+          "Testing different settings",
+          "Testing performance",
+          "Testing security"
+        ],
+        correctAnswer: "Testing different settings"
+      }
+];

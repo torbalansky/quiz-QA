@@ -8,6 +8,7 @@ const QuizLinks = ({ setMenuOpen, currentPath }) => {
   const quizLinks = [
     { title: "STLC", link: "quizstlc" },
     { title: "Principles of Testing", link: "quizprinciples" },
+    { title: "QA Testing Levels", link: "levels-testing" },
     { title: "ISTQB like Test", link: "morequiza" },
     { title: "STLC in Practice", link: "ageestimator" },
     { title: "Practice QA Metrics", link: "metrics" },

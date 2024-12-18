@@ -30,6 +30,7 @@ import APITesting from './components/ApiTesting';
 import PostmanTesting from './components/PostmanTesting';
 import CrossBrowserTesting from './components/CrossBrowserTesting';
 import CypressQuiz from './components/CypressQuiz';
+import LevelsTesting from './components/LevelsTesting';
 
 const App = () => {
   useEffect(() => {
@@ -86,6 +87,7 @@ const App = () => {
         <Route path="/postman-testing" element={<PostmanTesting />} />
         <Route path="/crossbrowser-testing" element={<CrossBrowserTesting />} />
         <Route path="/cypress-quiz" element={<CypressQuiz />} />
+        <Route path="/levels-testing" element={<LevelsTesting />} />
       </Routes>
     </Router>
   );

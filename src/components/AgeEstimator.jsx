@@ -959,7 +959,7 @@ const AgeCategoryEstimator = () => {
       )}
 
       {showTestPlan && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto font-serif">
           <div className="min-h-screen px-4 text-center">
             <div className="inline-block w-full max-w-4xl p-6 my-8 text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
               <div className="flex justify-between items-center mb-6">
@@ -1238,7 +1238,6 @@ const AgeCategoryEstimator = () => {
                 </div>
               </div>
 
-              {/* Test Execution Schedule */}
               <div className="mb-8">
                 <h3 className="text-xl font-semibold mb-4">4. Test Execution Schedule</h3>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -1261,7 +1260,6 @@ const AgeCategoryEstimator = () => {
                 </div>
               </div>
 
-              {/* Test Resources */}
               <div className="mb-8">
                 <h3 className="text-xl font-semibold mb-4">5. Test Resources</h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1310,7 +1308,7 @@ const AgeCategoryEstimator = () => {
       )}
 
       {showTestStrategy && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto font-serif">
           <div className="min-h-screen px-4 text-center">
             <div className="inline-block w-full max-w-4xl p-6 my-8 text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
               <div className="flex justify-between items-center mb-6">
@@ -1475,8 +1473,7 @@ const AgeCategoryEstimator = () => {
 
       {activeTab === 'testPlanning' && (
         <div className="container mx-auto p-4 font-serif">
-          {/* Test Strategy Section */}
-          <div className="mb-8 bg-white p-6 rounded-lg shadow-md">
+          <div className="mb-8 bg-white p-6 rounded-lg shadow-md font-serif">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-2xl font-bold text-blue-800">Test Strategy</h2>
               <button
@@ -1523,7 +1520,6 @@ const AgeCategoryEstimator = () => {
             </div>
           </div>
 
-          {/* Test Plan Section */}
           <div className="bg-white p-6 rounded-lg shadow-md">
             <div className="flex justify-between items-center mb-4">
               <h2 className="text-2xl font-bold text-purple-800">Test Plan</h2>
@@ -1591,7 +1587,7 @@ const AgeCategoryEstimator = () => {
       )}
 
       {showAutomationAnalysis && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto font-serif">
           <div className="min-h-screen px-4 text-center">
             <div className="inline-block w-full max-w-4xl p-6 my-8 text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
               <div className="flex justify-between items-center mb-6">
@@ -1608,19 +1604,19 @@ const AgeCategoryEstimator = () => {
                 <h3 className="text-xl font-semibold mb-4">1. Executive Summary</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   <div className="text-center p-4 bg-blue-50 rounded-lg">
-                    <p className="text-sm text-gray-600">ROI Score</p>
+                    <p className="text-sm text-gray-600">Target Coverage</p>
                     <p className="text-lg font-bold text-blue-600">
-                      {automationFeasibilityReport.summary.roiScore}
+                      {automationFeasibilityReport.metrics.targetCoverage}
                     </p>
                   </div>
                   <div className="text-center p-4 bg-green-50 rounded-lg">
-                    <p className="text-sm text-gray-600">Estimated Coverage</p>
+                    <p className="text-sm text-gray-600">Critical Path Coverage</p>
                     <p className="text-lg font-bold text-green-600">
-                      {automationFeasibilityReport.summary.estimatedCoverage}
+                      {automationFeasibilityReport.metrics.criticalPathCoverage}
                     </p>
                   </div>
                   <div className="text-center p-4 bg-purple-50 rounded-lg">
-                    <p className="text-sm text-gray-600">Recommended Tools</p>
+                    <p className="text-sm text-gray-600">Tools</p>
                     <p className="text-lg font-bold text-purple-600">
                       {automationFeasibilityReport.summary.recommendedTools.join(", ")}
                     </p>
@@ -1630,10 +1626,11 @@ const AgeCategoryEstimator = () => {
 
               <div className="mb-8">
                 <h3 className="text-xl font-semibold mb-4">2. Component Analysis</h3>
-                <div className="grid gap-4">
+                <div className="grid gap-6">
                   {automationFeasibilityReport.analysis.map((component, index) => (
-                    <div key={index} className="border-b pb-4">
-                      <h4 className="font-semibold text-lg">{component.component}</h4>
+                    <div key={index} className="border rounded-lg p-4">
+                      <h4 className="font-semibold text-lg text-blue-800">{component.component}</h4>
+
                       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2">
                         <div>
                           <p className="text-sm text-gray-600">Feasibility</p>
@@ -1652,7 +1649,37 @@ const AgeCategoryEstimator = () => {
                           <p className="font-semibold">{component.estimatedEffort}</p>
                         </div>
                       </div>
-                      <p className="text-sm text-gray-600 mt-2">{component.rationale}</p>
+
+                      <div className="mt-4">
+                        <p className="font-semibold text-sm text-gray-700">Test Scenarios:</p>
+                        <div className="mt-2 space-y-3">
+                          {component.testScenarios?.map((scenario, sIndex) => (
+                            <div key={sIndex} className="bg-gray-50 p-3 rounded">
+                              <p className="font-medium text-sm text-blue-700">{scenario.category}</p>
+                              <ul className="mt-1 space-y-1">
+                                {Array.isArray(scenario.cases) && scenario.cases.map((testCase, cIndex) => (
+                                  <li key={cIndex} className="text-sm text-gray-600">
+                                    {typeof testCase === 'string' ? testCase : 
+                                      `Input: ${testCase.input}, Expected: ${testCase.expectedCategory || testCase.expectedError}`}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="mb-8">
+                <h3 className="text-xl font-semibold mb-4">3. Performance Metrics</h3>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {Object.entries(automationFeasibilityReport.metrics.performanceThresholds).map(([key, value]) => (
+                    <div key={key} className="bg-yellow-50 p-4 rounded-lg">
+                      <p className="text-sm text-gray-600">{key}</p>
+                      <p className="font-bold text-yellow-800">{value}</p>
                     </div>
                   ))}
                 </div>
@@ -1660,29 +1687,140 @@ const AgeCategoryEstimator = () => {
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <h3 className="text-xl font-semibold mb-4">3. Risks</h3>
+                  <h3 className="text-xl font-semibold mb-4">4. Risks</h3>
                   <ul className="space-y-4">
                     {automationFeasibilityReport.risks.map((risk, index) => (
                       <li key={index} className="border-b pb-2">
                         <p className="font-semibold">{risk.risk}</p>
                         <p className="text-sm text-gray-600">Impact: {risk.impact}</p>
                         <p className="text-sm text-gray-600">Mitigation: {risk.mitigation}</p>
+                        <p className="text-sm text-blue-600">Strategy: {risk.testStrategy}</p>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="bg-white p-6 rounded-lg shadow-lg">
-                  <h3 className="text-xl font-semibold mb-4">4. Recommendations</h3>
+                  <h3 className="text-xl font-semibold mb-4">5. Accessibility</h3>
                   <ul className="list-disc pl-4 space-y-2">
-                    {automationFeasibilityReport.recommendations.map((rec, index) => (
-                      <li key={index} className="text-gray-700">{rec}</li>
+                    {automationFeasibilityReport.metrics.accessibilityCriteria.map((criteria, index) => (
+                      <li key={index} className="text-gray-700">{criteria}</li>
                     ))}
                   </ul>
                 </div>
               </div>
+              <div className="mt-8 mb-8">
+                <h3 className="text-xl font-semibold mb-4">6. Test Implementation</h3>
+                <div className="bg-gray-50 p-4 rounded-lg">
+                  <div className="mb-4">
+                    <h4 className="font-semibold text-lg text-blue-800">Test Setup</h4>
+                    <div className="bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto">
+                      <pre className="text-sm">
+          <code>{`import React from 'react';
+import { render, screen, fireEvent } from '@testing-library/react';
+import { BrowserRouter } from 'react-router-dom';
+import AgeCategoryEstimator from '../AgeCategoryEstimator';
+
+const renderWithRouter = (ui) => {
+  return render(
+    <BrowserRouter>
+      {ui}
+    </BrowserRouter>
+  );
+};`}</code>
+        </pre>
+      </div>
+    </div>
+
+    <div className="space-y-6">
+      <div>
+        <h4 className="font-semibold text-lg text-blue-800">Input Validation Tests</h4>
+        <div className="bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto">
+          <pre className="text-sm">
+            <code>{`describe('validateInputs', () => {
+  test('should validate negative numbers', () => {
+    renderWithRouter(<AgeCategoryEstimator />);
+    const input = screen.getByRole('spinbutton');
+    const submitButton = screen.getByRole('button', { name: /determine/i });
+
+    fireEvent.change(input, { target: { value: '-5' } });
+    fireEvent.click(submitButton);
+
+    expect(screen.getByText('Age must be a non-negative integer.')).toBeInTheDocument();
+  });
+
+  test('should validate decimal numbers', () => {
+    renderWithRouter(<AgeCategoryEstimator />);
+    const input = screen.getByRole('spinbutton');
+    const submitButton = screen.getByRole('button', { name: /determine/i });
+
+    fireEvent.change(input, { target: { value: '5.5' } });
+    fireEvent.click(submitButton);
+
+    expect(screen.getByText('Age must be a non-negative integer.')).toBeInTheDocument();
+  });
+});`}</code>
+          </pre>
+        </div>
+      </div>
+      <div>
+        <h4 className="font-semibold text-lg text-blue-800">Category Classification Tests</h4>
+        <div className="bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto">
+          <pre className="text-sm">
+            <code>{`describe('determineCategory', () => {
+  const testCases = [
+    { age: '10', expected: 'Kid' },
+    { age: '15', expected: 'Teenager' },
+    { age: '25', expected: 'Adult' },
+    { age: '70', expected: 'Elder' }
+  ];
+
+  test.each(testCases)(
+    'should classify age $age as $expected',
+    ({ age, expected }) => {
+      renderWithRouter(<AgeCategoryEstimator />);
+      const input = screen.getByRole('spinbutton');
+      const submitButton = screen.getByRole('button', { name: /determine/i });
+
+      fireEvent.change(input, { target: { value: age } });
+      fireEvent.click(submitButton);
+
+      expect(screen.getByText(expected)).toBeInTheDocument();
+    }
+  );
+});`}</code>
+          </pre>
+        </div>
+      </div>
+      <div>
+        <h4 className="font-semibold text-lg text-blue-800">UI State Tests</h4>
+        <div className="bg-gray-800 text-gray-100 p-4 rounded-lg overflow-x-auto">
+          <pre className="text-sm">
+            <code>{`describe('UI State', () => {
+  test('should clear error when valid input is provided', () => {
+    renderWithRouter(<AgeCategoryEstimator />);
+    const input = screen.getByRole('spinbutton');
+    const submitButton = screen.getByRole('button', { name: /determine/i });
+
+    // First enter invalid input
+    fireEvent.change(input, { target: { value: '-1' } });
+    fireEvent.click(submitButton);
+    expect(screen.getByText('Age must be a non-negative integer.')).toBeInTheDocument();
+
+    // Then enter valid input
+    fireEvent.change(input, { target: { value: '25' } });
+    fireEvent.click(submitButton);
+    expect(screen.queryByText('Age must be a non-negative integer.')).not.toBeInTheDocument();
+  });
+});`}</code>
+          </pre>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
               <div className="mt-8 mb-8">
-                <h3 className="text-xl font-semibold mb-4">5. Implementation Timeline</h3>
+                <h3 className="text-xl font-semibold mb-4">7. Implementation Timeline</h3>
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <div className="grid grid-cols-4 gap-4">
                     <div className="text-center p-3 bg-white rounded shadow">
@@ -1723,7 +1861,7 @@ const AgeCategoryEstimator = () => {
       )}
 
       {showRTM && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto">
+        <div className="fixed inset-0 bg-black bg-opacity-50 z-50 overflow-y-auto font-serif">
           <div className="min-h-screen px-4 text-center">
             <div className="inline-block w-full max-w-4xl p-6 my-8 text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
               <div className="flex justify-between items-center mb-6">
