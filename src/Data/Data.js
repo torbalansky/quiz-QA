@@ -10,6 +10,7 @@ import seven from '../assets/img/sevenp.png';
 import tcts from '../assets/img/tcts.png';
 import bugreport from '../assets/img/bugreport.png';
 import tests from '../assets/img/tests.png';
+import ReactMarkdown from 'react-markdown';
 
 export const NavbarData = [
   {
@@ -9974,3 +9975,1340 @@ export const LevelsQAquiz = [
         correctAnswer: "Testing different settings"
       }
 ];
+
+export const PlaywrightQ = [
+  {
+    question: "1. What is Playwright primarily used for?",
+    options: [
+      "A. Backend testing only",
+      "B. End-to-end testing of web applications",
+      "C. Mobile application testing",
+      "D. Database testing"
+    ],
+    correctAnswer: "B. End-to-end testing of web applications"
+  },
+  {
+    question: "2. Which command is used to launch a browser instance in Playwright?",
+    options: [
+      "A. browser.start()",
+      "B. browser.newContext()",
+      "C. playwright.launch()",
+      "D. browser.open()"
+    ],
+    correctAnswer: "C. playwright.launch()"
+  },
+  {
+    question: "3. What is the purpose of page.locator() in Playwright?",
+    options: [
+      "A. To navigate to a new page",
+      "B. To locate DOM elements",
+      "C. To retrieve browser cookies",
+      "D. To manage test environments"
+    ],
+    correctAnswer: "B. To locate DOM elements"
+  },
+  {
+    question: "4. What is a key architectural advantage of Playwright compared to Selenium?",
+    options: [
+      "A. It supports multiple browsers with a single API",
+      "B. It requires WebDriver installation",
+      "C. It only works with Chromium browser",
+      "D. It uses Java exclusively"
+    ],
+    correctAnswer: "A. It supports multiple browsers with a single API"
+  },
+  {
+    question: "5. How can you run Playwright tests headlessly?",
+    options: [
+      "A. Use --headless flag",
+      "B. Use --no-ui flag",
+      "C. Set headless: false",
+      "D. Disable GUI rendering"
+    ],
+    correctAnswer: "A. Use --headless flag"
+  },
+  {
+    question: "6. What is the purpose of the 'beforeEach' hook in Playwright tests?",
+    options: [
+      "A. It runs after each test",
+      "B. It runs before all tests",
+      "C. It runs before each individual test",
+      "D. It runs only once per test suite"
+    ],
+    correctAnswer: "C. It runs before each individual test"
+  },
+  {
+    question: "7. What is the recommended way to select elements for testing in Playwright?",
+    options: [
+      "A. Using CSS classes",
+      "B. Using IDs",
+      "C. Using page.getByTestId()",
+      "D. Using element tags"
+    ],
+    correctAnswer: "C. Using page.getByTestId()"
+  },
+  {
+    question: "8. How does Playwright handle waiting for elements?",
+    options: [
+      "A. Using page.waitForSelector()",
+      "B. Using explicit waits",
+      "C. Using setTimeout()",
+      "D. Manually adding delays"
+    ],
+    correctAnswer: "A. Using page.waitForSelector()"
+  },
+  {
+    question: "9. What is the purpose of page.route() in Playwright?",
+    options: [
+      "A. To intercept and modify network requests",
+      "B. To define navigation routes",
+      "C. To change test execution flow",
+      "D. To interact with browser history"
+    ],
+    correctAnswer: "A. To intercept and modify network requests"
+  },
+  {
+    question: "10. How can you execute Playwright tests in parallel?",
+    options: [
+      "A. Using --parallel flag",
+      "B. By setting test.describe.parallel()",
+      "C. By opening multiple Playwright instances",
+      "D. By running separate test scripts manually"
+    ],
+    correctAnswer: "B. By setting test.describe.parallel()"
+  },
+  {
+    question: "11. What is the purpose of page.screenshot() in Playwright?",
+    options: [
+      "A. To take a screenshot of the current page",
+      "B. To record test execution",
+      "C. To debug network requests",
+      "D. To capture user interactions"
+    ],
+    correctAnswer: "A. To take a screenshot of the current page"
+  },
+  {
+    question: "12. Which assertion library does Playwright use by default?",
+    options: [
+      "A. Jest",
+      "B. Chai",
+      "C. Expect",
+      "D. Mocha"
+    ],
+    correctAnswer: "C. Expect"
+  },
+  {
+    question: "13. What is the purpose of playwright.config.js file?",
+    options: [
+      "A. To store test data",
+      "B. To configure Playwright behavior and settings",
+      "C. To write test cases",
+      "D. To manage browser versions"
+    ],
+    correctAnswer: "B. To configure Playwright behavior and settings"
+  },
+  {
+    question: "14. How can you set up a global timeout for all Playwright tests?",
+    options: [
+      "A. Use page.setTimeout()",
+      "B. Configure timeout in playwright.config.js",
+      "C. Use setTimeout() in each test",
+      "D. Modify browser settings"
+    ],
+    correctAnswer: "B. Configure timeout in playwright.config.js"
+  },
+  {
+    question: "15. How can you handle environment variables in Playwright?",
+    options: [
+      "A. Using process.env",
+      "B. Using Playwright.env()",
+      "C. Using global variables",
+      "D. Using system environment"
+    ],
+    correctAnswer: "A. Using process.env"
+  },
+  {
+    question: "16. What is the purpose of test.describe() in Playwright?",
+    options: [
+      "A. To group related tests",
+      "B. To describe a single test case",
+      "C. To declare environment variables",
+      "D. To create test assertions"
+    ],
+    correctAnswer: "A. To group related tests"
+  },
+  {
+    question: "17. Where are Playwright test artifacts like screenshots and videos stored by default?",
+    options: [
+      "A. /tmp folder",
+      "B. /playwright-report/",
+      "C. /test-results/",
+      "D. /screenshots/"
+    ],
+    correctAnswer: "C. /test-results/"
+  },
+  {
+    question: "18. What is the difference between page.getByRole() and page.locator()?",
+    options: [
+      "A. page.getByRole() selects based on accessibility role, page.locator() selects based on DOM elements",
+      "B. page.getByRole() is faster",
+      "C. page.locator() is deprecated",
+      "D. There is no difference"
+    ],
+    correctAnswer: "A. page.getByRole() selects based on accessibility role, page.locator() selects based on DOM elements"
+  },
+  {
+    question: "19. How can you handle multiple browser contexts in Playwright?",
+    options: [
+      "A. By launching multiple browser instances",
+      "B. By using browser.newContext()",
+      "C. By using test.describe.parallel()",
+      "D. Playwright does not support multiple contexts"
+    ],
+    correctAnswer: "B. By using browser.newContext()"
+  },
+  {
+    question: "20. What is the purpose of test.step() in Playwright?",
+    options: [
+      "A. To define a test step for better test reporting",
+      "B. To create a test function",
+      "C. To execute async operations",
+      "D. To split test cases"
+    ],
+    correctAnswer: "A. To define a test step for better test reporting"
+  },  
+    {
+      question: "21. How can you emulate a mobile device in Playwright?",
+      options: [
+        "A. By using browser.setDevice()",
+        "B. By setting viewport size manually",
+        "C. By using browser.newContext({ ...devices['iPhone 12'] })",
+        "D. By modifying the user agent string only"
+      ],
+      correctAnswer: "C. By using browser.newContext({ ...devices['iPhone 12'] })"
+    },
+    {
+      question: "22. What command is used to interact with an iframe in Playwright?",
+      options: [
+        "A. page.frameLocator()",
+        "B. page.getIframe()",
+        "C. page.switchToIframe()",
+        "D. page.findFrame()"
+      ],
+      correctAnswer: "A. page.frameLocator()"
+    },
+    {
+      question: "23. How can you capture console logs in Playwright tests?",
+      options: [
+        "A. By using page.on('console', callback)",
+        "B. By enabling debug mode",
+        "C. By using console.capture()",
+        "D. By setting logging: true in playwright.config.js"
+      ],
+      correctAnswer: "A. By using page.on('console', callback)"
+    },
+    {
+      question: "24. How can you simulate a slow network in Playwright?",
+      options: [
+        "A. By using page.setNetworkConditions()",
+        "B. By using browser.setThrottle()",
+        "C. By using context.route() with slow responses",
+        "D. By setting simulateNetworkSlowdown: true"
+      ],
+      correctAnswer: "C. By using context.route() with slow responses"
+    },
+    {
+      question: "25. What command allows taking a full-page screenshot in Playwright?",
+      options: [
+        "A. page.screenshot({ fullPage: true })",
+        "B. page.fullScreenshot()",
+        "C. browser.takeScreenshot()",
+        "D. page.captureScreenshot()"
+      ],
+      correctAnswer: "A. page.screenshot({ fullPage: true })"
+    },
+    {
+      question: "26. How can you clear local storage in Playwright?",
+      options: [
+        "A. page.evaluate(() => localStorage.clear())",
+        "B. page.clearLocalStorage()",
+        "C. browser.clearStorage()",
+        "D. page.executeScript('clearLocalStorage()')"
+      ],
+      correctAnswer: "A. page.evaluate(() => localStorage.clear())"
+    },
+    {
+      question: "27. What is the purpose of page.addInitScript()?",
+      options: [
+        "A. To execute JavaScript before any script runs on the page",
+        "B. To initialize browser settings",
+        "C. To load Playwright configurations",
+        "D. To restart the browser"
+      ],
+      correctAnswer: "A. To execute JavaScript before any script runs on the page"
+    },
+    {
+      question: "28. How can you record a video of a test run in Playwright?",
+      options: [
+        "A. By using context.recordVideo({ path: 'video.mp4' })",
+        "B. By setting video: true in playwright.config.js",
+        "C. By using page.startVideoCapture()",
+        "D. By enabling the 'record' flag"
+      ],
+      correctAnswer: "A. By using context.recordVideo({ path: 'video.mp4' })"
+    },
+    {
+      question: "29. What is the best practice for handling file uploads in Playwright?",
+      options: [
+        "A. By using page.setFileInputFiles()",
+        "B. By simulating drag-and-drop",
+        "C. By interacting with system dialogs",
+        "D. By manually encoding file data"
+      ],
+      correctAnswer: "A. By using page.setFileInputFiles()"
+    },
+    {
+      question: "30. How can you mock API responses in Playwright?",
+      options: [
+        "A. Using page.route() to intercept requests",
+        "B. Using page.mock()",
+        "C. Using context.setMockResponse()",
+        "D. Using a third-party proxy"
+      ],
+      correctAnswer: "A. Using page.route() to intercept requests"
+    },
+    {
+      question: "31. How can you ensure elements are visible before interacting with them?",
+      options: [
+        "A. By using page.waitForSelector()",
+        "B. By setting waitForVisible: true",
+        "C. By enabling auto-waiting in config",
+        "D. By manually polling the element"
+      ],
+      correctAnswer: "A. By using page.waitForSelector()"
+    },
+    {
+      question: "32. What command is used to handle browser permissions in Playwright?",
+      options: [
+        "A. context.grantPermissions()",
+        "B. browser.allowPermissions()",
+        "C. page.setPermissions()",
+        "D. context.enablePermissions()"
+      ],
+      correctAnswer: "A. context.grantPermissions()"
+    },
+    {
+      question: "33. What is the primary way Playwright supports running tests in multiple browsers?",
+      options: [
+        "A. Using test projects in playwright.config.js",
+        "B. Using browser.switch()",
+        "C. Running tests multiple times with --browser flag",
+        "D. Using test.describe.parallel()"
+      ],
+      correctAnswer: "A. Using test projects in playwright.config.js"
+    },
+    {
+      question: "34. How can you disable JavaScript execution in Playwright?",
+      options: [
+        "A. context.overridePermissions({ javascript: false })",
+        "B. page.setJavaScriptEnabled(false)",
+        "C. browser.disableJavaScript()",
+        "D. page.evaluate(() => disableJS())"
+      ],
+      correctAnswer: "B. page.setJavaScriptEnabled(false)"
+    },
+    {
+      question: "35. What is the recommended way to debug Playwright tests?",
+      options: [
+        "A. Using the --debug flag",
+        "B. Using test.debug() and Playwright Inspector",
+        "C. Enabling verbose mode in config",
+        "D. Using console.log()"
+      ],
+      correctAnswer: "B. Using test.debug() and Playwright Inspector"
+    },
+    {
+      question: "36. How can you interact with browser cookies in Playwright?",
+      options: [
+        "A. By using context.cookies() and context.addCookies()",
+        "B. By using page.setCookie()",
+        "C. By modifying localStorage",
+        "D. By running browser.cookieManager()"
+      ],
+      correctAnswer: "A. By using context.cookies() and context.addCookies()"
+    },
+    {
+      question: "37. What is the difference between test.only() and test.describe.only()?",
+      options: [
+        "A. test.only() runs a single test, test.describe.only() runs all tests in a group",
+        "B. There is no difference",
+        "C. test.only() runs all matching tests, test.describe.only() runs the first test",
+        "D. test.describe.only() runs the first test suite only"
+      ],
+      correctAnswer: "A. test.only() runs a single test, test.describe.only() runs all tests in a group"
+    },
+    {
+      question: "38. What is the role of 'tracing' in Playwright?",
+      options: [
+        "A. To capture detailed execution logs and debugging info",
+        "B. To detect network issues",
+        "C. To improve test performance",
+        "D. To track UI element interactions"
+      ],
+      correctAnswer: "A. To capture detailed execution logs and debugging info"
+    },
+    {
+      question: "39. How can you skip a test conditionally in Playwright?",
+      options: [
+        "A. Using test.skip() inside the test",
+        "B. Using test.describe.skip()",
+        "C. Using test.expect(false).toBeTruthy()",
+        "D. Setting skip: true in the config"
+      ],
+      correctAnswer: "A. Using test.skip() inside the test"
+    },
+    {
+      question: "40. How do you launch a persistent browser context in Playwright?",
+      options: [
+        "A. Using browserType.launchPersistentContext()",
+        "B. Using browser.newPersistentContext()",
+        "C. Using context.enablePersistence()",
+        "D. Using browser.enablePersistentSession()"
+      ],
+      correctAnswer: "A. Using browserType.launchPersistentContext()"
+    },
+    {
+      question: "41. How do you handle browser authentication in Playwright?",
+      options: [
+        "A. page.authenticate()",
+        "B. context.setAuth()",
+        "C. browser.setLogin()",
+        "D. context.setHTTPCredentials()"
+      ],
+      correctAnswer: "D. context.setHTTPCredentials()"
+    },
+    {
+      question: "42. How do you launch a browser instance in Playwright without a visible UI?",
+      options: [
+        "A. browser.launch({ headless: true })",
+        "B. browser.launch({ gui: false })",
+        "C. page.disableUI()",
+        "D. browser.start({ silent: true })"
+      ],
+      correctAnswer: "A. browser.launch({ headless: true })"
+    },
+    {
+      question: "43. What is the recommended way to handle file downloads in Playwright?",
+      options: [
+        "A. Using page.waitForDownload()",
+        "B. Using page.getDownload()",
+        "C. Using context.downloadFile()",
+        "D. Using page.fetchDownload()"
+      ],
+      correctAnswer: "A. Using page.waitForDownload()"
+    },
+    {
+      question: "44. How do you simulate pressing keyboard keys in Playwright?",
+      options: [
+        "A. page.press('selector', 'Enter')",
+        "B. page.sendKeys('selector', 'Enter')",
+        "C. page.triggerKey('selector', 'Enter')",
+        "D. page.keyboardPress('Enter')"
+      ],
+      correctAnswer: "A. page.press('selector', 'Enter')"
+    },
+    {
+      question: "45. What is the function of page.exposeFunction() in Playwright?",
+      options: [
+        "A. To expose a JavaScript function to be used in the page's context",
+        "B. To make hidden elements visible on the page",
+        "C. To expose Playwright test results",
+        "D. To expose environment variables"
+      ],
+      correctAnswer: "A. To expose a JavaScript function to be used in the page's context"
+    },
+    {
+      question: "46. How can you capture network request and response details in Playwright?",
+      options: [
+        "A. page.on('request', callback) and page.on('response', callback)",
+        "B. page.network.capture()",
+        "C. browser.getNetworkLogs()",
+        "D. context.enableNetworkDebugging()"
+      ],
+      correctAnswer: "A. page.on('request', callback) and page.on('response', callback)"
+    },
+    {
+      question: "47. What method is used to handle browser popups and dialogs in Playwright?",
+      options: [
+        "A. page.on('dialog', callback)",
+        "B. page.dialogHandle()",
+        "C. context.handlePopup()",
+        "D. browser.manageDialogs()"
+      ],
+      correctAnswer: "A. page.on('dialog', callback)"
+    },
+    {
+      question: "48. How do you navigate to a new page in Playwright?",
+      options: [
+        "A. page.goto(url)",
+        "B. browser.navigate(url)",
+        "C. page.visit(url)",
+        "D. context.openPage(url)"
+      ],
+      correctAnswer: "A. page.goto(url)"
+    },
+    {
+      question: "49. What is the function of page.content() in Playwright?",
+      options: [
+        "A. To retrieve the entire HTML content of a page",
+        "B. To get all CSS styles on a page",
+        "C. To extract text from the page",
+        "D. To copy page elements"
+      ],
+      correctAnswer: "A. To retrieve the entire HTML content of a page"
+    },
+    {
+      question: "50. How do you get the title of a webpage in Playwright?",
+      options: [
+        "A. page.title()",
+        "B. browser.getTitle()",
+        "C. context.getTitle()",
+        "D. page.getHeader()"
+      ],
+      correctAnswer: "A. page.title()"
+    },
+    {
+      question: "51. What is the best way to verify an element is not visible in Playwright?",
+      options: [
+        "A. page.waitForSelector('selector', { state: 'hidden' })",
+        "B. page.checkVisibility('selector', { hidden: true })",
+        "C. page.isHidden('selector')",
+        "D. context.ensureHidden('selector')"
+      ],
+      correctAnswer: "A. page.waitForSelector('selector', { state: 'hidden' })"
+    },
+    {
+      question: "52. How can you emulate geolocation in Playwright?",
+      options: [
+        "A. context.setGeolocation({ latitude, longitude })",
+        "B. page.setLocation({ lat, lon })",
+        "C. browser.setGeo({ latitude, longitude })",
+        "D. page.simulateGeo({ lat, lon })"
+      ],
+      correctAnswer: "A. context.setGeolocation({ latitude, longitude })"
+    },
+    {
+      question: "53. What method allows interacting with shadow DOM elements in Playwright?",
+      options: [
+        "A. page.locator('element').shadowRoot()",
+        "B. page.locator().insideShadowDOM()",
+        "C. page.shadowQuery()",
+        "D. page.locator('element').shadow()"
+      ],
+      correctAnswer: "D. page.locator('element').shadow()"
+    },
+    {
+      question: "54. How do you set cookies in Playwright?",
+      options: [
+        "A. context.addCookies([{ name, value, domain }])",
+        "B. page.setCookie({ name, value })",
+        "C. browser.addCookie({ name, value })",
+        "D. page.storeCookie({ name, value })"
+      ],
+      correctAnswer: "A. context.addCookies([{ name, value, domain }])"
+    },
+    {
+      question: "55. How do you handle multiple browser tabs in Playwright?",
+      options: [
+        "A. Using context.newPage() and tracking open pages",
+        "B. Using browser.newTab()",
+        "C. Using page.switchToNextTab()",
+        "D. Using context.manageTabs()"
+      ],
+      correctAnswer: "A. Using context.newPage() and tracking open pages"
+    },
+    {
+      question: "56. How can you test accessibility (a11y) in Playwright?",
+      options: [
+        "A. By integrating with @playwright/test-axe",
+        "B. By using page.validateAccessibility()",
+        "C. By enabling accessibility mode in config",
+        "D. By using page.getAccessibilityReport()"
+      ],
+      correctAnswer: "A. By integrating with @playwright/test-axe"
+    },
+    {
+      question: "57. How can you extend Playwright's built-in test functionality?",
+      options: [
+        "A. By creating a custom test fixture",
+        "B. By using context.extend()",
+        "C. By writing additional assertions in config",
+        "D. By modifying test.describe()"
+      ],
+      correctAnswer: "A. By creating a custom test fixture"
+    },
+    {
+      question: "58. How do you wait for an element to be enabled before interacting?",
+      options: [
+        "A. page.waitForSelector('selector', { state: 'enabled' })",
+        "B. page.enableElement('selector')",
+        "C. page.activateElement('selector')",
+        "D. page.ensureReady('selector')"
+      ],
+      correctAnswer: "A. page.waitForSelector('selector', { state: 'enabled' })"
+    },
+    {
+      question: "59. How can you measure page performance in Playwright?",
+      options: [
+        "A. Using page.evaluate(() => performance.timing)",
+        "B. Using browser.getPerformanceMetrics()",
+        "C. Using page.monitorPerformance()",
+        "D. Using context.capturePerformance()"
+      ],
+      correctAnswer: "A. Using page.evaluate(() => performance.timing)"
+    },
+    {
+      question: "60. How can you extend Playwright's test report output?",
+      options: [
+        "A. By using custom reporters",
+        "B. By modifying test.describe()",
+        "C. By using console.log()",
+        "D. By enabling debug mode"
+      ],
+      correctAnswer: "A. By using custom reporters"
+    },
+      {
+        question: "61. How can you set an item in session storage using Playwright?",
+        options: [
+          "A. page.setSessionItem('key', 'value')",
+          "B. context.sessionStorage.set('key', 'value')",
+          "C. page.evaluate(() => sessionStorage.setItem('key', 'value'))",
+          "D. browser.setSessionItem('key', 'value')"
+        ],
+        correctAnswer: "C. page.evaluate(() => sessionStorage.setItem('key', 'value'))"
+      },
+      {
+        question: "62. How can you retrieve a session storage item in Playwright?",
+        options: [
+          "A. page.getSessionItem('key')",
+          "B. page.evaluate(() => sessionStorage.getItem('key'))",
+          "C. context.sessionStorage.get('key')",
+          "D. page.session.getItem('key')"
+        ],
+        correctAnswer: "B. page.evaluate(() => sessionStorage.getItem('key'))"
+      },
+      {
+        question: "63. How can you clear all session storage in Playwright?",
+        options: [
+          "A. page.sessionStorage.clear()",
+          "B. page.clearSessionStorage()",
+          "C. page.evaluate(() => sessionStorage.clear())",
+          "D. browser.sessionStorage.clear()"
+        ],
+        correctAnswer: "C. page.evaluate(() => sessionStorage.clear())"
+      },
+      {
+        question: "64. How can you assert the existence of a session storage item in Playwright?",
+        options: [
+          "A. expect(await page.evaluate(() => sessionStorage.getItem('key'))).not.toBeNull()",
+          "B. page.assertSessionStorageItem('key')",
+          "C. expect(await page.sessionStorage.has('key')).toBe(true)",
+          "D. browser.checkSessionStorage('key')"
+        ],
+        correctAnswer: "A. expect(await page.evaluate(() => sessionStorage.getItem('key'))).not.toBeNull()"
+      },
+    
+      // Handling Alerts and Modals
+      {
+        question: "65. How do you handle JavaScript alerts in Playwright?",
+        options: [
+          "A. page.on('alert', callback)",
+          "B. page.on('dialog', dialog => dialog.dismiss())",
+          "C. page.handleAlert()",
+          "D. page.acceptAlert()"
+        ],
+        correctAnswer: "B. page.on('dialog', dialog => dialog.dismiss())"
+      },
+      {
+        question: "66. How can you accept a JavaScript confirmation dialog in Playwright?",
+        options: [
+          "A. page.dialog.accept()",
+          "B. page.on('dialog', dialog => dialog.accept())",
+          "C. page.handleDialog('accept')",
+          "D. context.acceptDialog()"
+        ],
+        correctAnswer: "B. page.on('dialog', dialog => dialog.accept())"
+      },
+      {
+        question: "67. How can you extract the message from a JavaScript alert in Playwright?",
+        options: [
+          "A. page.alertMessage()",
+          "B. page.on('dialog', dialog => console.log(dialog.message()))",
+          "C. page.getAlertText()",
+          "D. browser.getDialogMessage()"
+        ],
+        correctAnswer: "B. page.on('dialog', dialog => console.log(dialog.message()))"
+      },
+      {
+        question: "68. What happens if you do not handle an alert in Playwright?",
+        options: [
+          "A. The test continues execution normally",
+          "B. The test execution is blocked until the alert is dismissed",
+          "C. Playwright automatically accepts the alert",
+          "D. The alert gets logged in the console"
+        ],
+        correctAnswer: "B. The test execution is blocked until the alert is dismissed"
+      },
+    
+      // Working with iframes
+      {
+        question: "69. How do you select an iframe in Playwright?",
+        options: [
+          "A. page.switchToIframe('iframe-selector')",
+          "B. page.iframe('iframe-selector')",
+          "C. page.frameLocator('iframe-selector')",
+          "D. context.selectIframe('iframe-selector')"
+        ],
+        correctAnswer: "C. page.frameLocator('iframe-selector')"
+      },
+      {
+        question: "70. How do you interact with elements inside an iframe in Playwright?",
+        options: [
+          "A. page.iframeLocator().click('button')",
+          "B. page.frameLocator('iframe-selector').locator('button').click()",
+          "C. page.switchToFrame().locator('button').click()",
+          "D. browser.iframeClick('button')"
+        ],
+        correctAnswer: "B. page.frameLocator('iframe-selector').locator('button').click()"
+      },
+      {
+        question: "71. How do you get the content of an iframe in Playwright?",
+        options: [
+          "A. page.frameContent('iframe-selector')",
+          "B. page.frameLocator('iframe-selector').content()",
+          "C. page.frame('iframe-selector').evaluate(() => document.body.innerHTML)",
+          "D. browser.getIframeContent('iframe-selector')"
+        ],
+        correctAnswer: "C. page.frame('iframe-selector').evaluate(() => document.body.innerHTML)"
+      },
+      {
+        question: "72. How do you wait for an iframe to load in Playwright?",
+        options: [
+          "A. page.waitForFrame('iframe-selector')",
+          "B. page.frameLocator('iframe-selector').waitFor()",
+          "C. page.waitForSelector('iframe-selector')",
+          "D. context.waitForIframe('iframe-selector')"
+        ],
+        correctAnswer: "B. page.frameLocator('iframe-selector').waitFor()"
+      },
+    
+      // Performance Metrics
+      {
+        question: "73. How can you measure page load time in Playwright?",
+        options: [
+          "A. page.evaluate(() => performance.timing.loadEventEnd - performance.timing.navigationStart)",
+          "B. page.getLoadTime()",
+          "C. browser.getPerformanceTiming()",
+          "D. page.captureLoadTime()"
+        ],
+        correctAnswer: "A. page.evaluate(() => performance.timing.loadEventEnd - performance.timing.navigationStart)"
+      },
+      {
+        question: "74. How can you track network request timing in Playwright?",
+        options: [
+          "A. page.on('requestfinished', request => console.log(request.timing))",
+          "B. page.monitorNetworkRequests()",
+          "C. browser.captureNetworkTiming()",
+          "D. page.requestTiming()"
+        ],
+        correctAnswer: "A. page.on('requestfinished', request => console.log(request.timing))"
+      },
+      {
+        question: "75. How can you measure the First Contentful Paint (FCP) in Playwright?",
+        options: [
+          "A. page.evaluate(() => performance.getEntriesByName('first-contentful-paint')[0].startTime)",
+          "B. page.getFCP()",
+          "C. browser.trackFCP()",
+          "D. page.performanceFCP()"
+        ],
+        correctAnswer: "A. page.evaluate(() => performance.getEntriesByName('first-contentful-paint')[0].startTime)"
+      },
+      {
+        question: "76. How can you collect all performance metrics in Playwright?",
+        options: [
+          "A. page.evaluate(() => JSON.stringify(performance.timing))",
+          "B. page.getPerformanceMetrics()",
+          "C. browser.collectPerformance()",
+          "D. context.performanceMetrics()"
+        ],
+        correctAnswer: "A. page.evaluate(() => JSON.stringify(performance.timing))"
+      },
+    
+      // WebSocket Testing
+      {
+        question: "77. How can you listen for WebSocket messages in Playwright?",
+        options: [
+          "A. page.on('websocket', ws => ws.on('message', message => console.log(message)))",
+          "B. page.websocket.on('message', message => console.log(message))",
+          "C. browser.trackWebSocket()",
+          "D. context.captureWebSocket()"
+        ],
+        correctAnswer: "A. page.on('websocket', ws => ws.on('message', message => console.log(message)))"
+      },
+      {
+        question: "78. How can you check if a WebSocket connection is open in Playwright?",
+        options: [
+          "A. ws.isConnected()",
+          "B. ws.readyState === 1",
+          "C. ws.status() === 'open'",
+          "D. page.websocketStatus()"
+        ],
+        correctAnswer: "B. ws.readyState === 1"
+      },
+    
+      // Handling Authentication Popups
+      {
+        question: "79. How can you bypass a basic authentication popup in Playwright?",
+        options: [
+          "A. context.setHTTPCredentials({ username, password })",
+          "B. page.authenticate(username, password)",
+          "C. page.handleAuthPopup(username, password)",
+          "D. browser.authBypass(username, password)"
+        ],
+        correctAnswer: "A. context.setHTTPCredentials({ username, password })"
+      },
+      {
+        question: "80. How can you wait for a network request to complete before proceeding in Playwright?",
+        options: [
+          "A. await page.waitForRequest('**/api/data')",
+          "B. await page.requestFinished('**/api/data')",
+          "C. await browser.waitForRequest('**/api/data')",
+          "D. await context.on('requestComplete', callback)"
+        ],
+        correctAnswer: "A. await page.waitForRequest('**/api/data')"
+      },
+      {
+        question: "81. How can you interact with a dropdown (select) element in Playwright?",
+        options: [
+          "A. page.selectOption('selector', 'value')",
+          "B. page.dropdownSelect('selector', 'value')",
+          "C. page.setDropdown('selector', 'value')",
+          "D. page.select('selector', 'value')"
+        ],
+        correctAnswer: "A. page.selectOption('selector', 'value')"
+      },
+      {
+        question: "82. How do you scroll an element into view before interacting in Playwright?",
+        options: [
+          "A. page.locator('selector').scrollIntoViewIfNeeded()",
+          "B. page.scrollTo('selector')",
+          "C. page.ensureVisible('selector')",
+          "D. page.locator('selector').makeVisible()"
+        ],
+        correctAnswer: "A. page.locator('selector').scrollIntoViewIfNeeded()"
+      },
+      {
+        question: "83. How can you capture a full-page PDF of a webpage using Playwright?",
+        options: [
+          "A. page.pdf({ path: 'page.pdf' })",
+          "B. page.capturePDF({ fullPage: true })",
+          "C. context.createPDF('page.pdf')",
+          "D. page.exportAsPDF()"
+        ],
+        correctAnswer: "A. page.pdf({ path: 'page.pdf' })"
+      },
+      {
+        question: "84. How can you verify if an element is editable in Playwright?",
+        options: [
+          "A. page.locator('selector').isEditable()",
+          "B. page.locator('selector').canEdit()",
+          "C. page.isInputEnabled('selector')",
+          "D. page.locator('selector').isInteractive()"
+        ],
+        correctAnswer: "A. page.locator('selector').isEditable()"
+      },
+      {
+        question: "85. What is the best way to execute JavaScript code inside a page in Playwright?",
+        options: [
+          "A. page.evaluate(() => {/* code */})",
+          "B. page.executeScript(() => {/* code */})",
+          "C. page.runJS(() => {/* code */})",
+          "D. page.injectScript(() => {/* code */})"
+        ],
+        correctAnswer: "A. page.evaluate(() => {/* code */})"
+      },
+      {
+        question: "86. How can you block requests to third-party resources like ads in Playwright?",
+        options: [
+          "A. page.route('**/*.{jpg,png,gif,css,js}', route => route.abort())",
+          "B. page.disableRequests('ads')",
+          "C. browser.blockRequests()",
+          "D. page.blockResources(['ads'])"
+        ],
+        correctAnswer: "A. page.route('**/*.{jpg,png,gif,css,js}', route => route.abort())"
+      },
+      {
+        question: "87. How can you check the number of active network requests on a page?",
+        options: [
+          "A. page.on('request', req => console.log(req.url()))",
+          "B. page.getActiveRequests()",
+          "C. page.monitorNetworkTraffic()",
+          "D. browser.getOpenRequests()"
+        ],
+        correctAnswer: "A. page.on('request', req => console.log(req.url()))"
+      },
+      {
+        question: "88. How can you handle a page crash scenario in Playwright?",
+        options: [
+          "A. page.on('crash', () => console.log('Page crashed'))",
+          "B. browser.on('pageCrash', () => console.log('Page crashed'))",
+          "C. page.catchError('crash', handler)",
+          "D. context.pageError('crash', handler)"
+        ],
+        correctAnswer: "A. page.on('crash', () => console.log('Page crashed'))"
+      },
+      {
+        question: "89. How can you programmatically close a browser window in Playwright?",
+        options: [
+          "A. page.close()",
+          "B. browser.close()",
+          "C. context.close()",
+          "D. page.quit()"
+        ],
+        correctAnswer: "A. page.close()"
+      },
+      {
+        question: "90. What is the purpose of page.setViewportSize() in Playwright?",
+        options: [
+          "A. To change the browser window size",
+          "B. To change the page's visible area size",
+          "C. To scale the entire browser UI",
+          "D. To simulate a mobile device"
+        ],
+        correctAnswer: "B. To change the page's visible area size"
+      },
+      {
+        question: "91. How do you wait for an element to disappear in Playwright?",
+        options: [
+          "A. page.waitForSelector('selector', { state: 'detached' })",
+          "B. page.waitUntilInvisible('selector')",
+          "C. page.ensureHidden('selector')",
+          "D. page.waitForElementToDisappear('selector')"
+        ],
+        correctAnswer: "A. page.waitForSelector('selector', { state: 'detached' })"
+      },
+      {
+        question: "92. How do you check if a Playwright test is running in a headless mode?",
+        options: [
+          "A. page.context().browser().isHeadless()",
+          "B. browser.isHeadless()",
+          "C. process.env.PLAYWRIGHT_HEADLESS",
+          "D. page.headlessMode()"
+        ],
+        correctAnswer: "A. page.context().browser().isHeadless()"
+      },
+      {
+        question: "93. How can you emulate offline mode in Playwright?",
+        options: [
+          "A. context.setOffline(true)",
+          "B. page.setOfflineMode(true)",
+          "C. browser.networkOffline()",
+          "D. context.network.disconnect()"
+        ],
+        correctAnswer: "A. context.setOffline(true)"
+      },
+      {
+        question: "94. How can you check the HTTP status code of a response in Playwright?",
+        options: [
+          "A. response.status()",
+          "B. page.getStatusCode()",
+          "C. browser.getResponseCode()",
+          "D. context.requestStatus()"
+        ],
+        correctAnswer: "A. response.status()"
+      },
+      {
+        question: "95. What command allows intercepting and modifying network requests?",
+        options: [
+          "A. page.route()",
+          "B. page.interceptRequest()",
+          "C. context.modifyRequests()",
+          "D. browser.onRequestIntercept()"
+        ],
+        correctAnswer: "A. page.route()"
+      },
+      {
+        question: "96. How do you take a screenshot of a specific element in Playwright?",
+        options: [
+          "A. page.locator('selector').screenshot({ path: 'element.png' })",
+          "B. page.captureElement('selector', 'element.png')",
+          "C. page.screenshotElement('selector')",
+          "D. page.takeScreenshot('selector')"
+        ],
+        correctAnswer: "A. page.locator('selector').screenshot({ path: 'element.png' })"
+      },
+      {
+        question: "97. How can you run Playwright tests sequentially instead of in parallel?",
+        options: [
+          "A. Set workers: 1 in playwright.config.js",
+          "B. Use test.describe.serial()",
+          "C. Run with --workers=1 flag",
+          "D. All of the above"
+        ],
+        correctAnswer: "D. All of the above"
+      },
+      {
+        question: "98. How can you set a viewport size before navigating to a page?",
+        options: [
+          "A. context.newPage({ viewport: { width: 1280, height: 720 } })",
+          "B. page.setViewport(1280, 720)",
+          "C. page.configureViewport({ width: 1280, height: 720 })",
+          "D. browser.viewport({ width: 1280, height: 720 })"
+        ],
+        correctAnswer: "A. context.newPage({ viewport: { width: 1280, height: 720 } })"
+      },
+      {
+        question: "99. How do you simulate dragging an element in Playwright?",
+        options: [
+          "A. page.dragAndDrop('source', 'target')",
+          "B. page.locator('source').dragTo('target')",
+          "C. page.simulateDrag('source', 'target')",
+          "D. page.performDrag('source', 'target')"
+        ],
+        correctAnswer: "B. page.locator('source').dragTo('target')"
+      },
+      {
+        question: "100. How do you dynamically set a test timeout for a single Playwright test?",
+        options: [
+          "A. test.setTimeout(60000)",
+          "B. test.timeout(60000)",
+          "C. test.configureTimeout(60000)",
+          "D. test.modifyTimeout(60000)"
+        ],
+        correctAnswer: "A. test.setTimeout(60000)"
+      }     
+          
+  ];
+
+export const CoreConcepts = {
+    introduction: {
+      title: "What is Playwright?",
+      content: `
+  ## What is Playwright?
+  
+  Playwright is a powerful end-to-end testing framework developed by Microsoft.
+  It enables reliable automation across multiple browsers (Chromium, Firefox, WebKit)
+  and supports multiple languages (JavaScript, TypeScript, Python, Java, C#).
+  
+  ## 🔹 Key Benefits
+  
+  - ✅ **Cross-browser support**: Chromium, Firefox, WebKit (Safari)
+  - 🚀 **Fast execution**: Runs in parallel & supports headless mode
+  - 🔄 **Auto-waiting & retries**: Reduces flaky tests
+  - 🕵️‍♂️ **Powerful debugging tools**: Supports Playwright Inspector & trace viewer
+  - 📱 **Mobile Emulation**: Simulate real-world scenarios on mobile browsers
+  - 📊 **Network control**: Mock API responses & modify network requests
+  
+  ## Why Choose Playwright?
+  
+  Unlike Selenium, Playwright provides:
+  - Better handling of modern web apps
+  - Built-in auto-waiting mechanisms
+  - Powerful network interception capabilities
+  - Cross-browser support out of the box      
+---
+
+## Installing Playwright
+
+### 🔹 Prerequisites
+Before installing Playwright, ensure you have:
+- ✅ **Node.js (16 or later)**
+- ✅ **npm or yarn** (package managers)
+- ✅ **Git** (recommended for version control)
+- ✅ **Python 3+** (for Python users)
+
+### 🔹 Installing Playwright via npm
+For **JavaScript/TypeScript**, install Playwright with:
+
+\`\`\`bash
+npm init playwright@latest
+\`\`\`
+
+- This **automatically downloads** Playwright and required browser binaries.
+- Creates a default **playwright.config.js** file.
+
+**OR** using **yarn**:
+
+\`\`\`bash
+yarn create playwright
+\`\`\`
+
+---
+
+### 🔹 Installing Playwright for Python
+If you're using **Python**, install Playwright via **pip**:
+
+\`\`\`bash
+pip install playwright
+playwright install
+\`\`\`
+
+The **playwright install** command downloads **browser binaries** (Chromium, Firefox, WebKit).
+
+---
+
+### 🔹 Installing Playwright for Java
+**For Java developers**, Playwright can be installed using **Maven** or **Gradle**:
+
+**Maven:**
+\`\`\`xml
+<dependency>
+    <groupId>com.microsoft.playwright</groupId>
+    <artifactId>playwright</artifactId>
+    <version>latest</version>
+</dependency>
+\`\`\`
+
+**Gradle:**
+\`\`\`gradle
+dependencies {
+    implementation 'com.microsoft.playwright:playwright:latest'
+}
+\`\`\`
+
+---
+
+### 🔹 Installing Playwright for C# (.NET)
+For **.NET users**, install Playwright via NuGet:
+
+\`\`\`bash
+dotnet add package Microsoft.Playwright
+\`\`\`
+
+Then install required browsers:
+
+\`\`\`bash
+pwsh bin/Debug/net6.0/playwright.ps1 install
+\`\`\`
+
+---
+
+## Updating Playwright
+
+If Playwright is **already installed**, update it with:
+
+\`\`\`bash
+npm update @playwright/test
+\`\`\`
+
+For **Python users**:
+
+\`\`\`bash
+pip install --upgrade playwright
+\`\`\`
+
+---
+
+## OS-Specific Installation
+
+### 🔹 Windows
+- Ensure **Node.js** is installed.
+- Use **Windows PowerShell** or **Command Prompt**.
+- Run \`npm init playwright@latest\` to install Playwright.
+
+### 🔹 macOS (Intel & M1/M2)
+- Install **Homebrew** for package management.
+- Ensure **Xcode Command Line Tools** are installed.
+- Run Playwright installation commands via Terminal.
+
+### 🔹 Linux (Ubuntu/Debian)
+- Install dependencies:
+
+\`\`\`bash
+sudo apt install -y libnss3 libatk1.0-0 libatk-bridge2.0-0 libcups2 libxcomposite1 libxdamage1 libxrandr2
+\`\`\`
+
+- Then install Playwright with:
+
+\`\`\`bash
+npm init playwright@latest
+\`\`\`
+
+---
+
+## Running Playwright Tests
+
+Once installed, execute Playwright tests using:
+
+\`\`\`bash
+npx playwright test
+\`\`\`
+
+This runs all test files inside the **tests/** directory.
+
+Run Playwright in **headed mode** (with UI):
+
+\`\`\`bash
+npx playwright test --headed
+\`\`\`
+
+Run a **specific test file**:
+
+\`\`\`bash
+npx playwright test tests/example.spec.js
+\`\`\`
+
+Run tests in a **specific browser**:
+
+\`\`\`bash
+npx playwright test --project=chromium
+\`\`\`
+
+---
+
+## Playwright Configuration
+
+The **\`playwright.config.js\`** file allows customizing:
+- ✅ **Browser settings** (e.g., headless mode, viewport size)
+- ✅ **Parallel execution** (running multiple tests at once)
+- ✅ **Custom test environments**
+- ✅ **Timeout settings**
+
+**Example \`playwright.config.js\` file:**
+
+\`\`\`javascript
+module.exports = {
+  use: {
+    headless: true, // Run in headless mode
+    viewport: { width: 1280, height: 720 }, // Set viewport
+    timeout: 30000, // Set global timeout
+  },
+  projects: [
+    { name: 'chromium', use: { browserName: 'chromium' } },
+    { name: 'firefox', use: { browserName: 'firefox' } },
+    { name: 'webkit', use: { browserName: 'webkit' } },
+  ],
+};
+\`\`\`
+ `,
+    
+    },
+    automation: {
+      title: "Web Automation",
+      content: `
+  ## Basic Web Automation
+  
+  ### 🔹 Getting Started
+  
+  \`\`\`javascript
+  const { chromium } = require('playwright');
+  const browser = await chromium.launch();
+  const page = await browser.newPage();
+  await page.goto('https://example.com');
+  \`\`\`
+  
+  ### 🔹 Common Actions
+  
+  - **Clicking Elements**
+  \`\`\`javascript
+  await page.click('button');
+  await page.click('text=Submit');
+  \`\`\`
+  
+  - **Filling Forms**
+  \`\`\`javascript
+  await page.fill('#username', 'myUser');
+  await page.fill('#password', 'myPassword');
+  \`\`\`
+  
+  ### 🔹 Taking Screenshots
+  
+  \`\`\`javascript
+  await page.screenshot({ path: 'screenshot.png' });
+  \`\`\`
+      `
+    },
+    testing: {
+      title: "Writing Tests",
+      content: `
+  ## Writing Robust Tests
+  
+  ### 🔹 Test Structure
+  
+  \`\`\`javascript
+  test('should login successfully', async ({ page }) => {
+    await page.goto('/login');
+    await page.fill('#username', 'user');
+    await page.fill('#password', 'pass');
+    await page.click('button[type="submit"]');
+    await expect(page).toHaveURL('/dashboard');
+  });
+  \`\`\`
+  
+  ### 🔹 Assertions
+  
+  - **Text Content**
+  \`\`\`javascript
+  await expect(page.locator('h1')).toHaveText('Welcome');
+  \`\`\`
+  
+  - **Element State**
+  \`\`\`javascript
+  await expect(page.locator('button')).toBeEnabled();
+  \`\`\`
+      `
+    },
+    performance: {
+      title: "Performance",
+      content: `
+  ## Performance Testing
+  
+  ### 🔹 Measuring Performance
+  
+  \`\`\`javascript
+  const timing = await page.evaluate(() => {
+    return performance.timing;
+  });
+  console.log(timing);
+  \`\`\`
+  
+  ### 🔹 Parallel Execution
+  
+  Configure in playwright.config.js:
+  \`\`\`javascript
+  module.exports = {
+    workers: 4, // Run tests in parallel
+    retries: 2  // Retry failed tests
+  };
+  \`\`\`
+      `
+    },
+    learning: {
+      title: "Learning & Documentation",
+      content: `
+  ## Learning Resources
+  
+  ### 🔹 Official Documentation
+  - [Playwright Docs](https://playwright.dev/docs/intro)
+  - [API Reference](https://playwright.dev/docs/api/class-playwright)
+  - [Best Practices](https://playwright.dev/docs/best-practices)
+  
+  ### 🔹 Best Practices
+  
+  1. **Use Strong Selectors**
+     - Prefer data-testid attributes
+     - Use role-based selectors
+     - Avoid brittle selectors
+  
+  2. **Handle Waits Properly**
+     - Use built-in auto-waiting
+     - Avoid arbitrary timeouts
+     - Use expect for assertions
+  
+  3. **Organize Tests**
+     - Follow Page Object Model
+     - Keep tests independent
+     - Use fixtures for setup
+      `
+    }
+  };

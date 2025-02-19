@@ -6,7 +6,7 @@ import emailjs from '@emailjs/browser';
 import { GiCycle, GiArtificialIntelligence } from "react-icons/gi";
 import { BsFillEmojiSunglassesFill } from "react-icons/bs";
 import { IoConstructSharp } from "react-icons/io5";
-import { SiSelenium, SiKashflow  } from "react-icons/si";
+import { SiSelenium, SiKashflow, SiSpeedtest  } from "react-icons/si";
 import { SiPostman } from "react-icons/si";
 import { TbBrowserCheck } from "react-icons/tb";
 import { SiCucumber } from "react-icons/si";
@@ -226,6 +226,12 @@ const Home = () => {
               <div className="card-gradient"/>
               <SiCypress className="card-icon" />
               <h3 className="card-title">Cypress Testing</h3>
+            </Link>
+
+            <Link to="/playwright" className="group card-base">
+              <div className="card-gradient"/>
+              <SiSpeedtest className="card-icon" />
+              <h3 className="card-title">Playwright Testing</h3>
             </Link>
 
             <div className="group card-disabled">

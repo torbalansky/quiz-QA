@@ -18,6 +18,7 @@ const QuizLinks = ({ setMenuOpen, currentPath }) => {
     { title: "Cross Browser Testing", link: "crossbrowser-testing" },
     { title: "AI in QA", link: "ai-qa" },
     { title: "Cypress Quiz", link: "cypress-quiz" },
+    { title: "Playwright", link: "playwright" },
     { title: "Credit Risk Calculator", link: "creditrisk" },
     { title: "Test Mood tracker App", link: "mood" },
   ];
@@ -29,7 +30,7 @@ const QuizLinks = ({ setMenuOpen, currentPath }) => {
           key={index}
           to={`/${quiz.link}`}
           onClick={() => setMenuOpen(false)}
-          className={`block p-2 text-base transition-colors duration-200 
+          className={`block p-1 text-base transition-colors duration-200 
             ${currentPath === '/' + quiz.link 
               ? 'bg-violet-100 text-violet-700 font-semibold' 
               : 'text-gray-700 hover:bg-violet-50 hover:text-violet-700'}`}
